@@ -1,665 +1,3029 @@
-<!doctype html>
+
+Conversation with Gemini
+Buatkan saya website game MATHEMATICS OF CHAMPION
+
+## MATHEMATICS OF CHAMPION
+
+
+
+### 1. Konsep Utama
+
+
+
+Buat sebuah website game pembelajaran kimia interaktif bernama **“MATHEMATICS OF CHAMPION”** dengan konsep kompetisi antarkelompok seperti suasana **Class of Champions**.
+
+
+
+Game digunakan oleh guru di kelas untuk membuat pembelajaran kimia menjadi kompetitif, interaktif, dan menyenangkan.
+
+
+
+Tampilan harus modern, elegan, energik, dan terasa seperti arena kompetisi. Fokus utama halaman adalah **100 kotak soal bernomor 1–100** yang dapat dipilih oleh siswa.
+
+
+
+---
+
+
+
+# 2. HEADER / BAGIAN ATAS
+
+
+
+Pada bagian paling atas halaman tampilkan:
+
+
+
+**MATHEMATICS OF CHAMPION**
+
+
+
+Tambahkan subjudul:
+
+
+
+**“Think Fast. Solve Smart. Become the Champion!”**
+
+
+
+Tampilkan nuansa arena kompetisi akademik dengan animasi ringan dan efek visual modern.
+
+
+
+Di bagian header juga tersedia:
+
+
+
+* Nama permainan
+
+* Nama kelas
+
+* Nama guru
+
+* Tombol **MULAI GAME**
+
+* Tombol **PAUSE**
+
+* Tombol **GAME OVER**
+
+* Timer permainan
+
+* Total skor masing-masing kelompok
+
+
+
+---
+
+
+
+# 3. ARENA 100 KOTAK SOAL
+
+
+
+Bagian utama website berisi **100 kotak soal**.
+
+
+
+Susunan:
+
+
+
+* Kotak 1
+
+* Kotak 2
+
+* Kotak 3
+
+* ...
+
+* Kotak 100
+
+
+
+Gunakan layout grid yang responsif sehingga dapat digunakan pada laptop, tablet, maupun smartphone.
+
+
+
+Setiap kotak:
+
+
+
+* Berwarna **biru muda** pada kondisi awal.
+
+* Memiliki nomor soal yang jelas.
+
+* Nomor berada di tengah kotak.
+
+* Memiliki efek hover.
+
+* Saat diarahkan mouse, kotak sedikit membesar.
+
+* Saat diklik, muncul animasi pemilihan soal.
+
+
+
+Contoh:
+
+
+
+**1 | 2 | 3 | 4 | 5 | ...**
+
+
+
+hingga:
+
+
+
+**96 | 97 | 98 | 99 | 100**
+
+
+
+---
+
+
+
+# 4. SISTEM PEMILIHAN SOAL
+
+
+
+Ketika siswa mengklik salah satu kotak, misalnya:
+
+
+
+**SOAL 27**
+
+
+
+muncul sebuah modal besar di tengah layar.
+
+
+
+Modal menampilkan:
+
+
+
+### SOAL 27
+
+
+
+**Pertanyaan kimia ditampilkan di sini.**
+
+
+
+Di bawah pertanyaan terdapat:
+
+
+
+**Input Jawaban**
+
+
+
+[________________________]
+
+
+
+Tombol:
+
+
+
+**SUBMIT JAWABAN**
+
+
+
+Siswa dapat mengetik jawaban kemudian menekan tombol submit.
+
+
+
+---
+
+
+
+# 5. TEMPAT GURU MENGISI JAWABAN
+
+
+
+Sediakan sistem khusus untuk guru sebagai **kunci jawaban**.
+
+
+
+Guru dapat mengisi:
+
+
+
+### Nomor Soal
+
+
+
+1–100
+
+
+
+### Jawaban Benar
+
+
+
+Kolom khusus untuk memasukkan jawaban yang dianggap benar.
+
+
+
+### Poin
+
+
+
+Guru menentukan poin soal.
+
+
+
+Contoh:
+
+
+
+| No | Jawaban Benar | Poin |
+
+| -- | ------------- | ---: |
+
+| 1 | 2 mol | 10 |
+
+| 2 | 98 | 20 |
+
+| 3 | ... | 30 |
+
+
+
+Guru dapat mengubah jawaban, dan poin sebelum permainan dimulai.
+
+di dalam Teacher Control Panel, tab "Bank Soal" tidak perlu kotak input pertanyaan. Cukup kunci jawaban dan poin
+
+Buat agar saat saya klik ikon guru, muncul kotak dialog untuk memasukkan password. Jika password yang dimasukkan benar, pengguna dapat melanjutkan melihat pengaturan dan panel guru. Namun jika salah, pengguna tidak dapat masuk ke menu panel guru. Password valid adalah "GuruKimiaOk"
+
+
+
+---
+
+
+
+# 6. SISTEM PEMERIKSAAN JAWABAN
+
+
+
+Ketika siswa memasukkan jawaban, sistem membandingkan jawaban siswa dengan **kunci jawaban yang telah dimasukkan guru**.
+
+
+
+## JIKA JAWABAN SALAH
+
+
+
+Tampilkan overlay besar:
+
+
+
+# ✕
+
+
+
+**SALAH!**
+
+
+
+Gunakan tanda silang merah besar dengan animasi.
+
+
+
+Tambahkan efek suara kesalahan jika fitur suara diaktifkan.
+
+
+
+Setelah beberapa saat, siswa kembali ke halaman soal.
+
+
+
+**Soal tetap terbuka.**
+
+
+
+Siswa boleh memasukkan jawaban lagi.
+
+
+
+Tidak ada batas jumlah percobaan.
+
+
+
+Contoh:
+
+
+
+Percobaan 1 → Salah
+
+Percobaan 2 → Salah
+
+Percobaan 3 → Salah
+
+Percobaan 4 → Benar
+
+
+
+Siswa tetap diperbolehkan mencoba sampai menemukan jawaban benar.
+
+
+
+---
+
+
+
+# 7. JIKA JAWABAN BENAR
+
+
+
+Jika jawaban siswa benar, tampilkan overlay besar:
+
+
+
+# ✓
+
+
+
+**BENAR!**
+
+
+
+Gunakan tanda centang hijau besar dengan animasi kemenangan.
+
+
+
+Tampilkan:
+
+
+
+**+ 30 POIN**
+
+
+
+sesuai nilai soal.
+
+
+
+Tambahkan efek visual seperti:
+
+
+
+* confetti
+
+* animasi cahaya
+
+* efek kemenangan
+
+* suara benar
+
+
+
+setelah jawaban berhasil.
+
+
+
+---
+
+
+
+# 8. STATUS SOAL SETELAH BENAR
+
+
+
+Setelah jawaban benar:
+
+
+
+**Kotak soal otomatis terkunci.**
+
+
+
+Contoh:
+
+
+
+Kotak 27 sebelumnya:
+
+
+
+**[27]**
+
+
+
+Setelah berhasil dijawab kelompok Merah:
+
+
+
+**[27] → MERAH**
+
+
+
+Kotak tersebut:
+
+
+
+* Tidak dapat diklik lagi.
+
+* Tidak dapat menjawab ulang.
+
+* Tidak dapat direbut kelompok lain.
+
+* Tetap menunjukkan warna kelompok yang berhasil menjawab.
+
+* Poin langsung ditambahkan ke kelompok tersebut.
+
+
+
+Jika soal sudah terkunci, klik pada kotak tidak lagi membuka form jawaban.
+
+
+
+---
+
+
+
+# 9. PEMILIHAN WARNA KELOMPOK
+
+
+
+Setelah siswa berhasil menjawab soal, tampilkan pilihan:
+
+
+
+## PILIH KELOMPOK
+
+
+
+**MERAH**
+
+
+
+**KUNING**
+
+
+
+**PINK**
+
+
+
+**HIJAU**
+
+
+
+**UNGU TUA**
+
+
+
+**ORANGE**
+
+
+
+Guru/siswa memilih kelompok yang mendapatkan soal tersebut.
+
+
+
+Setelah kelompok dipilih, warna kotak berubah sesuai warna kelompok.
+
+
+
+Contoh:
+
+
+
+Kelompok Merah menjawab soal nomor 12 dengan benar.
+
+
+
+Maka:
+
+
+
+**Kotak 12 → MERAH**
+
+
+
+Kelompok Hijau menjawab soal nomor 35.
+
+
+
+Maka:
+
+
+
+**Kotak 35 → HIJAU**
+
+
+
+---
+
+Setelah memilih warna kelompok, siswa kembali ke halaman soal.
+
+# 10. SISTEM POIN
+
+
+
+Setiap soal memiliki nilai yang berbeda.
+
+
+
+Contoh:
+
+
+
+* Soal 1 = 10 poin
+
+* Soal 2 = 20 poin
+
+* Soal 3 = 30 poin
+
+* Soal 4 = 10 poin
+
+* Soal 5 = 50 poin
+
+
+
+Nilai dapat ditentukan guru melalui halaman pengaturan soal.
+
+
+
+Setiap jawaban benar akan otomatis menambahkan poin kepada kelompok yang dipilih.
+
+
+
+---
+
+
+
+# 11. LEADERBOARD REAL-TIME
+
+
+
+Di bagian samping atau bagian bawah arena tampilkan:
+
+
+
+## LEADERBOARD
+
+
+
+| Ranking | Kelompok | Warna | Poin |
+
+| ------- | --------------- | ----- | ---: |
+
+| 🥇 | Kelompok Hijau | 🟢 | 350 |
+
+| 🥈 | Kelompok Merah | 🔴 | 310 |
+
+| 🥉 | Kelompok Kuning | 🟡 | 280 |
+
+| 4 | Kelompok Pink | 🩷 | 240 |
+
+| 5 | Kelompok Orange | 🟠 | 210 |
+
+| 6 | Kelompok Ungu | 🟣 | 180 |
+
+
+
+Leaderboard harus otomatis diperbarui setiap kali ada kelompok mendapatkan poin.
+
+
+
+Ranking diurutkan berdasarkan **jumlah poin terbesar**.
+
+
+
+---
+
+
+
+# 12. PANEL SKOR KELOMPOK
+
+
+
+Sediakan panel skor yang selalu terlihat.
+
+
+
+### SCOREBOARD
+
+
+
+🔴 MERAH — 310
+
+🟡 KUNING — 280
+
+🩷 PINK — 240
+
+🟢 HIJAU — 350
+
+🟣 UNGU — 180
+
+🟠 ORANGE — 210
+
+
+
+Ketika poin berubah, angka skor diperbarui secara otomatis.
+
+
+
+Gunakan animasi ketika skor bertambah.
+
+
+
+---
+
+
+
+# 13. TOMBOL GAME OVER
+
+
+
+Guru memiliki kendali penuh terhadap permainan.
+
+
+
+Sediakan tombol:
+
+
+
+# GAME OVER
+
+
+
+Tombol hanya dapat digunakan oleh guru/admin.
+
+
+
+Guru dapat menghentikan permainan kapan saja, meskipun masih terdapat soal yang belum terjawab.
+
+
+
+Ketika tombol **GAME OVER** ditekan, tampilkan konfirmasi:
+
+
+
+**“Apakah Anda yakin ingin mengakhiri permainan?”**
+
+
+
+Pilihan:
+
+
+
+**YA, AKHIRI GAME**
+
+
+
+atau
+
+
+
+**KEMBALI**
+
+
+
+---
+
+
+
+# 14. LAYAR GAME OVER
+
+
+
+Setelah guru mengakhiri permainan, seluruh arena permainan ditutup.
+
+
+
+Tampilkan layar khusus:
+
+
+
+# GAME OVER
+
+
+
+### MATHEMATICS OF CHAMPION
+
+
+
+**PERTANDINGAN TELAH BERAKHIR**
+
+
+
+Kemudian tampilkan leaderboard final dengan animasi.
+
+
+
+---
+
+
+
+# 15. HASIL AKHIR / PODIUM
+
+
+
+Tampilkan tiga besar dengan konsep podium.
+
+
+
+## 🏆 CHAMPION
+
+
+
+### 🥇 JUARA 1
+
+
+
+**KELOMPOK HIJAU**
+
+
+
+**350 POIN**
+
+
+
+### 🥈 JUARA 2
+
+
+
+**KELOMPOK MERAH**
+
+
+
+**310 POIN**
+
+
+
+### 🥉 JUARA 3
+
+
+
+**KELOMPOK KUNING**
+
+
+
+**280 POIN**
+
+
+
+Kelompok lainnya ditampilkan di bawah podium.
+
+
+
+Ranking dihitung otomatis berdasarkan total poin.
+
+
+
+---
+
+
+
+# 16. FITUR RESTART
+
+
+
+Setelah Game Over, guru memiliki pilihan:
+
+
+
+**MAIN LAGI**
+
+
+
+atau
+
+
+
+**KEMBALI KE PENGATURAN**
+
+
+
+Jika memilih **MAIN LAGI**, sistem dapat mereset:
+
+
+
+* Kotak soal
+
+* Warna kotak
+
+* Skor kelompok
+
+* Ranking
+
+* Status soal
+
+
+
+namun **bank soal dan kunci jawaban tetap tersimpan**.
+
+
+
+---
+
+
+
+# 17. HALAMAN GURU / ADMIN
+
+
+
+Sediakan halaman khusus:
+
+
+
+## TEACHER CONTROL PANEL
+
+
+
+Menu:
+
+
+
+### Dashboard
+
+
+
+Melihat status permainan dan skor.
+
+
+
+### Kunci Jawaban
+
+
+
+Guru memasukkan jawaban benar setiap soal.
+
+
+
+### Poin
+
+
+
+Guru menentukan nilai setiap soal.
+
+
+
+### Pengaturan Kelompok
+
+
+
+Nama kelompok dapat diubah.
+
+
+
+Default:
+
+
+
+* Merah
+
+* Kuning
+
+* Pink
+
+* Hijau
+
+* Ungu
+
+* Orange
+
+
+
+### Kontrol Game
+
+
+
+* Mulai Game
+
+* Pause
+
+* Lanjutkan
+
+* Reset
+
+* Game Over
+
+
+
+---
+
+
+
+# 18. ALUR PERMAINAN
+
+
+
+Alur utama permainan:
+
+
+
+**START**
+
+
+
+↓
+
+
+
+Guru membuka MATHEMATICS of Champion
+
+
+
+↓
+
+
+
+Guru memasukkan/memastikan nomor soal
+
+
+
+↓
+
+
+
+Guru memasukkan kunci jawaban
+
+
+
+↓
+
+
+
+Guru menentukan poin setiap soal
+
+
+
+↓
+
+
+
+Guru menentukan nama kelompok
+
+
+
+↓
+
+
+
+Klik **MULAI GAME**
+
+
+
+↓
+
+
+
+100 kotak soal muncul
+
+
+
+↓
+
+
+
+Siswa memilih salah satu kotak
+
+
+
+↓
+
+
+
+Soal muncul
+
+
+
+↓
+
+
+
+Siswa memasukkan jawaban
+
+
+
+↓
+
+
+
+**Jawaban benar?**
+
+
+
+### TIDAK
+
+
+
+↓
+
+
+
+Tampilkan:
+
+
+
+# ✕
+
+
+
+**SALAH!**
+
+
+
+↓
+
+
+
+Kembali ke input jawaban
+
+
+
+↓
+
+
+
+Siswa mencoba lagi
+
+
+
+↓
+
+
+
+### YA
+
+
+
+↓
+
+
+
+Tampilkan:
+
+
+
+# ✓
+
+
+
+**BENAR!**
+
+
+
+↓
+
+
+
+Tampilkan jumlah poin
+
+
+
+↓
+
+
+
+Pilih warna kelompok
+
+
+
+↓
+
+
+
+Tambahkan poin ke kelompok
+
+
+
+↓
+
+
+
+Ubah warna kotak sesuai kelompok
+
+
+
+↓
+
+
+
+Kunci kotak
+
+
+
+↓
+
+
+
+Update leaderboard
+
+
+
+↓
+
+
+
+Kembali ke arena
+
+
+
+↓
+
+
+
+Permainan berlanjut
+
+
+
+↓
+
+
+
+Guru menekan **GAME OVER**
+
+
+
+↓
+
+
+
+Tampilkan:
+
+
+
+# GAME OVER
+
+
+
+↓
+
+
+
+Hitung seluruh poin
+
+
+
+↓
+
+
+
+Urutkan ranking
+
+
+
+↓
+
+
+
+Tampilkan podium juara
+
+
+
+↓
+
+
+
+**GAME SELESAI**
+
+
+
+---
+
+
+
+# 19. ATURAN PENTING GAME
+
+
+
+Implementasikan aturan berikut:
+
+
+
+1. Setiap kotak hanya dapat dimenangkan satu kali.
+
+2. Soal yang sudah benar tidak dapat dibuka kembali.
+
+3. Jawaban salah tidak mengunci soal.
+
+4. Jumlah percobaan jawaban tidak dibatasi.
+
+5. Jawaban benar memberikan poin sesuai nilai soal.
+
+6. Poin diberikan kepada kelompok yang dipilih setelah jawaban benar.
+
+7. Warna kotak berubah sesuai kelompok.
+
+8. Leaderboard diperbarui secara real-time.
+
+9. Ranking otomatis berdasarkan poin terbesar.
+
+10. Guru dapat menghentikan permainan kapan saja.
+
+11. Game Over menampilkan hasil akhir.
+
+12. Bank soal dan kunci jawaban hanya dapat diubah dari panel guru.
+
+13. Game harus responsif pada HP, tablet, dan komputer.
+
+14. Gunakan animasi yang halus tetapi jangan sampai mengganggu proses pembelajaran.
+
+
+
+---
+
+
+
+# 20. KONSEP VISUAL
+
+
+
+Gunakan desain:
+
+
+
+**Modern Academic Competition**
+
+
+
+Inspirasi suasana:
+
+
+
+* Arena kompetisi
+
+* Quiz championship
+
+* Class of Champions
+
+* Game show pendidikan
+
+* Dashboard modern
+
+
+
+Warna dasar:
+
+
+
+* Biru muda untuk kotak yang belum dimainkan.
+
+* Merah
+
+* Kuning
+
+* Pink
+
+* Hijau
+
+* Ungu tua
+
+* Orange
+
+
+
+Gunakan font modern dan mudah dibaca.
+
+
+
+Tambahkan:
+
+
+
+* Glow ringan
+
+* Shadow
+
+* Hover animation
+
+* Smooth transition
+
+* Confetti ketika benar
+
+* Animasi X ketika salah
+
+* Animasi ranking ketika Game Over
+
+* Efek podium untuk juara
+
+
+
+Hindari desain yang terlalu ramai sehingga soal tetap menjadi fokus utama.
+
+
+
+---
+
+
+
+# 21. RESPONSIVE DESIGN
+
+
+
+Website harus dapat digunakan dengan nyaman pada:
+
+
+
+* Smartphone
+
+* Tablet
+
+* Laptop
+
+* Desktop
+
+* Smart TV/proyektor kelas
+
+
+
+Pada layar kecil, 100 kotak tetap harus mudah digunakan dengan sistem grid responsif.
+
+
+
+Panel leaderboard dapat berpindah ke bagian bawah layar pada smartphone.
+
+
+
+---
+
+
+
+# 22. TARGET PENGALAMAN SISWA
+
+
+
+Ketika siswa melihat halaman game, mereka harus langsung merasa seperti sedang mengikuti kompetisi.
+
+
+
+Nuansa yang ingin dicapai:
+
+
+
+**“Saya harus memilih soal.”**
+
+
+
+**“Saya harus berpikir cepat.”**
+
+
+
+**“Saya harus mendapatkan poin untuk kelompok saya.”**
+
+
+
+**“Saya harus menjadi Champion!”**
+
+
+
+Tujuan akhirnya adalah membuat pembelajaran kimia terasa seperti kompetisi akademik yang seru, tetapi tetap berorientasi pada pemahaman materi.
+
+
+
+## TAGLINE
+
+
+
+### MATHEMATICS OF CHAMPION
+
+
+
+**Think Fast. Solve Smart. Become the Champion!**
+
+
+
+langsung input Kunci Jawaban dan poin sesuai data berikut No. Soal Kunci Jawaban Poin
+
+1 1 30
+
+2 88 30
+
+3 6.02 × 10²^23 30
+
+4 2 30
+
+5 16 30
+
+6 3.01 × 10^23 30
+
+7 0.5 30
+
+8 10 30
+
+9 0.5 30
+
+10 1,204 × 10^24 30
+
+11 4 50
+
+12 1 50
+
+13 44 50
+
+14 40 50
+
+15 44 50
+
+16 2 50
+
+17 117 50
+
+18 44 50
+
+19 1 50
+
+20 88 50
+
+21 CO 25
+
+22 H2O 25
+
+23 NO 25
+
+24 CH2 25
+
+25 MgO 25
+
+26 FeS 25
+
+27 CaO 25
+
+28 CH2 25
+
+29 N2O3 25
+
+30 SO3 25
+
+31 C6H12O6 25
+
+32 C2H4 25
+
+33 N2O4 25
+
+34 N2H4 25
+
+35 C6H6 25
+
+36 C4H10O2 25
+
+37 C2H4O2 25
+
+38 C4H8 25
+
+39 N2O2 25
+
+40 C2H6 25
+
+41 mol 10
+
+42 5 70
+
+43 250 50
+
+44 16 70
+
+45 9 20
+
+46 4.88 70
+
+47 180 70
+
+48 0.0976 70
+
+49 9 30
+
+50 3.6 70
+
+51 4 50
+
+52 4 50
+
+53 2 50
+
+54 2 50
+
+55 1 50
+
+56 1 50
+
+57 1 50
+
+58 2 50
+
+59 1 50
+
+60 2 50
+
+61 H2 50
+
+62 H2 50
+
+63 Na 50
+
+64 Mg 50
+
+65 Al 50
+
+66 O₂ dan 4 70
+
+67 N2 dan 2 70
+
+68 Cl2 dan 1 70
+
+69 Mg dan 0 70
+
+70 Cl2 dan 2.67 70
+
+71 44.8 70
+
+72 44.8 70
+
+73 22.4 70
+
+74 44.8 70
+
+75 22.4 70
+
+76 67.2 70
+
+77 89.6 70
+
+78 11.2 70
+
+79 22.4 70
+
+80 67.2 70
+
+81 1.36 100
+
+82 120 100
+
+83 0.224 100
+
+84 6 100
+
+85 CaH2P2O8 100
+
+86 NaTcO4 100
+
+87 CuSO4·5H2O 100
+
+88 16 100
+
+89 8.96 100
+
+90 Na3PO4·12H2O 100
+
+91 1.12 100
+
+92 6.72 100
+
+93 C5H12 100
+
+94 0.4 100
+
+95 XY3 100
+
+96 0.80 dan 0.54 100
+
+97 1.12 100
+
+98 51 100
+
+99 30 100
+
+100 8 100
+
+BUATKAN SAYA SOAL, JAWABAN, DAN POIN DENGAN MATERI EKSPONEN DAN LOGARITMA
+
+
+
+
+
+# PERUBAHAN SISTEM SOAL: MODE PILIHAN GANDA TANPA MENAMPILKAN PERTANYAAN
+
+
+
+Ubah sistem permainan menjadi **Multiple Choice Competition Mode**.
+
+
+
+## 1. TAMPILAN SAAT KOTAK SOAL DIKLIK
+
+
+
+Ketika siswa memilih salah satu kotak nomor, misalnya nomor 1, jangan tampilkan teks pertanyaan.
+
+
+
+Modal hanya menampilkan:
+
+
+
+### SOAL 1
+
+
+
+Kemudian langsung tampilkan lima pilihan jawaban:
+
+
+
+A. [Pilihan A]
+
+B. [Pilihan B]
+
+C. [Pilihan C]
+
+D. [Pilihan D]
+
+E. [Pilihan E]
+
+
+
+Siswa hanya perlu memilih salah satu pilihan jawaban.
+
+
+
+Jangan tampilkan:
+
+
+
+* Pertanyaan
+
+* Kolom input jawaban
+
+* Form mengetik jawaban
+
+
+
+Gunakan tombol pilihan yang besar, jelas, interaktif, dan mudah disentuh pada layar tablet maupun smartphone.
+
+
+
+Contoh tampilan:
+
+
+
+SOAL 1
+
+
+
+┌─────────────────────────┐
+
+│ A. 16 │
+
+└─────────────────────────┘
+
+
+
+┌─────────────────────────┐
+
+│ B. 32 │
+
+└─────────────────────────┘
+
+
+
+┌─────────────────────────┐
+
+│ C. 64 │
+
+└─────────────────────────┘
+
+
+
+┌─────────────────────────┐
+
+│ D. 128 │
+
+└─────────────────────────┘
+
+
+
+┌─────────────────────────┐
+
+│ E. 256 │
+
+└─────────────────────────┘
+
+
+
+## 2. PERTANYAAN TIDAK DITAMPILKAN DI GAME
+
+
+
+Sistem game tidak perlu menyimpan atau menampilkan teks pertanyaan kepada siswa.
+
+
+
+Pertanyaan akan dibacakan atau ditampilkan oleh guru secara terpisah.
+
+
+
+Website hanya berfungsi sebagai:
+
+
+
+* Arena pemilihan nomor
+
+* Tampilan pilihan jawaban
+
+* Sistem pengecekan jawaban
+
+* Sistem poin
+
+* Sistem kelompok
+
+* Leaderboard
+
+
+
+Dengan demikian, setiap nomor soal hanya menampilkan pilihan A sampai E.
+
+
+
+# 3. TEACHER CONTROL PANEL - BANK JAWABAN
+
+
+
+Pada Teacher Control Panel, tab "Bank Soal" tidak memerlukan kolom pertanyaan.
+
+
+
+Untuk setiap nomor soal, guru hanya perlu mengisi:
+
+
+
+| No. Soal | Pilihan A | Pilihan B | Pilihan C | Pilihan D | Pilihan E | Jawaban Benar | Poin |
+
+| -------- | --------- | --------- | --------- | --------- | --------- | ------------- | ---- |
+
+
+
+Contoh:
+
+
+
+| No. | A | B | C | D | E | Kunci | Poin |
+
+| --- | - | -- | -- | -- | --- | ----- | ---- |
+
+| 1 | 2 | 4 | 8 | 16 | 32 | C | 30 |
+
+| 2 | 8 | 16 | 32 | 64 | 128 | D | 30 |
+
+
+
+Guru tidak perlu memasukkan pertanyaan.
+
+
+
+Guru hanya memasukkan lima pilihan jawaban, menentukan pilihan yang benar, dan menentukan jumlah poin.
+
+
+
+# 4. CARA MEMASUKKAN JAWABAN
+
+
+
+Buat sistem input data untuk guru seperti berikut:
+
+
+
+### SOAL NOMOR 1
+
+
+
+Pilihan A:
+
+[________________]
+
+
+
+Pilihan B:
+
+[________________]
+
+
+
+Pilihan C:
+
+[________________]
+
+
+
+Pilihan D:
+
+[________________]
+
+
+
+Pilihan E:
+
+[________________]
+
+
+
+Jawaban Benar:
+
+[ A ▼ ]
+
+
+
+Poin:
+
+[ 30 ]
+
+
+
+Guru dapat memilih jawaban benar melalui dropdown:
+
+
+
+A
+
+B
+
+C
+
+D
+
+E
+
+
+
+# 5. SISTEM PEMERIKSAAN
+
+
+
+Ketika siswa memilih salah satu pilihan:
+
+
+
+Contoh siswa memilih:
+
+
+
+B. 32
+
+
+
+Sistem langsung membandingkan pilihan yang dipilih dengan kunci jawaban guru.
+
+
+
+Jika pilihan salah:
+
+
+
+Tampilkan overlay:
+
+
+
+✕
+
+SALAH!
+
+
+
+Kemudian siswa kembali ke pilihan jawaban.
+
+
+
+Soal tetap dapat dijawab kembali.
+
+
+
+Tidak ada batas percobaan.
+
+
+
+Jika pilihan benar:
+
+
+
+Tampilkan:
+
+
+
+✓
+
+BENAR!
+
+
+
++30 POIN
+
+
+
+Kemudian tampilkan pilihan kelompok:
+
+
+
+PILIH KELOMPOK
+
+
+
+🔴 MERAH
+
+🟡 KUNING
+
+🩷 PINK
+
+🟢 HIJAU
+
+🟣 UNGU
+
+🟠 ORANGE
+
+
+
+# 6. SETELAH JAWABAN BENAR
+
+
+
+Setelah kelompok dipilih:
+
+
+
+1. Poin otomatis ditambahkan ke kelompok.
+
+2. Nomor soal berubah menjadi warna kelompok.
+
+3. Nomor soal terkunci.
+
+4. Soal tidak dapat dipilih kembali.
+
+5. Leaderboard diperbarui otomatis.
+
+6. Sistem kembali ke arena 100 kotak.
+
+
+
+# 7. CONTOH ALUR PERMAINAN
+
+
+
+Guru membacakan soal nomor 15:
+
+
+
+"Jika 2³ × 2⁴ = ..."
+
+
+
+Siswa memilih kotak nomor 15.
+
+
+
+Website hanya menampilkan:
+
+
+
+SOAL 15
+
+
+
+A. 16
+
+
+
+B. 32
+
+
+
+C. 64
+
+
+
+D. 128
+
+
+
+E. 256
+
+
+
+Siswa memilih jawaban.
+
+
+
+Jika benar → BENAR! → + POIN → PILIH KELOMPOK.
+
+
+
+Jika salah → SALAH! → kembali memilih A-E.
+
+
+
+# 8. ATURAN DESAIN PILIHAN JAWABAN
+
+
+
+Gunakan desain tombol pilihan jawaban:
+
+
+
+* Ukuran besar
+
+* Mudah dibaca dari proyektor
+
+* Responsive
+
+* Memiliki hover effect
+
+* Memiliki animasi saat diklik
+
+* Huruf A-E sangat jelas
+
+* Jawaban berada di tengah tombol
+
+* Jangan tampilkan pertanyaan
+
+
+
+Tampilan harus seperti game show akademik modern.
+
+
+
+Pilihan jawaban dapat disusun:
+
+
+
+Desktop:
+
+2 kolom + 2 kolom + 1 tombol terakhir di tengah
+
+
+
+Mobile:
+
+1 kolom vertikal
+
+
+
+Contoh desktop:
+
+
+
+[A. Jawaban] [B. Jawaban]
+
+
+
+[C. Jawaban] [D. Jawaban]
+
+
+
+```
+
+[E. Jawaban]
+
+```
+
+
+
+# 9. STRUKTUR DATA SETIAP SOAL
+
+
+
+Gunakan struktur data:
+
+
+
+Nomor Soal
+
+
+
+Pilihan A
+
+
+
+Pilihan B
+
+
+
+Pilihan C
+
+
+
+Pilihan D
+
+
+
+Pilihan E
+
+
+
+Kunci Jawaban
+
+
+
+Poin
+
+
+
+Jangan buat field:
+
+
+
+Pertanyaan
+
+
+
+Deskripsi Soal
+
+
+
+Input Jawaban Siswa
+
+
+
+# 10. TUJUAN SISTEM
+
+
+
+Website ini adalah papan permainan interaktif.
+
+
+
+Guru tetap memiliki daftar pertanyaan sendiri.
+
+
+
+Siswa melihat:
+
+Nomor soal → Pilihan jawaban A-E → Memilih jawaban → Mendapatkan poin.
+
+
+
+Fokus website adalah menciptakan suasana kompetisi akademik yang cepat, interaktif, dan seru.
+
+
+
+ubah kelompok menjadi warna biru, merah, ungu, kuning, hijau, dan orange
+
+
+
+tolong buatkan bagian kelas dan guru bisa di edit di bagian panel guru
+
+
+
+aku pake ini tadi ke canva ai. kamu bisa bikinkan codenya gaaa???
+
+Halo! Ini dia source code lengkap website web interactive game MATHEMATICS OF CHAMPION dalam bentuk 1 file HTML + CSS + JavaScript (siap dipakai & responsive).
+
+Your HTML file is ready
+
+HTML icon
+mathematics_of_champion
+ HTML 
+Open
+🌟 Fitur-Fitur Utama yang Sudah Dibuat & Disesuaikan:
+Desain Arena Kompetisi (Class of Champions):
+
+Header stylish dengan glow title, Tagline: “Think Fast. Solve Smart. Become the Champion!”
+
+100 kotak soal grid bernomor 1–100 berwarna biru muda (cyan/sky blue) yang responsif (HP, tablet, laptop, smart TV).
+
+Efek hover interaktif (kotak membesar saat diarahkan cursor).
+
+Mode Pilihan Ganda (Multiple Choice Competition Mode):
+
+Saat kotak diklik, modal hanya menampilkan SOAL X, nilai Poin, dan 5 pilihan jawaban A, B, C, D, E.
+
+Tanpa teks pertanyaan & tanpa kolom mengetik jawaban (soal dibacakan/ditampilkan guru secara terpisah).
+
+6 Kelompok dengan Warna Disesuaikan:
+
+🔵 Kelompok Biru
+
+🔴 Kelompok Merah
+
+🟣 Kelompok Ungu
+
+🟡 Kelompok Kuning
+
+🟢 Kelompok Hijau
+
+🟠 Kelompok Orange
+
+Sistem Penguncian & Poin Otomatis:
+
+Jika jawaban SALAH: Muncul animasi silang merah besar ✕ SALAH!, lalu kembali ke modal pilihan (bisa mencoba terus tanpa batas).
+
+Jika jawaban BENAR: Muncul animasi centang hijau ✓ BENAR! + Efek Confetti kembang api 🎉.
+
+Pilihan kelompok muncul setelah jawaban benar. Setelah kelompok dipilih, kotak otomatis berubah warna sesuai kelompok & terkunci (tidak bisa diklik lagi). Poin langsung ditambahkan.
+
+Teacher Control Panel (Terproteksi Password):
+
+Tombol ikon Guru di header akan meminta Password.
+
+Password valid: GuruKimiaOk
+
+Tab Bank Soal: Mengatur Pilihan A-E, Kunci Jawaban (A/B/C/D/E), dan Poin (sudah diisi 100 data bawaan sesuai kunci jawaban kimia & eksponen/logaritma Anda).
+
+Tab Pengaturan Kelompok: Dapat mengedit nama 6 kelompok.
+
+Tab Info Kelas & Guru: Dapat mengedit nama Kelas dan nama Guru langsung dari panel.
+
+Leaderboard Real-time & Scoreboard:
+
+Skor dan peringkat kelompok ter-update secara otomatis secara live dan terurut berdasarkan poin tertinggi.
+
+Fitur Game Over, Timer & Podium Juara:
+
+Tombol Kontrol: MULAI GAME, PAUSE, GAME OVER.
+
+Saat Game Over dipicu, layar penuh menutup arena dan menampilkan Podium Juara 1 (🥇), Juara 2 (🥈), dan Juara 3 (🥉) lengkap dengan skor akhir serta pilihan MAIN LAGI (reset arena tanpa menghapus bank soal).
+
+💡 Cara Menjalankan:
+Download file HTML melalui tag file di atas (mathematics_of_champion.html).
+
+Buka file tersebut di browser (Chrome, Edge, Firefox, Safari) di laptop, tablet, atau hubungkan ke proyektor kelas!
+
+
+
+
+Gemini is AI and can make mistakes.
+
+Analyzing
+<!DOCTYPE html>
 <html lang="id">
- <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260828-05-5fe3063","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/50d846425a1e5082.telemetry_sdk.js" integrity="sha512-Otbex+ztlVbcEGql0rXGd/3E3ee/hqAntg6DeuUEMG6pIPbXGOSvZbFZVzknAXi1tH/itQ+ijEhOTr2aWj6CXg=="></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mathematics of Champion</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #071a36;
-      --navy-2: #0b2850;
-      --cyan: #66d9ff;
-      --soft-blue: #bcecff;
-      --red: #ef4444;
-      --yellow: #f5c542;
-      --pink: #ec4899;
-      --green: #22c55e;
-      --purple: #6d28d9;
-      --orange: #f97316;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "DM Sans", sans-serif;
-      color: #eef8ff;
-      background: var(--navy);
-      overflow-x: hidden;
-    }
-    .arena-bg {
-      min-height: calc(100 * min(var(--vh, 1vh), 1vh));
-      width: 100%;
-      background:
-        radial-gradient(circle at 15% 5%, rgba(43, 163, 222, .24), transparent 27rem),
-        radial-gradient(circle at 88% 16%, rgba(109, 40, 217, .18), transparent 22rem),
-        linear-gradient(135deg, #06152e 0%, #0a2850 50%, #071a36 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .arena-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: .22;
-      background-image: linear-gradient(rgba(127, 218, 255, .14) 1px, transparent 1px), linear-gradient(90deg, rgba(127, 218, 255, .14) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
-    }
-    .glass {
-      background: rgba(8, 34, 70, .74);
-      border: 1px solid rgba(154, 225, 255, .18);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .24);
-      backdrop-filter: blur(15px);
-    }
-    .title-glow { text-shadow: 0 0 30px rgba(102, 217, 255, .45); }
-    .pulse-dot { animation: pulseDot 1.5s infinite; }
-    @keyframes pulseDot { 50% { transform: scale(1.45); opacity: .4; } }
-    .question-tile {
-      min-height: 62px;
-      border: 1px solid rgba(255,255,255,.35);
-      background: linear-gradient(145deg, #c7f0ff, #85d5f6);
-      color: #0b3152;
-      font-weight: 800;
-      border-radius: 13px;
-      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .question-tile:not(.locked):hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 10px 24px rgba(72, 205, 255, .45);
-      filter: brightness(1.08);
-    }
-    .question-tile:not(.locked):active { transform: scale(.96); }
-    .question-tile.locked { cursor: not-allowed; color: white; }
-    .question-tile .team-mini { font-size: 8px; display: block; letter-spacing: .05em; margin-top: 2px; }
-    .score-card { transition: transform .3s ease, box-shadow .3s ease; }
-    .score-card.pop { transform: scale(1.08); box-shadow: 0 0 22px rgba(255,255,255,.4); }
-    .modal-layer {
-      position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
-      padding: 18px; background: rgba(2, 10, 25, .73); backdrop-filter: blur(9px);
-    }
-    .hidden-layer { display: none !important; }
-    .modal-card {
-      width: min(610px, 100%); border-radius: 25px; border: 1px solid rgba(164,232,255,.3);
-      background: linear-gradient(150deg, #0e3766, #071a36); box-shadow: 0 30px 80px rgba(0,0,0,.5);
-    }
-    .success-ring { animation: victory .75s cubic-bezier(.2,.9,.25,1) both; }
-    @keyframes victory { from { opacity: 0; transform: scale(.35) rotate(-15deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
-    .wrong-shake { animation: shake .5s ease-in-out both; }
-    @keyframes shake { 20%,60% { transform: translateX(-14px); } 40%,80% { transform: translateX(14px); } }
-    .confetti { position: fixed; width: 10px; height: 15px; z-index: 70; animation: fall 1.6s linear forwards; }
-    @keyframes fall { to { transform: translate(var(--x), calc(100 * min(var(--vh, 1vh), 1vh))) rotate(620deg); opacity: 0; } }
-    .tab-btn.active { background: #66d9ff; color: #082448; }
-    .podium-card { animation: rise .65s ease both; }
-    @keyframes rise { from { transform: translateY(45px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .team-choice { transition: transform .18s ease, filter .18s ease; }
-    .team-choice:hover { transform: translateY(-4px); filter: brightness(1.12); }
-    .input-arena { background: rgba(1,13,31,.6); border: 1px solid rgba(151,224,255,.25); color: white; }
-    .input-arena:focus { outline: 2px solid #66d9ff; outline-offset: 2px; }
-    #teacher-panel { max-height: calc(90 * min(var(--vh, 1vh), 1vh)); overflow-y: auto; }
-  </style>
-  <script src="/_sdk/b3bf9e8ac58e6ad6.data_sdk.js" type="text/javascript" integrity="sha512-otc1u9NYq9Ms5Jt//7vmhrrqR5CLPr8Jdgs6741gqniClfLMcfmC+jK/cKuQdhLv6G0esJ/FzaMS9tv0T/vj/Q=="></script>
-  <script src="/_sdk/a6de989e8af05ea5.resizing_sdk.js" type="text/javascript" integrity="sha512-cceAQMIleYr/3eg7o5WzN46w0HpgI1sxi+5kDUb7CmTjHEpgBtINDxtOpnNeUtujjui8NG0OSDgUMl0/E2lT2A=="></script>
- </head>
- <body data-template-id="__page-root">
-  <div class="arena-bg">
-   <header class="relative z-10 w-full px-4 pt-4 md:px-7 md:pt-6">
-    <div data-template-id="header-panel" class="canva-header glass mx-auto max-w-[1450px] rounded-3xl px-5 py-5 md:px-7">
-     <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
-      <div>
-       <div class="mb-2 flex items-center gap-2 text-xs font-bold tracking-[.22em] text-cyan-200"><span class="pulse-dot h-2 w-2 rounded-full bg-cyan-300"></span> LIVE CLASSROOM ARENA
-       </div>
-       <h1 data-template-id="game-title" class="canva-text title-glow text-3xl font-extrabold tracking-tight md:text-4xl"></h1>
-       <p data-template-id="game-tagline" class="canva-text mt-1 text-sm text-blue-100 md:text-base"></p>
-      </div>
-      <div class="flex flex-wrap items-center gap-3">
-       <div class="rounded-2xl border border-cyan-200/20 bg-slate-950/35 px-4 py-2 text-center"><span data-template-id="class-label" class="canva-text block text-[10px] font-bold tracking-widest text-cyan-200"></span> <span id="class-name-display" class="text-sm font-bold">Kelas Matematika</span>
-       </div>
-       <div class="rounded-2xl border border-cyan-200/20 bg-slate-950/35 px-4 py-2 text-center"><span data-template-id="teacher-label" class="canva-text block text-[10px] font-bold tracking-widest text-cyan-200"></span> <span id="teacher-name-display" class="text-sm font-bold">Guru Champion</span>
-       </div><button id="teacher-open" type="button" aria-label="Buka Teacher Control Panel" class="rounded-2xl border border-cyan-200/25 bg-cyan-300/15 p-3 text-cyan-100 transition hover:bg-cyan-300 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-200"> <i data-lucide="graduation-cap" class="h-5 w-5"></i> </button>
-      </div>
-     </div>
-     <div class="mt-5 flex flex-col gap-4 border-t border-cyan-100/10 pt-4 lg:flex-row lg:items-center lg:justify-between">
-      <div class="flex flex-wrap gap-2"><button id="start-btn" data-template-id="start-button" type="button" class="canva-button rounded-xl px-4 py-2 text-sm font-extrabold transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-white"></button> <button id="pause-btn" data-template-id="pause-button" type="button" class="canva-button rounded-xl px-4 py-2 text-sm font-extrabold transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-white"></button> <button id="gameover-btn" data-template-id="gameover-button" type="button" class="canva-button rounded-xl px-4 py-2 text-sm font-extrabold transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-white"></button>
-      </div>
-      <div class="flex items-center gap-3">
-       <div class="rounded-xl bg-slate-950/45 px-4 py-2"><span data-template-id="timer-label" class="canva-text mr-2 text-xs font-bold tracking-wider text-cyan-100"></span> <span id="timer" class="font-mono text-xl font-bold text-white">00:00</span>
-       </div><span id="game-status" class="rounded-full border border-cyan-200/20 px-3 py-2 text-xs font-bold text-cyan-100">SIAP DIMULAI</span>
-      </div>
-     </div>
-    </div>
-   </header>
-   <main class="relative z-10 mx-auto w-full max-w-[1450px] px-4 py-5 md:px-7 md:py-7">
-    <section aria-label="Scoreboard kelompok" class="mb-5">
-     <h2 data-template-id="scoreboard-title" class="canva-text mb-3 text-sm font-extrabold tracking-[.16em] text-cyan-100"></h2>
-     <div id="scoreboard" class="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6"></div>
-    </section>
-    <div class="grid gap-5 xl:grid-cols-[1fr_330px]">
-     <section data-template-id="arena-panel" class="canva-section glass rounded-3xl p-4 md:p-6">
-      <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
-       <div>
-        <h2 data-template-id="arena-title" class="canva-text text-2xl font-extrabold"></h2>
-        <p data-template-id="arena-description" class="canva-text mt-1 text-sm text-blue-100"></p>
-       </div>
-       <div class="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-xs font-bold text-cyan-50"><span id="answered-count">0</span> / 100 SOAL TERKUNCI
-       </div>
-      </div>
-      <div id="question-grid" class="grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-10 xl:grid-cols-10"></div>
-     </section>
-     <aside data-template-id="leaderboard-panel" class="canva-sidebar glass rounded-3xl p-5">
-      <div class="mb-4 flex items-center justify-between">
-       <h2 data-template-id="leaderboard-title" class="canva-text text-xl font-extrabold"></h2><i data-lucide="trophy" class="h-5 w-5 text-yellow-300"></i>
-      </div>
-      <div id="leaderboard" class="space-y-2"></div>
-      <p data-template-id="leaderboard-help" class="canva-text mt-5 border-t border-cyan-100/10 pt-4 text-xs leading-relaxed text-blue-100"></p>
-     </aside>
-    </div>
-   </main>
-  </div>
-  <div id="question-modal" class="modal-layer hidden-layer" role="dialog" aria-modal="true" aria-labelledby="question-heading">
-   <form id="answer-form" class="modal-card p-6 md:p-8">
-    <div class="flex items-start justify-between gap-4">
-     <div>
-      <p id="question-number" class="text-xs font-extrabold tracking-[.2em] text-cyan-200">SOAL 01</p>
-      <h2 id="question-heading" class="mt-2 text-2xl font-extrabold">Pilih Jawaban</h2>
-     </div><button id="close-question" type="button" aria-label="Tutup soal" class="rounded-xl bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-cyan-200"><i data-lucide="x"></i></button>
-    </div>
-    <fieldset class="mt-4"><legend class="mb-2 text-sm font-bold text-cyan-50">PILIH JAWABAN</legend>
-     <div id="answer-choices" class="grid grid-cols-1 gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Pilihan jawaban"></div>
-    </fieldset>
-    <p id="answer-message" class="mt-2 min-h-[20px] text-sm text-red-200"></p><button data-template-id="submit-answer-button" type="submit" class="canva-button mt-3 w-full rounded-xl px-5 py-3 font-extrabold transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-white"></button>
-   </form>
-  </div>
-  <div id="result-overlay" class="modal-layer hidden-layer" role="status" aria-live="assertive">
-   <div id="result-card" class="modal-card max-w-md p-9 text-center">
-    <div id="result-symbol" class="success-ring text-8xl font-black"></div>
-    <h2 id="result-title" class="mt-3 text-4xl font-extrabold"></h2>
-    <p id="result-detail" class="mt-3 text-lg font-bold"></p>
-   </div>
-  </div>
-  <div id="team-modal" class="modal-layer hidden-layer" role="dialog" aria-modal="true" aria-labelledby="team-heading">
-   <div class="modal-card p-6 md:p-8">
-    <p class="text-center text-xs font-bold tracking-[.2em] text-cyan-200">JAWABAN BENAR</p>
-    <h2 id="team-heading" data-template-id="team-heading" class="canva-text mt-2 text-center text-3xl font-extrabold"></h2>
-    <p data-template-id="team-helper" class="canva-text mx-auto mt-2 max-w-sm text-center text-sm text-blue-100"></p>
-    <div id="team-choices" class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3"></div>
-   </div>
-  </div>
-  <div id="teacher-modal" class="modal-layer hidden-layer" role="dialog" aria-modal="true" aria-labelledby="teacher-panel-title">
-   <section id="teacher-panel" class="modal-card w-[min(1050px,100%)] p-5 md:p-7">
-    <div class="flex items-center justify-between gap-4">
-     <div>
-      <p class="text-xs font-bold tracking-[.2em] text-cyan-200">PENGATURAN KELAS</p>
-      <h2 id="teacher-panel-title" data-template-id="teacher-title" class="canva-text mt-1 text-2xl font-extrabold"></h2>
-     </div><button id="teacher-close" type="button" aria-label="Tutup panel guru" class="rounded-xl bg-white/10 p-2 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-cyan-200"><i data-lucide="x"></i></button>
-    </div>
-    <div class="mt-6 flex flex-wrap gap-2 border-b border-cyan-100/15 pb-4"><button type="button" class="tab-btn active rounded-xl px-4 py-2 text-sm font-bold" data-tab="dashboard">Dashboard</button> <button type="button" class="tab-btn rounded-xl px-4 py-2 text-sm font-bold text-cyan-50" data-tab="bank">Bank Soal</button> <button type="button" class="tab-btn rounded-xl px-4 py-2 text-sm font-bold text-cyan-50" data-tab="teams">Kelompok</button> <button type="button" class="tab-btn rounded-xl px-4 py-2 text-sm font-bold text-cyan-50" data-tab="controls">Kontrol Game</button>
-    </div>
-    <div id="tab-dashboard" class="teacher-tab mt-5">
-     <div class="grid gap-4 md:grid-cols-3">
-      <div class="rounded-2xl bg-cyan-300/10 p-5">
-       <p class="text-xs font-bold text-cyan-100">STATUS</p>
-       <p id="dashboard-status" class="mt-2 text-xl font-extrabold">SIAP DIMULAI</p>
-      </div>
-      <div class="rounded-2xl bg-cyan-300/10 p-5">
-       <p class="text-xs font-bold text-cyan-100">SOAL TERJAWAB</p>
-       <p id="dashboard-answered" class="mt-2 text-xl font-extrabold">0 / 100</p>
-      </div>
-      <div class="rounded-2xl bg-cyan-300/10 p-5">
-       <p class="text-xs font-bold text-cyan-100">DURASI</p>
-       <p id="dashboard-time" class="mt-2 text-xl font-extrabold">00:00</p>
-      </div>
-     </div>
-     <div class="mt-5 rounded-2xl border border-cyan-100/15 bg-slate-950/20 p-5">
-      <h3 class="font-extrabold">Identitas Kelas</h3>
-      <p class="mt-2 text-sm leading-relaxed text-blue-100">Ubah nama kelas dan guru yang tampil pada header arena.</p>
-      <div class="mt-4 grid gap-4 md:grid-cols-2">
-       <div><label for="class-name-input" class="mb-2 block text-sm font-bold text-cyan-100">Nama Kelas</label> <input id="class-name-input" type="text" class="input-arena w-full rounded-xl px-4 py-3" value="Kelas Matematika">
-       </div>
-       <div><label for="teacher-name-input" class="mb-2 block text-sm font-bold text-cyan-100">Nama Guru</label> <input id="teacher-name-input" type="text" class="input-arena w-full rounded-xl px-4 py-3" value="Guru Champion">
-       </div>
-      </div><button id="save-class-info" type="button" class="mt-4 rounded-xl bg-cyan-300 px-5 py-3 font-extrabold text-slate-900 hover:bg-cyan-200">Simpan Identitas Kelas</button>
-      <p id="class-info-message" class="mt-2 min-h-[20px] text-sm text-cyan-100"></p>
-     </div>
-    </div>
-    <div id="tab-bank" class="teacher-tab mt-5 hidden">
-     <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
-      <div>
-       <h3 class="font-extrabold">Bank Soal: Kunci Jawaban &amp; Poin</h3>
-       <p class="text-sm text-blue-100">Tidak ada input pertanyaan. Ubah jawaban benar atau poin sebelum soal dimainkan.</p>
-      </div><button id="save-bank" type="button" class="rounded-xl bg-cyan-300 px-4 py-2 text-sm font-extrabold text-slate-900 hover:bg-cyan-200">Simpan Perubahan</button>
-     </div>
-     <p id="bank-message" class="mb-3 min-h-[20px] text-sm text-cyan-100"></p>
-     <div class="overflow-x-auto rounded-2xl border border-cyan-100/15">
-      <table class="w-full min-w-[600px] text-left text-sm">
-       <thead class="bg-cyan-300/10 text-cyan-100">
-        <tr>
-         <th class="px-4 py-3">No.</th>
-         <th class="px-4 py-3">A</th>
-         <th class="px-4 py-3">B</th>
-         <th class="px-4 py-3">C</th>
-         <th class="px-4 py-3">D</th>
-         <th class="px-4 py-3">E</th>
-         <th class="px-4 py-3">Kunci</th>
-         <th class="px-4 py-3">Poin</th>
-         <th class="px-4 py-3">Status</th>
-        </tr>
-       </thead>
-       <tbody id="bank-body"></tbody>
-      </table>
-     </div>
-    </div>
-    <div id="tab-teams" class="teacher-tab mt-5 hidden">
-     <h3 class="font-extrabold">Pengaturan Nama Kelompok</h3>
-     <p class="mt-1 text-sm text-blue-100">Warna kelompok tetap digunakan sebagai identitas arena.</p>
-     <div id="team-settings" class="mt-5 grid gap-3 md:grid-cols-2"></div><button id="save-teams" type="button" class="mt-5 rounded-xl bg-cyan-300 px-5 py-3 font-extrabold text-slate-900 hover:bg-cyan-200">Simpan Nama Kelompok</button>
-    </div>
-    <div id="tab-controls" class="teacher-tab mt-5 hidden">
-     <h3 class="font-extrabold">Kontrol Permainan</h3>
-     <div class="mt-5 grid gap-3 sm:grid-cols-2"><button id="panel-start" type="button" class="rounded-2xl bg-green-500 px-5 py-4 font-extrabold text-white hover:brightness-110">MULAI / LANJUTKAN</button> <button id="panel-pause" type="button" class="rounded-2xl bg-yellow-400 px-5 py-4 font-extrabold text-slate-900 hover:brightness-110">PAUSE GAME</button> <button id="panel-reset" type="button" class="rounded-2xl bg-slate-600 px-5 py-4 font-extrabold text-white hover:brightness-110">RESET ARENA</button> <button id="panel-gameover" type="button" class="rounded-2xl bg-red-500 px-5 py-4 font-extrabold text-white hover:brightness-110">GAME OVER</button>
-     </div>
-    </div>
-   </section>
-  </div>
-  <div id="confirm-modal" class="modal-layer hidden-layer" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-   <div class="modal-card max-w-md p-7 text-center"><i data-lucide="circle-alert" class="mx-auto h-12 w-12 text-yellow-300"></i>
-    <h2 id="confirm-title" data-template-id="confirm-title" class="canva-text mt-4 text-2xl font-extrabold"></h2>
-    <p data-template-id="confirm-message" class="canva-text mt-2 text-blue-100"></p>
-    <div class="mt-6 grid grid-cols-2 gap-3"><button id="confirm-end" data-template-id="confirm-end-button" type="button" class="canva-button rounded-xl px-4 py-3 font-extrabold"></button> <button id="cancel-end" data-template-id="cancel-end-button" type="button" class="canva-button rounded-xl px-4 py-3 font-extrabold"></button>
-    </div>
-   </div>
-  </div>
-  <div id="gameover-screen" class="modal-layer hidden-layer" role="dialog" aria-modal="true" aria-labelledby="final-title">
-   <section class="w-full max-w-5xl px-3 text-center">
-    <p class="text-sm font-bold tracking-[.25em] text-cyan-200">PERTANDINGAN TELAH BERAKHIR</p>
-    <h2 id="final-title" data-template-id="gameover-title" class="canva-text title-glow mt-2 text-4xl font-extrabold md:text-6xl"></h2>
-    <p data-template-id="gameover-subtitle" class="canva-text mt-3 text-lg text-blue-100"></p>
-    <div id="podium" class="mt-8 flex items-end justify-center gap-3 md:gap-6"></div>
-    <div class="glass mx-auto mt-6 max-w-3xl rounded-3xl p-5 text-left">
-     <h3 data-template-id="final-ranking-title" class="canva-text font-extrabold"></h3>
-     <div id="final-ranking" class="mt-3 space-y-2"></div>
-    </div>
-    <div class="mt-6 flex justify-center gap-3"><button id="play-again" data-template-id="play-again-button" type="button" class="canva-button rounded-xl px-5 py-3 font-extrabold"></button> <button id="back-settings" data-template-id="back-settings-button" type="button" class="canva-button rounded-xl px-5 py-3 font-extrabold"></button>
-    </div>
-   </section>
-  </div>
-  <script src="/_sdk/c6bcadf20ce5820f.editing_sdk.js" integrity="sha512-LVukVCTKnKSxy98w+wCVzDAxVXBG2vy32XblXlmJD9CPFnF2/FVc75CFngl41IdXcX3sVHJc9olw64zrPM/FIA=="></script>
-  <script>
-    const pointValues = [
-      30,30,30,30,30,30,30,30,30,30,50,50,50,50,50,50,50,50,50,50,
-      25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,
-      10,70,50,70,20,70,70,70,30,70,50,50,50,50,50,50,50,50,50,50,
-      50,50,50,50,50,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,
-      100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
-    ];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATHEMATICS OF CHAMPION</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    const exponentQuestions = [
-      ["2¹", "1"], ["2³", "8"], ["2⁴", "16"], ["3²", "9"], ["5²", "25"],
-      ["10²", "100"], ["2⁵", "32"], ["3³", "27"], ["4²", "16"], ["10³", "1000"],
-      ["2⁶", "64"], ["3⁴", "81"], ["5³", "125"], ["2⁷", "128"], ["4³", "64"],
-      ["10⁴", "10000"], ["2⁸", "256"], ["3⁵", "243"], ["5⁴", "625"], ["2⁹", "512"],
-      ["log₂ 4", "2"], ["log₂ 8", "3"], ["log₃ 9", "2"], ["log₅ 25", "2"],
-      ["log₁₀ 100", "2"], ["log₂ 16", "4"], ["log₃ 27", "3"], ["log₄ 16", "2"],
-      ["log₅ 125", "3"], ["log₁₀ 1000", "3"], ["log₂ 32", "5"], ["log₃ 81", "4"],
-      ["log₄ 64", "3"], ["log₅ 625", "4"], ["log₁₀ 10000", "4"], ["log₂ 64", "6"],
-      ["log₃ 243", "5"], ["log₄ 256", "4"], ["log₅ 3125", "5"], ["log₁₀ 100000", "5"]
-    ];
+    <style>
+        body {
+            font-family: 'Poppins', sans-[#000];
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+            min-height: 100vh;
+            color: #f8fafc;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .grid-box {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .grid-box:hover:not(.locked) {
+            transform: scale(1.08) translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.5);
+            z-index: 10;
+        }
+        
+        /* Team colors */
+        .bg-team-biru { background-color: #3b82f6; color: white; border-color: #60a5fa; }
+        .bg-team-merah { background-color: #ef4444; color: white; border-color: #f87171; }
+        .bg-team-ungu { background-color: #8b5cf6; color: white; border-color: #a78bfa; }
+        .bg-team-kuning { background-color: #eab308; color: black; border-color: #fde047; }
+        .bg-team-hijau { background-color: #22c55e; color: white; border-color: #4ade80; }
+        .bg-team-orange { background-color: #f97316; color: white; border-color: #fb923c; }
 
-    const questions = Array.from({ length: 100 }, (_, index) => {
-      const n = index + 1;
-      if (n <= 40) {
-        const [expression, answer] = exponentQuestions[index];
-        return { id: n, options: [answer, "0", "1", "2", "3"], correct: "A", points: pointValues[index], locked: false, winner: null };
-      }
-      if (n <= 60) {
-        const base = (n % 4) + 2;
-        const pow = (n % 5) + 2;
-        const value = Math.pow(base, pow);
-        return { id: n, options: [String(pow), "0", "1", "2", "3"], correct: "A", points: pointValues[index], locked: false, winner: null };
-      }
-      if (n <= 80) {
-        const base = n % 2 === 0 ? 10 : 2;
-        const pow = (n % 6) + 2;
-        const value = Math.pow(base, pow);
-        return { id: n, options: [String(pow), "0", "1", "2", "3"], correct: "A", points: pointValues[index], locked: false, winner: null };
-      }
-      const answers = ["4", "5", "6", "7", "8", "9", "10", "3", "2", "1", "12", "15", "16", "20", "25", "30", "32", "36", "40", "50"];
-      const answer = answers[n - 81];
-      const base = n % 3 === 0 ? 3 : 2;
-      const exponent = Math.max(2, Math.round(Math.log(Number(answer) || 4) / Math.log(base)));
-      return { id: n, options: [answer, "0", "1", "2", "3"], correct: "A", points: pointValues[index], locked: false, winner: null };
-    });
+        .glow-title {
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="pb-12">
 
-    const teams = [
-      { id: "blue", name: "BIRU", color: "#3b82f6", score: 0, emoji: "🔵" },
-      { id: "red", name: "MERAH", color: "#ef4444", score: 0, emoji: "🔴" },
-      { id: "purple", name: "UNGU", color: "#6d28d9", score: 0, emoji: "🟣" },
-      { id: "yellow", name: "KUNING", color: "#f5c542", score: 0, emoji: "🟡" },
-      { id: "green", name: "HIJAU", color: "#22c55e", score: 0, emoji: "🟢" },
-      { id: "orange", name: "ORANGE", color: "#f97316", score: 0, emoji: "🟠" }
-    ];
+    <!-- HEADER SECTION -->
+    <header class="glass-panel sticky top-0 z-40 border-b border-slate-700/50 shadow-2xl bg-slate-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Branding -->
+            <div class="text-center md:text-left flex items-center gap-3">
+                <div class="p-2.5 bg-gradient-to-tr from-cyan-500 to-indigo-600 rounded-xl shadow-lg shadow-cyan-500/30">
+                    <i class="fa-solid fa-trophy text-2xl text-yellow-300"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-black tracking-wider bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent glow-title">
+                        MATHEMATICS OF CHAMPION
+                    </h1>
+                    <p class="text-xs md:text-sm text-cyan-300/80 font-medium italic">
+                        “Think Fast. Solve Smart. Become the Champion!”
+                    </p>
+                </div>
+            </div>
 
-    let currentQuestion = null;
-    let selectedAnswer = "";
-    let gameState = "ready";
-    let elapsedSeconds = 0;
-    let timerInterval = null;
+            <!-- Info Guru & Kelas -->
+            <div class="flex items-center gap-4 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700">
+                <div class="text-left text-xs md:text-sm">
+                    <p class="text-slate-400">Kelas: <span id="display-kelas" class="text-cyan-300 font-semibold">XII MIPA 1</span></p>
+                    <p class="text-slate-400">Guru: <span id="display-guru" class="text-cyan-300 font-semibold">Guru Kimia / Matematika</span></p>
+                </div>
+                <button onclick="openTeacherAuth()" class="p-2 text-slate-400 hover:text-cyan-400 hover:bg-slate-700/50 rounded-lg transition" title="Teacher Control Panel">
+                    <i class="fa-solid fa-user-gear text-xl"></i>
+                </button>
+            </div>
 
-    const $ = (id) => document.getElementById(id);
-    const normalize = (value) => value.toLowerCase().replace(/\s+/g, "").replace(/,/g, ".").replace(/[×x]/g, "*").replace(/\^/g, "").trim();
+            <!-- Game Timer & Controls -->
+            <div class="flex items-center gap-3">
+                <div class="bg-slate-950 px-4 py-2 rounded-xl border border-slate-800 flex items-center gap-3">
+                    <i class="fa-solid fa-clock text-cyan-400 text-lg"></i>
+                    <span id="game-timer" class="font-mono text-xl font-bold text-cyan-300">00:00:00</span>
+                </div>
 
-    function renderQuestions() {
-      const grid = $("question-grid");
-      grid.innerHTML = "";
-      questions.forEach(q => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "question-tile " + (q.locked ? "locked" : "");
-        button.dataset.id = q.id;
-        button.innerHTML = `<span>${q.id}</span>${q.locked ? `<span class="team-mini">${teams.find(t => t.id === q.winner).name}</span>` : ""}`;
-        if (q.locked) button.style.background = teams.find(t => t.id === q.winner).color;
-        button.addEventListener("click", () => openQuestion(q));
-        grid.appendChild(button);
-      });
-      $("answered-count").textContent = questions.filter(q => q.locked).length;
-      $("dashboard-answered").textContent = `${questions.filter(q => q.locked).length} / 100`;
-    }
+                <div class="flex items-center gap-2">
+                    <button id="btn-start" onclick="toggleStartGame()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-emerald-900/40 transition flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-play"></i> <span id="start-label">MULAI</span>
+                    </button>
+                    <button id="btn-pause" onclick="pauseGame()" disabled class="px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl shadow-lg transition opacity-50 cursor-not-allowed text-sm">
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+                    <button onclick="confirmGameOver()" class="px-3 py-2 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl shadow-lg shadow-rose-900/40 transition text-sm flex items-center gap-1">
+                        <i class="fa-solid fa-flag-checkered"></i> END
+                    </button>
+                </div>
+            </div>
 
-    function sortedTeams() { return [...teams].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)); }
+        </div>
+    </header>
 
-    function renderScores() {
-      const board = $("scoreboard");
-      board.innerHTML = "";
-      teams.forEach(team => {
-        const card = document.createElement("div");
-        card.id = `score-${team.id}`;
-        card.className = "score-card glass flex items-center justify-between rounded-2xl px-4 py-3";
-        card.innerHTML = `<div class="flex items-center gap-2"><span class="h-3 w-3 rounded-full" style="background:${team.color}"></span><span class="text-xs font-extrabold tracking-wide">${team.name}</span></div><strong class="text-xl">${team.score}</strong>`;
-        board.appendChild(card);
-      });
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 mt-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-      const leaderboard = $("leaderboard");
-      leaderboard.innerHTML = "";
-      sortedTeams().forEach((team, index) => {
-        const ranks = ["🥇", "🥈", "🥉"];
-        const row = document.createElement("div");
-        row.className = "flex items-center gap-3 rounded-xl border border-cyan-100/10 bg-slate-950/20 px-3 py-3";
-        row.innerHTML = `<span class="w-6 text-center text-sm font-bold">${ranks[index] || index + 1}</span><span class="h-3 w-3 rounded-full" style="background:${team.color}"></span><span class="min-w-0 flex-1 truncate text-sm font-bold">${team.name}</span><strong class="text-lg">${team.score}</strong>`;
-        leaderboard.appendChild(row);
-      });
-    }
+        <!-- LEFT SIDE: 100 ARENA BOXES (3 COLUMNS ON LARGE SCREENS) -->
+        <section class="lg:col-span-3 glass-panel p-5 rounded-2xl shadow-xl">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/60">
+                <h2 class="text-lg font-bold text-slate-200 flex items-center gap-2">
+                    <i class="fa-solid fa-grip text-cyan-400"></i> ARENA 100 KOTAK SOAL
+                </h2>
+                <div class="flex items-center gap-4 text-xs text-slate-400">
+                    <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-sky-300"></span> Belum Dijawab</span>
+                    <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-600"></span> Terkunci</span>
+                </div>
+            </div>
 
-    function updateTimer() {
-      const mins = String(Math.floor(elapsedSeconds / 60)).padStart(2, "0");
-      const secs = String(elapsedSeconds % 60).padStart(2, "0");
-      $("timer").textContent = `${mins}:${secs}`;
-      $("dashboard-time").textContent = `${mins}:${secs}`;
-    }
+            <!-- 100 Grid Arena -->
+            <div id="grid-arena" class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2.5">
+                <!-- Javascript will generate 100 boxes here -->
+            </div>
+        </section>
 
-    function setGameState(state) {
-      gameState = state;
-      clearInterval(timerInterval);
-      if (state === "playing") {
-        timerInterval = setInterval(() => { elapsedSeconds++; updateTimer(); }, 1000);
-        $("game-status").textContent = "GAME BERLANGSUNG";
-        $("game-status").className = "rounded-full border border-green-300/30 bg-green-400/15 px-3 py-2 text-xs font-bold text-green-100";
-      } else if (state === "paused") {
-        $("game-status").textContent = "GAME DIJEDA";
-        $("game-status").className = "rounded-full border border-yellow-300/30 bg-yellow-400/15 px-3 py-2 text-xs font-bold text-yellow-100";
-      } else {
-        $("game-status").textContent = "SIAP DIMULAI";
-        $("game-status").className = "rounded-full border border-cyan-200/20 px-3 py-2 text-xs font-bold text-cyan-100";
-      }
-      $("dashboard-status").textContent = $("game-status").textContent;
-    }
+        <!-- RIGHT SIDE: LIVE SCOREBOARD & LEADERBOARD -->
+        <aside class="space-y-6">
+            
+            <!-- LIVE SCOREBOARD -->
+            <div class="glass-panel p-5 rounded-2xl shadow-xl">
+                <h3 class="text-base font-bold text-slate-200 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-simple text-amber-400"></i> SCOREBOARD
+                </h3>
+                <div id="scoreboard-list" class="space-y-2.5">
+                    <!-- Dynamic Team Scores -->
+                </div>
+            </div>
 
-    function openQuestion(q) {
-      if (q.locked || gameState !== "playing") return;
-      currentQuestion = q;
-      selectedAnswer = "";
-      $("question-number").textContent = `SOAL ${String(q.id).padStart(2, "0")}`;
-      $("answer-message").textContent = "";
-      const choices = q.options.map((value, index) => ({ value, letter: String.fromCharCode(65 + index) }));
-      const holder = $("answer-choices");
-      holder.innerHTML = "";
-      choices.forEach((choice, index) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "choice-button min-h-[64px] rounded-xl border border-cyan-200/25 bg-slate-950/35 px-4 py-4 text-center text-lg font-bold text-white transition hover:-translate-y-1 hover:border-cyan-200 hover:bg-cyan-300/20 focus:outline-none focus:ring-2 focus:ring-cyan-200";
-        button.setAttribute("role", "radio");
-        button.setAttribute("aria-checked", "false");
-        button.innerHTML = `<span class="mr-2 text-cyan-200">${choice.letter}.</span>${choice.value}`;
-        button.addEventListener("click", () => {
-          selectedAnswer = choice.letter;
-          holder.querySelectorAll("button").forEach(item => { item.classList.remove("ring-2", "ring-cyan-300", "bg-cyan-300/25"); item.setAttribute("aria-checked", "false"); });
-          button.classList.add("ring-2", "ring-cyan-300", "bg-cyan-300/25");
-          button.setAttribute("aria-checked", "true");
-          $("answer-message").textContent = "";
+            <!-- LIVE LEADERBOARD -->
+            <div class="glass-panel p-5 rounded-2xl shadow-xl border-amber-500/20">
+                <h3 class="text-base font-bold text-amber-400 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-award text-yellow-400"></i> LEADERBOARD REAL-TIME
+                </h3>
+                <div id="leaderboard-list" class="space-y-2">
+                    <!-- Dynamic Leaderboard Ranks -->
+                </div>
+            </div>
+
+        </aside>
+    </main>
+
+    <!-- MODAL: SOAL / CHOICE (MULTIPLE CHOICE) -->
+    <div id="modal-soal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel max-w-2xl w-full p-6 md:p-8 rounded-3xl border border-cyan-500/30 shadow-2xl relative animate-pulse-subtle">
+            <button onclick="closeModalSoal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <span class="px-4 py-1.5 bg-cyan-500/20 text-cyan-300 font-extrabold rounded-full text-xs uppercase tracking-widest border border-cyan-500/40">
+                    Multiple Choice Mode
+                </span>
+                <h3 id="modal-soal-title" class="text-3xl font-black text-white mt-2">SOAL --</h3>
+                <p id="modal-soal-points" class="text-amber-400 font-bold text-sm mt-1">+0 POIN</p>
+            </div>
+
+            <!-- Multiple Choice Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-4">
+                <button onclick="submitAnswer('A')" class="p-4 rounded-xl bg-slate-800/90 hover:bg-cyan-600 border border-slate-700 hover:border-cyan-400 text-left transition duration-200 group flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-slate-700 group-hover:bg-white group-hover:text-cyan-900 font-black flex items-center justify-center text-cyan-400 transition">A</span>
+                    <span id="opt-a" class="text-slate-200 group-hover:text-white font-medium text-sm sm:text-base">Option A</span>
+                </button>
+                <button onclick="submitAnswer('B')" class="p-4 rounded-xl bg-slate-800/90 hover:bg-cyan-600 border border-slate-700 hover:border-cyan-400 text-left transition duration-200 group flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-slate-700 group-hover:bg-white group-hover:text-cyan-900 font-black flex items-center justify-center text-cyan-400 transition">B</span>
+                    <span id="opt-b" class="text-slate-200 group-hover:text-white font-medium text-sm sm:text-base">Option B</span>
+                </button>
+                <button onclick="submitAnswer('C')" class="p-4 rounded-xl bg-slate-800/90 hover:bg-cyan-600 border border-slate-700 hover:border-cyan-400 text-left transition duration-200 group flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-slate-700 group-hover:bg-white group-hover:text-cyan-900 font-black flex items-center justify-center text-cyan-400 transition">C</span>
+                    <span id="opt-c" class="text-slate-200 group-hover:text-white font-medium text-sm sm:text-base">Option C</span>
+                </button>
+                <button onclick="submitAnswer('D')" class="p-4 rounded-xl bg-slate-800/90 hover:bg-cyan-600 border border-slate-700 hover:border-cyan-400 text-left transition duration-200 group flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-slate-700 group-hover:bg-white group-hover:text-cyan-900 font-black flex items-center justify-center text-cyan-400 transition">D</span>
+                    <span id="opt-d" class="text-slate-200 group-hover:text-white font-medium text-sm sm:text-base">Option D</span>
+                </button>
+            </div>
+            <!-- Option E centered at bottom -->
+            <div class="flex justify-center">
+                <button onclick="submitAnswer('E')" class="w-full sm:w-1/2 p-4 rounded-xl bg-slate-800/90 hover:bg-cyan-600 border border-slate-700 hover:border-cyan-400 text-left transition duration-200 group flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-slate-700 group-hover:bg-white group-hover:text-cyan-900 font-black flex items-center justify-center text-cyan-400 transition">E</span>
+                    <span id="opt-e" class="text-slate-200 group-hover:text-white font-medium text-sm sm:text-base">Option E</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: JAWABAN SALAH -->
+    <div id="overlay-salah" class="fixed inset-0 z-50 bg-rose-950/90 backdrop-blur-md hidden flex flex-col items-center justify-center p-4">
+        <div class="text-center animate-bounce">
+            <div class="text-9xl font-black text-rose-500 mb-2">✕</div>
+            <h2 class="text-4xl font-extrabold text-white tracking-widest">SALAH!</h2>
+            <p class="text-rose-200 mt-2">Coba lagi atau berpikir lebih teliti!</p>
+        </div>
+    </div>
+
+    <!-- OVERLAY: JAWABAN BENAR + SELEKSI KELOMPOK -->
+    <div id="overlay-benar" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex flex-col items-center justify-center p-4">
+        <div id="benar-step-1" class="text-center">
+            <div class="text-9xl font-black text-emerald-400 mb-2 animate-bounce">✓</div>
+            <h2 class="text-5xl font-black text-white">BENAR!</h2>
+            <p id="overlay-points-added" class="text-3xl font-extrabold text-amber-300 mt-4">+30 POIN</p>
+        </div>
+
+        <!-- SELECT TEAM OVERLAY (STEP 2) -->
+        <div id="benar-step-2" class="hidden text-center max-w-lg w-full">
+            <h3 class="text-2xl font-black text-white mb-2">PILIH KELOMPOK</h3>
+            <p class="text-slate-300 text-sm mb-6">Siapa yang berhak mendapatkan poin dan kotak ini?</p>
+
+            <div class="grid grid-cols-2 gap-3" id="team-select-buttons">
+                <!-- Javascript populates team select buttons -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: TEACHER AUTHENTICATION (PASSWORD) -->
+    <div id="modal-auth" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel max-w-md w-full p-6 rounded-2xl border border-slate-700">
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-lock text-cyan-400"></i> Verifikasi Guru
+            </h3>
+            <p class="text-slate-300 text-sm mb-4">Masukkan password untuk membuka Teacher Control Panel:</p>
+            <input type="password" id="input-password" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 mb-4" placeholder="Masukkan password...">
+            <div class="flex justify-end gap-2">
+                <button onclick="closeTeacherAuth()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 text-sm">Batal</button>
+                <button onclick="verifyPassword()" class="px-4 py-2 rounded-xl bg-cyan-600 text-white hover:bg-cyan-500 font-bold text-sm">Masuk Panel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: TEACHER CONTROL PANEL -->
+    <div id="modal-teacher" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel max-w-4xl w-full h-[85vh] rounded-3xl border border-slate-700 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <div class="p-4 md:p-6 bg-slate-900/90 border-b border-slate-700 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-sliders text-cyan-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white">TEACHER CONTROL PANEL</h3>
+                </div>
+                <button onclick="closeTeacherPanel()" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="flex border-b border-slate-700/80 bg-slate-900/40">
+                <button onclick="switchTab('tab-soal')" id="btn-tab-soal" class="px-5 py-3 text-sm font-bold text-cyan-400 border-b-2 border-cyan-400">Bank Kunci & Poin</button>
+                <button onclick="switchTab('tab-kelompok')" id="btn-tab-kelompok" class="px-5 py-3 text-sm font-bold text-slate-400 hover:text-slate-200">Pengaturan Kelompok</button>
+                <button onclick="switchTab('tab-info')" id="btn-tab-info" class="px-5 py-3 text-sm font-bold text-slate-400 hover:text-slate-200">Info Kelas & Guru</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+
+                <!-- TAB 1: BANK SOAL -->
+                <div id="tab-soal" class="space-y-4">
+                    <p class="text-xs text-slate-400">Masukkan 5 pilihan jawaban, kunci (A-E), dan poin untuk 100 soal.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs md:text-sm text-slate-300">
+                            <thead class="bg-slate-800 text-slate-400 uppercase">
+                                <tr>
+                                    <th class="p-2 text-center">No</th>
+                                    <th class="p-2">Opt A</th>
+                                    <th class="p-2">Opt B</th>
+                                    <th class="p-2">Opt C</th>
+                                    <th class="p-2">Opt D</th>
+                                    <th class="p-2">Opt E</th>
+                                    <th class="p-2 text-center">Kunci</th>
+                                    <th class="p-2 text-center">Poin</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teacher-table-body">
+                                <!-- Dynamic Rows for 100 questions -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TAB 2: PENGATURAN KELOMPOK -->
+                <div id="tab-kelompok" class="hidden space-y-4">
+                    <h4 class="font-bold text-slate-200">Ubah Nama Kelompok:</h4>
+                    <div id="teacher-team-inputs" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Dynamic team name inputs -->
+                    </div>
+                </div>
+
+                <!-- TAB 3: INFO KELAS & GURU -->
+                <div id="tab-info" class="hidden space-y-4 max-w-md">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 mb-1">NAMA KELAS</label>
+                        <input type="text" id="input-kelas-name" class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 mb-1">NAMA GURU</label>
+                        <input type="text" id="input-guru-name" class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Actions -->
+            <div class="p-4 bg-slate-900/90 border-t border-slate-700 flex justify-end gap-3">
+                <button onclick="saveTeacherSettings()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 font-bold text-white rounded-xl shadow-lg text-sm">
+                    <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan Perubahan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY: GAME OVER & PODIUM -->
+    <div id="overlay-gameover" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl hidden overflow-y-auto p-6 flex flex-col items-center justify-center">
+        <div class="max-w-4xl w-full text-center space-y-8 my-auto">
+            <div>
+                <span class="px-4 py-1.5 bg-rose-500/20 text-rose-400 font-black rounded-full text-xs uppercase tracking-widest border border-rose-500/30">
+                    Final Result
+                </span>
+                <h2 class="text-5xl md:text-6xl font-black text-white mt-2 tracking-wider">GAME OVER</h2>
+                <p class="text-cyan-400 font-bold text-lg">MATHEMATICS OF CHAMPION</p>
+            </div>
+
+            <!-- PODIUM (TOP 3) -->
+            <div class="flex justify-center items-end gap-3 sm:gap-6 pt-8 pb-4">
+                
+                <!-- JUARA 2 -->
+                <div id="podium-2" class="flex flex-col items-center w-28 sm:w-36">
+                    <div class="text-amber-300 font-bold text-2xl mb-1">🥈</div>
+                    <div class="w-full bg-slate-800/90 border-t-4 border-slate-400 rounded-t-2xl p-3 shadow-lg flex flex-col justify-end h-36">
+                        <span id="rank2-name" class="font-extrabold text-sm text-white truncate">--</span>
+                        <span id="rank2-score" class="text-cyan-400 font-bold text-xs mt-1">0 Poin</span>
+                    </div>
+                </div>
+
+                <!-- JUARA 1 -->
+                <div id="podium-1" class="flex flex-col items-center w-32 sm:w-44">
+                    <div class="text-yellow-400 font-black text-4xl mb-1 animate-bounce">🥇</div>
+                    <div class="w-full bg-slate-800/90 border-t-4 border-yellow-400 rounded-t-2xl p-4 shadow-2xl flex flex-col justify-end h-48 bg-gradient-to-b from-yellow-500/10 to-slate-900">
+                        <span id="rank1-name" class="font-black text-base text-yellow-300 truncate">--</span>
+                        <span id="rank1-score" class="text-yellow-400 font-extrabold text-sm mt-1">0 Poin</span>
+                    </div>
+                </div>
+
+                <!-- JUARA 3 -->
+                <div id="podium-3" class="flex flex-col items-center w-28 sm:w-36">
+                    <div class="text-amber-600 font-bold text-xl mb-1">🥉</div>
+                    <div class="w-full bg-slate-800/90 border-t-4 border-amber-600 rounded-t-2xl p-3 shadow-lg flex flex-col justify-end h-28">
+                        <span id="rank3-name" class="font-extrabold text-sm text-white truncate">--</span>
+                        <span id="rank3-score" class="text-cyan-400 font-bold text-xs mt-1">0 Poin</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- REST OF TEAMS -->
+            <div class="max-w-md mx-auto glass-panel rounded-2xl p-4">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Peringkat Lainnya</h4>
+                <div id="other-ranks-list" class="space-y-2">
+                    <!-- Dynamic ranks 4-6 -->
+                </div>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="flex justify-center gap-4 pt-4">
+                <button onclick="resetGame()" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 font-bold text-white rounded-xl shadow-lg transition flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> MAIN LAGI
+                </button>
+                <button onclick="closeGameOverAndOpenTeacher()" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 font-bold text-slate-200 rounded-xl shadow-lg transition">
+                    PENGATURAN
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Data Questions Database (100 Items)
+        let dbSoal = {"1": {"a": "1", "b": "0.9", "c": "1.2", "d": "1.5", "e": "1.8", "key": "A", "points": 30}, "2": {"a": "52.8", "b": "88", "c": "105.6", "d": "132", "e": "158.4", "key": "B", "points": 30}, "3": {"a": "Opsi A (6.02 \u00d7 10\u00b2\u00b3)", "b": "Opsi B (6.02 \u00d7 10\u00b2\u00b3)", "c": "6.02 \u00d7 10\u00b2\u00b3", "d": "Opsi D (6.02 \u00d7 10\u00b2\u00b3)", "e": "Opsi E (6.02 \u00d7 10\u00b2\u00b3)", "key": "C", "points": 30}, "4": {"a": "1.2", "b": "1.8", "c": "2.4", "d": "2", "e": "3.6", "key": "D", "points": 30}, "5": {"a": "9.6", "b": "14.4", "c": "19.2", "d": "24", "e": "16", "key": "E", "points": 30}, "6": {"a": "3.01 \u00d7 10\u00b2\u00b3", "b": "Opsi B (3.01 \u00d7 10\u00b2\u00b3)", "c": "Opsi C (3.01 \u00d7 10\u00b2\u00b3)", "d": "Opsi D (3.01 \u00d7 10\u00b2\u00b3)", "e": "Opsi E (3.01 \u00d7 10\u00b2\u00b3)", "key": "A", "points": 30}, "7": {"a": "0.3", "b": "0.5", "c": "0.6", "d": "0.75", "e": "0.9", "key": "B", "points": 30}, "8": {"a": "6", "b": "9", "c": "10", "d": "15", "e": "18", "key": "C", "points": 30}, "9": {"a": "0.3", "b": "0.45", "c": "0.6", "d": "0.5", "e": "0.9", "key": "D", "points": 30}, "10": {"a": "Opsi A (1.204 \u00d7 10\u00b2\u2074)", "b": "Opsi B (1.204 \u00d7 10\u00b2\u2074)", "c": "Opsi C (1.204 \u00d7 10\u00b2\u2074)", "d": "Opsi D (1.204 \u00d7 10\u00b2\u2074)", "e": "1.204 \u00d7 10\u00b2\u2074", "key": "E", "points": 30}, "11": {"a": "4", "b": "3.6", "c": "4.8", "d": "6", "e": "7.2", "key": "A", "points": 50}, "12": {"a": "0.6", "b": "1", "c": "1.2", "d": "1.5", "e": "1.8", "key": "B", "points": 50}, "13": {"a": "26.4", "b": "39.6", "c": "44", "d": "66", "e": "79.2", "key": "C", "points": 50}, "14": {"a": "24", "b": "36", "c": "48", "d": "40", "e": "72", "key": "D", "points": 50}, "15": {"a": "26.4", "b": "39.6", "c": "52.8", "d": "66", "e": "44", "key": "E", "points": 50}, "16": {"a": "2", "b": "1.8", "c": "2.4", "d": "3", "e": "3.6", "key": "A", "points": 50}, "17": {"a": "70.2", "b": "117", "c": "140.4", "d": "175.5", "e": "210.6", "key": "B", "points": 50}, "18": {"a": "26.4", "b": "39.6", "c": "44", "d": "66", "e": "79.2", "key": "C", "points": 50}, "19": {"a": "0.6", "b": "0.9", "c": "1.2", "d": "1", "e": "1.8", "key": "D", "points": 50}, "20": {"a": "52.8", "b": "79.2", "c": "105.6", "d": "132", "e": "88", "key": "E", "points": 50}, "21": {"a": "CO", "b": "Opsi B (CO)", "c": "Opsi C (CO)", "d": "Opsi D (CO)", "e": "Opsi E (CO)", "key": "A", "points": 25}, "22": {"a": "Opsi A (H2O)", "b": "H2O", "c": "Opsi C (H2O)", "d": "Opsi D (H2O)", "e": "Opsi E (H2O)", "key": "B", "points": 25}, "23": {"a": "Opsi A (NO)", "b": "Opsi B (NO)", "c": "NO", "d": "Opsi D (NO)", "e": "Opsi E (NO)", "key": "C", "points": 25}, "24": {"a": "Opsi A (CH2)", "b": "Opsi B (CH2)", "c": "Opsi C (CH2)", "d": "CH2", "e": "Opsi E (CH2)", "key": "D", "points": 25}, "25": {"a": "Opsi A (MgO)", "b": "Opsi B (MgO)", "c": "Opsi C (MgO)", "d": "Opsi D (MgO)", "e": "MgO", "key": "E", "points": 25}, "26": {"a": "FeS", "b": "Opsi B (FeS)", "c": "Opsi C (FeS)", "d": "Opsi D (FeS)", "e": "Opsi E (FeS)", "key": "A", "points": 25}, "27": {"a": "Opsi A (CaO)", "b": "CaO", "c": "Opsi C (CaO)", "d": "Opsi D (CaO)", "e": "Opsi E (CaO)", "key": "B", "points": 25}, "28": {"a": "Opsi A (CH2)", "b": "Opsi B (CH2)", "c": "CH2", "d": "Opsi D (CH2)", "e": "Opsi E (CH2)", "key": "C", "points": 25}, "29": {"a": "Opsi A (N2O3)", "b": "Opsi B (N2O3)", "c": "Opsi C (N2O3)", "d": "N2O3", "e": "Opsi E (N2O3)", "key": "D", "points": 25}, "30": {"a": "Opsi A (SO3)", "b": "Opsi B (SO3)", "c": "Opsi C (SO3)", "d": "Opsi D (SO3)", "e": "SO3", "key": "E", "points": 25}, "31": {"a": "C6H12O6", "b": "Opsi B (C6H12O6)", "c": "Opsi C (C6H12O6)", "d": "Opsi D (C6H12O6)", "e": "Opsi E (C6H12O6)", "key": "A", "points": 25}, "32": {"a": "Opsi A (C2H4)", "b": "C2H4", "c": "Opsi C (C2H4)", "d": "Opsi D (C2H4)", "e": "Opsi E (C2H4)", "key": "B", "points": 25}, "33": {"a": "Opsi A (N2O4)", "b": "Opsi B (N2O4)", "c": "N2O4", "d": "Opsi D (N2O4)", "e": "Opsi E (N2O4)", "key": "C", "points": 25}, "34": {"a": "Opsi A (N2H4)", "b": "Opsi B (N2H4)", "c": "Opsi C (N2H4)", "d": "N2H4", "e": "Opsi E (N2H4)", "key": "D", "points": 25}, "35": {"a": "Opsi A (C6H6)", "b": "Opsi B (C6H6)", "c": "Opsi C (C6H6)", "d": "Opsi D (C6H6)", "e": "C6H6", "key": "E", "points": 25}, "36": {"a": "C4H10O2", "b": "Opsi B (C4H10O2)", "c": "Opsi C (C4H10O2)", "d": "Opsi D (C4H10O2)", "e": "Opsi E (C4H10O2)", "key": "A", "points": 25}, "37": {"a": "Opsi A (C2H4O2)", "b": "C2H4O2", "c": "Opsi C (C2H4O2)", "d": "Opsi D (C2H4O2)", "e": "Opsi E (C2H4O2)", "key": "B", "points": 25}, "38": {"a": "Opsi A (C4H8)", "b": "Opsi B (C4H8)", "c": "C4H8", "d": "Opsi D (C4H8)", "e": "Opsi E (C4H8)", "key": "C", "points": 25}, "39": {"a": "Opsi A (N2O2)", "b": "Opsi B (N2O2)", "c": "Opsi C (N2O2)", "d": "N2O2", "e": "Opsi E (N2O2)", "key": "D", "points": 25}, "40": {"a": "Opsi A (C2H6)", "b": "Opsi B (C2H6)", "c": "Opsi C (C2H6)", "d": "Opsi D (C2H6)", "e": "C2H6", "key": "E", "points": 25}, "41": {"a": "mol", "b": "Opsi B (mol)", "c": "Opsi C (mol)", "d": "Opsi D (mol)", "e": "Opsi E (mol)", "key": "A", "points": 10}, "42": {"a": "3", "b": "5", "c": "6", "d": "7.5", "e": "9", "key": "B", "points": 70}, "43": {"a": "150", "b": "225", "c": "250", "d": "375", "e": "450", "key": "C", "points": 50}, "44": {"a": "9.6", "b": "14.4", "c": "19.2", "d": "16", "e": "28.8", "key": "D", "points": 70}, "45": {"a": "5.4", "b": "8.1", "c": "10.8", "d": "13.5", "e": "9", "key": "E", "points": 20}, "46": {"a": "4.88", "b": "4.39", "c": "5.86", "d": "7.32", "e": "8.78", "key": "A", "points": 70}, "47": {"a": "108", "b": "180", "c": "216", "d": "270", "e": "324", "key": "B", "points": 70}, "48": {"a": "0.06", "b": "0.09", "c": "0.0976", "d": "0.15", "e": "0.18", "key": "C", "points": 70}, "49": {"a": "5.4", "b": "8.1", "c": "10.8", "d": "9", "e": "16.2", "key": "D", "points": 30}, "50": {"a": "2.16", "b": "3.24", "c": "4.32", "d": "5.4", "e": "3.6", "key": "E", "points": 70}, "51": {"a": "4", "b": "3.6", "c": "4.8", "d": "6", "e": "7.2", "key": "A", "points": 50}, "52": {"a": "2.4", "b": "4", "c": "4.8", "d": "6", "e": "7.2", "key": "B", "points": 50}, "53": {"a": "1.2", "b": "1.8", "c": "2", "d": "3", "e": "3.6", "key": "C", "points": 50}, "54": {"a": "1.2", "b": "1.8", "c": "2.4", "d": "2", "e": "3.6", "key": "D", "points": 50}, "55": {"a": "0.6", "b": "0.9", "c": "1.2", "d": "1.5", "e": "1", "key": "E", "points": 50}, "56": {"a": "1", "b": "0.9", "c": "1.2", "d": "1.5", "e": "1.8", "key": "A", "points": 50}, "57": {"a": "0.6", "b": "1", "c": "1.2", "d": "1.5", "e": "1.8", "key": "B", "points": 50}, "58": {"a": "1.2", "b": "1.8", "c": "2", "d": "3", "e": "3.6", "key": "C", "points": 50}, "59": {"a": "0.6", "b": "0.9", "c": "1.2", "d": "1", "e": "1.8", "key": "D", "points": 50}, "60": {"a": "1.2", "b": "1.8", "c": "2.4", "d": "3", "e": "2", "key": "E", "points": 50}, "61": {"a": "H2", "b": "Opsi B (H2)", "c": "Opsi C (H2)", "d": "Opsi D (H2)", "e": "Opsi E (H2)", "key": "A", "points": 50}, "62": {"a": "Opsi A (H2)", "b": "H2", "c": "Opsi C (H2)", "d": "Opsi D (H2)", "e": "Opsi E (H2)", "key": "B", "points": 50}, "63": {"a": "Opsi A (Na)", "b": "Opsi B (Na)", "c": "Na", "d": "Opsi D (Na)", "e": "Opsi E (Na)", "key": "C", "points": 50}, "64": {"a": "Opsi A (Mg)", "b": "Opsi B (Mg)", "c": "Opsi C (Mg)", "d": "Mg", "e": "Opsi E (Mg)", "key": "D", "points": 50}, "65": {"a": "Opsi A (Al)", "b": "Opsi B (Al)", "c": "Opsi C (Al)", "d": "Opsi D (Al)", "e": "Al", "key": "E", "points": 50}, "66": {"a": "O\u2082 dan 4", "b": "Opsi B (O\u2082 dan 4)", "c": "Opsi C (O\u2082 dan 4)", "d": "Opsi D (O\u2082 dan 4)", "e": "Opsi E (O\u2082 dan 4)", "key": "A", "points": 70}, "67": {"a": "Opsi A (N2 dan 2)", "b": "N2 dan 2", "c": "Opsi C (N2 dan 2)", "d": "Opsi D (N2 dan 2)", "e": "Opsi E (N2 dan 2)", "key": "B", "points": 70}, "68": {"a": "Opsi A (Cl2 dan 1)", "b": "Opsi B (Cl2 dan 1)", "c": "Cl2 dan 1", "d": "Opsi D (Cl2 dan 1)", "e": "Opsi E (Cl2 dan 1)", "key": "C", "points": 70}, "69": {"a": "Opsi A (Mg dan 0)", "b": "Opsi B (Mg dan 0)", "c": "Opsi C (Mg dan 0)", "d": "Mg dan 0", "e": "Opsi E (Mg dan 0)", "key": "D", "points": 70}, "70": {"a": "Opsi A (Cl2 dan 2.67)", "b": "Opsi B (Cl2 dan 2.67)", "c": "Opsi C (Cl2 dan 2.67)", "d": "Opsi D (Cl2 dan 2.67)", "e": "Cl2 dan 2.67", "key": "E", "points": 70}, "71": {"a": "44.8", "b": "40.32", "c": "53.76", "d": "67.2", "e": "80.64", "key": "A", "points": 70}, "72": {"a": "26.88", "b": "44.8", "c": "53.76", "d": "67.2", "e": "80.64", "key": "B", "points": 70}, "73": {"a": "13.44", "b": "20.16", "c": "22.4", "d": "33.6", "e": "40.32", "key": "C", "points": 70}, "74": {"a": "26.88", "b": "40.32", "c": "53.76", "d": "44.8", "e": "80.64", "key": "D", "points": 70}, "75": {"a": "13.44", "b": "20.16", "c": "26.88", "d": "33.6", "e": "22.4", "key": "E", "points": 70}, "76": {"a": "67.2", "b": "60.48", "c": "80.64", "d": "100.8", "e": "120.96", "key": "A", "points": 70}, "77": {"a": "53.76", "b": "89.6", "c": "107.52", "d": "134.4", "e": "161.28", "key": "B", "points": 70}, "78": {"a": "6.72", "b": "10.08", "c": "11.2", "d": "16.8", "e": "20.16", "key": "C", "points": 70}, "79": {"a": "13.44", "b": "20.16", "c": "26.88", "d": "22.4", "e": "40.32", "key": "D", "points": 70}, "80": {"a": "40.32", "b": "60.48", "c": "80.64", "d": "100.8", "e": "67.2", "key": "E", "points": 70}, "81": {"a": "1.36", "b": "1.22", "c": "1.63", "d": "2.04", "e": "2.45", "key": "A", "points": 100}, "82": {"a": "72", "b": "120", "c": "144", "d": "180", "e": "216", "key": "B", "points": 100}, "83": {"a": "0.13", "b": "0.2", "c": "0.224", "d": "0.34", "e": "0.4", "key": "C", "points": 100}, "84": {"a": "3.6", "b": "5.4", "c": "7.2", "d": "6", "e": "10.8", "key": "D", "points": 100}, "85": {"a": "Opsi A (CaH2P2O8)", "b": "Opsi B (CaH2P2O8)", "c": "Opsi C (CaH2P2O8)", "d": "Opsi D (CaH2P2O8)", "e": "CaH2P2O8", "key": "E", "points": 100}, "86": {"a": "NaTcO4", "b": "Opsi B (NaTcO4)", "c": "Opsi C (NaTcO4)", "d": "Opsi D (NaTcO4)", "e": "Opsi E (NaTcO4)", "key": "A", "points": 100}, "87": {"a": "Opsi A (CuSO4\u00b75H2O)", "b": "CuSO4\u00b75H2O", "c": "Opsi C (CuSO4\u00b75H2O)", "d": "Opsi D (CuSO4\u00b75H2O)", "e": "Opsi E (CuSO4\u00b75H2O)", "key": "B", "points": 100}, "88": {"a": "9.6", "b": "14.4", "c": "16", "d": "24", "e": "28.8", "key": "C", "points": 100}, "89": {"a": "5.38", "b": "8.06", "c": "10.75", "d": "8.96", "e": "16.13", "key": "D", "points": 100}, "90": {"a": "Opsi A (Na3PO4\u00b712H2O)", "b": "Opsi B (Na3PO4\u00b712H2O)", "c": "Opsi C (Na3PO4\u00b712H2O)", "d": "Opsi D (Na3PO4\u00b712H2O)", "e": "Na3PO4\u00b712H2O", "key": "E", "points": 100}, "91": {"a": "1.12", "b": "1.01", "c": "1.34", "d": "1.68", "e": "2.02", "key": "A", "points": 100}, "92": {"a": "4.03", "b": "6.72", "c": "8.06", "d": "10.08", "e": "12.1", "key": "B", "points": 100}, "93": {"a": "Opsi A (C5H12)", "b": "Opsi B (C5H12)", "c": "C5H12", "d": "Opsi D (C5H12)", "e": "Opsi E (C5H12)", "key": "C", "points": 100}, "94": {"a": "0.24", "b": "0.36", "c": "0.48", "d": "0.4", "e": "0.72", "key": "D", "points": 100}, "95": {"a": "Opsi A (XY3)", "b": "Opsi B (XY3)", "c": "Opsi C (XY3)", "d": "Opsi D (XY3)", "e": "XY3", "key": "E", "points": 100}, "96": {"a": "0.80 dan 0.54", "b": "Opsi B (0.80 dan 0.54)", "c": "Opsi C (0.80 dan 0.54)", "d": "Opsi D (0.80 dan 0.54)", "e": "Opsi E (0.80 dan 0.54)", "key": "A", "points": 100}, "97": {"a": "0.67", "b": "1.12", "c": "1.34", "d": "1.68", "e": "2.02", "key": "B", "points": 100}, "98": {"a": "30.6", "b": "45.9", "c": "51", "d": "76.5", "e": "91.8", "key": "C", "points": 100}, "99": {"a": "18", "b": "27", "c": "36", "d": "30", "e": "54", "key": "D", "points": 100}, "100": {"a": "4.8", "b": "7.2", "c": "9.6", "d": "12", "e": "8", "key": "E", "points": 100}};
+
+        // Team Data
+        let teams = [
+            { id: 'biru', name: 'Kelompok Biru', score: 0, bg: 'bg-team-biru', icon: '🔵' },
+            { id: 'merah', name: 'Kelompok Merah', score: 0, bg: 'bg-team-merah', icon: '🔴' },
+            { id: 'ungu', name: 'Kelompok Ungu', score: 0, bg: 'bg-team-ungu', icon: '🟣' },
+            { id: 'kuning', name: 'Kelompok Kuning', score: 0, bg: 'bg-team-kuning', icon: '🟡' },
+            { id: 'hijau', name: 'Kelompok Hijau', score: 0, bg: 'bg-team-hijau', icon: '🟢' },
+            { id: 'orange', name: 'Kelompok Orange', score: 0, bg: 'bg-team-orange', icon: '🟠' }
+        ];
+
+        let boxStates = {}; // number -> { locked: bool, teamId: string }
+        let activeBoxNum = null;
+        let gameActive = false;
+        let timerSeconds = 0;
+        let timerInterval = null;
+
+        // Init App
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGrid();
+            renderScoreboard();
+            renderLeaderboard();
+            populateTeacherTable();
+            populateTeacherTeams();
         });
-        holder.appendChild(button);
-      });
-      $("question-modal").classList.remove("hidden-layer");
-      setTimeout(() => $("answer-choices").querySelector("button")?.focus(), 80);
-    }
 
-    function closeQuestion() {
-      $("question-modal").classList.add("hidden-layer");
-      currentQuestion = null;
-    }
-
-    function showResult(correct, points = 0) {
-      const card = $("result-card");
-      $("result-symbol").textContent = correct ? "✓" : "✕";
-      $("result-symbol").className = correct ? "success-ring text-8xl font-black text-green-400" : "wrong-shake text-8xl font-black text-red-400";
-      $("result-title").textContent = correct ? "BENAR!" : "SALAH!";
-      $("result-title").className = correct ? "mt-3 text-4xl font-extrabold text-green-200" : "mt-3 text-4xl font-extrabold text-red-200";
-      $("result-detail").textContent = correct ? `+ ${points} POIN` : "Coba lagi, kamu pasti bisa!";
-      card.classList.toggle("wrong-shake", !correct);
-      $("result-overlay").classList.remove("hidden-layer");
-      if (correct) createConfetti();
-      setTimeout(() => {
-        $("result-overlay").classList.add("hidden-layer");
-        if (correct) {
-          $("question-modal").classList.add("hidden-layer");
-          showTeamChoices();
-        } else {
-          $("answer-choices").querySelector("button")?.focus();
+        // Render 100 Grid Boxes
+        function renderGrid() {
+            const arena = document.getElementById('grid-arena');
+            arena.innerHTML = '';
+            
+            for (let i = 1; i <= 100; i++) {
+                const state = boxStates[i];
+                const btn = document.createElement('button');
+                btn.id = `box-${i}`;
+                
+                let styleClasses = "grid-box h-12 sm:h-14 rounded-xl font-black text-sm sm:text-base flex items-center justify-center shadow-md border ";
+                
+                if (state && state.locked) {
+                    const team = teams.find(t => t.id === state.teamId);
+                    styleClasses += `${team.bg} locked opacity-90 cursor-not-allowed`;
+                    btn.innerHTML = `<span class="text-xs sm:text-sm font-bold truncate px-1">${team.name.replace('Kelompok ', '')}</span>`;
+                } else {
+                    styleClasses += "bg-sky-400 text-slate-950 border-sky-300 hover:bg-sky-300 cursor-pointer";
+                    btn.innerText = i;
+                    btn.onclick = () => selectBox(i);
+                }
+                
+                btn.className = styleClasses;
+                arena.appendChild(btn);
+            }
         }
-      }, correct ? 1450 : 1000);
-    }
 
-    function createConfetti() {
-      const colors = ["#66d9ff", "#f5c542", "#ec4899", "#22c55e", "#ffffff"];
-      for (let i = 0; i < 38; i++) {
-        const bit = document.createElement("div");
-        bit.className = "confetti";
-        bit.style.left = `${42 + Math.random() * 16}%`;
-        bit.style.top = `${20 + Math.random() * 14}%`;
-        bit.style.background = colors[i % colors.length];
-        bit.style.setProperty("--x", `${(Math.random() - .5) * 700}px`);
-        document.body.appendChild(bit);
-        setTimeout(() => bit.remove(), 1700);
-      }
-    }
+        // Handle Box Selection
+        function selectBox(num) {
+            if (!gameActive) {
+                alert("Tekan tombol 'MULAI GAME' terlebih dahulu untuk memainkan game!");
+                return;
+            }
+            if (boxStates[num] && boxStates[num].locked) return;
 
-    function showTeamChoices() {
-      const choices = $("team-choices");
-      choices.innerHTML = "";
-      teams.forEach(team => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "team-choice rounded-2xl p-4 text-center font-extrabold text-white shadow-lg";
-        button.style.background = team.color;
-        button.textContent = team.name;
-        button.addEventListener("click", () => awardTeam(team));
-        choices.appendChild(button);
-      });
-      $("team-modal").classList.remove("hidden-layer");
-    }
+            activeBoxNum = num;
+            const data = dbSoal[num] || { a:'A', b:'B', c:'C', d:'D', e:'E', key:'A', points: 30 };
+            
+            document.getElementById('modal-soal-title').innerText = `SOAL ${num}`;
+            document.getElementById('modal-soal-points').innerText = `+${data.points} POIN`;
+            
+            document.getElementById('opt-a').innerText = data.a;
+            document.getElementById('opt-b').innerText = data.b;
+            document.getElementById('opt-c').innerText = data.c;
+            document.getElementById('opt-d').innerText = data.d;
+            document.getElementById('opt-e').innerText = data.e;
 
-    function awardTeam(team) {
-      if (!currentQuestion) return;
-      currentQuestion.locked = true;
-      currentQuestion.winner = team.id;
-      team.score += Number(currentQuestion.points);
-      $("team-modal").classList.add("hidden-layer");
-      const scoreCard = $(`score-${team.id}`);
-      renderQuestions();
-      renderScores();
-      setTimeout(() => {
-        const freshCard = $(`score-${team.id}`);
-        freshCard.classList.add("pop");
-        setTimeout(() => freshCard.classList.remove("pop"), 420);
-      }, 30);
-      currentQuestion = null;
-    }
-
-    function renderBank() {
-      const body = $("bank-body");
-      body.innerHTML = "";
-      questions.forEach(q => {
-        const row = document.createElement("tr");
-        row.className = "border-t border-cyan-100/10";
-        row.innerHTML = `<td class="px-4 py-2 font-bold">${q.id}</td>
-          ${q.options.map((option, index) => `<td class="px-2 py-2"><input aria-label="Pilihan ${String.fromCharCode(65 + index)} soal ${q.id}" data-option="${q.id}-${index}" class="input-arena w-20 rounded-lg px-3 py-2" value="${option}"></td>`).join("")}
-          <td class="px-2 py-2"><select aria-label="Jawaban benar soal ${q.id}" data-correct="${q.id}" class="input-arena rounded-lg px-3 py-2">${["A","B","C","D","E"].map(letter => `<option ${q.correct === letter ? "selected" : ""}>${letter}</option>`).join("")}</select></td>
-          <td class="px-2 py-2"><input aria-label="Poin soal ${q.id}" data-points="${q.id}" type="number" min="0" class="input-arena w-20 rounded-lg px-3 py-2" value="${q.points}"></td>
-          <td class="px-4 py-2 text-xs font-bold ${q.locked ? "text-green-300" : "text-blue-100"}">${q.locked ? "TERKUNCI" : "TERBUKA"}</td>`;
-        body.appendChild(row);
-      });
-    }
-
-    function renderTeamSettings() {
-      const holder = $("team-settings");
-      holder.innerHTML = "";
-      teams.forEach(team => {
-        const item = document.createElement("label");
-        item.className = "flex items-center gap-3 rounded-2xl border border-cyan-100/15 bg-slate-950/20 p-4";
-        item.innerHTML = `<span class="h-5 w-5 rounded-full" style="background:${team.color}"></span><span class="w-20 text-sm font-bold">${team.name}</span><input aria-label="Nama kelompok ${team.name}" data-team-name="${team.id}" class="input-arena min-w-0 flex-1 rounded-lg px-3 py-2" value="${team.name}">`;
-        holder.appendChild(item);
-      });
-    }
-
-    function resetGame() {
-      clearInterval(timerInterval);
-      elapsedSeconds = 0;
-      updateTimer();
-      questions.forEach(q => { q.locked = false; q.winner = null; });
-      teams.forEach(t => t.score = 0);
-      setGameState("ready");
-      renderQuestions();
-      renderScores();
-    }
-
-    function showFinal() {
-      const ranking = sortedTeams();
-      const podium = $("podium");
-      podium.innerHTML = "";
-      const order = [ranking[1], ranking[0], ranking[2]];
-      const labels = ["🥈 JUARA 2", "🏆 JUARA 1", "🥉 JUARA 3"];
-      const heights = ["h-40", "h-56", "h-32"];
-      order.forEach((team, index) => {
-        const card = document.createElement("div");
-        card.className = `podium-card flex w-[30%] max-w-[220px] flex-col justify-end rounded-t-3xl p-3 md:p-5 ${heights[index]}`;
-        card.style.background = `linear-gradient(160deg, ${team.color}, ${team.color}a8)`;
-        card.style.animationDelay = `${index * .15}s`;
-        card.innerHTML = `<span class="text-sm font-extrabold md:text-base">${labels[index]}</span><strong class="mt-2 text-sm md:text-xl">${team.name}</strong><span class="mt-1 text-xs font-bold md:text-sm">${team.score} POIN</span>`;
-        podium.appendChild(card);
-      });
-      const list = $("final-ranking");
-      list.innerHTML = "";
-      ranking.forEach((team, index) => {
-        const row = document.createElement("div");
-        row.className = "flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3";
-        row.innerHTML = `<span class="w-6 font-bold">${index + 1}</span><span class="h-3 w-3 rounded-full" style="background:${team.color}"></span><span class="flex-1 font-bold">${team.name}</span><strong>${team.score} poin</strong>`;
-        list.appendChild(row);
-      });
-      $("gameover-screen").classList.remove("hidden-layer");
-    }
-
-    $("answer-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (!currentQuestion) return;
-      if (!selectedAnswer) {
-        $("answer-message").textContent = "Silakan pilih salah satu jawaban terlebih dahulu.";
-        return;
-      }
-      const answer = selectedAnswer;
-      if (answer === currentQuestion.correct) {
-        showResult(true, currentQuestion.points);
-      } else {
-        $("answer-message").textContent = "Jawaban belum tepat. Silakan coba kembali.";
-        showResult(false);
-      }
-    });
-
-    $("start-btn").addEventListener("click", () => { if (gameState !== "playing") setGameState("playing"); });
-    $("pause-btn").addEventListener("click", () => { if (gameState === "playing") setGameState("paused"); });
-    $("close-question").addEventListener("click", closeQuestion);
-    $("teacher-open").addEventListener("click", () => { renderBank(); renderTeamSettings(); $("teacher-modal").classList.remove("hidden-layer"); });
-    $("teacher-close").addEventListener("click", () => $("teacher-modal").classList.add("hidden-layer"));
-    $("gameover-btn").addEventListener("click", () => $("confirm-modal").classList.remove("hidden-layer"));
-    $("panel-gameover").addEventListener("click", () => { $("teacher-modal").classList.add("hidden-layer"); $("confirm-modal").classList.remove("hidden-layer"); });
-    $("cancel-end").addEventListener("click", () => $("confirm-modal").classList.add("hidden-layer"));
-    $("confirm-end").addEventListener("click", () => { $("confirm-modal").classList.add("hidden-layer"); closeQuestion(); setGameState("ended"); showFinal(); });
-    $("panel-start").addEventListener("click", () => setGameState("playing"));
-    $("panel-pause").addEventListener("click", () => setGameState("paused"));
-    $("panel-reset").addEventListener("click", resetGame);
-    $("play-again").addEventListener("click", () => { $("gameover-screen").classList.add("hidden-layer"); resetGame(); });
-    $("back-settings").addEventListener("click", () => { $("gameover-screen").classList.add("hidden-layer"); $("teacher-modal").classList.remove("hidden-layer"); });
-
-    $("save-bank").addEventListener("click", () => {
-      questions.forEach(q => {
-        const pointInput = document.querySelector(`[data-points="${q.id}"]`);
-        if (!q.locked) {
-          q.options = q.options.map((option, index) => document.querySelector(`[data-option="${q.id}-${index}"]`).value.trim() || option);
-          q.correct = document.querySelector(`[data-correct="${q.id}"]`).value;
-          q.points = Math.max(0, Number(pointInput.value) || 0);
+            document.getElementById('modal-soal').classList.remove('hidden');
         }
-      });
-      $("bank-message").textContent = "Kunci jawaban dan poin berhasil disimpan untuk sesi permainan ini.";
-      setTimeout(() => $("bank-message").textContent = "", 2600);
-    });
 
-    $("save-teams").addEventListener("click", () => {
-      teams.forEach(team => {
-        const input = document.querySelector(`[data-team-name="${team.id}"]`);
-        team.name = input.value.trim().toUpperCase() || team.name;
-      });
-      renderQuestions();
-      renderScores();
-      renderTeamSettings();
-    });
+        function closeModalSoal() {
+            document.getElementById('modal-soal').classList.add('hidden');
+        }
 
-    $("save-class-info").addEventListener("click", () => {
-      const className = $("class-name-input").value.trim();
-      const teacherName = $("teacher-name-input").value.trim();
-      if (className) $("class-name-display").textContent = className;
-      if (teacherName) $("teacher-name-display").textContent = teacherName;
-      $("class-info-message").textContent = "Identitas kelas berhasil disimpan.";
-      setTimeout(() => $("class-info-message").textContent = "", 2600);
-    });
+        // Submit Choice
+        function submitAnswer(choice) {
+            const data = dbSoal[activeBoxNum];
+            closeModalSoal();
 
-    document.querySelectorAll(".tab-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".tab-btn").forEach(tab => tab.classList.remove("active"));
-        document.querySelectorAll(".teacher-tab").forEach(tab => tab.classList.add("hidden"));
-        button.classList.add("active");
-        $(`tab-${button.dataset.tab}`).classList.remove("hidden");
-        if (button.dataset.tab === "bank") renderBank();
-        if (button.dataset.tab === "teams") renderTeamSettings();
-      });
-    });
+            if (choice === data.key) {
+                // BENAR
+                showBenarOverlay(data.points);
+            } else {
+                // SALAH
+                showSalahOverlay();
+            }
+        }
 
-    updateTimer();
-    renderQuestions();
-    renderScores();
-    setGameState("ready");
-    lucide.createIcons();
-  </script>
- </body>
+        function showSalahOverlay() {
+            const overlay = document.getElementById('overlay-salah');
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                document.getElementById('modal-soal').classList.remove('hidden');
+            }, 1400);
+        }
+
+        function showBenarOverlay(points) {
+            const overlay = document.getElementById('overlay-benar');
+            const step1 = document.getElementById('benar-step-1');
+            const step2 = document.getElementById('benar-step-2');
+            
+            document.getElementById('overlay-points-added').innerText = `+${points} POIN`;
+            
+            step1.classList.remove('hidden');
+            step2.classList.add('hidden');
+            overlay.classList.remove('hidden');
+
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+
+            setTimeout(() => {
+                step1.classList.add('hidden');
+                step2.classList.remove('hidden');
+                renderTeamSelectButtons(points);
+            }, 1200);
+        }
+
+        function renderTeamSelectButtons(points) {
+            const container = document.getElementById('team-select-buttons');
+            container.innerHTML = '';
+            
+            teams.forEach(team => {
+                const btn = document.createElement('button');
+                btn.className = `p-3 rounded-xl font-extrabold border shadow-lg transition transform hover:scale-105 ${team.bg} flex items-center justify-center gap-2`;
+                btn.innerHTML = `<span>${team.icon}</span> <span>${team.name}</span>`;
+                btn.onclick = () => assignBoxToTeam(team.id, points);
+                container.appendChild(btn);
+            });
+        }
+
+        function assignBoxToTeam(teamId, points) {
+            // Add Score
+            const team = teams.find(t => t.id === teamId);
+            if (team) team.score += points;
+
+            // Lock box
+            boxStates[activeBoxNum] = { locked: true, teamId: teamId };
+            
+            // Hide overlay
+            document.getElementById('overlay-benar').classList.add('hidden');
+
+            // Refresh UI
+            renderGrid();
+            renderScoreboard();
+            renderLeaderboard();
+        }
+
+        // Render Scoreboard & Leaderboard
+        function renderScoreboard() {
+            const container = document.getElementById('scoreboard-list');
+            container.innerHTML = '';
+
+            teams.forEach(team => {
+                const div = document.createElement('div');
+                div.className = `flex items-center justify-between p-2.5 rounded-xl text-xs md:text-sm font-bold ${team.bg} shadow`;
+                div.innerHTML = `
+                    <span class="flex items-center gap-2">${team.icon} ${team.name}</span>
+                    <span class="font-black">${team.score}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderLeaderboard() {
+            const container = document.getElementById('leaderboard-list');
+            container.innerHTML = '';
+
+            // Sorted teams
+            const sorted = [...teams].sort((a,b) => b.score - a.score);
+            const medals = ['🥇', '🥈', '🥉', '4', '5', '6'];
+
+            sorted.forEach((team, idx) => {
+                const div = document.createElement('div');
+                div.className = "flex items-center justify-between p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-xs font-semibold";
+                div.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <span class="w-5 text-center font-bold text-amber-400">${medals[idx]}</span>
+                        <span class="text-slate-200">${team.name}</span>
+                    </div>
+                    <span class="text-cyan-300 font-extrabold">${team.score} Pts</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Timer Logic
+        function toggleStartGame() {
+            if (!gameActive) {
+                gameActive = true;
+                document.getElementById('start-label').innerText = "BERJALAN";
+                document.getElementById('btn-start').classList.replace('bg-emerald-600', 'bg-slate-700');
+                document.getElementById('btn-pause').disabled = false;
+                document.getElementById('btn-pause').classList.remove('opacity-50', 'cursor-not-allowed');
+                
+                timerInterval = setInterval(() => {
+                    timerSeconds++;
+                    updateTimerDisplay();
+                }, 1000);
+            }
+        }
+
+        function pauseGame() {
+            if (gameActive) {
+                gameActive = false;
+                clearInterval(timerInterval);
+                document.getElementById('start-label').innerText = "LANJUT";
+                document.getElementById('btn-start').classList.replace('bg-slate-700', 'bg-emerald-600');
+                document.getElementById('btn-pause').disabled = true;
+                document.getElementById('btn-pause').classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        function updateTimerDisplay() {
+            const h = String(Math.floor(timerSeconds / 3600)).padStart(2, '0');
+            const m = String(Math.floor((timerSeconds % 3600) / 60)).padStart(2, '0');
+            const s = String(timerSeconds % 60).padStart(2, '0');
+            document.getElementById('game-timer').innerText = `${h}:${m}:${s}`;
+        }
+
+        // Game Over & Reset
+        function confirmGameOver() {
+            if (confirm("Apakah Anda yakin ingin mengakhiri permainan?")) {
+                pauseGame();
+                showGameOverScreen();
+            }
+        }
+
+        function showGameOverScreen() {
+            const sorted = [...teams].sort((a,b) => b.score - a.score);
+
+            document.getElementById('rank1-name').innerText = sorted[0].name;
+            document.getElementById('rank1-score').innerText = `${sorted[0].score} Poin`;
+
+            document.getElementById('rank2-name').innerText = sorted[1].name;
+            document.getElementById('rank2-score').innerText = `${sorted[1].score} Poin`;
+
+            document.getElementById('rank3-name').innerText = sorted[2].name;
+            document.getElementById('rank3-score').innerText = `${sorted[2].score} Poin`;
+
+            const otherContainer = document.getElementById('other-ranks-list');
+            otherContainer.innerHTML = '';
+            for (let i = 3; i < sorted.length; i++) {
+                const d = document.createElement('div');
+                d.className = "flex justify-between items-center text-xs text-slate-300 p-2 bg-slate-900/50 rounded-lg";
+                d.innerHTML = `<span>${i+1}. ${sorted[i].name}</span> <span class="font-bold text-cyan-400">${sorted[i].score} Pts</span>`;
+                otherContainer.appendChild(d);
+            }
+
+            document.getElementById('overlay-gameover').classList.remove('hidden');
+            confetti({ particleCount: 200, spread: 100, origin: { y: 0.5 } });
+        }
+
+        function resetGame() {
+            boxStates = {};
+            teams.forEach(t => t.score = 0);
+            timerSeconds = 0;
+            updateTimerDisplay();
+            gameActive = false;
+            document.getElementById('start-label').innerText = "MULAI";
+            document.getElementById('overlay-gameover').classList.add('hidden');
+            renderGrid();
+            renderScoreboard();
+            renderLeaderboard();
+        }
+
+        function closeGameOverAndOpenTeacher() {
+            document.getElementById('overlay-gameover').classList.add('hidden');
+            openTeacherAuth();
+        }
+
+        // Teacher Control Panel Auth & Logic
+        function openTeacherAuth() {
+            document.getElementById('modal-auth').classList.remove('hidden');
+        }
+
+        function closeTeacherAuth() {
+            document.getElementById('modal-auth').classList.add('hidden');
+        }
+
+        function verifyPassword() {
+            const pwd = document.getElementById('input-password').value;
+            if (pwd === "GuruKimiaOk") {
+                closeTeacherAuth();
+                document.getElementById('input-password').value = '';
+                document.getElementById('modal-teacher').classList.remove('hidden');
+            } else {
+                alert("Password Salah! Akses Ditolak.");
+            }
+        }
+
+        function closeTeacherPanel() {
+            document.getElementById('modal-teacher').classList.add('hidden');
+        }
+
+        function switchTab(tabId) {
+            ['tab-soal', 'tab-kelompok', 'tab-info'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+                document.getElementById(`btn-${id}`).className = "px-5 py-3 text-sm font-bold text-slate-400 hover:text-slate-200";
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(`btn-${tabId}`).className = "px-5 py-3 text-sm font-bold text-cyan-400 border-b-2 border-cyan-400";
+        }
+
+        function populateTeacherTable() {
+            const tbody = document.getElementById('teacher-table-body');
+            tbody.innerHTML = '';
+            
+            for (let i = 1; i <= 100; i++) {
+                const item = dbSoal[i] || { a:'', b:'', c:'', d:'', e:'', key:'A', points: 30 };
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-slate-800 hover:bg-slate-800/40";
+                tr.innerHTML = `
+                    <td class="p-2 text-center font-bold">${i}</td>
+                    <td class="p-1"><input type="text" id="t-a-${i}" value="${item.a}" class="w-20 px-2 py-1 bg-slate-900 border border-slate-700 rounded text-xs"></td>
+                    <td class="p-1"><input type="text" id="t-b-${i}" value="${item.b}" class="w-20 px-2 py-1 bg-slate-900 border border-slate-700 rounded text-xs"></td>
+                    <td class="p-1"><input type="text" id="t-c-${i}" value="${item.c}" class="w-20 px-2 py-1 bg-slate-900 border border-slate-700 rounded text-xs"></td>
+                    <td class="p-1"><input type="text" id="t-d-${i}" value="${item.d}" class="w-20 px-2 py-1 bg-slate-900 border border-slate-700 rounded text-xs"></td>
+                    <td class="p-1"><input type="text" id="t-e-${i}" value="${item.e}" class="w-20 px-2 py-1 bg-slate-900 border border-slate-700 rounded text-xs"></td>
+                    <td class="p-1 text-center">
+                        <select id="t-key-${i}" class="bg-slate-900 border border-slate-700 text-xs px-2 py-1 rounded">
+                            <option value="A" ${item.key === 'A' ? 'selected' : ''}>A</option>
+                            <option value="B" ${item.key === 'B' ? 'selected' : ''}>B</option>
+                            <option value="C" ${item.key === 'C' ? 'selected' : ''}>C</option>
+                            <option value="D" ${item.key === 'D' ? 'selected' : ''}>D</option>
+                            <option value="E" ${item.key === 'E' ? 'selected' : ''}>E</option>
+                        </select>
+                    </td>
+                    <td class="p-1 text-center">
+                        <input type="number" id="t-pts-${i}" value="${item.points}" class="w-16 px-2 py-1 bg-slate-900 border border-slate-700 rounded text-xs text-center">
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+
+        function populateTeacherTeams() {
+            const container = document.getElementById('teacher-team-inputs');
+            container.innerHTML = '';
+            teams.forEach(t => {
+                const d = document.createElement('div');
+                d.innerHTML = `
+                    <label class="block text-xs font-bold text-slate-400 mb-1">Nama ${t.name}</label>
+                    <input type="text" id="t-team-${t.id}" value="${t.name}" class="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm">
+                `;
+                container.appendChild(d);
+            });
+        }
+
+        function saveTeacherSettings() {
+            // Save DB Questions
+            for (let i = 1; i <= 100; i++) {
+                dbSoal[i] = {
+                    a: document.getElementById(`t-a-${i}`).value,
+                    b: document.getElementById(`t-b-${i}`).value,
+                    c: document.getElementById(`t-c-${i}`).value,
+                    d: document.getElementById(`t-d-${i}`).value,
+                    e: document.getElementById(`t-e-${i}`).value,
+                    key: document.getElementById(`t-key-${i}`).value,
+                    points: parseInt(document.getElementById(`t-pts-${i}`).value) || 0
+                };
+            }
+
+            // Save Teams
+            teams.forEach(t => {
+                const val = document.getElementById(`t-team-${t.id}`).value;
+                if (val) t.name = val;
+            });
+
+            // Save Class & Teacher
+            const kelas = document.getElementById('input-kelas-name').value;
+            const guru = document.getElementById('input-guru-name').value;
+            if (kelas) document.getElementById('display-kelas').innerText = kelas;
+            if (guru) document.getElementById('display-guru').innerText = guru;
+
+            renderScoreboard();
+            renderLeaderboard();
+            closeTeacherPanel();
+            alert("Pengaturan Guru Berhasil Disimpan!");
+        }
+    </script>
+</body>
 </html>
+mathematics_of_champion.html
+mathematics_of_champion.html
+Loading mathematics_of_champion.html.Displaying mathematics_of_champion.html.
