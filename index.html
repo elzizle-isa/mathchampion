@@ -6,329 +6,1367 @@
 <title>MATHEMATICS OF CHAMPION</title>
 <style>
 :root{
-  --biru:#60a5fa; --merah:#ef4444; --kuning:#facc15; --pink:#ec4899;
-  --hijau:#22c55e; --ungu:#7c3aed; --orange:#f97316; --bg:#0f172a; --card:#1e293b;
+  --bg:#080b16;
+  --bg2:#0d1226;
+  --panel:#111832;
+  --panel2:#161f42;
+  --line:#232d55;
+  --ice:#38bdf8;
+  --ice2:#7dd3fc;
+  --gold:#ffcb47;
+  --text:#eaf0ff;
+  --muted:#8b96c4;
+  --merah:#ff4d5e;
+  --kuning:#ffd23f;
+  --pink:#ff5da2;
+  --hijau:#33d17a;
+  --ungu:#9b5de5;
+  --orange:#ff8c32;
+  --danger:#ff4d5e;
+  --ok:#33d17a;
 }
-*{box-sizing:border-box;font-family:'Poppins',Segoe UI,sans-serif}
-body{margin:0;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh}
-header{text-align:center;padding:16px;background:rgba(0,0,0,.3);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
-h1{margin:0;font-size:2.2rem;letter-spacing:2px;text-shadow:0 0 15px var(--biru)}
-header p{margin:4px 0 10px;opacity:.8}
-.top-info{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
-.top-info input{padding:6px 10px;border-radius:8px;border:none;background:#334155;color:#fff}
-.btn{padding:8px 14px;border:none;border-radius:8px;background:var(--biru);color:#fff;font-weight:bold;cursor:pointer;transition:.2s}
-.btn:hover{transform:scale(1.05);box-shadow:0 0 10px var(--biru)}
-.btn.pause{background:#64748b}.btn.end{background:var(--merah)}.btn.export{background:var(--hijau)}
-.container{display:flex;gap:16px;padding:16px;flex-wrap:wrap}
-.arena{flex:3;min-width:320px}
-.leaderboard{flex:1;min-width:280px;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,.3)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px}
-.box{background:var(--biru);aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:bold;cursor:pointer;transition:.2s;box-shadow:0 0 10px rgba(96,165,250,.4)}
-.box:hover{transform:scale(1.08);box-shadow:0 0 20px var(--biru)}
-.box.locked{cursor:not-allowed;opacity:.9}
-.box.no{font-size:1.2rem}.box.poin{font-size:.7rem;opacity:.8}
-.teacher-icon{position:fixed;top:16px;right:16px;font-size:2rem;cursor:pointer;z-index:20}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:50}
-.modal.active{display:flex}
-.modal-content{background:var(--card);padding:20px;border-radius:16px;max-width:700px;width:90%;max-height:90vh;overflow:auto}
-.choices{display:grid;gap:10px;margin-top:12px}
-.choices.desktop{grid-template-columns:1fr 1fr}
-.choices button{padding:14px;border:2px solid #475569;border-radius:10px;background:#1e293b;color:#fff;font-size:1.1rem;cursor:pointer;transition:.2s}
-.choices button:hover{background:var(--biru);border-color:var(--biru)}
-.overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60;font-size:3rem;font-weight:bold;text-align:center}
-.overlay.active{display:flex;animation:pop.5s}
-@keyframes pop{0%{transform:scale(.5)}100%{transform:scale(1)}}
-.team-pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.team-pick button{padding:10px 16px;border:none;border-radius:8px;color:#fff;font-weight:bold;cursor:pointer}
-.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.tab{padding:8px 12px;background:#334155;border-radius:8px;cursor:pointer}
-.tab.active{background:var(--biru)}
-table{width:100%;border-collapse:collapse;font-size:.75rem}
-td,th,input,select{padding:4px;border:1px solid #475569;background:#0f172a;color:#fff;border-radius:4px}
-.leader-row{display:flex;justify-content:space-between;padding:6px;border-radius:6px;margin:4px 0;transition:.3s}
-.leader-row.up{animation:blink.6s 2}
-@keyframes blink{50%{background:var(--hijau)}}
-#confetti{position:fixed;inset:0;pointer-events:none}
-@media(max-width:768px){.choices.desktop{grid-template-columns:1fr}}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(1200px 600px at 15% -10%, #14204a 0%, transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, #1a1240 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height:100vh;
+}
+.wrap{max-width:1500px;margin:0 auto;padding:18px 18px 60px;}
+
+/* ===== HEADER ===== */
+header.arena{
+  position:relative;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,#0f1730,#0a0f22 60%);
+  border-radius:18px;
+  padding:22px 26px;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+header.arena::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(100deg, rgba(56,189,248,0.05) 0px, rgba(56,189,248,0.05) 2px, transparent 2px, transparent 40px);
+  pointer-events:none;
+}
+.hbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;position:relative;z-index:1;}
+.htitle-block{flex:1;min-width:260px;}
+.eyebrow{
+  font-size:11px;letter-spacing:.35em;color:var(--ice2);font-weight:700;text-transform:uppercase;
+  margin-bottom:6px;
+}
+h1.title{
+  margin:0;font-size:clamp(26px,4.2vw,46px);font-weight:900;letter-spacing:.02em;
+  background:linear-gradient(90deg,#fff,var(--ice2) 60%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-transform:uppercase;line-height:1.05;
+}
+.subtitle{color:var(--muted);font-weight:600;font-size:15px;margin-top:4px;letter-spacing:.02em;}
+.meta-row{display:flex;gap:22px;margin-top:14px;flex-wrap:wrap;}
+.meta-chip{font-size:13px;color:var(--text);background:var(--panel);border:1px solid var(--line);padding:6px 12px;border-radius:999px;}
+.meta-chip b{color:var(--ice2);font-weight:700;}
+.hactions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;position:relative;z-index:1;}
+.icon-btn{
+  background:var(--panel);border:1px solid var(--line);color:var(--text);
+  width:42px;height:42px;border-radius:12px;cursor:pointer;font-size:18px;
+  display:flex;align-items:center;justify-content:center;transition:.15s;
+}
+.icon-btn:hover{border-color:var(--ice);transform:translateY(-1px);}
+.status-pill{
+  font-size:12px;font-weight:800;letter-spacing:.08em;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);text-transform:uppercase;
+}
+.status-running{color:var(--ok);border-color:var(--ok);background:rgba(51,209,122,.08);}
+.status-paused{color:var(--gold);border-color:var(--gold);background:rgba(255,203,71,.08);}
+.status-idle{color:var(--muted);}
+.status-ended{color:var(--merah);border-color:var(--merah);background:rgba(255,77,94,.08);}
+
+.btn{
+  font-family:inherit;font-weight:800;letter-spacing:.03em;border-radius:12px;border:1px solid transparent;
+  padding:10px 18px;cursor:pointer;font-size:13.5px;text-transform:uppercase;transition:.15s;
+}
+.btn-primary{background:linear-gradient(90deg,var(--ice),#0ea5e9);color:#04101f;}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.btn-ghost{background:var(--panel);color:var(--text);border-color:var(--line);}
+.btn-ghost:hover{border-color:var(--ice);}
+.btn-danger{background:linear-gradient(90deg,#ff4d5e,#c81e33);color:#fff;}
+.btn-gold{background:linear-gradient(90deg,var(--gold),#ffa53f);color:#1a1200;}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+
+/* ===== LAYOUT ===== */
+.layout{display:flex;gap:20px;align-items:flex-start;}
+.main-col{flex:1;min-width:0;}
+.side-col{width:320px;flex-shrink:0;}
+@media(max-width:1000px){
+  .layout{flex-direction:column;}
+  .side-col{width:100%;}
+}
+
+/* Team strip */
+.teams-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+.team-chip{
+  flex:1;min-width:120px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:10px 12px;position:relative;overflow:hidden;
+}
+.team-chip .bar{position:absolute;left:0;top:0;bottom:0;width:5px;}
+.team-chip .tname{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.team-chip .tscore{font-size:20px;font-weight:900;margin-top:2px;}
+
+/* Grid of 100 boxes */
+.grid-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.grid-title h2{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0;}
+.progress-wrap{flex:1;max-width:220px;margin-left:16px;height:8px;background:var(--panel);border-radius:99px;overflow:hidden;border:1px solid var(--line);}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--ice),var(--gold));width:0%;transition:width .4s;}
+
+.board{
+  display:grid;grid-template-columns:repeat(10,1fr);gap:8px;
+}
+@media(max-width:900px){.board{grid-template-columns:repeat(6,1fr);}}
+@media(max-width:520px){.board{grid-template-columns:repeat(5,1fr);}}
+
+.qbox{
+  aspect-ratio:1/1;border-radius:10px;border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(160deg,var(--ice) 0%,#0ea5e9 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;position:relative;color:#04101f;font-weight:900;transition:.15s;
+  box-shadow:0 2px 0 rgba(0,0,0,.25) inset, 0 4px 10px rgba(0,0,0,.25);
+}
+.qbox:hover:not(.done):not(.locked-game){transform:translateY(-3px) scale(1.04);box-shadow:0 0 0 2px var(--ice2),0 8px 16px rgba(56,189,248,.35);}
+.qbox .num{font-size:15px;line-height:1;}
+.qbox .pts{font-size:9px;font-weight:800;opacity:.8;margin-top:2px;}
+.qbox.done{cursor:default;color:#fff;box-shadow:none;}
+.qbox.done .check{position:absolute;top:3px;right:4px;font-size:10px;}
+.qbox.locked-game{filter:grayscale(.6);cursor:not-allowed;opacity:.55;}
+.qbox[data-team="merah"].done{background:linear-gradient(160deg,var(--merah),#c81e33);}
+.qbox[data-team="kuning"].done{background:linear-gradient(160deg,var(--kuning),#c99a00);color:#241a00;}
+.qbox[data-team="pink"].done{background:linear-gradient(160deg,var(--pink),#b8266f);}
+.qbox[data-team="hijau"].done{background:linear-gradient(160deg,var(--hijau),#1d8f57);}
+.qbox[data-team="ungu"].done{background:linear-gradient(160deg,var(--ungu),#6a2fb0);}
+.qbox[data-team="orange"].done{background:linear-gradient(160deg,var(--orange),#c9600f);}
+
+/* Sidebar leaderboard */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;}
+.panel + .panel{margin-top:16px;}
+.panel h3{margin:0 0 12px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.lb-row{
+  display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;margin-bottom:6px;
+  background:var(--panel2);border:1px solid var(--line);transition:.3s;
+}
+.lb-rank{width:26px;text-align:center;font-weight:900;font-size:14px;}
+.lb-dot{width:12px;height:12px;border-radius:4px;flex-shrink:0;}
+.lb-name{flex:1;font-weight:800;font-size:13px;letter-spacing:.02em;}
+.lb-score{font-weight:900;font-size:15px;}
+.lb-row.rank-up{animation:rankUp .8s ease;}
+@keyframes rankUp{0%{background:rgba(255,203,71,.35);}100%{background:var(--panel2);}}
+
+.small-note{font-size:11.5px;color:var(--muted);line-height:1.5;}
+
+/* ===== MODAL BASE ===== */
+.overlay{
+  position:fixed;inset:0;background:rgba(3,6,16,.72);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;z-index:200;padding:16px;
+}
+.overlay.show{display:flex;}
+.modal{
+  background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;
+  width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.modal.wide{max-width:1000px;}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;}
+.modal h2{margin:0 0 4px;font-size:22px;}
+.modal .modal-sub{color:var(--muted);font-size:13px;margin-bottom:16px;}
+
+/* Question modal */
+.q-headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.q-num{font-size:26px;font-weight:900;color:var(--ice2);}
+.q-pts{background:linear-gradient(90deg,var(--gold),#ffa53f);color:#1a1200;font-weight:900;padding:5px 12px;border-radius:999px;font-size:13px;}
+.q-timer{font-weight:900;font-size:14px;color:var(--merah);}
+.q-text{font-size:17px;font-weight:700;margin:14px 0 18px;line-height:1.5;}
+.opt-list{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
+.opt{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
+  background:var(--panel);cursor:pointer;font-weight:600;font-size:14.5px;transition:.15s;
+}
+.opt:hover{border-color:var(--ice);}
+.opt.selected{border-color:var(--ice);background:rgba(56,189,248,.12);}
+.opt .oletter{width:26px;height:26px;border-radius:8px;background:var(--panel2);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0;}
+.feedback-layer{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;
+  background:rgba(3,6,16,.92);border-radius:18px;z-index:2;text-align:center;
+}
+.feedback-layer.show{display:flex;}
+.feedback-icon{font-size:70px;line-height:1;margin-bottom:8px;}
+.feedback-text{font-size:20px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;}
+.feedback-text.ok{color:var(--ok);}
+.feedback-text.bad{color:var(--merah);}
+.feedback-pts{font-size:15px;color:var(--gold);font-weight:800;margin-top:6px;}
+
+.color-pick-title{text-align:center;font-weight:800;margin:6px 0 14px;color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.1em;}
+.color-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.color-opt{
+  padding:14px 8px;border-radius:12px;border:2px solid transparent;cursor:pointer;font-weight:900;text-align:center;color:#fff;font-size:13px;
+  transition:.15s;
+}
+.color-opt:hover{transform:scale(1.04);}
+.co-merah{background:var(--merah);} .co-kuning{background:var(--kuning);color:#241a00;} .co-pink{background:var(--pink);}
+.co-hijau{background:var(--hijau);} .co-ungu{background:var(--ungu);} .co-orange{background:var(--orange);}
+
+/* password modal */
+.pw-input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:15px;margin-top:10px;}
+.pw-error{color:var(--merah);font-size:13px;margin-top:8px;font-weight:700;display:none;}
+
+/* Teacher panel */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:10px;}
+.tab-btn{background:none;border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
+.tab-btn.active{color:#04101f;background:var(--ice2);border-color:var(--ice2);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+.field-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+.field{flex:1;min-width:180px;}
+.field label{display:block;font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
+.field input,.field select{width:100%;padding:9px 11px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:13.5px;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px;}
+.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;}
+.stat-card .v{font-size:24px;font-weight:900;color:var(--ice2);}
+.stat-card .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+
+.bank-search{margin-bottom:10px;}
+.bank-table-wrap{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:12px;}
+table.bank{width:100%;border-collapse:collapse;font-size:12.5px;}
+table.bank th{position:sticky;top:0;background:var(--panel2);padding:8px 6px;text-align:left;color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line);}
+table.bank td{padding:6px;border-bottom:1px solid var(--line);vertical-align:middle;}
+table.bank input,table.bank select{width:100%;padding:5px 6px;border-radius:6px;border:1px solid var(--line);background:var(--bg2);color:var(--text);font-size:12px;}
+table.bank input[type=number]{width:64px;}
+.badge-active{color:var(--ok);font-weight:800;font-size:11px;}
+.badge-done{color:var(--merah);font-weight:800;font-size:11px;}
+.save-flash{color:var(--ok);font-size:11px;font-weight:800;margin-left:6px;opacity:0;transition:.3s;}
+.save-flash.show{opacity:1;}
+
+.gc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px;}
+@media(max-width:520px){.gc-grid{grid-template-columns:1fr;}}
+.gc-btn{padding:18px;border-radius:14px;font-size:14px;}
+
+.confirm-box{text-align:center;}
+.confirm-actions{display:flex;gap:10px;justify-content:center;margin-top:18px;}
+
+/* Game over */
+.go-wrap{text-align:center;}
+.go-title{font-size:38px;font-weight:900;letter-spacing:.1em;background:linear-gradient(90deg,var(--gold),var(--ice2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.champ-card{margin:20px auto;padding:24px;border-radius:18px;max-width:340px;background:linear-gradient(160deg,var(--gold),#ffa53f);color:#1a1200;}
+.champ-card .cc-crown{font-size:36px;}
+.champ-card .cc-name{font-size:22px;font-weight:900;margin:6px 0;}
+.champ-card .cc-score{font-size:28px;font-weight:900;}
+.final-lb{text-align:left;max-width:420px;margin:0 auto;}
+
+.confetti{position:fixed;top:-20px;width:10px;height:16px;z-index:500;pointer-events:none;border-radius:2px;}
+
+.hidden{display:none !important;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
 </style>
 </head>
 <body>
-<header>
-  <h1>MATHEMATICS OF CHAMPION</h1>
-  <p>“Champions, Are You Ready?!”</p>
-  <div class="top-info">
-    <input id="namaKelas" placeholder="Nama Kelas">
-    <input id="namaGuru" placeholder="Nama Guru">
-    <div>⏱ <span id="timer">00:00</span></div>
-  </div>
-  <button class="btn" onclick="startGame()">▶ START GAME</button>
-  <button class="btn pause" onclick="togglePause()">⏸ PAUSE</button>
-  <button class="btn end" onclick="endGame()">🛑 END GAME</button>
-  <button class="btn export" onclick="exportCSV()">📊 EXPORT HASIL</button>
-</header>
 
-<div class="container">
-  <div class="arena">
-    <h2>100 KOTAK SOAL</h2>
-    <div class="grid" id="grid"></div>
-  </div>
-  <div class="leaderboard">
-    <h3>🏆 LEADERBOARD</h3>
-    <div id="leader"></div>
+<div class="wrap">
+
+  <header class="arena">
+    <div class="hbar">
+      <div class="htitle-block">
+        <div class="eyebrow">Think Fast &bull; Solve Smart &bull; Become The Champion</div>
+        <h1 class="title" id="gameNameDisplay">Mathematics of Champion</h1>
+        <div class="subtitle">Champions, Are You Ready?!</div>
+        <div class="meta-row">
+          <div class="meta-chip">Kelas: <b id="classNameDisplay">-</b></div>
+          <div class="meta-chip">Guru: <b id="teacherNameDisplay">-</b></div>
+          <div class="meta-chip" id="statusChip">Status: <b>Belum Dimulai</b></div>
+        </div>
+      </div>
+      <div class="hactions">
+        <span class="icon-btn" id="soundBtn" title="Suara">🔊</span>
+        <span class="icon-btn" id="teacherIconBtn" title="Guru">👨‍🏫</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="main-col">
+      <div class="teams-strip" id="teamsStrip"></div>
+
+      <div class="grid-title">
+        <h2>100 Kotak Soal</h2>
+        <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="small-note" id="progressText" style="margin-left:12px;">0 / 100</div>
+      </div>
+      <div class="board" id="board"></div>
+    </div>
+
+    <div class="side-col">
+      <div class="panel">
+        <h3>🏆 Leaderboard</h3>
+        <div id="leaderboard"></div>
+      </div>
+      <div class="panel">
+        <h3>Info</h3>
+        <div class="small-note">Klik kotak bernomor untuk membuka soal. Setelah jawaban benar, pilih warna kelompok untuk mengunci soal tersebut. Satu soal hanya bisa dimenangkan satu kali.</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="teacher-icon" onclick="openTeacher()">👨‍🏫</div>
+<!-- ===== QUESTION MODAL ===== -->
+<div class="overlay" id="qOverlay">
+  <div class="modal" id="qModal" style="position:relative;">
+    <button class="modal-close" id="qCloseBtn">✕</button>
+    <div class="q-headline">
+      <div><span class="q-num" id="qNumLabel">SOAL #1</span></div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <span class="q-timer hidden" id="qTimer"></span>
+        <span class="q-pts" id="qPtsLabel">10 POIN</span>
+      </div>
+    </div>
+    <div class="q-text" id="qTextLabel">Soal</div>
+    <div class="opt-list" id="qOptList"></div>
+    <button class="btn btn-primary" id="qSubmitBtn" style="width:100%;">Submit Jawaban</button>
 
-<!-- Modal Soal -->
-<div class="modal" id="modalSoal">
-  <div class="modal-content">
-    <h2 id="judulSoal">SOAL #1</h2>
-    <h3 id="poinSoal">50 POIN</h3>
-    <div class="choices desktop" id="choices"></div>
+    <div class="feedback-layer" id="feedbackLayer">
+      <div id="fbIcon" class="feedback-icon">❌</div>
+      <div id="fbText" class="feedback-text bad">JAWABAN SALAH!</div>
+      <div id="fbPts" class="feedback-pts hidden"></div>
+
+      <div id="colorPickWrap" class="hidden" style="margin-top:18px;width:100%;">
+        <div class="color-pick-title">Pilih Warna Kelompok</div>
+        <div class="color-grid">
+          <div class="color-opt co-merah" data-team="merah">🔴 MERAH</div>
+          <div class="color-opt co-kuning" data-team="kuning">🟡 KUNING</div>
+          <div class="color-opt co-pink" data-team="pink">🩷 PINK</div>
+          <div class="color-opt co-hijau" data-team="hijau">🟢 HIJAU</div>
+          <div class="color-opt co-ungu" data-team="ungu">🟣 UNGU</div>
+          <div class="color-opt co-orange" data-team="orange">🟠 ORANGE</div>
+        </div>
+      </div>
+      <button class="btn btn-ghost hidden" id="fbCloseBtn" style="margin-top:16px;">Tutup</button>
+    </div>
   </div>
 </div>
 
-<!-- Modal Pilih Kelompok -->
-<div class="modal" id="modalTeam">
-  <div class="modal-content">
-    <h2>✅ JAWABAN BENAR!</h2>
-    <p>Pilih Kelompok Pemenang:</p>
-    <div class="team-pick" id="teamPick"></div>
+<!-- ===== PASSWORD MODAL ===== -->
+<div class="overlay" id="pwOverlay">
+  <div class="modal" style="max-width:380px;">
+    <button class="modal-close" id="pwCloseBtn">✕</button>
+    <h2>Teacher Access</h2>
+    <div class="modal-sub">Masukkan Password Guru</div>
+    <input type="password" class="pw-input" id="pwInput" placeholder="Password">
+    <div class="pw-error" id="pwError">✕ Password salah</div>
+    <button class="btn btn-primary" id="pwSubmitBtn" style="width:100%;margin-top:14px;">Masuk</button>
   </div>
 </div>
 
-<!-- Modal Teacher -->
-<div class="modal" id="modalTeacher">
-  <div class="modal-content">
-    <h2>TEACHER CONTROL PANEL</h2>
+<!-- ===== TEACHER PANEL ===== -->
+<div class="overlay" id="tpOverlay">
+  <div class="modal wide">
+    <button class="modal-close" id="tpCloseBtn">✕</button>
+    <h2>Teacher Control Panel</h2>
     <div class="tabs">
-      <div class="tab active" onclick="showTab('dashboard')">Dashboard</div>
-      <div class="tab" onclick="showTab('bank')">Bank Soal</div>
-      <div class="tab" onclick="showTab('kontrol')">Game Control</div>
+      <button class="tab-btn active" data-tab="dash">Dashboard</button>
+      <button class="tab-btn" data-tab="bank">Bank Soal</button>
+      <button class="tab-btn" data-tab="ctrl">Game Control</button>
+      <button class="tab-btn" data-tab="stat">Statistik</button>
+      <button class="tab-btn" data-tab="hist">Riwayat</button>
     </div>
-    <div id="tab-dashboard">
-      <h3>Identitas</h3>
-      <input id="setKelas" placeholder="Nama Kelas"><br><br>
-      <input id="setGuru" placeholder="Nama Guru"><br><br>
-      <button class="btn" onclick="saveIdentitas()">Simpan</button>
-      <h3>Status</h3>
-      <p id="statusGame">GAME STATUS: IDLE</p>
-      <p id="statusSoal">0 / 100 SOAL TERJAWAB</p>
+
+    <!-- Dashboard -->
+    <div class="tab-pane active" id="pane-dash">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="v" id="dashStatus">IDLE</div><div class="l">Game Status</div></div>
+        <div class="stat-card"><div class="v" id="dashSolved">0/100</div><div class="l">Soal Terjawab</div></div>
+        <div class="stat-card"><div class="v" id="dashDuration">00:00</div><div class="l">Durasi</div></div>
+      </div>
+      <h3 style="margin-top:6px;">Identitas Kelas</h3>
+      <div class="field-row">
+        <div class="field"><label>Nama Permainan</label><input id="cfgGameName"></div>
+        <div class="field"><label>Nama Kelas</label><input id="cfgClassName"></div>
+        <div class="field"><label>Nama Guru</label><input id="cfgTeacherName"></div>
+      </div>
       <h3>Nama Kelompok</h3>
-      <div id="kelompokInput"></div>
+      <div class="field-row" id="teamNameFields"></div>
+      <h3>Timer Soal (Opsional)</h3>
+      <div class="field-row">
+        <div class="field">
+          <label><input type="checkbox" id="cfgTimerEnabled" style="width:auto;margin-right:6px;">Aktifkan Timer</label>
+        </div>
+        <div class="field"><label>Durasi (detik)</label><input type="number" id="cfgTimerSeconds" value="60"></div>
+      </div>
+      <button class="btn btn-primary" id="dashSaveBtn">Simpan Pengaturan</button>
+      <span class="save-flash" id="dashSaveFlash">✓ Tersimpan</span>
     </div>
-    <div id="tab-bank" style="display:none">
-      <h3>BANK SOAL - EKSPONEN & LOGARITMA</h3>
-      <table><thead><tr><th>No</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Kunci</th><th>Poin</th><th>Status</th></tr></thead><tbody id="bankBody"></tbody></table>
-      <button class="btn" onclick="saveBank()">Simpan Bank Soal</button>
+
+    <!-- Bank Soal -->
+    <div class="tab-pane" id="pane-bank">
+      <input class="pw-input bank-search" id="bankSearch" placeholder="Cari nomor soal...">
+      <div class="bank-table-wrap">
+        <table class="bank">
+          <thead><tr>
+            <th>No</th><th>Teks Soal</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Kunci</th><th>Poin</th><th>Status</th>
+          </tr></thead>
+          <tbody id="bankBody"></tbody>
+        </table>
+      </div>
+      <button class="btn btn-primary" id="bankSaveAllBtn" style="margin-top:12px;">Simpan Semua Perubahan</button>
+      <span class="save-flash" id="bankSaveFlash">✓ Tersimpan</span>
     </div>
-    <div id="tab-kontrol" style="display:none">
-      <label><input type="checkbox" id="soundToggle" checked> Aktifkan Sound</label><br><br>
-      <label><input type="checkbox" id="timerToggle" checked> Aktifkan Timer</label>
+
+    <!-- Game Control -->
+    <div class="tab-pane" id="pane-ctrl">
+      <div class="gc-grid">
+        <button class="btn btn-primary gc-btn" id="ctrlStart">▶ START GAME</button>
+        <button class="btn btn-gold gc-btn" id="ctrlPause">⏸ PAUSE GAME</button>
+        <button class="btn btn-ghost gc-btn" id="ctrlResume">▶ RESUME GAME</button>
+        <button class="btn btn-danger gc-btn" id="ctrlEnd">🛑 END GAME</button>
+      </div>
+      <h3 style="margin-top:20px;">Export Hasil</h3>
+      <button class="btn btn-ghost" id="exportBtn">📊 Export Hasil (CSV)</button>
+      <div class="small-note" style="margin-top:8px;">Mengunduh file .csv berisi ringkasan skor kelompok dan detail histori jawaban. Bisa dibuka di Excel / Google Sheets.</div>
+    </div>
+
+    <!-- Statistik -->
+    <div class="tab-pane" id="pane-stat">
+      <div class="stat-grid" id="statGrid"></div>
+      <div id="statLists"></div>
+    </div>
+
+    <!-- Riwayat -->
+    <div class="tab-pane" id="pane-hist">
+      <div id="historyList" class="small-note">Belum ada riwayat permainan.</div>
     </div>
   </div>
 </div>
 
-<!-- Modal Game Over -->
-<div class="modal" id="modalOver">
-  <div class="modal-content">
-    <h1>GAME OVER</h1>
-    <h2>🏆 FINAL LEADERBOARD</h2>
-    <div id="podium"></div>
-    <button class="btn" onclick="restart()">MAIN LAGI</button>
+<!-- ===== END GAME CONFIRM ===== -->
+<div class="overlay" id="endConfirmOverlay">
+  <div class="modal confirm-box" style="max-width:380px;">
+    <h2>Apakah Anda yakin ingin mengakhiri permainan?</h2>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" id="endCancelBtn">BATAL</button>
+      <button class="btn btn-danger" id="endConfirmBtn">YA, GAME OVER</button>
+    </div>
   </div>
 </div>
 
-<div class="overlay" id="overlay"></div>
-<canvas id="confetti"></canvas>
-<audio id="salah" src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
-<audio id="benar" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+<!-- ===== GAME OVER ===== -->
+<div class="overlay" id="goOverlay">
+  <div class="modal go-wrap" style="max-width:460px;">
+    <div class="go-title">GAME OVER</div>
+    <div id="champCardWrap"></div>
+    <h3 style="text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-size:12px;">🏆 Final Leaderboard</h3>
+    <div class="final-lb" id="finalLb"></div>
+    <button class="btn btn-ghost" id="goCloseBtn" style="margin-top:16px;">Tutup</button>
+  </div>
+</div>
 
 <script>
-const COLORS = {'Merah':'#ef4444','Kuning':'#facc15','Pink':'#ec4899','Hijau':'#22c55e','Ungu':'#7c3aed','Orange':'#f97316'};
-let game = {
-  kelas:'', guru:'', kelompok:Object.keys(COLORS), skor:{}, soal:[], status:Array(101).fill(null),
-  running:false, paused:false, timer:0, timerOn:true, soundOn:true, history:[], currentSoal:null
+(function(){
+"use strict";
+
+/* ---------------------------------------------------------------
+   CONSTANTS
+--------------------------------------------------------------- */
+const TEACHER_PASSWORD = "btslngshotcortis";
+const TEAM_META = {
+  merah:{label:"MERAH", emoji:"🔴", color:"var(--merah)"},
+  kuning:{label:"KUNING", emoji:"🟡", color:"var(--kuning)"},
+  pink:{label:"PINK", emoji:"🩷", color:"var(--pink)"},
+  hijau:{label:"HIJAU", emoji:"🟢", color:"var(--hijau)"},
+  ungu:{label:"UNGU", emoji:"🟣", color:"var(--ungu)"},
+  orange:{label:"ORANGE", emoji:"🟠", color:"var(--orange)"}
+};
+const TEAM_ORDER = ["merah","kuning","pink","hijau","ungu","orange"];
+const STATE_KEY = "mathchamp:state:v1";
+const HISTORY_KEY = "mathchamp:history-log:v1";
+
+/* ---------------------------------------------------------------
+   DEFAULT QUESTION GENERATOR
+--------------------------------------------------------------- */
+function rnd(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+function shuffle(arr){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function buildOptions(correct, distractorFn){
+  const set = new Set([correct]);
+  let guard=0;
+  while(set.size<5 && guard<50){ set.add(distractorFn()); guard++; }
+  const opts = shuffle(Array.from(set)).slice(0,5);
+  const letters=["A","B","C","D","E"];
+  const options={}; let key="A";
+  letters.forEach((L,i)=>{ options[L]= (opts[i]!==undefined? String(opts[i]) : String(correct+i+1)); if(options[L]===String(correct)) key=L; });
+  return {options,key};
+}
+
+function genTier1(){ // addition/subtraction, points 10
+  const a=rnd(2,50), b=rnd(2,50);
+  const op = Math.random()<0.5?"+":"-";
+  const correct = op==="+" ? a+b : Math.max(a,b)-Math.min(a,b);
+  const text = op==="+" ? `Berapakah hasil dari ${a} + ${b} ?` : `Berapakah hasil dari ${Math.max(a,b)} - ${Math.min(a,b)} ?`;
+  const {options,key} = buildOptions(correct, ()=>correct+rnd(-10,10));
+  return {text, options, key, points:10};
+}
+function genTier2(){ // multiplication/division, points 20
+  const a=rnd(2,12), b=rnd(2,12);
+  const isMul = Math.random()<0.6;
+  if(isMul){
+    const correct=a*b;
+    const {options,key}=buildOptions(correct, ()=>correct+rnd(-12,12));
+    return {text:`Berapakah hasil dari ${a} × ${b} ?`, options, key, points:20};
+  } else {
+    const product=a*b;
+    const correct=a;
+    const {options,key}=buildOptions(correct, ()=>Math.max(1,correct+rnd(-4,4)));
+    return {text:`Berapakah hasil dari ${product} ÷ ${b} ?`, options, key, points:20};
+  }
+}
+function genTier3(){ // mixed / percentage / squares, points 35
+  const type = rnd(0,2);
+  if(type===0){
+    const a=rnd(3,15);
+    const correct=a*a;
+    const {options,key}=buildOptions(correct, ()=>correct+rnd(-15,15));
+    return {text:`Berapakah nilai dari ${a}² ?`, options, key, points:35};
+  } else if(type===1){
+    const base=rnd(20,200)* (rnd(1,4));
+    const pct=[10,20,25,50,75][rnd(0,4)];
+    const correct= base*pct/100;
+    const {options,key}=buildOptions(correct, ()=>correct+rnd(-10,10));
+    return {text:`Berapakah ${pct}% dari ${base} ?`, options, key, points:35};
+  } else {
+    const a=rnd(2,20), b=rnd(2,20), c=rnd(2,20);
+    const correct=a+b*c;
+    const {options,key}=buildOptions(correct, ()=>correct+rnd(-20,20));
+    return {text:`Berapakah hasil dari ${a} + ${b} × ${c} ?`, options, key, points:35};
+  }
+}
+function genTier4(){ // simple algebra, points 50
+  const x=rnd(2,25);
+  const a=rnd(2,9);
+  const b=rnd(1,40);
+  const result=a*x+b;
+  const correct=x;
+  const {options,key}=buildOptions(correct, ()=>Math.max(1,correct+rnd(-6,6)));
+  return {text:`Jika ${a}x + ${b} = ${result}, berapakah nilai x ?`, options, key, points:50};
+}
+function genTier5(){ // geometry / word problem, points 75
+  const type = rnd(0,1);
+  if(type===0){
+    const p=rnd(4,30), l=rnd(4,30);
+    const correct=p*l;
+    const {options,key}=buildOptions(correct, ()=>correct+rnd(-25,25));
+    return {text:`Sebuah persegi panjang memiliki panjang ${p} cm dan lebar ${l} cm. Berapakah luasnya (cm²) ?`, options, key, points:75};
+  } else {
+    const speed=rnd(20,90), time=rnd(2,6);
+    const correct=speed*time;
+    const {options,key}=buildOptions(correct, ()=>correct+rnd(-30,30));
+    return {text:`Sebuah mobil melaju dengan kecepatan ${speed} km/jam selama ${time} jam. Berapa jarak yang ditempuh (km) ?`, options, key, points:75};
+  }
+}
+
+function generateDefaultQuestions(){
+  const qs=[];
+  for(let i=1;i<=100;i++){
+    let gen;
+    if(i<=25) gen=genTier1();
+    else if(i<=50) gen=genTier2();
+    else if(i<=75) gen=genTier3();
+    else if(i<=90) gen=genTier4();
+    else gen=genTier5();
+    qs.push({
+      id:i,
+      text:gen.text,
+      options:gen.options,
+      key:gen.key,
+      points:gen.points,
+      status:"active", // active | done
+      wonBy:null // team key
+    });
+  }
+  return qs;
+}
+
+function defaultState(){
+  return {
+    config:{
+      gameName:"Mathematics of Champion",
+      className:"Kelas Belum Diatur",
+      teacherName:"Guru Belum Diatur",
+      started:false,
+      paused:false,
+      ended:false,
+      timerEnabled:false,
+      timerSeconds:60,
+      startedAt:null,
+      endedAt:null
+    },
+    teams: TEAM_ORDER.map(k=>({key:k, name:"KELOMPOK "+TEAM_META[k].label, score:0, solved:0})),
+    questions: generateDefaultQuestions(),
+    history: [] // {time, no, kelompok, jawaban, hasil, poin}
+  };
+}
+
+/* ---------------------------------------------------------------
+   STATE / STORAGE
+--------------------------------------------------------------- */
+let state = null;
+let historyLog = [];
+let soundOn = true;
+let currentQuestionId = null;
+let timerInterval = null;
+let durationInterval = null;
+let pendingCorrectQuestionId = null;
+
+async function storageGet(key){
+  try{
+    const r = await window.storage.get(key, true);
+    return r ? JSON.parse(r.value) : null;
+  }catch(e){ return null; }
+}
+async function storageSet(key, value){
+  try{
+    await window.storage.set(key, JSON.stringify(value), true);
+    return true;
+  }catch(e){ console.error("storage set failed", e); return false; }
+}
+
+async function loadState(){
+  const loaded = await storageGet(STATE_KEY);
+  state = loaded || defaultState();
+  if(!loaded){ await storageSet(STATE_KEY, state); }
+  const hl = await storageGet(HISTORY_KEY);
+  historyLog = hl || [];
+}
+async function saveState(){
+  await storageSet(STATE_KEY, state);
+}
+async function saveHistoryLog(){
+  await storageSet(HISTORY_KEY, historyLog);
+}
+
+/* ---------------------------------------------------------------
+   SOUND (simple WebAudio beeps)
+--------------------------------------------------------------- */
+let actx=null;
+function beep(freq=440, dur=0.12, type="sine"){
+  if(!soundOn) return;
+  try{
+    if(!actx) actx = new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(), g=actx.createGain();
+    o.type=type; o.frequency.value=freq;
+    g.gain.setValueAtTime(0.15, actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, actx.currentTime+dur);
+    o.connect(g); g.connect(actx.destination);
+    o.start(); o.stop(actx.currentTime+dur);
+  }catch(e){}
+}
+const sfx = {
+  click:()=>beep(520,0.08,"square"),
+  wrong:()=>{beep(180,0.18,"sawtooth");},
+  correct:()=>{beep(660,0.12,"sine"); setTimeout(()=>beep(880,0.15,"sine"),120);},
+  points:()=>beep(990,0.1,"triangle"),
+  rankup:()=>{beep(700,0.08); setTimeout(()=>beep(1000,0.12),90);},
+  gameover:()=>{beep(300,0.3,"sawtooth");},
+  champion:()=>{[0,120,240,360].forEach((t,i)=>setTimeout(()=>beep(600+i*120,0.18,"sine"),t));}
 };
 
-// 100 SOAL EKSPONEN & LOGARITMA
-function initSoal(){
-  game.soal = [
-    [1,'2^3','2^4','2^5','2^6','2^7','C',10],[2,'3^2','3^3','3^4','3^5','3^6','B',10],[3,'5^0','5^1','5^2','5^3','5^4','A',10],[4,'10^1','10^2','10^3','10^4','10^5','B',10],[5,'4^2','4^3','4^4','4^5','4^6','B',10],
-    [6,'2^-1','2^0','2^1','2^2','2^3','B',10],[7,'3^-2','3^-1','3^0','3^1','3^2','C',10],[8,'10^-2','10^-1','10^0','10^1','10^2','C',10],[9,'5^-1','5^0','5^1','5^2','5^3','B',10],[10,'4^-2','4^-1','4^0','4^1','4^2','C',10],
-    [11,'2^4 × 2^3','2^7','2^12','2^1','2^4','A',20],[12,'3^5 ÷ 3^2','3^3','3^7','3^10','3^2','A',20],[13,'(2^2)^3','2^5','2^6','2^8','2^9','B',20],[14,'5^4 × 5^-2','5^2','5^6','5^8','5^-8','A',20],[15,'10^7 ÷ 10^4','10^3','10^11','10^28','10^4','A',20],
-    [16,'2^5 × 2^-5','2^0','2^10','2^25','2^-10','A',20],[17,'3^0 × 3^4','3^0','3^4','3^1','3^5','B',20],[18,'(10^2)^-1','10^1','10^-2','10^2','10^-1','B',20],[19,'4^3 × 4^-1','4^2','4^4','4^3','4^1','A',20],[20,'5^6 ÷ 5^6','5^0','5^1','5^12','5^-1','A',20],
-    [21,'log 10','1','10','0','2','A',30],[22,'log 100','1','2','10','100','B',30],[23,'log 1000','2','3','4','5','B',30],[24,'log 1','0','1','-1','10','A',30],[25,'log 10^4','1','2','3','4','D',30],
-    [26,'log 10^-2','-1','-2','0','2','B',30],[27,'2log 8','1','2','3','4','C',30],[28,'3log 27','1','2','3','4','C',30],[29,'5log 125','1','2','3','4','C',30],[30,'10log 10000','3','4','5','6','B',30],
-    [31,'log(2×5)','log2 + log5','log2 × log5','log2 - log5','log10','A',40],[32,'log(100/10)','log100 - log10','log100 / log10','log90','log1000','A',40],[33,'log 2^5','5 log2','2 log5','log5','5 log10','A',40],[34,'2 log3','log9','log6','log3^2','A dan C','D',40],[35,'log100 + log10','2','3','4','5','B',40],
-    [36,'log 0.01','-1','-2','0','1','B',50],[37,'log 0.001','-2','-3','-4','-5','B',50],[38,'2log 16','2','3','4','5','C',50],[39,'3log 81','2','3','4','5','C',50],[40,'5log 625','3','4','5','6','C',50],
-    [41,'log x = 2','10','20','100','200','C',50],[42,'log x = 3','100','1000','10','30','B',50],[43,'2log x = 4','4','8','16','32','C',50],[44,'10log x = 2','20','100','200','1000','B',50],[45,'log(x+1)=1','9','10','11','12','A',50],
-    [46,'2^x = 8','1','2','3','4','C',60],[47,'3^x = 27','1','2','3','4','C',60],[48,'5^x = 125','1','2','3','4','C',60],[49,'10^x = 1000','1','2','3','4','C',60],[50,'4^x = 64','2','3','4','5','C',60],
-    [51,'2log(x-1)=3','5','7','9','11','C',60],[52,'log(2x)=2','25','50','100','200','B',60],[53,'3^x = 81','2','3','4','5','C',60],[54,'5log x = 2','5','10','25','125','C',60],[55,'2^x = 32','3','4','5','6','C',60],
-    [56,'log x + log2 = 2','20','50','100','200','B',70],[57,'log x - log10 = 1','10','100','1000','10000','B',70],[58,'2^x × 2^3 = 64','1','2','3','4','C',70],[59,'3^x ÷ 3^2 = 27','1','2','3','4','C',70],[60,'10^x × 10^2 = 100000','1','2','3','4','C',70],
-    [61,'(2^3)^2','2^5','2^6','2^8','2^9','B',70],[62,'(5^2)^3','5^5','5^6','5^8','5^9','B',70],[63,'2^10 ÷ 2^7','2^3','2^7','2^10','2^17','A',70],[64,'3^8 ÷ 3^5','3^3','3^8','3^13','3^40','A',70],[65,'10^5 × 10^-2','10^3','10^7','10^10','10^-10','A',70],
-    [66,'log 1000 - log 10','1','2','3','4','B',80],[67,'log 10000 + log 100','4','5','6','7','C',80],[68,'2log 32','4','5','6','7','B',80],[69,'3log 243','4','5','6','7','B',80],[70,'5log 3125','4','5','6','7','B',80],
-    [71,'2^(x+1)=16','1','2','3','4','C',80],[72,'3^(x-1)=27','2','3','4','5','C',80],[73,'5^(2x)=625','1','2','3','4','B',80],[74,'10^(x/2)=100','2','3','4','5','C',80],[75,'4^x = 256','3','4','5','6','B',80],
-    [76,'log(x^2)=4','10','100','1000','10000','B',90],[77,'2log x = 6','8','16','32','64','D',90],[78,'3log x = 3','9','27','81','243','B',90],[79,'10log x = 3','100','1000','10000','100000','B',90],[80,'log(3x)=2','10/3','100/3','1000/3','33.3','B',90],
-    [81,'2^5 × 2^-2','2^3','2^7','2^10','2^-10','A',90],[82,'3^7 ÷ 3^4','3^3','3^11','3^28','3^-3','A',90],[83,'(10^3)^2','10^5','10^6','10^9','10^8','B',90],[84,'5^-3 × 5^5','5^2','5^-2','5^8','5^-8','A',90],[85,'2^0 + 2^1 + 2^2','5','6','7','8','C',90],
-    [86,'log 2 + log 5','log7','log10','log3','1','D',100],[87,'log100 - log10','1','2','3','4','A',100],[88,'3log27 + 2log9','3','5','7','9','C',100],[89,'2^log8','3','4','5','8','D',100],[90,'10^log1000','10','100','1000','10000','C',100],
-    [91,'log(x) + log(x-1)=1','2','5','10','11','D',100],[92,'2^x + 2^x = 32','3','4','5','6','B',100],[93,'3^(x+2)=729','2','3','4','5','C',100],[94,'log(x^3)=6','10','100','1000','10000','B',100],[95,'5^(log25)','5','10','25','125','C',100],
-    [96,'2^(2x-1)=8','1','2','3','4','B',100],[97,'3^(x^2)=81','1','2','3','4','C',100],[98,'10log(x^2)=4','10','100','1000','10000','B',100],[99,'log(100x)=3','1','10','100','1000','B',100],[100,'2^x × 3^x = 216','1','2','3','4','C',100]
-  ].map(d=>({no:d[0],A:d[1],B:d[2],C:d[3],D:d[4],E:d[5],kunci:d[6],poin:d[7]}));
+/* ---------------------------------------------------------------
+   RENDER: HEADER / STATUS
+--------------------------------------------------------------- */
+function fmtDuration(ms){
+  const s=Math.floor(ms/1000);
+  const m=String(Math.floor(s/60)).padStart(2,"0");
+  const ss=String(s%60).padStart(2,"0");
+  return `${m}:${ss}`;
 }
-initSoal();
-
-// Load & Save
-function load(){const s=JSON.parse(localStorage.getItem('moc2')||'{}');Object.assign(game,s);game.kelompok.forEach(k=>game.skor[k]=game.skor[k]||0)}
-function save(){localStorage.setItem('moc2',JSON.stringify(game))}
-
-// Render
-function renderGrid(){
-  const g=document.getElementById('grid');g.innerHTML='';
-  game.soal.forEach(s=>{
-    const div=document.createElement('div');
-    div.className='box';
-    if(game.status[s.no]){div.style.background=COLORS[game.status[s.no]];div.classList.add('locked')}
-    div.innerHTML=`<div class="no">${s.no}</div><div class="poin">${s.poin} Poin</div>`;
-    div.onclick=()=>pilihSoal(s.no);
-    g.appendChild(div);
-  })
-}
-function renderLeader(){
-  const l=document.getElementById('leader');let prev={};
-  const sorted=game.kelompok.map(k=>({k,skor:game.skor[k]})).sort((a,b)=>b.skor-a.skor);
-  l.innerHTML=sorted.map((x,i)=>{
-    const up=prev[x.k]!==undefined && game.skor[x.k]>prev[x.k]? 'up' : '';
-    prev[x.k]=x.skor;
-    return `<div class="leader-row ${up}" style="background:${COLORS[x.k]}20">
-      ${i+1}. ${x.k} <b>${x.skor}</b>
-    </div>`
-  }).join('');
+function renderHeader(){
+  document.getElementById("gameNameDisplay").textContent = state.config.gameName;
+  document.getElementById("classNameDisplay").textContent = state.config.className;
+  document.getElementById("teacherNameDisplay").textContent = state.config.teacherName;
+  const chip = document.getElementById("statusChip");
+  let label="Belum Dimulai", cls="status-idle";
+  if(state.config.ended){ label="Selesai"; cls="status-ended"; }
+  else if(state.config.paused){ label="Dijeda"; cls="status-paused"; }
+  else if(state.config.started){ label="Berlangsung"; cls="status-running"; }
+  chip.innerHTML = `Status: <b>${label}</b>`;
+  chip.className = "meta-chip "+cls;
 }
 
-// Gameplay
-function pilihSoal(no){
-  if(game.status[no]||!game.running||game.paused) return;
-  game.currentSoal=no;const s=game.soal[no-1];
-  document.getElementById('judulSoal').textContent=`SOAL #${no}`;
-  document.getElementById('poinSoal').textContent=`${s.poin} POIN`;
-  const c=document.getElementById('choices');
-  c.innerHTML=['A','B','C','D','E'].map(x=>`<button onclick="jawab('${x}')">${x}. ${s[x]}</button>`).join('');
-  document.getElementById('modalSoal').classList.add('active');playSound('click');
+/* ---------------------------------------------------------------
+   RENDER: TEAM STRIP + LEADERBOARD
+--------------------------------------------------------------- */
+let lastRankOrder = [];
+function renderTeams(){
+  const strip = document.getElementById("teamsStrip");
+  strip.innerHTML = "";
+  state.teams.forEach(t=>{
+    const meta = TEAM_META[t.key];
+    const div = document.createElement("div");
+    div.className = "team-chip";
+    div.innerHTML = `<div class="bar" style="background:${meta.color}"></div>
+      <div class="tname">${meta.emoji} ${t.name}</div>
+      <div class="tscore">${t.score}</div>`;
+    strip.appendChild(div);
+  });
 }
-function jawab(pil){
-  const s=game.soal[game.currentSoal-1];
-  document.getElementById('modalSoal').classList.remove('active');
-  const benar=pil===s.kunci;
-  game.history.push({waktu:new Date().toLocaleTimeString(),no:game.currentSoal,kelompok:'-',jawaban:pil,hasil:benar?'Benar':'Salah',poin:benar?s.poin:0});
-  if(benar){
-    playSound('benar');showOverlay('✅','JAWABAN BENAR!','+'+s.poin+' POIN','#22c55e');confetti();
-    setTimeout(()=>pilihKelompok(s.poin),1200);
-  }else{
-    playSound('salah');showOverlay('❌','JAWABAN SALAH!','Coba Lagi','#ef4444');
-    setTimeout(()=>pilihSoal(game.currentSoal),1000);
+
+function renderLeaderboard(){
+  const lb = document.getElementById("leaderboard");
+  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
+  const medals=["🥇","🥈","🥉"];
+  const newOrder = sorted.map(t=>t.key);
+  const changed = JSON.stringify(newOrder)!==JSON.stringify(lastRankOrder) && lastRankOrder.length>0;
+  lb.innerHTML = "";
+  sorted.forEach((t,i)=>{
+    const meta=TEAM_META[t.key];
+    const row=document.createElement("div");
+    row.className="lb-row"+(changed?" rank-up":"");
+    row.innerHTML = `<div class="lb-rank">${medals[i]||(i+1)}</div>
+      <div class="lb-dot" style="background:${meta.color}"></div>
+      <div class="lb-name">${t.name}</div>
+      <div class="lb-score">${t.score}</div>`;
+    lb.appendChild(row);
+  });
+  if(changed) sfx.rankup();
+  lastRankOrder = newOrder;
+}
+
+/* ---------------------------------------------------------------
+   RENDER: BOARD
+--------------------------------------------------------------- */
+function renderBoard(){
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+  state.questions.forEach(q=>{
+    const box = document.createElement("div");
+    const locked = !state.config.started || state.config.paused || state.config.ended;
+    box.className = "qbox"+(q.status==="done"?" done":"")+((locked && q.status!=="done")?" locked-game":"");
+    if(q.status==="done") box.dataset.team = q.wonBy;
+    box.innerHTML = `<div class="num">${String(q.id).padStart(2,"0")}</div>
+      <div class="pts">${q.points} Poin</div>
+      ${q.status==="done" ? `<div class="check">✓</div>` : ""}`;
+    if(q.status!=="done" && !locked){
+      box.addEventListener("click", ()=>openQuestion(q.id));
+    }
+    board.appendChild(box);
+  });
+  const done = state.questions.filter(q=>q.status==="done").length;
+  document.getElementById("progressFill").style.width = done+"%";
+  document.getElementById("progressText").textContent = `${done} / 100`;
+}
+
+function renderAll(){
+  renderHeader();
+  renderTeams();
+  renderLeaderboard();
+  renderBoard();
+}
+
+/* ---------------------------------------------------------------
+   QUESTION MODAL FLOW
+--------------------------------------------------------------- */
+let selectedLetter = null;
+
+function openQuestion(id){
+  if(!state.config.started || state.config.paused || state.config.ended) return;
+  const q = state.questions.find(x=>x.id===id);
+  if(!q || q.status==="done") return;
+  currentQuestionId = id;
+  selectedLetter = null;
+  sfx.click();
+
+  document.getElementById("qNumLabel").textContent = "SOAL #"+q.id;
+  document.getElementById("qPtsLabel").textContent = q.points+" POIN";
+  document.getElementById("qTextLabel").textContent = q.text;
+  const optList = document.getElementById("qOptList");
+  optList.innerHTML = "";
+  ["A","B","C","D","E"].forEach(L=>{
+    const div=document.createElement("div");
+    div.className="opt";
+    div.dataset.letter=L;
+    div.innerHTML = `<span class="oletter">${L}</span><span>${q.options[L]}</span>`;
+    div.addEventListener("click", ()=>{
+      document.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
+      div.classList.add("selected");
+      selectedLetter = L;
+    });
+    optList.appendChild(div);
+  });
+
+  document.getElementById("feedbackLayer").classList.remove("show");
+  document.getElementById("fbPts").classList.add("hidden");
+  document.getElementById("colorPickWrap").classList.add("hidden");
+  document.getElementById("fbCloseBtn").classList.add("hidden");
+  document.getElementById("qSubmitBtn").disabled=false;
+
+  const timerLabel = document.getElementById("qTimer");
+  clearInterval(timerInterval);
+  if(state.config.timerEnabled){
+    let remaining = state.config.timerSeconds;
+    timerLabel.classList.remove("hidden");
+    timerLabel.textContent = "⏱ "+remaining+"s";
+    timerInterval = setInterval(()=>{
+      remaining--;
+      timerLabel.textContent = "⏱ "+remaining+"s";
+      if(remaining<=0){
+        clearInterval(timerInterval);
+        closeQuestionModal();
+      }
+    },1000);
+  } else {
+    timerLabel.classList.add("hidden");
+  }
+
+  document.getElementById("qOverlay").classList.add("show");
+}
+
+function closeQuestionModal(){
+  clearInterval(timerInterval);
+  document.getElementById("qOverlay").classList.remove("show");
+  currentQuestionId = null;
+}
+
+async function submitAnswer(){
+  if(!selectedLetter || currentQuestionId===null) return;
+  const q = state.questions.find(x=>x.id===currentQuestionId);
+  if(!q || q.status==="done") return;
+  clearInterval(timerInterval);
+  const layer = document.getElementById("feedbackLayer");
+  const icon = document.getElementById("fbIcon");
+  const text = document.getElementById("fbText");
+  const ptsEl = document.getElementById("fbPts");
+  const colorWrap = document.getElementById("colorPickWrap");
+  const closeBtn = document.getElementById("fbCloseBtn");
+
+  const isCorrect = selectedLetter === q.key;
+  logAttempt(q, selectedLetter, isCorrect);
+
+  if(isCorrect){
+    icon.textContent="✅"; text.textContent="JAWABAN BENAR!"; text.className="feedback-text ok";
+    ptsEl.textContent = "+"+q.points+" POIN"; ptsEl.classList.remove("hidden");
+    colorWrap.classList.remove("hidden");
+    closeBtn.classList.add("hidden");
+    pendingCorrectQuestionId = q.id;
+    sfx.correct();
+  } else {
+    icon.textContent="❌"; text.textContent="JAWABAN SALAH!"; text.className="feedback-text bad";
+    ptsEl.classList.add("hidden");
+    colorWrap.classList.add("hidden");
+    closeBtn.classList.remove("hidden");
+    sfx.wrong();
+  }
+  layer.classList.add("show");
+  await saveState();
+}
+
+function logAttempt(q, letter, isCorrect){
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2,"0");
+  const mm = String(now.getMinutes()).padStart(2,"0");
+  state.history.push({
+    time: `${hh}:${mm}`,
+    no: q.id,
+    kelompok: "-", // filled in when correct + team chosen
+    jawaban: letter,
+    hasil: isCorrect ? "Benar" : "Salah",
+    poin: isCorrect ? q.points : 0
+  });
+}
+
+async function chooseTeamForCorrect(teamKey){
+  if(pendingCorrectQuestionId===null) return;
+  const q = state.questions.find(x=>x.id===pendingCorrectQuestionId);
+  if(!q || q.status==="done") return;
+  q.status="done";
+  q.wonBy=teamKey;
+  const team = state.teams.find(t=>t.key===teamKey);
+  team.score += q.points;
+  team.solved += 1;
+  // update most recent matching history row (last row for this question with kelompok '-')
+  for(let i=state.history.length-1;i>=0;i--){
+    if(state.history[i].no===q.id && state.history[i].kelompok==="-"){
+      state.history[i].kelompok = TEAM_META[teamKey].label;
+      break;
+    }
+  }
+  sfx.points();
+  await saveState();
+  renderAll();
+  pendingCorrectQuestionId = null;
+  closeQuestionModal();
+  checkAllSolved();
+}
+
+function checkAllSolved(){
+  const remaining = state.questions.filter(q=>q.status!=="done").length;
+  if(remaining===0 && state.config.started && !state.config.ended){
+    endGame();
   }
 }
-function pilihKelompok(poin){
-  const tp=document.getElementById('teamPick');tp.innerHTML='';
-  game.kelompok.forEach(k=>{
-    const b=document.createElement('button');
-    b.style.background=COLORS[k];b.textContent=k;
-    b.onclick=()=>{
-      game.skor[k]+=poin;game.status[game.currentSoal]=k;
-      game.history[game.history.length-1].kelompok=k;
-      save();renderGrid();renderLeader();
-      document.getElementById('modalTeam').classList.remove('active');
-    };
-    tp.appendChild(b);
-  });
-  document.getElementById('modalTeam').classList.add('active');
-}
-function showOverlay(icon,text,sub,color){
-  const o=document.getElementById('overlay');
-  o.innerHTML=`<div style="color:${color}">${icon}<br>${text}<br><span style="font-size:1.5rem">${sub}</span></div>`;
-  o.classList.add('active');setTimeout(()=>o.classList.remove('active'),1200);
-}
 
-// Teacher
-function openTeacher(){
-  const pw=prompt('TEACHER ACCESS\nMasukkan Password Guru:');
-  if(pw==='btslngshotcortis'){document.getElementById('modalTeacher').classList.add('active');loadTeacher()}
-  else alert('✕ Password salah');
+/* ---------------------------------------------------------------
+   TEACHER PANEL
+--------------------------------------------------------------- */
+function openPasswordModal(){
+  document.getElementById("pwInput").value="";
+  document.getElementById("pwError").style.display="none";
+  document.getElementById("pwOverlay").classList.add("show");
+  setTimeout(()=>document.getElementById("pwInput").focus(),100);
 }
-function showTab(id){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  event.target.classList.add('active');
-  ['dashboard','bank','kontrol'].forEach(x=>document.getElementById('tab-'+x).style.display=x===id?'block':'none');
-}
-function loadTeacher(){
-  document.getElementById('setKelas').value=game.kelas;
-  document.getElementById('setGuru').value=game.guru;
-  const ki=document.getElementById('kelompokInput');ki.innerHTML='';
-  game.kelompok.forEach((k,i)=>ki.innerHTML+=`<input value="${k}" onchange="game.kelompok[${i}]=this.value"><br>`);
-  const bb=document.getElementById('bankBody');bb.innerHTML='';
-  game.soal.forEach(s=>{
-    bb.innerHTML+=`<tr><td>${s.no}</td>
-    ${['A','B','C','D','E'].map(x=>`<td><input value="${s[x]}" onchange="game.soal[${s.no-1}].${x}=this.value"></td>`).join('')}
-    <td><select onchange="game.soal[${s.no-1}].kunci=this.value">${['A','B','C','D','E'].map(x=>`<option ${s.kunci===x?'selected':''}>${x}</option>`).join('')}</select></td>
-    <td><input type="number" value="${s.poin}" onchange="game.soal[${s.no-1}].poin=+this.value"></td>
-    <td>${game.status[s.no]?'Selesai':'Aktif'}</td></tr>`;
-  });
-  document.getElementById('statusGame').textContent='GAME STATUS: '+(game.running?'RUNNING':'IDLE');
-  document.getElementById('statusSoal').textContent=`${game.status.filter(x=>x).length} / 100 SOAL TERJAWAB`;
-}
-function saveIdentitas(){game.kelas=document.getElementById('setKelas').value;game.guru=document.getElementById('setGuru').value;save();alert('Tersimpan')}
-function saveBank(){save();alert('Bank Soal Tersimpan')}
-
-// Game Control
-let interval;
-function startGame(){game.running=true;game.paused=false;interval=setInterval(()=>{if(game.running&&!game.paused&&game.timerOn)document.getElementById('timer').textContent=formatTime(++game.timer)},1000)}
-function togglePause(){game.paused=!game.paused}
-function endGame(){
-  if(confirm('Apakah Anda yakin ingin mengakhiri permainan?')){
-    clearInterval(interval);game.running=false;
-    const sorted=game.kelompok.map(k=>({k,skor:game.skor[k]})).sort((a,b)=>b.skor-a.skor);
-    document.getElementById('podium').innerHTML=`
-      <h2>🏆 CHAMPION</h2><h1 style="color:${COLORS[sorted[0].k]}">${sorted[0].k}</h1><h3>${sorted[0].skor} POIN</h3>
-      <h3>🥈 ${sorted[1].k} - ${sorted[1].skor} POIN</h3>
-      <h3>🥉 ${sorted[2].k} - ${sorted[2].skor} POIN</h3>`;
-    document.getElementById('modalOver').classList.add('active');confetti();
+function checkPassword(){
+  const val = document.getElementById("pwInput").value;
+  if(val === TEACHER_PASSWORD){
+    document.getElementById("pwOverlay").classList.remove("show");
+    openTeacherPanel();
+  } else {
+    document.getElementById("pwError").style.display="block";
   }
 }
-function restart(){document.getElementById('modalOver').classList.remove('active');game.status=Array(101).fill(null);game.kelompok.forEach(k=>game.skor[k]=0);game.history=[];game.timer=0;document.getElementById('timer').textContent='00:00';save();renderGrid();renderLeader()}
 
-// Export CSV - FIXED
-function exportCSV(){
-  let csv1="Ranking,Kelompok,Warna,Total Poin,Soal Terjawab\n";
-  const sorted=game.kelompok.map(k=>({k,skor:game.skor[k],terjawab:game.status.filter(x=>x===k).length})).sort((a,b)=>b.skor-a.skor);
-  sorted.forEach((x,i)=>{csv1+=`${i+1},${x.k},${x.k},${x.skor},${x.terjawab}\n`});
-  downloadCSV(csv1,'Hasil_Akhir.csv');
-
-  let csv2="Waktu,No Soal,Kelompok,Jawaban,Hasil,Poin\n";
-  game.history.forEach(h=>{csv2+=`${h.waktu},${h.no},${h.kelompok},${h.jawaban},${h.hasil},${h.poin}\n`});
-  downloadCSV(csv2,'Detail_Jawaban.csv');
-  alert('2 file CSV berhasil diunduh!')
-}
-function downloadCSV(csv,filename){
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
-  const link=document.createElement('a');
-  link.href=URL.createObjectURL(blob);
-  link.download=filename;
-  link.click();
-}
-function formatTime(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
-function playSound(t){if(!game.soundOn)return;if(t==='benar')document.getElementById('benar').play();if(t==='salah')document.getElementById('salah').play()}
-function confetti(){
-  const c=document.getElementById('confetti').getContext('2d');
-  c.canvas.width=window.innerWidth;c.canvas.height=window.innerHeight;
-  for(let i=0;i<100;i++){c.fillStyle=`hsl(${Math.random()*360},100%,50%)`;c.fillRect(Math.random()*window.innerWidth,Math.random()*window.innerHeight,6,6)}
-  setTimeout(()=>c.clearRect(0,0,window.innerWidth,window.innerHeight),1500)
+function openTeacherPanel(){
+  fillDashboardForm();
+  renderBankSoal();
+  renderStats();
+  renderHistoryLog();
+  updateGameControlButtons();
+  document.getElementById("tpOverlay").classList.add("show");
 }
 
-load();renderGrid();renderLeader();
-document.getElementById('soundToggle').onchange=e=>game.soundOn=e.target.checked;
-document.getElementById('timerToggle').onchange=e=>game.timerOn=e.target.checked;
+/* --- Dashboard tab --- */
+function fillDashboardForm(){
+  document.getElementById("cfgGameName").value = state.config.gameName;
+  document.getElementById("cfgClassName").value = state.config.className;
+  document.getElementById("cfgTeacherName").value = state.config.teacherName;
+  document.getElementById("cfgTimerEnabled").checked = state.config.timerEnabled;
+  document.getElementById("cfgTimerSeconds").value = state.config.timerSeconds;
+
+  const wrap = document.getElementById("teamNameFields");
+  wrap.innerHTML = "";
+  state.teams.forEach(t=>{
+    const meta = TEAM_META[t.key];
+    const f = document.createElement("div");
+    f.className="field";
+    f.innerHTML = `<label>${meta.emoji} ${meta.label}</label><input data-team="${t.key}" class="teamNameInput" value="${t.name}">`;
+    wrap.appendChild(f);
+  });
+
+  const done = state.questions.filter(q=>q.status==="done").length;
+  document.getElementById("dashSolved").textContent = `${done}/100`;
+  let statusLabel="IDLE";
+  if(state.config.ended) statusLabel="ENDED";
+  else if(state.config.paused) statusLabel="PAUSED";
+  else if(state.config.started) statusLabel="RUNNING";
+  document.getElementById("dashStatus").textContent = statusLabel;
+
+  updateDurationDisplay();
+}
+function updateDurationDisplay(){
+  const el = document.getElementById("dashDuration");
+  if(state.config.startedAt){
+    const end = state.config.endedAt || Date.now();
+    el.textContent = fmtDuration(end - state.config.startedAt);
+  } else {
+    el.textContent = "00:00";
+  }
+}
+
+async function saveDashboardSettings(){
+  state.config.gameName = document.getElementById("cfgGameName").value || "Mathematics of Champion";
+  state.config.className = document.getElementById("cfgClassName").value || "-";
+  state.config.teacherName = document.getElementById("cfgTeacherName").value || "-";
+  state.config.timerEnabled = document.getElementById("cfgTimerEnabled").checked;
+  state.config.timerSeconds = parseInt(document.getElementById("cfgTimerSeconds").value)||60;
+  document.querySelectorAll(".teamNameInput").forEach(inp=>{
+    const t = state.teams.find(x=>x.key===inp.dataset.team);
+    if(t) t.name = inp.value || t.name;
+  });
+  await saveState();
+  renderAll();
+  const flash = document.getElementById("dashSaveFlash");
+  flash.classList.add("show");
+  setTimeout(()=>flash.classList.remove("show"),1500);
+}
+
+/* --- Bank Soal tab --- */
+function renderBankSoal(filter){
+  const body = document.getElementById("bankBody");
+  body.innerHTML = "";
+  state.questions.forEach(q=>{
+    if(filter && !String(q.id).includes(filter)) return;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${q.id}</td>
+      <td><input data-field="text" data-id="${q.id}" value="${escapeAttr(q.text)}" style="min-width:180px;"></td>
+      <td><input data-field="optA" data-id="${q.id}" value="${escapeAttr(q.options.A)}"></td>
+      <td><input data-field="optB" data-id="${q.id}" value="${escapeAttr(q.options.B)}"></td>
+      <td><input data-field="optC" data-id="${q.id}" value="${escapeAttr(q.options.C)}"></td>
+      <td><input data-field="optD" data-id="${q.id}" value="${escapeAttr(q.options.D)}"></td>
+      <td><input data-field="optE" data-id="${q.id}" value="${escapeAttr(q.options.E)}"></td>
+      <td>
+        <select data-field="key" data-id="${q.id}">
+          ${["A","B","C","D","E"].map(L=>`<option value="${L}" ${q.key===L?"selected":""}>${L}</option>`).join("")}
+        </select>
+      </td>
+      <td><input type="number" data-field="points" data-id="${q.id}" value="${q.points}"></td>
+      <td>${q.status==="done" ? '<span class="badge-done">Selesai</span>' : '<span class="badge-active">Aktif</span>'}</td>
+    `;
+    body.appendChild(tr);
+  });
+}
+function escapeAttr(s){
+  return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+}
+
+async function saveBankSoal(){
+  const body = document.getElementById("bankBody");
+  body.querySelectorAll("tr").forEach(tr=>{
+    const inputs = tr.querySelectorAll("[data-id]");
+    if(inputs.length===0) return;
+    const id = parseInt(inputs[0].dataset.id);
+    const q = state.questions.find(x=>x.id===id);
+    if(!q) return;
+    inputs.forEach(inp=>{
+      const field = inp.dataset.field;
+      const val = inp.value;
+      if(field==="text") q.text = val;
+      else if(field==="optA") q.options.A = val;
+      else if(field==="optB") q.options.B = val;
+      else if(field==="optC") q.options.C = val;
+      else if(field==="optD") q.options.D = val;
+      else if(field==="optE") q.options.E = val;
+      else if(field==="key") q.key = val;
+      else if(field==="points") q.points = parseInt(val)||0;
+    });
+  });
+  await saveState();
+  renderAll();
+  const flash = document.getElementById("bankSaveFlash");
+  flash.classList.add("show");
+  setTimeout(()=>flash.classList.remove("show"),1500);
+}
+
+/* --- Game Control tab --- */
+function updateGameControlButtons(){
+  document.getElementById("ctrlStart").disabled = state.config.started;
+  document.getElementById("ctrlPause").disabled = !state.config.started || state.config.paused || state.config.ended;
+  document.getElementById("ctrlResume").disabled = !state.config.paused || state.config.ended;
+  document.getElementById("ctrlEnd").disabled = state.config.ended || !state.config.started;
+}
+
+async function startGame(){
+  state.config.started = true;
+  state.config.paused = false;
+  state.config.ended = false;
+  state.config.startedAt = Date.now();
+  state.config.endedAt = null;
+  await saveState();
+  renderAll();
+  updateGameControlButtons();
+  fillDashboardForm();
+  startDurationTicker();
+}
+async function pauseGame(){
+  state.config.paused = true;
+  await saveState();
+  renderAll();
+  updateGameControlButtons();
+  fillDashboardForm();
+}
+async function resumeGame(){
+  state.config.paused = false;
+  await saveState();
+  renderAll();
+  updateGameControlButtons();
+  fillDashboardForm();
+}
+async function endGame(){
+  state.config.ended = true;
+  state.config.started = false;
+  state.config.paused = false;
+  state.config.endedAt = Date.now();
+  await saveState();
+
+  // Append to history log
+  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
+  historyLog.push({
+    date: new Date().toISOString(),
+    dateLabel: new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}),
+    winner: sorted[0] ? sorted[0].name : "-",
+    totalQuestions: 100,
+    solved: state.questions.filter(q=>q.status==="done").length,
+    finalScores: sorted.map(t=>({name:t.name,score:t.score,color:t.key}))
+  });
+  await saveHistoryLog();
+
+  clearInterval(durationInterval);
+  renderAll();
+  updateGameControlButtons();
+  fillDashboardForm();
+  showGameOver();
+  sfx.gameover();
+}
+
+function startDurationTicker(){
+  clearInterval(durationInterval);
+  durationInterval = setInterval(()=>{
+    if(document.getElementById("tpOverlay").classList.contains("show")){
+      updateDurationDisplay();
+    }
+  },1000);
+}
+
+/* --- Statistik tab --- */
+function renderStats(){
+  const totalAttempts = state.history.length;
+  const correctAttempts = state.history.filter(h=>h.hasil==="Benar").length;
+  const successRate = totalAttempts? Math.round((correctAttempts/totalAttempts)*100) : 0;
+
+  const attemptsByQ = {};
+  state.history.forEach(h=>{ attemptsByQ[h.no] = (attemptsByQ[h.no]||0)+1; });
+  const mostAttempted = Object.entries(attemptsByQ).sort((a,b)=>b[1]-a[1])[0];
+
+  const correctByQ = {}, totalByQ = {};
+  state.history.forEach(h=>{
+    totalByQ[h.no] = (totalByQ[h.no]||0)+1;
+    if(h.hasil==="Benar") correctByQ[h.no] = (correctByQ[h.no]||0)+1;
+  });
+  let hardest=null, hardestRate=2;
+  Object.keys(totalByQ).forEach(no=>{
+    const rate = (correctByQ[no]||0)/totalByQ[no];
+    if(totalByQ[no]>=1 && rate<hardestRate){ hardestRate=rate; hardest=no; }
+  });
+
+  const teamCorrect = {};
+  state.teams.forEach(t=>teamCorrect[t.key]=0);
+  state.questions.forEach(q=>{ if(q.status==="done") teamCorrect[q.wonBy] = (teamCorrect[q.wonBy]||0)+1; });
+  const bestTeamKey = Object.entries(teamCorrect).sort((a,b)=>b[1]-a[1])[0];
+  const bestTeam = bestTeamKey ? state.teams.find(t=>t.key===bestTeamKey[0]) : null;
+
+  const grid = document.getElementById("statGrid");
+  grid.innerHTML = `
+    <div class="stat-card"><div class="v">${totalAttempts}</div><div class="l">Total Percobaan</div></div>
+    <div class="stat-card"><div class="v">${successRate}%</div><div class="l">Persentase Keberhasilan</div></div>
+    <div class="stat-card"><div class="v">${mostAttempted? "#"+mostAttempted[0] : "-"}</div><div class="l">Soal Paling Banyak Dicoba</div></div>
+    <div class="stat-card"><div class="v">${hardest? "#"+hardest : "-"}</div><div class="l">Soal Paling Sulit</div></div>
+    <div class="stat-card"><div class="v">${bestTeam? bestTeam.name : "-"}</div><div class="l">Jawaban Benar Terbanyak</div></div>
+  `;
+}
+
+/* --- Riwayat tab --- */
+function renderHistoryLog(){
+  const el = document.getElementById("historyList");
+  if(historyLog.length===0){
+    el.innerHTML = "Belum ada riwayat permainan.";
+    return;
+  }
+  el.innerHTML = historyLog.slice().reverse().map(h=>`
+    <div class="panel" style="margin-bottom:10px;">
+      <div><b>Tanggal:</b> ${h.dateLabel}</div>
+      <div><b>Pemenang:</b> ${h.winner}</div>
+      <div><b>Total Soal:</b> ${h.totalQuestions} &nbsp; <b>Soal Terjawab:</b> ${h.solved}</div>
+    </div>
+  `).join("");
+}
+
+/* ---------------------------------------------------------------
+   EXPORT CSV  (fixed: proper Blob + BOM + anchor download)
+--------------------------------------------------------------- */
+function csvEscape(val){
+  const s = String(val===undefined||val===null ? "" : val);
+  if(/[",\n;]/.test(s)){
+    return '"' + s.replace(/"/g,'""') + '"';
+  }
+  return s;
+}
+function toCsvRow(arr){
+  return arr.map(csvEscape).join(",");
+}
+
+function exportResultsCsv(){
+  const rows = [];
+  rows.push(["MATHEMATICS OF CHAMPION - HASIL PERMAINAN"]);
+  rows.push(["Kelas", state.config.className]);
+  rows.push(["Guru", state.config.teacherName]);
+  rows.push(["Tanggal", new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"})]);
+  rows.push([]);
+
+  // Summary table
+  rows.push(["RINGKASAN SKOR KELOMPOK"]);
+  rows.push(["Ranking","Kelompok","Warna","Total Poin","Soal Terjawab"]);
+  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
+  sorted.forEach((t,i)=>{
+    rows.push([i+1, t.name, TEAM_META[t.key].label, t.score, t.solved]);
+  });
+  rows.push([]);
+
+  // Detail table
+  rows.push(["DETAIL HISTORI JAWABAN"]);
+  rows.push(["Waktu","No Soal","Kelompok","Jawaban","Hasil","Poin"]);
+  state.history.forEach(h=>{
+    rows.push([h.time, h.no, h.kelompok, h.jawaban, h.hasil, h.poin]);
+  });
+
+  const csvContent = rows.map(toCsvRow).join("\r\n");
+  // BOM so Excel opens UTF-8 (special chars, emoji-free labels) correctly
+  const blob = new Blob(["\uFEFF" + csvContent], {type:"text/csv;charset=utf-8;"});
+  const url = URL.createObjectURL(blob);
+
+  const dateStamp = new Date().toISOString().slice(0,10);
+  const safeClassName = (state.config.className||"kelas").replace(/[^a-z0-9]+/gi,"_");
+  const filename = `hasil-mathematics-of-champion-${safeClassName}-${dateStamp}.csv`;
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+
+/* ---------------------------------------------------------------
+   GAME OVER SCREEN
+--------------------------------------------------------------- */
+function showGameOver(){
+  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
+  const champ = sorted[0];
+  const champMeta = champ ? TEAM_META[champ.key] : null;
+
+  document.getElementById("champCardWrap").innerHTML = champ ? `
+    <div class="champ-card">
+      <div class="cc-crown">🏆</div>
+      <div style="font-size:12px;font-weight:800;letter-spacing:.1em;">CONGRATULATIONS!</div>
+      <div class="cc-name">${champMeta.emoji} ${champ.name}</div>
+      <div style="font-size:11px;font-weight:800;letter-spacing:.15em;">MATHEMATICS CHAMPION</div>
+      <div class="cc-score">${champ.score} POINTS</div>
+    </div>
+  ` : "";
+
+  const medals=["🥇 CHAMPION","🥈 RUNNER UP","🥉"];
+  document.getElementById("finalLb").innerHTML = sorted.map((t,i)=>{
+    const meta = TEAM_META[t.key];
+    return `<div class="lb-row">
+      <div class="lb-rank">${medals[i] ? medals[i].split(" ")[0] : (i+1)}</div>
+      <div class="lb-dot" style="background:${meta.color}"></div>
+      <div class="lb-name">${t.name}</div>
+      <div class="lb-score">${t.score}</div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("goOverlay").classList.add("show");
+  fireConfetti();
+  sfx.champion();
+}
+
+function fireConfetti(){
+  const colors = ["#ff4d5e","#ffd23f","#ff5da2","#33d17a","#9b5de5","#ff8c32","#38bdf8"];
+  for(let i=0;i<60;i++){
+    setTimeout(()=>{
+      const el = document.createElement("div");
+      el.className="confetti";
+      el.style.left = Math.random()*100+"vw";
+      el.style.background = colors[rnd(0,colors.length-1)];
+      el.style.transform = `rotate(${rnd(0,360)}deg)`;
+      document.body.appendChild(el);
+      const duration = 2200+Math.random()*1500;
+      el.animate([
+        {transform:`translateY(0) rotate(0deg)`, opacity:1},
+        {transform:`translateY(100vh) rotate(${rnd(200,600)}deg)`, opacity:0.9}
+      ],{duration, easing:"cubic-bezier(.2,.6,.4,1)"});
+      setTimeout(()=>el.remove(), duration+100);
+    }, i*25);
+  }
+}
+
+/* ---------------------------------------------------------------
+   EVENT WIRING
+--------------------------------------------------------------- */
+document.getElementById("teacherIconBtn").addEventListener("click", openPasswordModal);
+document.getElementById("pwCloseBtn").addEventListener("click", ()=>document.getElementById("pwOverlay").classList.remove("show"));
+document.getElementById("pwSubmitBtn").addEventListener("click", checkPassword);
+document.getElementById("pwInput").addEventListener("keydown", e=>{ if(e.key==="Enter") checkPassword(); });
+
+document.getElementById("tpCloseBtn").addEventListener("click", ()=>{
+  document.getElementById("tpOverlay").classList.remove("show");
+});
+
+document.getElementById("soundBtn").addEventListener("click", function(){
+  soundOn = !soundOn;
+  this.textContent = soundOn ? "🔊" : "🔇";
+});
+
+document.getElementById("qCloseBtn").addEventListener("click", closeQuestionModal);
+document.getElementById("qSubmitBtn").addEventListener("click", submitAnswer);
+document.getElementById("fbCloseBtn").addEventListener("click", closeQuestionModal);
+document.querySelectorAll(".color-opt").forEach(el=>{
+  el.addEventListener("click", ()=>chooseTeamForCorrect(el.dataset.team));
+});
+
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab-pane").forEach(p=>p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("pane-"+btn.dataset.tab).classList.add("active");
+  });
+});
+
+document.getElementById("dashSaveBtn").addEventListener("click", saveDashboardSettings);
+document.getElementById("bankSaveAllBtn").addEventListener("click", saveBankSoal);
+document.getElementById("bankSearch").addEventListener("input", function(){
+  renderBankSoal(this.value.trim());
+});
+
+document.getElementById("ctrlStart").addEventListener("click", startGame);
+document.getElementById("ctrlPause").addEventListener("click", pauseGame);
+document.getElementById("ctrlResume").addEventListener("click", resumeGame);
+document.getElementById("ctrlEnd").addEventListener("click", ()=>{
+  document.getElementById("endConfirmOverlay").classList.add("show");
+});
+document.getElementById("endCancelBtn").addEventListener("click", ()=>{
+  document.getElementById("endConfirmOverlay").classList.remove("show");
+});
+document.getElementById("endConfirmBtn").addEventListener("click", async ()=>{
+  document.getElementById("endConfirmOverlay").classList.remove("show");
+  document.getElementById("tpOverlay").classList.remove("show");
+  await endGame();
+});
+document.getElementById("exportBtn").addEventListener("click", exportResultsCsv);
+document.getElementById("goCloseBtn").addEventListener("click", ()=>{
+  document.getElementById("goOverlay").classList.remove("show");
+});
+
+/* ---------------------------------------------------------------
+   INIT
+--------------------------------------------------------------- */
+async function init(){
+  await loadState();
+  renderAll();
+
+  // light polling so multiple devices/tabs stay roughly in sync
+  setInterval(async ()=>{
+    if(document.getElementById("qOverlay").classList.contains("show")) return; // don't yank state mid-answer
+    const fresh = await storageGet(STATE_KEY);
+    if(fresh){
+      state = fresh;
+      renderAll();
+    }
+  }, 4000);
+}
+init();
+
+})();
 </script>
 </body>
 </html>
