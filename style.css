@@ -1,0 +1,47 @@
+:root{
+  --biru:#60a5fa; --merah:#ef4444; --ungu:#8b5cf6;
+  --kuning:#facc15; --hijau:#22c55e; --orange:#f97316;
+  --bg:#0f172a; --card:#1e293b; --text:#f8fafc;
+}
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{margin:0;background:linear-gradient(135deg,#0f172a,#1e293b);color:var(--text)}
+header{padding:16px;text-align:center;background:rgba(0,0,0,.3);backdrop-filter:blur(10px)}
+header h1{margin:0;font-size:2rem;letter-spacing:2px;text-shadow:0 0 10px #60a5fa}
+header p{margin:4px 0 12px;opacity:.8}
+.top-bar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.top-bar input{padding:6px 10px;border-radius:8px;border:none;background:#334155;color:#fff}
+.btn{padding:8px 16px;border:none;border-radius:8px;background:var(--biru);color:#fff;font-weight:bold;cursor:pointer;transition:.2s}
+.btn:hover{transform:scale(1.05)}
+.btn.pause{background:#64748b}.btn.over{background:var(--merah)}
+.timer{font-weight:bold;font-size:1.2rem}
+.scoreboard{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px}
+.score{padding:6px 12px;border-radius:20px;font-weight:bold}
+
+.container{display:flex;flex-wrap:wrap;gap:16px;padding:16px}
+.arena{flex:3;min-width:300px}
+.leaderboard{flex:1;min-width:250px;background:var(--card);padding:12px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:8px}
+.box{background:var(--biru);aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+     border-radius:8px;font-weight:bold;cursor:pointer;transition:.2s;box-shadow:0 0 8px rgba(96,165,250,.4)}
+.box:hover{transform:scale(1.1)}
+.box.locked{cursor:not-allowed;opacity:.8}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:50}
+.modal.active{display:flex}
+.modal-content{background:var(--card);padding:20px;border-radius:16px;max-width:500px;width:90%;text-align:center}
+.choices{display:grid;gap:10px;margin-top:12px}
+.choices.desktop{grid-template-columns:1fr 1fr}
+.choices button{padding:14px;border:none;border-radius:10px;background:#334155;color:#fff;font-size:1.1rem;cursor:pointer}
+.choices button:hover{background:var(--biru)}
+.overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60;font-size:3rem;font-weight:bold}
+.overlay.active{display:flex;animation:pop.5s}
+@keyframes pop{0%{transform:scale(.5)}100%{transform:scale(1)}}
+.confetti{position:fixed;inset:0;pointer-events:none}
+.team-pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.team-pick button{padding:10px 16px;border:none;border-radius:8px;color:#fff;font-weight:bold;cursor:pointer}
+.teacher-icon{position:fixed;top:16px;right:16px;font-size:1.8rem;cursor:pointer}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{padding:8px 12px;background:#334155;border-radius:8px;cursor:pointer}
+.tab.active{background:var(--biru)}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+td,input,select{padding:4px;border:1px solid #475569;background:#1e293b;color:#fff;border-radius:4px}
+@media(max-width:768px){.choices.desktop{grid-template-columns:1fr}}
