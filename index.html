@@ -1,1 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematics of Champion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#071326] text-white font-sans p-6 min-h-screen">
 
+  <!-- TOP HEADER -->
+  <header class="flex justify-between items-start mb-6">
+    <div>
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 border border-cyan-500/30 bg-cyan-950/30 rounded-lg flex items-center justify-center text-cyan-400 font-bold text-lg">
+          &Sigma;
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest text-cyan-400 font-semibold uppercase">Interactive Mathematics Competition</p>
+          <h1 class="text-2xl font-black tracking-wide">MATHEMATICS OF CHAMPION</h1>
+        </div>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">Think Fast. Solve Smart. Become the Champion!</p>
+    </div>
+
+    <!-- Right Stats Info -->
+    <div class="flex items-center gap-3">
+      <div class="bg-[#0b1d3a] border border-slate-700/50 rounded-xl px-4 py-2 text-left min-w-[140px]">
+        <p class="text-[9px] text-slate-400 font-semibold uppercase">Kelas</p>
+        <p class="text-xs font-bold text-slate-100">Kelas XII Matematika</p>
+      </div>
+      <div class="bg-[#0b1d3a] border border-slate-700/50 rounded-xl px-4 py-2 text-left min-w-[100px]">
+        <p class="text-[9px] text-slate-400 font-semibold uppercase">Guru</p>
+        <p class="text-xs font-bold text-slate-100">Ibu Elisa</p>
+      </div>
+      <div class="bg-[#0b1d3a] border border-slate-700/50 rounded-xl px-4 py-2 text-left min-w-[100px]">
+        <p class="text-[9px] text-slate-400 font-semibold uppercase">Status Game</p>
+        <p class="text-xs font-bold text-cyan-400">READY</p>
+      </div>
+      <button class="w-10 h-10 bg-[#0b1d3a] border border-slate-700/50 rounded-xl flex items-center justify-center text-slate-300 hover:text-white">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- TEAM SCORE CARDS (TOP ROW) -->
+  <div class="grid grid-cols-6 gap-3 mb-6">
+    <!-- Red -->
+    <div class="bg-[#0b1d3a] border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-red-600 shadow-[0_0_12px_rgba(220,38,38,0.5)] border-2 border-red-400/40"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold tracking-wider">MERAH</p>
+        <p class="text-sm font-black">0 <span class="text-[10px] font-normal text-slate-400">PTS</span></p>
+      </div>
+    </div>
+    <!-- Yellow -->
+    <div class="bg-[#0b1d3a] border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.5)] border-2 border-amber-300/40"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold tracking-wider">KUNING</p>
+        <p class="text-sm font-black">0 <span class="text-[10px] font-normal text-slate-400">PTS</span></p>
+      </div>
+    </div>
+    <!-- Pink -->
+    <div class="bg-[#0b1d3a] border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-pink-500 shadow-[0_0_12px_rgba(236,72,153,0.5)] border-2 border-pink-300/40 flex items-center justify-center">
+        <i class="fa-solid fa-heart text-[10px] text-white/80"></i>
+      </div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold tracking-wider">PINK</p>
+        <p class="text-sm font-black">0 <span class="text-[10px] font-normal text-slate-400">PTS</span></p>
+      </div>
+    </div>
+    <!-- Green -->
+    <div class="bg-[#0b1d3a] border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.5)] border-2 border-emerald-300/40"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold tracking-wider">HIJAU</p>
+        <p class="text-sm font-black">0 <span class="text-[10px] font-normal text-slate-400">PTS</span></p>
+      </div>
+    </div>
+    <!-- Purple -->
+    <div class="bg-[#0b1d3a] border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-purple-600 shadow-[0_0_12px_rgba(147,51,234,0.5)] border-2 border-purple-400/40"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold tracking-wider">UNGU</p>
+        <p class="text-sm font-black">0 <span class="text-[10px] font-normal text-slate-400">PTS</span></p>
+      </div>
+    </div>
+    <!-- Orange -->
+    <div class="bg-[#0b1d3a] border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,0.5)] border-2 border-orange-300/40"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold tracking-wider">ORANGE</p>
+        <p class="text-sm font-black">0 <span class="text-[10px] font-normal text-slate-400">PTS</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT GRID -->
+  <div class="grid grid-cols-12 gap-6">
+    
+    <!-- LEFT: ARENA KOMPETISI (8 Cols) -->
+    <div class="col-span-9 bg-[#0b1d3a]/80 border border-slate-800/80 rounded-2xl p-5">
+      <!-- Section Header -->
+      <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-800">
+        <div>
+          <p class="text-[10px] text-cyan-400 font-bold tracking-widest uppercase">Arena Kompetisi</p>
+          <h2 class="text-xl font-bold">100 KOTAK SOAL</h2>
+        </div>
+        <div class="text-right">
+          <p class="text-[9px] text-slate-400 font-semibold uppercase">Progress</p>
+          <p class="text-base font-bold">0 / 100</p>
+        </div>
+      </div>
+
+      <!-- Banner Status -->
+      <div class="bg-[#071326]/60 border border-slate-800 rounded-xl p-3 mb-5">
+        <p class="text-xs text-slate-300">Game siap. Guru dapat membuka panel dan menekan START GAME.</p>
+      </div>
+
+      <!-- Grid 10 Column Soal -->
+      <div class="grid grid-cols-10 gap-2.5">
+        <!-- Item Soal 01 - 10 (Row 1) -->
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">01</span>
+          <span class="text-[9px] font-semibold text-slate-700">10 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">02</span>
+          <span class="text-[9px] font-semibold text-slate-700">20 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">03</span>
+          <span class="text-[9px] font-semibold text-slate-700">25 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">04</span>
+          <span class="text-[9px] font-semibold text-slate-700">30 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">05</span>
+          <span class="text-[9px] font-semibold text-slate-700">50 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">06</span>
+          <span class="text-[9px] font-semibold text-slate-700">75 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">07</span>
+          <span class="text-[9px] font-semibold text-slate-700">100 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">08</span>
+          <span class="text-[9px] font-semibold text-slate-700">20 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">09</span>
+          <span class="text-[9px] font-semibold text-slate-700">50 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">10</span>
+          <span class="text-[9px] font-semibold text-slate-700">150 POIN</span>
+        </div>
+
+        <!-- Item Soal 11 - 20 (Row 2) -->
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">11</span>
+          <span class="text-[9px] font-semibold text-slate-700">10 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">12</span>
+          <span class="text-[9px] font-semibold text-slate-700">20 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">13</span>
+          <span class="text-[9px] font-semibold text-slate-700">25 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">14</span>
+          <span class="text-[9px] font-semibold text-slate-700">30 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">15</span>
+          <span class="text-[9px] font-semibold text-slate-700">50 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">16</span>
+          <span class="text-[9px] font-semibold text-slate-700">75 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">17</span>
+          <span class="text-[9px] font-semibold text-slate-700">100 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">18</span>
+          <span class="text-[9px] font-semibold text-slate-700">20 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">19</span>
+          <span class="text-[9px] font-semibold text-slate-700">50 POIN</span>
+        </div>
+        <div class="bg-cyan-200/90 text-slate-900 rounded-xl py-2 flex flex-col items-center justify-center cursor-pointer hover:bg-cyan-100 transition">
+          <span class="font-black text-sm">20</span>
+          <span class="text-[9px] font-semibold text-slate-700">150 POIN</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: LEADERBOARD (3 Cols) -->
+    <div class="col-span-3 bg-[#0b1d3a]/80 border border-slate-800/80 rounded-2xl p-5">
+      <!-- Leaderboard Header -->
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-black tracking-wide">LEADERBOARD</h3>
+        </div>
+      </div>
+      <p class="text-[10px] text-slate-400 mb-4 pl-11">Peringkat diperbarui langsung</p>
+
+      <!-- Leaderboard Items -->
+      <div class="space-y-2.5">
+        <!-- Rank 1 -->
+        <div class="bg-[#071326]/60 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-amber-400 text-xs"><i class="fa-solid fa-medal"></i></span>
+            <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+            <div>
+              <p class="text-xs font-bold leading-none">HIJAU</p>
+              <p class="text-[9px] text-slate-400 mt-0.5">0 soal selesai</p>
+            </div>
+          </div>
+          <span class="font-black text-sm">0</span>
+        </div>
+
+        <!-- Rank 2 -->
+        <div class="bg-[#071326]/60 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-slate-300 text-xs"><i class="fa-solid fa-medal"></i></span>
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+            <div>
+              <p class="text-xs font-bold leading-none">KUNING</p>
+              <p class="text-[9px] text-slate-400 mt-0.5">0 soal selesai</p>
+            </div>
+          </div>
+          <span class="font-black text-sm">0</span>
+        </div>
+
+        <!-- Rank 3 -->
+        <div class="bg-[#071326]/60 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-amber-700 text-xs"><i class="fa-solid fa-medal"></i></span>
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+            <div>
+              <p class="text-xs font-bold leading-none">MERAH</p>
+              <p class="text-[9px] text-slate-400 mt-0.5">0 soal selesai</p>
+            </div>
+          </div>
+          <span class="font-black text-sm">0</span>
+        </div>
+
+        <!-- Rank 4 -->
+        <div class="bg-[#071326]/60 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-bold text-slate-500 w-3 text-center">4</span>
+            <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+            <div>
+              <p class="text-xs font-bold leading-none">ORANGE</p>
+              <p class="text-[9px] text-slate-400 mt-0.5">0 soal selesai</p>
+            </div>
+          </div>
+          <span class="font-black text-sm">0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
