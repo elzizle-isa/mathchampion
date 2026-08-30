@@ -1,2631 +1,334 @@
-
-Conversation with Gemini
-Buatkan saya website game MATHEMATICS OF CHAMPION
-
-Interactive Mathematics
-
-Competition Game
-
-1. Konsep Utama
-
-Buat sebuah website game pembelajaran kimia
-
-interaktif bernama “MATHEMATICS OF CHAMPION”
-
-dengan konsep kompetisi antarkelompok seperti suasana **Class of Champions**.
-
- 
-
-Tujuan setiap kelompok adalah menjawab soal
-
-dengan benar dan mengumpulkan poin sebanyak-banyaknya.
-
-Tampilan harus modern, elegan, energik, dan
-
-terasa seperti arena kompetisi. Fokus utama halaman adalah **100 kotak soal
-
-bernomor 1–100** yang dapat dipilih oleh siswa.
-
- 
-
-───
-
-2. Tampilan Halaman Utama
-
-Pada bagian paling atas terdapat:
-
-MATHEMATICS OF
-
-CHAMPION
-
-Subjudul:
-
-"Champions, Are You Ready?!"
-
-Di bagian header juga tersedia:
-
-* Nama permainan
-
-* Nama kelas
-
-* Nama guru
-
-Dimana bagian ini bisa diedit pada menu panel
-
-guru
-
-Di bawahnya terdapat area permainan utama
-
-berupa grid:
-
-100 KOTAK SOAL
-
-Susunan:
-
-• Kotak 1
-
-• Kotak 2
-
-• Kotak 3
-
-• ...
-
-• Kotak 100
-
-Setiap kotak:
-
-• Berwarna biru muda pada kondisi awal.
-
-• Memiliki nomor soal yang jelas.
-
-• Menampilkan poin soal.
-
-• Memiliki efek hover ketika kursor diarahkan
-
-ke kotak.
-
-• Dapat diklik selama soal tersebut belum
-
-diselesaikan.
-
-Contoh:
-
-01
-
-10 Poin
-
-02
-
-25 Poin
-
-03
-
-50 Poin
-
-dst.
-
- 
-
-───
-
- 
-
-3. Sistem Kelompok
-
-Game menyediakan 6 warna kelompok:
-
-1. 🔴 Merah
-
-2. 🟡 Kuning
-
-3. 🩷 Pink
-
-4. 🟢 Hijau
-
-5. 🟣 Ungu Tua
-
-6. 🟠 Orange
-
-Setiap kelompok memiliki identitas berdasarkan
-
-warna.
-
-Contoh:
-
-KELOMPOK MERAH
-
-KELOMPOK KUNING
-
-KELOMPOK PINK
-
-KELOMPOK HIJAU
-
-KELOMPOK UNGU
-
-KELOMPOK ORANGE
-
-Guru dapat mengatur nama kelompok jika
-
-diperlukan.
-
- 
-
-───
-
- 
-
-4. Alur Permainan
-
-START GAME
-
-Guru menekan:
-
-▶ START GAME
-
-Sistem memulai permainan dan mengaktifkan
-
-seluruh 100 kotak.
-
- 
-
-5. Membuka Soal
-
-Ketika sebuah kotak diklik, muncul modal besar
-
-di tengah layar.
-
-Contoh:
-
-SOAL #27
-
-50 POIN
-
-Kemudian tampil pilihan jawaban A-E.
-
-Di bawahnya terdapat kotak Tombol:
-
-SUBMIT JAWABAN
-
- 
-
-6. Sistem Pemeriksaan Jawaban
-
-Jawaban siswa diperiksa berdasarkan kunci
-
-jawaban yang telah dimasukkan guru.
-
-Sistem harus mendukung pemeriksaan jawaban
-
-secara fleksibel.
-
-───
-
- 
-
-7. Jika Jawaban SALAH
-
-Jika jawaban salah:
-
-Layar menampilkan animasi:
-
-❌
-
-dengan tanda silang merah besar.
-
-Tambahkan teks:
-
-JAWABAN SALAH!
-
-dan efek suara singkat jika fitur suara
-
-diaktifkan.
-
-Soal tidak dikunci.
-
-Siswa dapat mencoba lagi sebanyak yang
-
-diperlukan.
-
-Contoh:
-
-Jawaban 1 → Salah ❌
-
-Jawaban 2 → Salah ❌
-
-Jawaban 3 → Salah ❌
-
-Jawaban 4 → Benar ✅
-
-Tidak ada batas jumlah percobaan.
-
- 
-
-───
-
- 
-
-8. Jika Jawaban BENAR
-
-Jika jawaban benar:
-
-Tampilkan animasi:
-
-✅
-
-dengan tanda centang hijau besar.
-
-Teks:
-
-JAWABAN BENAR!
-
-Kemudian sistem memberikan poin soal kepada
-
-kelompok yang menjawab.
-
-Contoh:
-
-+50 POIN
-
-Poin kelompok langsung diperbarui
-
- 
-
-───
-
- 
-
-9. Mengubah Warna Kotak Soal
-
-Setelah jawaban benar, pemain dapat memilih
-
-warna kelompok.
-
-Muncul pilihan:
-
-🔴 MERAH
-
-🟡 KUNING
-
-🩷 PINK
-
-🟢 HIJAU
-
-🟣 UNGU
-
-🟠 ORANGE
-
-Misalnya soal #27 dijawab dan siswa memilih
-
-warna hijau maka Kotak nomor 27 berubah:
-
-27
-
-menjadi warna HIJAU.
-
-Warna tersebut menjadi penanda bahwa soal
-
-telah berhasil dikuasai Kelompok Hijau.
-
- 
-
-───
-
- 
-
-10. Soal yang Sudah Terjawab
-
-Setelah jawaban benar:
-
-• Kotak berubah menjadi warna kelompok.
-
-• Kotak menampilkan status selesai.
-
-• Kotak tidak dapat diklik lagi.
-
-• Tidak dapat dikerjakan ulang.
-
-• Poin soal sudah masuk ke skor kelompok.
-
-Contoh:
-
-27
-
-50 POIN
-
-✓ SELESAI
-
-Kotak tersebut menjadi nonaktif.
-
- 
-
-───
-
- 
-
-11. Sistem Poin
-
-Setiap soal memiliki poin berbeda.
-
-Contoh:
-
- 
-
-Soal
-
-Poin
-
- 
-
-1
-
-10
-
- 
-
-2
-
-20
-
- 
-
-3
-
-30
-
- 
-
-4
-
-50
-
- 
-
-5
-
-100
-
- 
-
-...
-
-...
-
- 
-
-100
-
-berbeda
-
- 
-
- 
-
-Guru dapat mengubah poin setiap soal.
-
-Poin tidak harus berurutan.
-
-Guru bebas menentukan:
-
-• 10 poin
-
-• 20 poin
-
-• 25 poin
-
-• 50 poin
-
-• 75 poin
-
-• 100 poin
-
-• 150 poin
-
-• dst.
-
- 
-
-───
-
- 
-
-12. Leaderboard Realtime
-
-Di bagian kanan atau bagian bawah layar
-
-terdapat:
-
-🏆 LEADERBOARD
-
-Contoh:
-
- 
-
-Ranking
-
-Kelompok
-
-Poin
-
- 
-
-🥇 1
-
-🟢 HIJAU
-
-450
-
- 
-
-🥈 2
-
-🔴 MERAH
-
-380
-
- 
-
-🥉 3
-
-🟡 KUNING
-
-320
-
- 
-
-4
-
-🟣 UNGU
-
-270
-
- 
-
-5
-
-🩷 PINK
-
-220
-
- 
-
-6
-
-🟠 ORANGE
-
-180
-
- 
-
- 
-
-Leaderboard diperbarui secara otomatis setiap
-
-kali sebuah soal berhasil dijawab.
-
- 
-
-───
-
- 
-
-13. Animasi Perubahan Ranking
-
-Jika sebuah kelompok memperoleh poin dan naik
-
-ranking, tampilkan animasi sederhana:
-
-🟢 HIJAU NAIK KE PERINGKAT #1!
-
-Leaderboard kemudian melakukan animasi
-
-perubahan posisi.
-
-Hal ini membuat permainan terasa kompetitif
-
-dan menarik.
-
- 
-
-───
-
- 
-
-14. Teacher Control Panel
-
-Pada halaman utama terdapat ikon:
-
-👨‍🏫 GURU
-
-Ikon ini digunakan untuk membuka panel
-
-pengaturan guru.
-
-Ketika ikon diklik, jangan langsung membuka
-
-panel.
-
-Munculkan dialog:
-
-TEACHER ACCESS
-
-Masukkan Password Guru
-
-[________________]
-
-Tombol:
-
-MASUK
-
- 
-
-───
-
- 
-
-15. Password Guru
-
-Password valid:
-
-btslngshotcortis
-
-Jika password benar:
-
-✓ Akses diterima
-
-Guru dapat masuk ke:
-
-TEACHER CONTROL PANEL
-
-Jika password salah:
-
-✕ Password salah
-
-Panel guru tidak boleh terbuka.
-
-Jangan menampilkan password pada halaman
-
-permainan.
-
- 
-
-───
-
- 
-
-16. Teacher Control Panel
-
-Panel guru memiliki beberapa tab.
-
-TAB 1 — Dashboard
-
-Menampilkan:
-
-• Status game
-
-• Soal terjawab
-
-• Durasi
-
-• Identitas Kelas (mengubah nama guru dan
-
-kelas)
-
-Contoh:
-
-GAME STATUS: RUNNING
-
-27 / 100 SOAL TERJAWAB
-
- 
-
-───
-
- 
-
-17. TAB 2 — Bank Soal
-
-Nama tab wajib:
-
-BANK SOAL
-
-Guru dapat melihat seluruh 100 soal.
-
-Format:
-
- 
-
-No
-
-A
-
-B
-
-C
-
-D
-
-E
-
-Kunci Jawaban
-
-Poin
-
-Status
-
- 
-
-1
-
-...
-
-...
-
-...
-
-...
-
-...
-
-A
-
-120
-
-Aktif
-
- 
-
-2
-
-...
-
-...
-
-...
-
-...
-
-...
-
-A
-
-120
-
-Aktif
-
- 
-
-3
-
-...
-
-...
-
-...
-
-...
-
-...
-
-A
-
-120
-
-Aktif
-
- 
-
-4
-
-...
-
-...
-
-...
-
-...
-
-...
-
-A
-
-120
-
-Aktif
-
- 
-
-5
-
-...
-
-...
-
-...
-
-...
-
-...
-
-A
-
-120
-
-Aktif
-
- 
-
- 
-
-100
-
-Selesai
-
- 
-
- 
-
-Guru dapat:
-
-• Mengubah isi opsi A - E
-
-• Menghapus kunci jawaban.
-
-• Mengubah kunci jawaban.
-
-• Mengubah poin.
-
- 
-
-18. Mengubah Kunci Jawaban
-
-Guru dapat mengubah kunci jawaban sebelum game
-
-dimulai maupun saat permainan berlangsung.
-
-Contoh:
-
-Soal #25
-
-Kunci jawaban:
-
-A
-
-Guru dapat mengubahnya menjadi:
-
-B
-
-Sertakan tombol simpan jika guru melakukan
-
-perubahan. Perubahan langsung tersimpan dan digunakan sistem.
-
-Untuk keamanan, perubahan kunci jawaban hanya
-
-dapat dilakukan dari Teacher Control Panel.
-
- 
-
-───
-
- 
-
-19. Bank Soal dan Keamanan Jawaban
-
-Kunci jawaban tidak boleh ditampilkan kepada
-
-siswa.
-
-Data kunci jawaban harus berada pada bagian
-
-yang hanya dapat diakses melalui autentikasi guru.
-
-Jangan menampilkan kunci jawaban pada HTML
-
-publik atau elemen yang dapat langsung dilihat siswa.
-
- 
-
-───
-
- 
-
-20. TAB GAME CONTROL
-
-Guru memiliki kontrol:
-
-▶ START GAME
-
-Memulai permainan.
-
-⏸ PAUSE GAME
-
-Menghentikan sementara permainan.
-
-▶ RESUME GAME
-
-Melanjutkan permainan.
-
-🛑 END GAME
-
-Mengakhiri permainan.
-
- 
-
-───
-
- 
-
-21. Guru Menghentikan Game
-
-Guru dapat mengakhiri permainan kapan saja.
-
-Ketika tombol:
-
-🛑 END GAME
-
-ditekan, sistem meminta konfirmasi:
-
-Apakah Anda yakin ingin mengakhiri permainan?
-
-BATAL
-
-YA, GAME OVER
-
- 
-
-───
-
- 
-
-22. Tampilan GAME OVER
-
-Setelah game dihentikan, layar berubah menjadi
-
-tampilan final.
-
-GAME OVER
-
-Kemudian tampil:
-
-🏆 FINAL LEADERBOARD
-
-Contoh:
-
-🥇 CHAMPION
-
-🟢 KELOMPOK HIJAU
-
-1.250 POIN
-
-🥈 RUNNER UP
-
-🔴 KELOMPOK MERAH
-
-1.100 POIN
-
-🥉
-
-🟡 KELOMPOK KUNING
-
-950 POIN
-
-Kemudian kelompok lainnya ditampilkan
-
-berdasarkan ranking.
-
- 
-
-───
-
- 
-
-23. Efek Pemenang
-
-Kelompok dengan poin tertinggi mendapatkan
-
-tampilan khusus.
-
-Contoh:
-
-🏆 CONGRATULATIONS!
-
-🟢 KELOMPOK HIJAU
-
-MATHEMATICS CHAMPION
-
-1.250 POINTS
-
-Tambahkan animasi confetti sederhana.
-
- 
-
-───
-
- 
-
-24. Export Hasil Permainan
-
-Guru dapat menekan:
-
-📊 EXPORT HASIL
-
-Sistem menghasilkan data yang dapat dibuka
-
-menggunakan spreadsheet.
-
-Data minimal:
-
- 
-
-Ranking
-
-Kelompok
-
-Warna
-
-Total Poin
-
-Soal Terjawab
-
- 
-
-1
-
-Hijau
-
-Hijau
-
-1250
-
-18
-
- 
-
-2
-
-Merah
-
-Merah
-
-1100
-
-16
-
- 
-
-3
-
-Kuning
-
-Kuning
-
-950
-
-14
-
- 
-
- 
-
-Data detail:
-
- 
-
-Waktu
-
-No Soal
-
-Kelompok
-
-Jawaban
-
-Hasil
-
-Poin
-
- 
-
-09:10
-
-12
-
-Hijau
-
-NaCl
-
-Benar
-
-50
-
- 
-
-09:13
-
-25
-
-Merah
-
-H₂SO₄
-
-Benar
-
-100
-
- 
-
- 
-
-Format export dapat berupa:
-
-CSV / XLSX / Google Sheets
-
- 
-
- 
-
-25. Tampilan Visual
-
-Gunakan desain modern seperti game kompetisi
-
-pendidikan.
-
-Karakteristik:
-
-• Modern.
-
-• Cerah.
-
-• Futuristik.
-
-• Edukatif.
-
-• Kompetitif.
-
-• Responsif.
-
-• Cocok untuk layar proyektor.
-
-• Cocok untuk laptop.
-
-• Cocok untuk tablet.
-
-• Cocok untuk smartphone.
-
-Warna utama:
-
-Biru muda sebagai warna awal 100 kotak.
-
-Gunakan efek:
-
-• Glow.
-
-• Hover.
-
-• Scale animation.
-
-• Pop-up.
-
-• Confetti.
-
-• Progress animation.
-
-• Score animation.
-
-Namun jangan membuat tampilan terlalu ramai
-
-sehingga nomor soal tetap mudah dibaca.
-
- 
-
-26. Alur Lengkap Permainan
-
-STEP 1
-
-Guru membuka aplikasi.
-
-STEP 2
-
-Guru masuk ke Teacher Control Panel
-
-menggunakan password:
-
-btslngshotcortis
-
-STEP 3
-
-Guru membuka:
-
-Bank Soal
-
-STEP 4
-
-Guru memeriksa atau mengubah:
-
-• Kunci jawaban.
-
-• Poin.
-
-STEP 5
-
-Guru menekan:
-
-START GAME
-
-STEP 6
-
-100 kotak soal aktif.
-
-STEP 7
-
-Kelompok memilih soal.
-
-STEP 8
-
-Kotak Jawaban muncul.
-
-STEP 9
-
-Siswa memasukkan jawaban.
-
-STEP 10
-
-Jika salah:
-
-❌ JAWABAN SALAH
-
-Siswa boleh mencoba kembali.
-
-STEP 11
-
-Jika benar:
-
-✅ JAWABAN BENAR
-
-Poin diberikan.
-
-STEP 12
-
-Guru/sistem menetapkan warna kelompok pada
-
-kotak.
-
-Kotak menjadi terkunci.
-
-STEP 13
-
-Leaderboard diperbarui realtime.
-
-STEP 14
-
-Permainan terus berlangsung.
-
-STEP 15
-
-Guru dapat melakukan Pause kapan saja.
-
-STEP 16
-
-Guru menekan:
-
-GAME OVER
-
-STEP 17
-
-menampilkan:
-
-GAME OVER
-
-STEP 22
-
-Tampilkan:
-
-FINAL LEADERBOARD
-
-STEP 23
-
-Guru dapat memilih:
-
-EXPORT HASIL
-
-STEP 24
-
-Data permainan diunduh atau disimpan ke
-
-spreadsheet.
-
- 
-
-───
-
-──
-
- 
-
-27. Keamanan Teacher Panel
-
-Jangan hanya menyembunyikan tombol guru
-
-menggunakan CSS/JavaScript.
-
-Sistem backend juga harus memverifikasi hak
-
-akses guru.
-
-Password:
-
-btslngshotcortis
-
- 
-
-───
-
- 
-
-28. Fitur Tambahan yang Direkomendasikan
-
-Tambahkan beberapa fitur agar game semakin
-
-terasa seperti kompetisi profesional:
-
-🎵 Sound Effect
-
-• Klik soal.
-
-• Jawaban salah.
-
-• Jawaban benar.
-
-• Mendapatkan poin.
-
-• Naik ranking.
-
-• Game Over.
-
-• Juara.
-
-⏱ Timer Opsional
-
-Guru dapat mengaktifkan atau menonaktifkan
-
-timer.
-
-Contoh:
-
-Waktu menjawab: 60 detik
-
-Namun timer sebaiknya menjadi fitur opsional
-
-sehingga mekanisme utama tetap dapat digunakan tanpa batas waktu.
-
-📈 Statistik
-
-Guru dapat melihat:
-
-• Soal paling banyak dicoba.
-
-• Soal paling sulit.
-
-• Kelompok dengan jawaban benar terbanyak.
-
-• Total percobaan.
-
-• Persentase keberhasilan.
-
- 
-
-───
-
- 
-
-39. Prinsip Penting Aplikasi
-
-Game harus menerapkan prinsip:
-
-ONE QUESTION = ONE WINNER
-
-Begitu sebuah soal mendapatkan jawaban benar:
-
-SOAL LANGSUNG LOCK
-
-Tidak boleh direbut kelompok lain.
-
-Jawaban salah tidak mengunci soal.
-
-Jawaban benar mengunci soal.
-
- 
-
-───
-
- 
-
-38. Kondisi Akhir
-
-Saat Game Over, sistem menyimpan seluruh
-
-histori permainan.
-
-Data tetap dapat dibuka kembali oleh guru.
-
-Guru dapat melihat:
-
-Riwayat Game
-
-Contoh:
-
-Tanggal: 23 Agustus 2026
-
-Pemenang: Kelompok Hijau
-
-Total Soal: 100
-
-Soal Terjawab: 74
-
- 
-
-───
-
- 
-
-39. Tujuan Akhir Aplikasi
-
-Aplikasi MAthematics
-
-of Champion harus terasa seperti sebuah game kompetisi sungguhan,
-
-bukan sekadar kuis biasa.
-
-Fokus pengalaman pengguna:
-
-Pilih Soal → Berpikir → Jawab → Benar/Salah →
-
-Dapatkan Poin → Rebut Ranking → Menjadi Champion
-
- 
-
-TAGLINE
-
-🧪 MATHEMATICS
-
-OF CHAMPION
-
-THINK FAST • SOLVE SMART • BECOME THE CHAMPION
-
- 
-
-perbaiki fungsi export CSV agar file bisa
-
-terdownload dengan benar.
-
- 
-
-
-
-BUATKAN SAYA JAWABAN, DAN POIN DENGAN MATERI EKSPONEN DAN LOGARITMA
-
-Halo! Web application interaktif MATHEMATICS OF CHAMPION (spesifik untuk materi Eksponen dan Logaritma) udah selesai dibuat dengan tampilan ala Class of Champions, super sleek, modern, dan pastinya kompetitif abis!
-
-File aplikasi web lengkap dalam satu berkas HTML (index.html) sudah digenerate dan siap dibuka langsung di browser (bisa di laptop, tablet, proyektor, atau HP).
-
-📂 Dokumen & File Aplikasi Game
-HTML icon
-index
- HTML 
-Open
-🌟 Fitur Utama yang Sudah Disematkan:
-100 Kotak Soal Grid Interaktif:
-
-Soal nomor 1 s.d. 100 dengan indikator poin yang jelas (10, 20, 30, 50, 75, hingga 100 Poin).
-
-Efek hover, glow, dan transisi scaling yang smooth.
-
-Warna default Biru Muda / Glowing Dark Blue, dan berubah otomatis ke warna kelompok yang berhasil menjawabnya (One Question = One Winner).
-
-6 Kelompok Warna Identitas:
-
-🔴 Merah, 🟡 Kuning, 🩷 Pink, 🟢 Hijau, 🟣 Ungu Tua, 🟠 Orange.
-
-Materi Eksponen & Logaritma:
-
-Berisi 100 Bank Soal Lengkap materi Eksponen (sifat pangkat, persamaan eksponen) dan Logaritma (sifat logaritma, basis, penjumlahan/pengurangan logaritma).
-
-Sistem Modal & Jawaban:
-
-Fitur pilihan ganda A–E.
-
-Jawaban Salah ❌: Animasi pop-up silang merah, bunyi wrong tone, dan kotak tidak terkunci (siswa bebas mencoba lagi).
-
-Jawaban Benar ✅: Animasi centang hijau, bunyi victory tone, lalu guru/sistem memilih kelompok pemenang untuk mengklaim poin dan mengunci kotak soal selamanya.
-
-Realtime Leaderboard & Dynamic Ranking:
-
-Posisi ranking 1–6 di sidebar kanan akan otomatis terupdate dan berpindah posisi saat skor bertambah.
-
-Teacher Control Panel (Akses Guru Aman):
-
-Login dialog terlindungi password guru: btslngshotcortis.
-
-Tab Dashboard: Monitoring status game (READY/RUNNING/PAUSED/ENDED), jumlah soal terjawab, serta opsi edit nama kelas & guru.
-
-Tab Bank Soal: Tabel 100 soal lengkap. Guru bisa langsung mengubah Kunci Jawaban (A-E) dan Mengubah Poin secara realtime di tengah permainan tanpa merusak alur.
-
-Tab Game Control: Tombol START GAME, PAUSE GAME, dan END GAME.
-
-Perbaikan Fungsi Export CSV 📊:
-
-Fitur EXPORT HASIL pada layar Game Over sudah dipastikan berfungsi sempurna. Begitu diklik, browser akan langsung mendownload file .csv berisi rekapitulasi rangking akhir serta detail history waktu pengerjaan setiap kelompok.
-
-Efek Audio & Confetti 🏆:
-
-Menggunakan Synth Audio API internal (tanpa butuh file audio eksternal) untuk sfx klik, benar, salah, serta animasi confetti fireworks saat Champion diumumkan.
-
-📝 Contoh Struktur Poin & Distribusi 100 Soal Eksponen & Logaritma
-Soal 01 – 30 (Level Easy | 10 – 20 Poin):
-
-Pengenalan hitungan dasar eksponen (misal: 2 
-3
- , 3 
-4
- ) dan logaritma dasar (misal: log 
-2
-​
- 8, log 
-3
-​
- 27).
-
-Soal 31 – 70 (Level Medium | 30 – 50 Poin):
-
-Sederhanakan perkalian/pembagian bentuk pangkat (x 
-a
- ⋅x 
-b
- /x 
-c
- ) dan sifat penjumlahan/pengurangan logaritma (loga+logb−logc).
-
-Soal 71 – 100 (Level Hard / Champion Challenge | 75 – 100 Poin):
-
-Persamaan eksponen kompleks (misal: 2 
-2x−1
- =32) dan manipulasi variabel logaritma (misal: jika log 
-2
-​
- 3=a dan log 
-3
-​
- 5=b, tentukan log 
-2
-​
- 15).
-
-🚀 Cara Menggunakannya:
-Download file index.html di atas.
-
-Klik 2x pada file tersebut untuk membukanya di Google Chrome, Edge, Safari, atau browser favorit kamu.
-
-Klik tombol 👨‍🏫 PANEL GURU di pojok kanan atas, masukkan password btslngshotcortis.
-
-Buka tab Game Control lalu klik ▶ START GAME. Arena permainan langsung aktif dan siap dimainkan!
-
-
-
-
-Gemini is AI and can make mistakes.
-
-Analyzing
-Loading mathematics_of_champion.html.
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATHEMATICS OF CHAMPION</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <style>
-        :root {
-            --bg-dark: #0b0f19;
-            --bg-card: #151c2e;
-            --bg-card-hover: #1e293b;
-            --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.3);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            
-            --c-red: #ef4444;
-            --c-yellow: #eab308;
-            --c-pink: #ec4899;
-            --c-green: #22c55e;
-            --c-purple: #a855f7;
-            --c-orange: #f97316;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
-        }
-
-        /* HEADER */
-        header {
-            background: rgba(21, 28, 46, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .brand-logo {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--accent-blue), #818cf8);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .brand-text h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #ffffff, var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-        }
-
-        .brand-text p {
-            font-size: 12px;
-            color: var(--accent-blue);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .header-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: rgba(255,255,255,0.03);
-            padding: 8px 18px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .info-item {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .info-item span {
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
-        .btn-teacher {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-teacher:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-        }
-
-        /* MAIN CONTENT LAYOUT */
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 25px;
-            padding: 25px 30px;
-            max-width: 1800px;
-            margin: 0 auto;
-            width: 100%;
-            flex: 1;
-        }
-
-        /* GRID BOARD */
-        .board-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .game-controls-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--bg-card);
-            padding: 15px 25px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .tagline {
-            font-family: 'Outfit', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            letter-spacing: 2px;
-        }
-
-        .grid-100 {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 12px;
-        }
-
-        .grid-card {
-            background: var(--bg-card);
-            border: 2px solid rgba(56, 189, 248, 0.2);
-            border-radius: 12px;
-            aspect-ratio: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .grid-card:hover:not(.disabled) {
-            transform: translateY(-4px) scale(1.05);
-            border-color: var(--accent-blue);
-            box-shadow: 0 8px 25px var(--accent-glow);
-            background: var(--bg-card-hover);
-        }
-
-        .grid-card .num {
-            font-family: 'Outfit', sans-serif;
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
-        .grid-card .pts {
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--accent-blue);
-            margin-top: 2px;
-        }
-
-        .grid-card.disabled {
-            cursor: not-allowed;
-            opacity: 0.9;
-        }
-
-        .grid-card.solved-red { background: var(--c-red) !important; border-color: #f87171 !important; }
-        .grid-card.solved-yellow { background: var(--c-yellow) !important; border-color: #fde047 !important; color: #000 !important; }
-        .grid-card.solved-yellow .num, .grid-card.solved-yellow .pts { color: #000 !important; }
-        .grid-card.solved-pink { background: var(--c-pink) !important; border-color: #f472b6 !important; }
-        .grid-card.solved-green { background: var(--c-green) !important; border-color: #4ade80 !important; }
-        .grid-card.solved-purple { background: var(--c-purple) !important; border-color: #c084fc !important; }
-        .grid-card.solved-orange { background: var(--c-orange) !important; border-color: #fb923c !important; }
-
-        .grid-card .check-icon {
-            font-size: 12px;
-            margin-top: 2px;
-            font-weight: bold;
-        }
-
-        /* LEADERBOARD SIDEBAR */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .leaderboard-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .lb-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .lb-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 16px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #facc15;
-        }
-
-        .lb-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .lb-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.5s ease;
-        }
-
-        .lb-rank {
-            font-weight: 800;
-            width: 25px;
-            font-size: 14px;
-        }
-
-        .lb-team {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-            font-weight: 700;
-            font-size: 13px;
-        }
-
-        .team-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .lb-pts {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 15px;
-            color: var(--accent-blue);
-        }
-
-        /* MODALS */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(5, 8, 15, 0.85);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-box {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            width: 90%;
-            max-width: 650px;
-            padding: 35px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: scale(0.9);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .q-badge {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 13px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        .q-points {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            color: #facc15;
-            font-size: 18px;
-        }
-
-        .q-text {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .opt-btn {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 14px 20px;
-            border-radius: 12px;
-            color: var(--text-main);
-            text-align: left;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .opt-btn:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: var(--accent-blue);
-        }
-
-        .opt-btn.selected {
-            background: var(--accent-blue);
-            color: #000;
-            font-weight: 700;
-            border-color: var(--accent-blue);
-        }
-
-        .opt-key {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 12px;
-        }
-
-        .opt-btn.selected .opt-key {
-            background: #000;
-            color: #fff;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-            gap: 12px;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, #22c55e, #15803d);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-            font-size: 15px;
-        }
-
-        .btn-submit:hover {
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
-        }
-
-        /* RESULT OVERLAY */
-        .result-box {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .result-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-        }
-
-        .result-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .team-selector {
-            margin-top: 20px;
-        }
-
-        .team-selector p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .team-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .btn-team-select {
-            padding: 12px;
-            border-radius: 10px;
-            border: none;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .btn-team-select:hover {
-            transform: scale(1.05);
-        }
-
-        /* TEACHER PANEL */
-        .teacher-panel {
-            max-width: 900px;
-            width: 95%;
-            height: 85vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            padding: 10px 20px;
-            font-weight: 700;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-        }
-
-        .tab-btn.active {
-            color: var(--accent-blue);
-            border-bottom-color: var(--accent-blue);
-        }
-
-        .tab-content {
-            display: none;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .bank-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-
-        .bank-table th, .bank-table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .bank-table th {
-            background: rgba(255,255,255,0.02);
-            color: var(--text-muted);
-        }
-
-        .bank-table input, .bank-table select {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            padding: 5px;
-            border-radius: 4px;
-        }
-
-        /* GAME OVER SCREEN */
-        .gameover-box {
-            text-align: center;
-            max-width: 700px;
-        }
-
-        .champ-card {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(56, 189, 248, 0.15));
-            border: 2px solid #22c55e;
-            padding: 25px;
-            border-radius: 20px;
-            margin: 20px 0;
-        }
-
-        .champ-title {
-            color: #22c55e;
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .champ-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 32px;
-            font-weight: 900;
-        }
-
-        .champ-pts {
-            font-size: 20px;
-            color: #facc15;
-            font-weight: 800;
-            margin-top: 5px;
-        }
-
-        .btn-export {
-            background: linear-gradient(135deg, #a855f7, #6b21a8);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATHEMATICS OF CHAMPION</title>
+<style>
+:root{
+  --biru:#60a5fa; --merah:#ef4444; --kuning:#facc15; --pink:#ec4899;
+  --hijau:#22c55e; --ungu:#7c3aed; --orange:#f97316; --bg:#0f172a; --card:#1e293b;
+}
+*{box-sizing:border-box;font-family:'Poppins',Segoe UI,sans-serif}
+body{margin:0;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh}
+header{text-align:center;padding:16px;background:rgba(0,0,0,.3);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+h1{margin:0;font-size:2.2rem;letter-spacing:2px;text-shadow:0 0 15px var(--biru)}
+header p{margin:4px 0 10px;opacity:.8}
+.top-info{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.top-info input{padding:6px 10px;border-radius:8px;border:none;background:#334155;color:#fff}
+.btn{padding:8px 14px;border:none;border-radius:8px;background:var(--biru);color:#fff;font-weight:bold;cursor:pointer;transition:.2s}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 10px var(--biru)}
+.btn.pause{background:#64748b}.btn.end{background:var(--merah)}.btn.export{background:var(--hijau)}
+.container{display:flex;gap:16px;padding:16px;flex-wrap:wrap}
+.arena{flex:3;min-width:320px}
+.leaderboard{flex:1;min-width:280px;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,.3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px}
+.box{background:var(--biru);aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:bold;cursor:pointer;transition:.2s;box-shadow:0 0 10px rgba(96,165,250,.4)}
+.box:hover{transform:scale(1.08);box-shadow:0 0 20px var(--biru)}
+.box.locked{cursor:not-allowed;opacity:.9}
+.box.no{font-size:1.2rem}.box.poin{font-size:.7rem;opacity:.8}
+.teacher-icon{position:fixed;top:16px;right:16px;font-size:2rem;cursor:pointer;z-index:20}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:50}
+.modal.active{display:flex}
+.modal-content{background:var(--card);padding:20px;border-radius:16px;max-width:700px;width:90%;max-height:90vh;overflow:auto}
+.choices{display:grid;gap:10px;margin-top:12px}
+.choices.desktop{grid-template-columns:1fr 1fr}
+.choices button{padding:14px;border:2px solid #475569;border-radius:10px;background:#1e293b;color:#fff;font-size:1.1rem;cursor:pointer;transition:.2s}
+.choices button:hover{background:var(--biru);border-color:var(--biru)}
+.overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60;font-size:3rem;font-weight:bold;text-align:center}
+.overlay.active{display:flex;animation:pop.5s}
+@keyframes pop{0%{transform:scale(.5)}100%{transform:scale(1)}}
+.team-pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.team-pick button{padding:10px 16px;border:none;border-radius:8px;color:#fff;font-weight:bold;cursor:pointer}
+.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tab{padding:8px 12px;background:#334155;border-radius:8px;cursor:pointer}
+.tab.active{background:var(--biru)}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+td,th,input,select{padding:4px;border:1px solid #475569;background:#0f172a;color:#fff;border-radius:4px}
+.leader-row{display:flex;justify-content:space-between;padding:6px;border-radius:6px;margin:4px 0;transition:.3s}
+.leader-row.up{animation:blink.6s 2}
+@keyframes blink{50%{background:var(--hijau)}}
+#confetti{position:fixed;inset:0;pointer-events:none}
+@media(max-width:768px){.choices.desktop{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
+<header>
+  <h1>MATHEMATICS OF CHAMPION</h1>
+  <p>“Champions, Are You Ready?!”</p>
+  <div class="top-info">
+    <input id="namaKelas" placeholder="Nama Kelas">
+    <input id="namaGuru" placeholder="Nama Guru">
+    <div>⏱ <span id="timer">00:00</span></div>
+  </div>
+  <button class="btn" onclick="startGame()">▶ START GAME</button>
+  <button class="btn pause" onclick="togglePause()">⏸ PAUSE</button>
+  <button class="btn end" onclick="endGame()">🛑 END GAME</button>
+  <button class="btn export" onclick="exportCSV()">📊 EXPORT HASIL</button>
+</header>
 
-    <header>
-        <div class="brand">
-            <div class="brand-logo">🧪</div>
-            <div class="brand-text">
-                <h1>MATHEMATICS OF CHAMPION</h1>
-                <p>THINK FAST &bull; SOLVE SMART &bull; BECOME THE CHAMPION</p>
-            </div>
-        </div>
-        <div class="header-info">
-            <div class="info-item">Kelas: <span id="disp-class">XII MIPA 1</span></div>
-            <div class="info-item">Guru: <span id="disp-teacher">Pak Budi, M.Pd</span></div>
-            <div class="info-item">Status: <span id="disp-status" style="color: #22c55e;">READY</span></div>
-        </div>
-        <button class="btn-teacher" onclick="openTeacherAuth()">
-            👨‍🏫 PANEL GURU
-        </button>
-    </header>
+<div class="container">
+  <div class="arena">
+    <h2>100 KOTAK SOAL</h2>
+    <div class="grid" id="grid"></div>
+  </div>
+  <div class="leaderboard">
+    <h3>🏆 LEADERBOARD</h3>
+    <div id="leader"></div>
+  </div>
+</div>
 
-    <div class="container">
-        <div class="board-section">
-            <div class="game-controls-bar">
-                <span class="tagline">ARENA SOAL EKSPONEN & LOGARITMA</span>
-                <span id="timer-display" style="font-weight: 800; color: #facc15; font-size: 16px;"></span>
-            </div>
-            <div class="grid-100" id="grid-container"></div>
-        </div>
+<div class="teacher-icon" onclick="openTeacher()">👨‍🏫</div>
 
-        <div class="sidebar">
-            <div class="leaderboard-card">
-                <div class="lb-header">
-                    <div class="lb-title">🏆 LEADERBOARD</div>
-                </div>
-                <div class="lb-list" id="leaderboard-list"></div>
-            </div>
-        </div>
+<!-- Modal Soal -->
+<div class="modal" id="modalSoal">
+  <div class="modal-content">
+    <h2 id="judulSoal">SOAL #1</h2>
+    <h3 id="poinSoal">50 POIN</h3>
+    <div class="choices desktop" id="choices"></div>
+  </div>
+</div>
+
+<!-- Modal Pilih Kelompok -->
+<div class="modal" id="modalTeam">
+  <div class="modal-content">
+    <h2>✅ JAWABAN BENAR!</h2>
+    <p>Pilih Kelompok Pemenang:</p>
+    <div class="team-pick" id="teamPick"></div>
+  </div>
+</div>
+
+<!-- Modal Teacher -->
+<div class="modal" id="modalTeacher">
+  <div class="modal-content">
+    <h2>TEACHER CONTROL PANEL</h2>
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('dashboard')">Dashboard</div>
+      <div class="tab" onclick="showTab('bank')">Bank Soal</div>
+      <div class="tab" onclick="showTab('kontrol')">Game Control</div>
     </div>
-
-    <!-- QUESTION MODAL -->
-    <div class="modal-overlay" id="modal-question">
-        <div class="modal-box">
-            <div class="modal-header">
-                <span class="q-badge" id="q-modal-num">SOAL #01</span>
-                <span class="q-points" id="q-modal-pts">10 POIN</span>
-            </div>
-            <div class="q-text" id="q-modal-text">Pertanyaan akan muncul di sini...</div>
-            <div class="options-grid" id="q-modal-options"></div>
-            <div class="modal-footer">
-                <button class="btn-submit" onclick="submitAnswer()">SUBMIT JAWABAN</button>
-            </div>
-        </div>
+    <div id="tab-dashboard">
+      <h3>Identitas</h3>
+      <input id="setKelas" placeholder="Nama Kelas"><br><br>
+      <input id="setGuru" placeholder="Nama Guru"><br><br>
+      <button class="btn" onclick="saveIdentitas()">Simpan</button>
+      <h3>Status</h3>
+      <p id="statusGame">GAME STATUS: IDLE</p>
+      <p id="statusSoal">0 / 100 SOAL TERJAWAB</p>
+      <h3>Nama Kelompok</h3>
+      <div id="kelompokInput"></div>
     </div>
-
-    <!-- RESULT MODAL -->
-    <div class="modal-overlay" id="modal-result">
-        <div class="modal-box" style="text-align: center;">
-            <div id="result-content"></div>
-        </div>
+    <div id="tab-bank" style="display:none">
+      <h3>BANK SOAL - EKSPONEN & LOGARITMA</h3>
+      <table><thead><tr><th>No</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Kunci</th><th>Poin</th><th>Status</th></tr></thead><tbody id="bankBody"></tbody></table>
+      <button class="btn" onclick="saveBank()">Simpan Bank Soal</button>
     </div>
-
-    <!-- TEACHER AUTH MODAL -->
-    <div class="modal-overlay" id="modal-auth">
-        <div class="modal-box" style="max-width: 400px; text-align: center;">
-            <h2 style="font-family: 'Outfit'; margin-bottom: 10px;">TEACHER ACCESS</h2>
-            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Masukkan password guru untuk mengakses kontrol.</p>
-            <input type="password" id="teacher-pass" placeholder="Password Guru..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: white; margin-bottom: 15px; text-align: center;">
-            <button class="btn-submit" onclick="verifyTeacher()">MASUK</button>
-        </div>
+    <div id="tab-kontrol" style="display:none">
+      <label><input type="checkbox" id="soundToggle" checked> Aktifkan Sound</label><br><br>
+      <label><input type="checkbox" id="timerToggle" checked> Aktifkan Timer</label>
     </div>
+  </div>
+</div>
 
-    <!-- TEACHER CONTROL PANEL MODAL -->
-    <div class="modal-overlay" id="modal-teacher">
-        <div class="modal-box teacher-panel">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                <h2 style="font-family: 'Outfit';">TEACHER CONTROL PANEL</h2>
-                <button onclick="closeTeacherPanel()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer;">✕</button>
-            </div>
-            <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('tab-dash', this)">Dashboard</button>
-                <button class="tab-btn" onclick="switchTab('tab-bank', this)">BANK SOAL</button>
-                <button class="tab-btn" onclick="switchTab('tab-control', this)">Game Control</button>
-            </div>
+<!-- Modal Game Over -->
+<div class="modal" id="modalOver">
+  <div class="modal-content">
+    <h1>GAME OVER</h1>
+    <h2>🏆 FINAL LEADERBOARD</h2>
+    <div id="podium"></div>
+    <button class="btn" onclick="restart()">MAIN LAGI</button>
+  </div>
+</div>
 
-            <!-- DASHBOARD TAB -->
-            <div class="tab-content active" id="tab-dash">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                    <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
-                        <h4>Status Game</h4>
-                        <p id="dash-status" style="font-size: 20px; font-weight: 800; color: #22c55e;">READY</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
-                        <h4>Soal Terjawab</h4>
-                        <p id="dash-solved" style="font-size: 20px; font-weight: 800; color: var(--accent-blue);">0 / 100</p>
-                    </div>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <label>Nama Kelas:</label>
-                    <input type="text" id="input-class" value="XII MIPA 1" style="padding: 8px; border-radius: 6px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white;">
-                    <label>Nama Guru:</label>
-                    <input type="text" id="input-teacher" value="Pak Budi, M.Pd" style="padding: 8px; border-radius: 6px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white;">
-                    <button class="btn-submit" onclick="saveHeaderInfo()" style="margin-top: 10px;">Simpan Informasi</button>
-                </div>
-            </div>
+<div class="overlay" id="overlay"></div>
+<canvas id="confetti"></canvas>
+<audio id="salah" src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
+<audio id="benar" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
 
-            <!-- BANK SOAL TAB -->
-            <div class="tab-content" id="tab-bank">
-                <table class="bank-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Soal</th>
-                            <th>Kunci</th>
-                            <th>Poin</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bank-table-body"></tbody>
-                </table>
-            </div>
+<script>
+const COLORS = {'Merah':'#ef4444','Kuning':'#facc15','Pink':'#ec4899','Hijau':'#22c55e','Ungu':'#7c3aed','Orange':'#f97316'};
+let game = {
+  kelas:'', guru:'', kelompok:Object.keys(COLORS), skor:{}, soal:[], status:Array(101).fill(null),
+  running:false, paused:false, timer:0, timerOn:true, soundOn:true, history:[], currentSoal:null
+};
 
-            <!-- GAME CONTROL TAB -->
-            <div class="tab-content" id="tab-control">
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <button class="btn-submit" style="background: #22c55e;" onclick="startGame()">▶ START GAME</button>
-                    <button class="btn-submit" style="background: #eab308;" onclick="pauseGame()">⏸ PAUSE GAME</button>
-                    <button class="btn-submit" style="background: #ef4444;" onclick="confirmEndGame()">🛑 END GAME</button>
-                </div>
-            </div>
-        </div>
-    </div>
+// 100 SOAL EKSPONEN & LOGARITMA
+function initSoal(){
+  game.soal = [
+    [1,'2^3','2^4','2^5','2^6','2^7','C',10],[2,'3^2','3^3','3^4','3^5','3^6','B',10],[3,'5^0','5^1','5^2','5^3','5^4','A',10],[4,'10^1','10^2','10^3','10^4','10^5','B',10],[5,'4^2','4^3','4^4','4^5','4^6','B',10],
+    [6,'2^-1','2^0','2^1','2^2','2^3','B',10],[7,'3^-2','3^-1','3^0','3^1','3^2','C',10],[8,'10^-2','10^-1','10^0','10^1','10^2','C',10],[9,'5^-1','5^0','5^1','5^2','5^3','B',10],[10,'4^-2','4^-1','4^0','4^1','4^2','C',10],
+    [11,'2^4 × 2^3','2^7','2^12','2^1','2^4','A',20],[12,'3^5 ÷ 3^2','3^3','3^7','3^10','3^2','A',20],[13,'(2^2)^3','2^5','2^6','2^8','2^9','B',20],[14,'5^4 × 5^-2','5^2','5^6','5^8','5^-8','A',20],[15,'10^7 ÷ 10^4','10^3','10^11','10^28','10^4','A',20],
+    [16,'2^5 × 2^-5','2^0','2^10','2^25','2^-10','A',20],[17,'3^0 × 3^4','3^0','3^4','3^1','3^5','B',20],[18,'(10^2)^-1','10^1','10^-2','10^2','10^-1','B',20],[19,'4^3 × 4^-1','4^2','4^4','4^3','4^1','A',20],[20,'5^6 ÷ 5^6','5^0','5^1','5^12','5^-1','A',20],
+    [21,'log 10','1','10','0','2','A',30],[22,'log 100','1','2','10','100','B',30],[23,'log 1000','2','3','4','5','B',30],[24,'log 1','0','1','-1','10','A',30],[25,'log 10^4','1','2','3','4','D',30],
+    [26,'log 10^-2','-1','-2','0','2','B',30],[27,'2log 8','1','2','3','4','C',30],[28,'3log 27','1','2','3','4','C',30],[29,'5log 125','1','2','3','4','C',30],[30,'10log 10000','3','4','5','6','B',30],
+    [31,'log(2×5)','log2 + log5','log2 × log5','log2 - log5','log10','A',40],[32,'log(100/10)','log100 - log10','log100 / log10','log90','log1000','A',40],[33,'log 2^5','5 log2','2 log5','log5','5 log10','A',40],[34,'2 log3','log9','log6','log3^2','A dan C','D',40],[35,'log100 + log10','2','3','4','5','B',40],
+    [36,'log 0.01','-1','-2','0','1','B',50],[37,'log 0.001','-2','-3','-4','-5','B',50],[38,'2log 16','2','3','4','5','C',50],[39,'3log 81','2','3','4','5','C',50],[40,'5log 625','3','4','5','6','C',50],
+    [41,'log x = 2','10','20','100','200','C',50],[42,'log x = 3','100','1000','10','30','B',50],[43,'2log x = 4','4','8','16','32','C',50],[44,'10log x = 2','20','100','200','1000','B',50],[45,'log(x+1)=1','9','10','11','12','A',50],
+    [46,'2^x = 8','1','2','3','4','C',60],[47,'3^x = 27','1','2','3','4','C',60],[48,'5^x = 125','1','2','3','4','C',60],[49,'10^x = 1000','1','2','3','4','C',60],[50,'4^x = 64','2','3','4','5','C',60],
+    [51,'2log(x-1)=3','5','7','9','11','C',60],[52,'log(2x)=2','25','50','100','200','B',60],[53,'3^x = 81','2','3','4','5','C',60],[54,'5log x = 2','5','10','25','125','C',60],[55,'2^x = 32','3','4','5','6','C',60],
+    [56,'log x + log2 = 2','20','50','100','200','B',70],[57,'log x - log10 = 1','10','100','1000','10000','B',70],[58,'2^x × 2^3 = 64','1','2','3','4','C',70],[59,'3^x ÷ 3^2 = 27','1','2','3','4','C',70],[60,'10^x × 10^2 = 100000','1','2','3','4','C',70],
+    [61,'(2^3)^2','2^5','2^6','2^8','2^9','B',70],[62,'(5^2)^3','5^5','5^6','5^8','5^9','B',70],[63,'2^10 ÷ 2^7','2^3','2^7','2^10','2^17','A',70],[64,'3^8 ÷ 3^5','3^3','3^8','3^13','3^40','A',70],[65,'10^5 × 10^-2','10^3','10^7','10^10','10^-10','A',70],
+    [66,'log 1000 - log 10','1','2','3','4','B',80],[67,'log 10000 + log 100','4','5','6','7','C',80],[68,'2log 32','4','5','6','7','B',80],[69,'3log 243','4','5','6','7','B',80],[70,'5log 3125','4','5','6','7','B',80],
+    [71,'2^(x+1)=16','1','2','3','4','C',80],[72,'3^(x-1)=27','2','3','4','5','C',80],[73,'5^(2x)=625','1','2','3','4','B',80],[74,'10^(x/2)=100','2','3','4','5','C',80],[75,'4^x = 256','3','4','5','6','B',80],
+    [76,'log(x^2)=4','10','100','1000','10000','B',90],[77,'2log x = 6','8','16','32','64','D',90],[78,'3log x = 3','9','27','81','243','B',90],[79,'10log x = 3','100','1000','10000','100000','B',90],[80,'log(3x)=2','10/3','100/3','1000/3','33.3','B',90],
+    [81,'2^5 × 2^-2','2^3','2^7','2^10','2^-10','A',90],[82,'3^7 ÷ 3^4','3^3','3^11','3^28','3^-3','A',90],[83,'(10^3)^2','10^5','10^6','10^9','10^8','B',90],[84,'5^-3 × 5^5','5^2','5^-2','5^8','5^-8','A',90],[85,'2^0 + 2^1 + 2^2','5','6','7','8','C',90],
+    [86,'log 2 + log 5','log7','log10','log3','1','D',100],[87,'log100 - log10','1','2','3','4','A',100],[88,'3log27 + 2log9','3','5','7','9','C',100],[89,'2^log8','3','4','5','8','D',100],[90,'10^log1000','10','100','1000','10000','C',100],
+    [91,'log(x) + log(x-1)=1','2','5','10','11','D',100],[92,'2^x + 2^x = 32','3','4','5','6','B',100],[93,'3^(x+2)=729','2','3','4','5','C',100],[94,'log(x^3)=6','10','100','1000','10000','B',100],[95,'5^(log25)','5','10','25','125','C',100],
+    [96,'2^(2x-1)=8','1','2','3','4','B',100],[97,'3^(x^2)=81','1','2','3','4','C',100],[98,'10log(x^2)=4','10','100','1000','10000','B',100],[99,'log(100x)=3','1','10','100','1000','B',100],[100,'2^x × 3^x = 216','1','2','3','4','C',100]
+  ].map(d=>({no:d[0],A:d[1],B:d[2],C:d[3],D:d[4],E:d[5],kunci:d[6],poin:d[7]}));
+}
+initSoal();
 
-    <!-- GAME OVER MODAL -->
-    <div class="modal-overlay" id="modal-gameover">
-        <div class="modal-box gameover-box">
-            <h1 style="font-family: 'Outfit'; font-size: 36px; color: #ef4444; margin-bottom: 10px;">GAME OVER</h1>
-            <div id="final-champion-card"></div>
-            <h3 style="margin-top: 20px; font-size: 16px; color: var(--text-muted);">FINAL LEADERBOARD</h3>
-            <div id="final-leaderboard" style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;"></div>
-            <button class="btn-export" onclick="exportToCSV()">📊 EXPORT HASIL (CSV)</button>
-        </div>
-    </div>
+// Load & Save
+function load(){const s=JSON.parse(localStorage.getItem('moc2')||'{}');Object.assign(game,s);game.kelompok.forEach(k=>game.skor[k]=game.skor[k]||0)}
+function save(){localStorage.setItem('moc2',JSON.stringify(game))}
 
-    <script>
-        // Data Questions
-        let questions = [{"id": 1, "question": "Berapakah nilai dari 3<sup>3</sup>?", "options": {"A": "27", "B": "30", "C": "26", "D": "54", "E": "32"}, "answer": "A", "points": 10}, {"id": 2, "question": "Berapakah nilai dari <sup>3</sup>log(27)?", "options": {"A": "3", "B": "4", "C": "5", "D": "6", "E": "6"}, "answer": "A", "points": 10}, {"id": 3, "question": "Berapakah nilai dari 5<sup>2</sup>?", "options": {"A": "25", "B": "30", "C": "24", "D": "50", "E": "30"}, "answer": "A", "points": 10}, {"id": 4, "question": "Berapakah nilai dari <sup>2</sup>log(4)?", "options": {"A": "2", "B": "3", "C": "4", "D": "4", "E": "5"}, "answer": "A", "points": 10}, {"id": 5, "question": "Berapakah nilai dari 2<sup>4</sup>?", "options": {"A": "16", "B": "18", "C": "15", "D": "32", "E": "21"}, "answer": "A", "points": 10}, {"id": 6, "question": "Berapakah nilai dari <sup>3</sup>log(3)?", "options": {"A": "1", "B": "2", "C": "3", "D": "2", "E": "4"}, "answer": "A", "points": 10}, {"id": 7, "question": "Berapakah nilai dari 4<sup>3</sup>?", "options": {"A": "64", "B": "68", "C": "63", "D": "128", "E": "69"}, "answer": "A", "points": 10}, {"id": 8, "question": "Berapakah nilai dari <sup>2</sup>log(8)?", "options": {"A": "3", "B": "4", "C": "5", "D": "6", "E": "6"}, "answer": "A", "points": 10}, {"id": 9, "question": "Berapakah nilai dari 6<sup>2</sup>?", "options": {"A": "36", "B": "42", "C": "35", "D": "72", "E": "41"}, "answer": "A", "points": 10}, {"id": 10, "question": "Berapakah nilai dari <sup>3</sup>log(9)?", "options": {"A": "2", "B": "3", "C": "4", "D": "4", "E": "5"}, "answer": "A", "points": 10}, {"id": 11, "question": "Berapakah nilai dari 3<sup>4</sup>?", "options": {"A": "81", "B": "84", "C": "80", "D": "162", "E": "86"}, "answer": "A", "points": 10}, {"id": 12, "question": "Berapakah nilai dari <sup>2</sup>log(2)?", "options": {"A": "1", "B": "2", "C": "3", "D": "2", "E": "4"}, "answer": "A", "points": 10}, {"id": 13, "question": "Berapakah nilai dari 5<sup>3</sup>?", "options": {"A": "125", "B": "130", "C": "124", "D": "250", "E": "130"}, "answer": "A", "points": 10}, {"id": 14, "question": "Berapakah nilai dari <sup>3</sup>log(27)?", "options": {"A": "3", "B": "4", "C": "5", "D": "6", "E": "6"}, "answer": "A", "points": 10}, {"id": 15, "question": "Berapakah nilai dari 2<sup>2</sup>?", "options": {"A": "4", "B": "6", "C": "3", "D": "8", "E": "9"}, "answer": "A", "points": 10}, {"id": 16, "question": "Berapakah nilai dari <sup>2</sup>log(4)?", "options": {"A": "2", "B": "3", "C": "4", "D": "4", "E": "5"}, "answer": "A", "points": 20}, {"id": 17, "question": "Berapakah nilai dari 4<sup>4</sup>?", "options": {"A": "256", "B": "260", "C": "255", "D": "512", "E": "261"}, "answer": "A", "points": 20}, {"id": 18, "question": "Berapakah nilai dari <sup>3</sup>log(3)?", "options": {"A": "1", "B": "2", "C": "3", "D": "2", "E": "4"}, "answer": "A", "points": 20}, {"id": 19, "question": "Berapakah nilai dari 6<sup>3</sup>?", "options": {"A": "216", "B": "222", "C": "215", "D": "432", "E": "221"}, "answer": "A", "points": 20}, {"id": 20, "question": "Berapakah nilai dari <sup>2</sup>log(8)?", "options": {"A": "3", "B": "4", "C": "5", "D": "6", "E": "6"}, "answer": "A", "points": 20}, {"id": 21, "question": "Berapakah nilai dari 3<sup>2</sup>?", "options": {"A": "9", "B": "12", "C": "8", "D": "18", "E": "14"}, "answer": "A", "points": 20}, {"id": 22, "question": "Berapakah nilai dari <sup>3</sup>log(9)?", "options": {"A": "2", "B": "3", "C": "4", "D": "4", "E": "5"}, "answer": "A", "points": 20}, {"id": 23, "question": "Berapakah nilai dari 5<sup>4</sup>?", "options": {"A": "625", "B": "630", "C": "624", "D": "1250", "E": "630"}, "answer": "A", "points": 20}, {"id": 24, "question": "Berapakah nilai dari <sup>2</sup>log(2)?", "options": {"A": "1", "B": "2", "C": "3", "D": "2", "E": "4"}, "answer": "A", "points": 20}, {"id": 25, "question": "Berapakah nilai dari 2<sup>3</sup>?", "options": {"A": "8", "B": "10", "C": "7", "D": "16", "E": "13"}, "answer": "A", "points": 20}, {"id": 26, "question": "Berapakah nilai dari <sup>3</sup>log(27)?", "options": {"A": "3", "B": "4", "C": "5", "D": "6", "E": "6"}, "answer": "A", "points": 20}, {"id": 27, "question": "Berapakah nilai dari 4<sup>2</sup>?", "options": {"A": "16", "B": "20", "C": "15", "D": "32", "E": "21"}, "answer": "A", "points": 20}, {"id": 28, "question": "Berapakah nilai dari <sup>2</sup>log(4)?", "options": {"A": "2", "B": "3", "C": "4", "D": "4", "E": "5"}, "answer": "A", "points": 20}, {"id": 29, "question": "Berapakah nilai dari 6<sup>4</sup>?", "options": {"A": "1296", "B": "1302", "C": "1295", "D": "2592", "E": "1301"}, "answer": "A", "points": 20}, {"id": 30, "question": "Berapakah nilai dari <sup>3</sup>log(3)?", "options": {"A": "1", "B": "2", "C": "3", "D": "2", "E": "4"}, "answer": "A", "points": 20}, {"id": 31, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 30}, {"id": 32, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 33, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 30}, {"id": 34, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 35, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 30}, {"id": 36, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 37, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 30}, {"id": 38, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 39, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 30}, {"id": 40, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 41, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 30}, {"id": 42, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 43, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 30}, {"id": 44, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 45, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 30}, {"id": 46, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 47, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 30}, {"id": 48, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 49, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 30}, {"id": 50, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 30}, {"id": 51, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 50}, {"id": 52, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 53, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 50}, {"id": 54, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 55, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 50}, {"id": 56, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 57, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 50}, {"id": 58, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 59, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 50}, {"id": 60, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 61, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 50}, {"id": 62, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 63, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 50}, {"id": 64, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 65, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 50}, {"id": 66, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 67, "question": "Sederhanakan bentuk (x<sup>5</sup> &middot; x<sup>6</sup>) : x<sup>4</sup>!", "options": {"A": "x<sup>7</sup>", "B": "x<sup>6</sup>", "C": "x<sup>8</sup>", "D": "x<sup>10</sup>", "E": "x<sup>5</sup>"}, "answer": "A", "points": 50}, {"id": 68, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 69, "question": "Sederhanakan bentuk (x<sup>3</sup> &middot; x<sup>4</sup>) : x<sup>2</sup>!", "options": {"A": "x<sup>5</sup>", "B": "x<sup>4</sup>", "C": "x<sup>6</sup>", "D": "x<sup>6</sup>", "E": "x<sup>3</sup>"}, "answer": "A", "points": 50}, {"id": 70, "question": "Nilai dari <sup>2</sup>log(4) + <sup>2</sup>log(10) - <sup>2</sup>log(10) adalah...", "options": {"A": "1", "B": "2", "C": "0", "D": "2", "E": "5"}, "answer": "A", "points": 50}, {"id": 71, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 2</sup> = 16 adalah x = ...", "options": {"A": "3", "B": "4", "C": "5", "D": "2", "E": "6"}, "answer": "A", "points": 75}, {"id": 72, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 73, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 4</sup> = 64 adalah x = ...", "options": {"A": "5", "B": "6", "C": "7", "D": "4", "E": "8"}, "answer": "A", "points": 75}, {"id": 74, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 75, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 1</sup> = 8 adalah x = ...", "options": {"A": "2", "B": "3", "C": "4", "D": "1", "E": "5"}, "answer": "A", "points": 75}, {"id": 76, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 77, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 3</sup> = 32 adalah x = ...", "options": {"A": "4", "B": "5", "C": "6", "D": "3", "E": "7"}, "answer": "A", "points": 75}, {"id": 78, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 79, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 5</sup> = 128 adalah x = ...", "options": {"A": "6", "B": "7", "C": "8", "D": "5", "E": "9"}, "answer": "A", "points": 75}, {"id": 80, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 81, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 2</sup> = 16 adalah x = ...", "options": {"A": "3", "B": "4", "C": "5", "D": "2", "E": "6"}, "answer": "A", "points": 75}, {"id": 82, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 83, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 4</sup> = 64 adalah x = ...", "options": {"A": "5", "B": "6", "C": "7", "D": "4", "E": "8"}, "answer": "A", "points": 75}, {"id": 84, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 75}, {"id": 85, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 1</sup> = 8 adalah x = ...", "options": {"A": "2", "B": "3", "C": "4", "D": "1", "E": "5"}, "answer": "A", "points": 75}, {"id": 86, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 87, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 3</sup> = 32 adalah x = ...", "options": {"A": "4", "B": "5", "C": "6", "D": "3", "E": "7"}, "answer": "A", "points": 100}, {"id": 88, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 89, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 5</sup> = 128 adalah x = ...", "options": {"A": "6", "B": "7", "C": "8", "D": "5", "E": "9"}, "answer": "A", "points": 100}, {"id": 90, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 91, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 2</sup> = 16 adalah x = ...", "options": {"A": "3", "B": "4", "C": "5", "D": "2", "E": "6"}, "answer": "A", "points": 100}, {"id": 92, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 93, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 4</sup> = 64 adalah x = ...", "options": {"A": "5", "B": "6", "C": "7", "D": "4", "E": "8"}, "answer": "A", "points": 100}, {"id": 94, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 95, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 1</sup> = 8 adalah x = ...", "options": {"A": "2", "B": "3", "C": "4", "D": "1", "E": "5"}, "answer": "A", "points": 100}, {"id": 96, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 97, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 3</sup> = 32 adalah x = ...", "options": {"A": "4", "B": "5", "C": "6", "D": "3", "E": "7"}, "answer": "A", "points": 100}, {"id": 98, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}, {"id": 99, "question": "Penyelesaian dari persamaan eksponen 2<sup>2x - 5</sup> = 128 adalah x = ...", "options": {"A": "6", "B": "7", "C": "8", "D": "5", "E": "9"}, "answer": "A", "points": 100}, {"id": 100, "question": "Jika <sup>2</sup>log 3 = a dan <sup>3</sup>log 5 = b, maka nilai dari <sup>2</sup>log 15 adalah...", "options": {"A": "a + a &middot; b", "B": "a + b", "C": "a &middot; b", "D": "a / b", "E": "a + b + 1"}, "answer": "A", "points": 100}];
+// Render
+function renderGrid(){
+  const g=document.getElementById('grid');g.innerHTML='';
+  game.soal.forEach(s=>{
+    const div=document.createElement('div');
+    div.className='box';
+    if(game.status[s.no]){div.style.background=COLORS[game.status[s.no]];div.classList.add('locked')}
+    div.innerHTML=`<div class="no">${s.no}</div><div class="poin">${s.poin} Poin</div>`;
+    div.onclick=()=>pilihSoal(s.no);
+    g.appendChild(div);
+  })
+}
+function renderLeader(){
+  const l=document.getElementById('leader');let prev={};
+  const sorted=game.kelompok.map(k=>({k,skor:game.skor[k]})).sort((a,b)=>b.skor-a.skor);
+  l.innerHTML=sorted.map((x,i)=>{
+    const up=prev[x.k]!==undefined && game.skor[x.k]>prev[x.k]? 'up' : '';
+    prev[x.k]=x.skor;
+    return `<div class="leader-row ${up}" style="background:${COLORS[x.k]}20">
+      ${i+1}. ${x.k} <b>${x.skor}</b>
+    </div>`
+  }).join('');
+}
 
-        let teams = [
-            { name: "KELOMPOK MERAH", color: "red", hex: "#ef4444", score: 0, solved: 0 },
-            { name: "KELOMPOK KUNING", color: "yellow", hex: "#eab308", score: 0, solved: 0 },
-            { name: "KELOMPOK PINK", color: "pink", hex: "#ec4899", score: 0, solved: 0 },
-            { name: "KELOMPOK HIJAU", color: "green", hex: "#22c55e", score: 0, solved: 0 },
-            { name: "KELOMPOK UNGU", color: "purple", hex: "#a855f7", score: 0, solved: 0 },
-            { name: "KELOMPOK ORANGE", color: "orange", hex: "#f97316", score: 0, solved: 0 }
-        ];
+// Gameplay
+function pilihSoal(no){
+  if(game.status[no]||!game.running||game.paused) return;
+  game.currentSoal=no;const s=game.soal[no-1];
+  document.getElementById('judulSoal').textContent=`SOAL #${no}`;
+  document.getElementById('poinSoal').textContent=`${s.poin} POIN`;
+  const c=document.getElementById('choices');
+  c.innerHTML=['A','B','C','D','E'].map(x=>`<button onclick="jawab('${x}')">${x}. ${s[x]}</button>`).join('');
+  document.getElementById('modalSoal').classList.add('active');playSound('click');
+}
+function jawab(pil){
+  const s=game.soal[game.currentSoal-1];
+  document.getElementById('modalSoal').classList.remove('active');
+  const benar=pil===s.kunci;
+  game.history.push({waktu:new Date().toLocaleTimeString(),no:game.currentSoal,kelompok:'-',jawaban:pil,hasil:benar?'Benar':'Salah',poin:benar?s.poin:0});
+  if(benar){
+    playSound('benar');showOverlay('✅','JAWABAN BENAR!','+'+s.poin+' POIN','#22c55e');confetti();
+    setTimeout(()=>pilihKelompok(s.poin),1200);
+  }else{
+    playSound('salah');showOverlay('❌','JAWABAN SALAH!','Coba Lagi','#ef4444');
+    setTimeout(()=>pilihSoal(game.currentSoal),1000);
+  }
+}
+function pilihKelompok(poin){
+  const tp=document.getElementById('teamPick');tp.innerHTML='';
+  game.kelompok.forEach(k=>{
+    const b=document.createElement('button');
+    b.style.background=COLORS[k];b.textContent=k;
+    b.onclick=()=>{
+      game.skor[k]+=poin;game.status[game.currentSoal]=k;
+      game.history[game.history.length-1].kelompok=k;
+      save();renderGrid();renderLeader();
+      document.getElementById('modalTeam').classList.remove('active');
+    };
+    tp.appendChild(b);
+  });
+  document.getElementById('modalTeam').classList.add('active');
+}
+function showOverlay(icon,text,sub,color){
+  const o=document.getElementById('overlay');
+  o.innerHTML=`<div style="color:${color}">${icon}<br>${text}<br><span style="font-size:1.5rem">${sub}</span></div>`;
+  o.classList.add('active');setTimeout(()=>o.classList.remove('active'),1200);
+}
 
-        let gameState = "READY"; // READY, RUNNING, PAUSED, ENDED
-        let solvedQuestions = {}; // qid: teamIndex
-        let currentActiveQ = null;
-        let selectedOption = null;
-        let gameHistory = [];
+// Teacher
+function openTeacher(){
+  const pw=prompt('TEACHER ACCESS\nMasukkan Password Guru:');
+  if(pw==='btslngshotcortis'){document.getElementById('modalTeacher').classList.add('active');loadTeacher()}
+  else alert('✕ Password salah');
+}
+function showTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  ['dashboard','bank','kontrol'].forEach(x=>document.getElementById('tab-'+x).style.display=x===id?'block':'none');
+}
+function loadTeacher(){
+  document.getElementById('setKelas').value=game.kelas;
+  document.getElementById('setGuru').value=game.guru;
+  const ki=document.getElementById('kelompokInput');ki.innerHTML='';
+  game.kelompok.forEach((k,i)=>ki.innerHTML+=`<input value="${k}" onchange="game.kelompok[${i}]=this.value"><br>`);
+  const bb=document.getElementById('bankBody');bb.innerHTML='';
+  game.soal.forEach(s=>{
+    bb.innerHTML+=`<tr><td>${s.no}</td>
+    ${['A','B','C','D','E'].map(x=>`<td><input value="${s[x]}" onchange="game.soal[${s.no-1}].${x}=this.value"></td>`).join('')}
+    <td><select onchange="game.soal[${s.no-1}].kunci=this.value">${['A','B','C','D','E'].map(x=>`<option ${s.kunci===x?'selected':''}>${x}</option>`).join('')}</select></td>
+    <td><input type="number" value="${s.poin}" onchange="game.soal[${s.no-1}].poin=+this.value"></td>
+    <td>${game.status[s.no]?'Selesai':'Aktif'}</td></tr>`;
+  });
+  document.getElementById('statusGame').textContent='GAME STATUS: '+(game.running?'RUNNING':'IDLE');
+  document.getElementById('statusSoal').textContent=`${game.status.filter(x=>x).length} / 100 SOAL TERJAWAB`;
+}
+function saveIdentitas(){game.kelas=document.getElementById('setKelas').value;game.guru=document.getElementById('setGuru').value;save();alert('Tersimpan')}
+function saveBank(){save();alert('Bank Soal Tersimpan')}
 
-        // Audio Effects (Web Audio API)
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playSound(type) {
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
+// Game Control
+let interval;
+function startGame(){game.running=true;game.paused=false;interval=setInterval(()=>{if(game.running&&!game.paused&&game.timerOn)document.getElementById('timer').textContent=formatTime(++game.timer)},1000)}
+function togglePause(){game.paused=!game.paused}
+function endGame(){
+  if(confirm('Apakah Anda yakin ingin mengakhiri permainan?')){
+    clearInterval(interval);game.running=false;
+    const sorted=game.kelompok.map(k=>({k,skor:game.skor[k]})).sort((a,b)=>b.skor-a.skor);
+    document.getElementById('podium').innerHTML=`
+      <h2>🏆 CHAMPION</h2><h1 style="color:${COLORS[sorted[0].k]}">${sorted[0].k}</h1><h3>${sorted[0].skor} POIN</h3>
+      <h3>🥈 ${sorted[1].k} - ${sorted[1].skor} POIN</h3>
+      <h3>🥉 ${sorted[2].k} - ${sorted[2].skor} POIN</h3>`;
+    document.getElementById('modalOver').classList.add('active');confetti();
+  }
+}
+function restart(){document.getElementById('modalOver').classList.remove('active');game.status=Array(101).fill(null);game.kelompok.forEach(k=>game.skor[k]=0);game.history=[];game.timer=0;document.getElementById('timer').textContent='00:00';save();renderGrid();renderLeader()}
 
-            if (type === 'click') {
-                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.05);
-            } else if (type === 'correct') {
-                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
-                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1);
-                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.3);
-            } else if (type === 'wrong') {
-                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
-                osc.frequency.setValueAtTime(150, audioCtx.currentTime + 0.1);
-                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.3);
-            }
-        }
+// Export CSV - FIXED
+function exportCSV(){
+  let csv1="Ranking,Kelompok,Warna,Total Poin,Soal Terjawab\n";
+  const sorted=game.kelompok.map(k=>({k,skor:game.skor[k],terjawab:game.status.filter(x=>x===k).length})).sort((a,b)=>b.skor-a.skor);
+  sorted.forEach((x,i)=>{csv1+=`${i+1},${x.k},${x.k},${x.skor},${x.terjawab}\n`});
+  downloadCSV(csv1,'Hasil_Akhir.csv');
 
-        // Initialize Grid
-        function initGrid() {
-            const grid = document.getElementById('grid-container');
-            grid.innerHTML = '';
-            questions.forEach(q => {
-                const card = document.createElement('div');
-                card.className = 'grid-card';
-                card.id = `q-card-${q.id}`;
-                
-                if (solvedQuestions[q.id] !== undefined) {
-                    const team = teams[solvedQuestions[q.id]];
-                    card.classList.add(`solved-${team.color}`, 'disabled');
-                    card.innerHTML = `<div class="num">${q.id < 10 ? '0'+q.id : q.id}</div><div class="pts">${q.points} Pts</div><div class="check-icon">✓</div>`;
-                } else {
-                    card.innerHTML = `<div class="num">${q.id < 10 ? '0'+q.id : q.id}</div><div class="pts">${q.points} Pts</div>`;
-                    card.onclick = () => openQuestion(q.id);
-                }
-                grid.appendChild(card);
-            });
-        }
+  let csv2="Waktu,No Soal,Kelompok,Jawaban,Hasil,Poin\n";
+  game.history.forEach(h=>{csv2+=`${h.waktu},${h.no},${h.kelompok},${h.jawaban},${h.hasil},${h.poin}\n`});
+  downloadCSV(csv2,'Detail_Jawaban.csv');
+  alert('2 file CSV berhasil diunduh!')
+}
+function downloadCSV(csv,filename){
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const link=document.createElement('a');
+  link.href=URL.createObjectURL(blob);
+  link.download=filename;
+  link.click();
+}
+function formatTime(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function playSound(t){if(!game.soundOn)return;if(t==='benar')document.getElementById('benar').play();if(t==='salah')document.getElementById('salah').play()}
+function confetti(){
+  const c=document.getElementById('confetti').getContext('2d');
+  c.canvas.width=window.innerWidth;c.canvas.height=window.innerHeight;
+  for(let i=0;i<100;i++){c.fillStyle=`hsl(${Math.random()*360},100%,50%)`;c.fillRect(Math.random()*window.innerWidth,Math.random()*window.innerHeight,6,6)}
+  setTimeout(()=>c.clearRect(0,0,window.innerWidth,window.innerHeight),1500)
+}
 
-        // Render Leaderboard
-        function renderLeaderboard() {
-            const list = document.getElementById('leaderboard-list');
-            const sorted = [...teams].sort((a,b) => b.score - a.score);
-            
-            list.innerHTML = '';
-            sorted.forEach((team, index) => {
-                const rankIcons = ['🥇', '🥈', '🥉', '4', '5', '6'];
-                const item = document.createElement('div');
-                item.className = 'lb-item';
-                item.innerHTML = `
-                    <div class="lb-rank">${rankIcons[index]}</div>
-                    <div class="lb-team">
-                        <div class="team-dot" style="background: ${team.hex};"></div>
-                        ${team.name}
-                    </div>
-                    <div class="lb-pts">${team.score}</div>
-                `;
-                list.appendChild(item);
-            });
-        }
-
-        // Open Question
-        function openQuestion(qid) {
-            if (gameState !== 'RUNNING') {
-                alert('Permainan belum dimulai atau sedang dipause!');
-                return;
-            }
-            playSound('click');
-            currentActiveQ = questions.find(q => q.id === qid);
-            selectedOption = null;
-
-            document.getElementById('q-modal-num').innerText = `SOAL #${currentActiveQ.id < 10 ? '0'+currentActiveQ.id : currentActiveQ.id}`;
-            document.getElementById('q-modal-pts').innerText = `${currentActiveQ.points} POIN`;
-            document.getElementById('q-modal-text').innerHTML = currentActiveQ.question;
-
-            const optsContainer = document.getElementById('q-modal-options');
-            optsContainer.innerHTML = '';
-
-            Object.keys(currentActiveQ.options).forEach(key => {
-                const btn = document.createElement('button');
-                btn.className = 'opt-btn';
-                btn.innerHTML = `<div class="opt-key">${key}</div> <div>${currentActiveQ.options[key]}</div>`;
-                btn.onclick = () => {
-                    playSound('click');
-                    document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    selectedOption = key;
-                };
-                optsContainer.appendChild(btn);
-            });
-
-            document.getElementById('modal-question').classList.add('active');
-        }
-
-        function submitAnswer() {
-            if (!selectedOption) {
-                alert('Pilih salah satu jawaban terlebih dahulu!');
-                return;
-            }
-
-            document.getElementById('modal-question').classList.remove('active');
-            const isCorrect = (selectedOption === currentActiveQ.answer);
-
-            if (isCorrect) {
-                playSound('correct');
-                showResultSuccess();
-            } else {
-                playSound('wrong');
-                showResultWrong();
-            }
-        }
-
-        function showResultWrong() {
-            const res = document.getElementById('result-content');
-            res.innerHTML = `
-                <div class="result-icon">❌</div>
-                <div class="result-title" style="color: #ef4444;">JAWABAN SALAH!</div>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Jangan menyerah, coba lagi atau pilih opsi lain!</p>
-                <button class="btn-submit" style="background: var(--accent-blue); color: #000;" onclick="closeModal('modal-result')">COBA LAGI</button>
-            `;
-            document.getElementById('modal-result').classList.add('active');
-        }
-
-        function showResultSuccess() {
-            const res = document.getElementById('result-content');
-            let buttons = '';
-            teams.forEach((team, idx) => {
-                buttons += `<button class="btn-team-select" style="background: ${team.hex};" onclick="claimPoints(${idx})">${team.name}</button>`;
-            });
-
-            res.innerHTML = `
-                <div class="result-icon">✅</div>
-                <div class="result-title" style="color: #22c55e;">JAWABAN BENAR!</div>
-                <p style="color: var(--text-muted); font-weight: 700;">+${currentActiveQ.points} POIN</p>
-                <div class="team-selector">
-                    <p>Pilih kelompok yang menjawab dengan benar:</p>
-                    <div class="team-buttons">${buttons}</div>
-                </div>
-            `;
-            document.getElementById('modal-result').classList.add('active');
-        }
-
-        function claimPoints(teamIndex) {
-            teams[teamIndex].score += currentActiveQ.points;
-            teams[teamIndex].solved += 1;
-            solvedQuestions[currentActiveQ.id] = teamIndex;
-
-            // Log history
-            const now = new Date();
-            const timeStr = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
-            gameHistory.push({
-                time: timeStr,
-                qNum: currentActiveQ.id,
-                team: teams[teamIndex].name,
-                points: currentActiveQ.points
-            });
-
-            closeModal('modal-result');
-            initGrid();
-            renderLeaderboard();
-            updateDashboard();
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
-        }
-
-        // Teacher Functions
-        function openTeacherAuth() {
-            document.getElementById('modal-auth').classList.add('active');
-        }
-
-        function verifyTeacher() {
-            const pass = document.getElementById('teacher-pass').value;
-            if (pass === 'btslngshotcortis') {
-                closeModal('modal-auth');
-                document.getElementById('teacher-pass').value = '';
-                document.getElementById('modal-teacher').classList.add('active');
-                renderBankTable();
-            } else {
-                alert('Password Salah!');
-            }
-        }
-
-        function closeTeacherPanel() {
-            closeModal('modal-teacher');
-        }
-
-        function switchTab(tabId, btn) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        }
-
-        function renderBankTable() {
-            const tbody = document.getElementById('bank-table-body');
-            tbody.innerHTML = '';
-            questions.forEach((q, idx) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${q.id}</td>
-                    <td>${q.question}</td>
-                    <td>
-                        <select onchange="questions[${idx}].answer = this.value">
-                            <option value="A" ${q.answer==='A'?'selected':''}>A</option>
-                            <option value="B" ${q.answer==='B'?'selected':''}>B</option>
-                            <option value="C" ${q.answer==='C'?'selected':''}>C</option>
-                            <option value="D" ${q.answer==='D'?'selected':''}>D</option>
-                            <option value="E" ${q.answer==='E'?'selected':''}>E</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="number" value="${q.points}" style="width:60px;" onchange="questions[${idx}].points = parseInt(this.value); initGrid();">
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function saveHeaderInfo() {
-            const cls = document.getElementById('input-class').value;
-            const tch = document.getElementById('input-teacher').value;
-            document.getElementById('disp-class').innerText = cls;
-            document.getElementById('disp-teacher').innerText = tch;
-            alert('Informasi berhasil diperbarui!');
-        }
-
-        function startGame() {
-            gameState = 'RUNNING';
-            document.getElementById('disp-status').innerText = 'RUNNING';
-            document.getElementById('disp-status').style.color = '#22c55e';
-            closeTeacherPanel();
-        }
-
-        function pauseGame() {
-            gameState = 'PAUSED';
-            document.getElementById('disp-status').innerText = 'PAUSED';
-            document.getElementById('disp-status').style.color = '#eab308';
-            closeTeacherPanel();
-        }
-
-        function confirmEndGame() {
-            if (confirm('Apakah Anda yakin ingin mengakhiri permainan?')) {
-                gameState = 'ENDED';
-                document.getElementById('disp-status').innerText = 'ENDED';
-                document.getElementById('disp-status').style.color = '#ef4444';
-                closeTeacherPanel();
-                showGameOver();
-            }
-        }
-
-        function updateDashboard() {
-            document.getElementById('dash-status').innerText = gameState;
-            document.getElementById('dash-solved').innerText = `${Object.keys(solvedQuestions).length} / 100`;
-        }
-
-        function showGameOver() {
-            const sorted = [...teams].sort((a,b) => b.score - a.score);
-            const champ = sorted[0];
-
-            document.getElementById('final-champion-card').innerHTML = `
-                <div class="champ-card">
-                    <div class="champ-title">🏆 MATHEMATICS CHAMPION 🏆</div>
-                    <div class="champ-name" style="color: ${champ.hex};">${champ.name}</div>
-                    <div class="champ-pts">${champ.score} POINTS</div>
-                </div>
-            `;
-
-            const finalLb = document.getElementById('final-leaderboard');
-            finalLb.innerHTML = '';
-            sorted.forEach((team, idx) => {
-                finalLb.innerHTML += `
-                    <div style="display:flex; justify-between; padding: 10px 15px; background: rgba(255,255,255,0.03); border-radius:8px;">
-                        <span>#${idx+1} ${team.name}</span>
-                        <span style="font-weight:bold; color:var(--accent-blue);">${team.score} Pts</span>
-                    </div>
-                `;
-            });
-
-            document.getElementById('modal-gameover').classList.add('active');
-            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-        }
-
-        // EXPORT TO CSV FUNCTION
-        function exportToCSV() {
-            const sorted = [...teams].sort((a,b) => b.score - a.score);
-            
-            let csvContent = "data:text/csv;charset=utf-8,";
-            
-            // Leaderboard Summary Table
-            csvContent += "=== REKAPITULASI HASIL GAME ===
-";
-            csvContent += "Ranking,Nama Kelompok,Total Poin,Soal Terjawab
-";
-            sorted.forEach((team, idx) => {
-                csvContent += `${idx + 1},"${team.name}",${team.score},${team.solved}
-`;
-            });
-
-            csvContent += "
-=== DETAIL RIWAYAT JAWABAN ===
-";
-            csvContent += "Waktu,No Soal,Kelompok,Poin
-";
-            gameHistory.forEach(row => {
-                csvContent += `${row.time},${row.qNum},"${row.team}",${row.points}
-`;
-            });
-
-            // Trigger Download
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `Hasil_Game_Mathematics_Of_Champion_${new Date().toISOString().slice(0,10)}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // Init App
-        initGrid();
-        renderLeaderboard();
-    </script>
+load();renderGrid();renderLeader();
+document.getElementById('soundToggle').onchange=e=>game.soundOn=e.target.checked;
+document.getElementById('timerToggle').onchange=e=>game.timerOn=e.target.checked;
+</script>
 </body>
 </html>
-index.html
-Displaying index.html.
