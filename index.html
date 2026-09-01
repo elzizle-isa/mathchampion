@@ -3,1368 +3,1235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MATHEMATICS OF CHAMPION</title>
+<title>Mathematics of Champion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#080b16;
-  --bg2:#0d1226;
-  --panel:#111832;
-  --panel2:#161f42;
-  --line:#232d55;
-  --ice:#38bdf8;
-  --ice2:#7dd3fc;
-  --gold:#ffcb47;
-  --text:#eaf0ff;
-  --muted:#8b96c4;
-  --merah:#ff4d5e;
-  --kuning:#ffd23f;
-  --pink:#ff5da2;
-  --hijau:#33d17a;
-  --ungu:#9b5de5;
-  --orange:#ff8c32;
-  --danger:#ff4d5e;
-  --ok:#33d17a;
+  --bg:#0A1120;
+  --bg-panel:#111B30;
+  --bg-panel-2:#16223D;
+  --bg-panel-3:#1C2A48;
+  --border:#26375C;
+  --cyan:#4CC9F0;
+  --cyan-dim:#2E8FB0;
+  --magenta:#F72585;
+  --lightblue:#9FD8FF;
+  --lightblue-box:#BFE6FF;
+  --lightblue-box-dark:#0D2A45;
+  --text:#EAF2FF;
+  --text-dim:#93A6C7;
+  --ok:#2ED573;
+  --bad:#FF4757;
+  --red:#FF4757; --yellow:#FFC93C; --pink:#FF6FB5; --green:#2ED573; --purple:#8B6BFF; --orange:#FF9F43;
+  --font-display:'Sora',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
   background:
-    radial-gradient(1200px 600px at 15% -10%, #14204a 0%, transparent 60%),
-    radial-gradient(1000px 500px at 110% 10%, #1a1240 0%, transparent 55%),
+    radial-gradient(1200px 600px at 15% -10%, rgba(76,201,240,0.14), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(247,37,133,0.10), transparent 55%),
     var(--bg);
   color:var(--text);
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family:var(--font-body);
   min-height:100vh;
+  -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1500px;margin:0 auto;padding:18px 18px 60px;}
+::selection{background:var(--cyan);color:#001;}
+a{color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--bg-panel);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
 
-/* ===== HEADER ===== */
-header.arena{
-  position:relative;
-  border:1px solid var(--line);
-  background:linear-gradient(135deg,#0f1730,#0a0f22 60%);
-  border-radius:18px;
-  padding:22px 26px;
-  margin-bottom:20px;
-  overflow:hidden;
-}
-header.arena::before{
-  content:"";position:absolute;inset:0;
-  background:repeating-linear-gradient(100deg, rgba(56,189,248,0.05) 0px, rgba(56,189,248,0.05) 2px, transparent 2px, transparent 40px);
-  pointer-events:none;
-}
-.hbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;position:relative;z-index:1;}
-.htitle-block{flex:1;min-width:260px;}
-.eyebrow{
-  font-size:11px;letter-spacing:.35em;color:var(--ice2);font-weight:700;text-transform:uppercase;
-  margin-bottom:6px;
-}
-h1.title{
-  margin:0;font-size:clamp(26px,4.2vw,46px);font-weight:900;letter-spacing:.02em;
-  background:linear-gradient(90deg,#fff,var(--ice2) 60%,var(--gold));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  text-transform:uppercase;line-height:1.05;
-}
-.subtitle{color:var(--muted);font-weight:600;font-size:15px;margin-top:4px;letter-spacing:.02em;}
-.meta-row{display:flex;gap:22px;margin-top:14px;flex-wrap:wrap;}
-.meta-chip{font-size:13px;color:var(--text);background:var(--panel);border:1px solid var(--line);padding:6px 12px;border-radius:999px;}
-.meta-chip b{color:var(--ice2);font-weight:700;}
-.hactions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;position:relative;z-index:1;}
-.icon-btn{
-  background:var(--panel);border:1px solid var(--line);color:var(--text);
-  width:42px;height:42px;border-radius:12px;cursor:pointer;font-size:18px;
-  display:flex;align-items:center;justify-content:center;transition:.15s;
-}
-.icon-btn:hover{border-color:var(--ice);transform:translateY(-1px);}
-.status-pill{
-  font-size:12px;font-weight:800;letter-spacing:.08em;padding:8px 14px;border-radius:999px;
-  border:1px solid var(--line);text-transform:uppercase;
-}
-.status-running{color:var(--ok);border-color:var(--ok);background:rgba(51,209,122,.08);}
-.status-paused{color:var(--gold);border-color:var(--gold);background:rgba(255,203,71,.08);}
-.status-idle{color:var(--muted);}
-.status-ended{color:var(--merah);border-color:var(--merah);background:rgba(255,77,94,.08);}
+.bg-symbols{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;opacity:0.06;font-family:var(--font-display);font-weight:800;color:var(--cyan);}
+.bg-symbols span{position:absolute;font-size:90px;}
 
-.btn{
-  font-family:inherit;font-weight:800;letter-spacing:.03em;border-radius:12px;border:1px solid transparent;
-  padding:10px 18px;cursor:pointer;font-size:13.5px;text-transform:uppercase;transition:.15s;
+/* Header */
+header.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(10,17,32,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:14px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
 }
-.btn-primary{background:linear-gradient(90deg,var(--ice),#0ea5e9);color:#04101f;}
-.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px);}
-.btn-ghost{background:var(--panel);color:var(--text);border-color:var(--line);}
-.btn-ghost:hover{border-color:var(--ice);}
-.btn-danger{background:linear-gradient(90deg,#ff4d5e,#c81e33);color:#fff;}
-.btn-gold{background:linear-gradient(90deg,var(--gold),#ffa53f);color:#1a1200;}
-.btn:disabled{opacity:.4;cursor:not-allowed;}
-
-/* ===== LAYOUT ===== */
-.layout{display:flex;gap:20px;align-items:flex-start;}
-.main-col{flex:1;min-width:0;}
-.side-col{width:320px;flex-shrink:0;}
-@media(max-width:1000px){
-  .layout{flex-direction:column;}
-  .side-col{width:100%;}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-mark{
+  width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(145deg,var(--cyan),var(--magenta));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:20px;color:#071120;
+  box-shadow:0 0 22px rgba(76,201,240,0.5);
+  flex-shrink:0;
 }
-
-/* Team strip */
-.teams-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
-.team-chip{
-  flex:1;min-width:120px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
-  padding:10px 12px;position:relative;overflow:hidden;
+.brand-text h1{
+  font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:0.3px;margin:0;
+  background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1.1;
 }
-.team-chip .bar{position:absolute;left:0;top:0;bottom:0;width:5px;}
-.team-chip .tname{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
-.team-chip .tscore{font-size:20px;font-weight:900;margin-top:2px;}
-
-/* Grid of 100 boxes */
-.grid-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.grid-title h2{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0;}
-.progress-wrap{flex:1;max-width:220px;margin-left:16px;height:8px;background:var(--panel);border-radius:99px;overflow:hidden;border:1px solid var(--line);}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--ice),var(--gold));width:0%;transition:width .4s;}
-
-.board{
-  display:grid;grid-template-columns:repeat(10,1fr);gap:8px;
+.brand-text p{margin:2px 0 0;font-size:12.5px;color:var(--text-dim);letter-spacing:0.4px;}
+.meta-pills{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.pill{
+  background:var(--bg-panel-2);border:1px solid var(--border);
+  padding:7px 13px;border-radius:999px;font-size:12.5px;color:var(--text-dim);
+  display:flex;gap:6px;align-items:center;
 }
-@media(max-width:900px){.board{grid-template-columns:repeat(6,1fr);}}
-@media(max-width:520px){.board{grid-template-columns:repeat(5,1fr);}}
-
-.qbox{
-  aspect-ratio:1/1;border-radius:10px;border:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(160deg,var(--ice) 0%,#0ea5e9 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  cursor:pointer;position:relative;color:#04101f;font-weight:900;transition:.15s;
-  box-shadow:0 2px 0 rgba(0,0,0,.25) inset, 0 4px 10px rgba(0,0,0,.25);
-}
-.qbox:hover:not(.done):not(.locked-game){transform:translateY(-3px) scale(1.04);box-shadow:0 0 0 2px var(--ice2),0 8px 16px rgba(56,189,248,.35);}
-.qbox .num{font-size:15px;line-height:1;}
-.qbox .pts{font-size:9px;font-weight:800;opacity:.8;margin-top:2px;}
-.qbox.done{cursor:default;color:#fff;box-shadow:none;}
-.qbox.done .check{position:absolute;top:3px;right:4px;font-size:10px;}
-.qbox.locked-game{filter:grayscale(.6);cursor:not-allowed;opacity:.55;}
-.qbox[data-team="merah"].done{background:linear-gradient(160deg,var(--merah),#c81e33);}
-.qbox[data-team="kuning"].done{background:linear-gradient(160deg,var(--kuning),#c99a00);color:#241a00;}
-.qbox[data-team="pink"].done{background:linear-gradient(160deg,var(--pink),#b8266f);}
-.qbox[data-team="hijau"].done{background:linear-gradient(160deg,var(--hijau),#1d8f57);}
-.qbox[data-team="ungu"].done{background:linear-gradient(160deg,var(--ungu),#6a2fb0);}
-.qbox[data-team="orange"].done{background:linear-gradient(160deg,var(--orange),#c9600f);}
-
-/* Sidebar leaderboard */
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;}
-.panel + .panel{margin-top:16px;}
-.panel h3{margin:0 0 12px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
-.lb-row{
-  display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;margin-bottom:6px;
-  background:var(--panel2);border:1px solid var(--line);transition:.3s;
-}
-.lb-rank{width:26px;text-align:center;font-weight:900;font-size:14px;}
-.lb-dot{width:12px;height:12px;border-radius:4px;flex-shrink:0;}
-.lb-name{flex:1;font-weight:800;font-size:13px;letter-spacing:.02em;}
-.lb-score{font-weight:900;font-size:15px;}
-.lb-row.rank-up{animation:rankUp .8s ease;}
-@keyframes rankUp{0%{background:rgba(255,203,71,.35);}100%{background:var(--panel2);}}
-
-.small-note{font-size:11.5px;color:var(--muted);line-height:1.5;}
-
-/* ===== MODAL BASE ===== */
-.overlay{
-  position:fixed;inset:0;background:rgba(3,6,16,.72);backdrop-filter:blur(3px);
-  display:none;align-items:center;justify-content:center;z-index:200;padding:16px;
-}
-.overlay.show{display:flex;}
-.modal{
-  background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;
-  width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-.modal.wide{max-width:1000px;}
-.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;}
-.modal h2{margin:0 0 4px;font-size:22px;}
-.modal .modal-sub{color:var(--muted);font-size:13px;margin-bottom:16px;}
-
-/* Question modal */
-.q-headline{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.q-num{font-size:26px;font-weight:900;color:var(--ice2);}
-.q-pts{background:linear-gradient(90deg,var(--gold),#ffa53f);color:#1a1200;font-weight:900;padding:5px 12px;border-radius:999px;font-size:13px;}
-.q-timer{font-weight:900;font-size:14px;color:var(--merah);}
-.q-text{font-size:17px;font-weight:700;margin:14px 0 18px;line-height:1.5;}
-.opt-list{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
-.opt{
-  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
-  background:var(--panel);cursor:pointer;font-weight:600;font-size:14.5px;transition:.15s;
-}
-.opt:hover{border-color:var(--ice);}
-.opt.selected{border-color:var(--ice);background:rgba(56,189,248,.12);}
-.opt .oletter{width:26px;height:26px;border-radius:8px;background:var(--panel2);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0;}
-.feedback-layer{
-  position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;
-  background:rgba(3,6,16,.92);border-radius:18px;z-index:2;text-align:center;
-}
-.feedback-layer.show{display:flex;}
-.feedback-icon{font-size:70px;line-height:1;margin-bottom:8px;}
-.feedback-text{font-size:20px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;}
-.feedback-text.ok{color:var(--ok);}
-.feedback-text.bad{color:var(--merah);}
-.feedback-pts{font-size:15px;color:var(--gold);font-weight:800;margin-top:6px;}
-
-.color-pick-title{text-align:center;font-weight:800;margin:6px 0 14px;color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.1em;}
-.color-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.color-opt{
-  padding:14px 8px;border-radius:12px;border:2px solid transparent;cursor:pointer;font-weight:900;text-align:center;color:#fff;font-size:13px;
+.pill b{color:var(--text);font-weight:600;}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--text-dim);}
+.status-dot.running{background:var(--ok);box-shadow:0 0 8px var(--ok);animation:pulse 1.6s infinite;}
+.status-dot.paused{background:var(--yellow);box-shadow:0 0 8px var(--yellow);}
+.status-dot.ended{background:var(--bad);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+.teacher-btn{
+  background:var(--bg-panel-2);border:1px solid var(--border);color:var(--text);
+  border-radius:12px;padding:9px 14px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;
   transition:.15s;
 }
-.color-opt:hover{transform:scale(1.04);}
-.co-merah{background:var(--merah);} .co-kuning{background:var(--kuning);color:#241a00;} .co-pink{background:var(--pink);}
-.co-hijau{background:var(--hijau);} .co-ungu{background:var(--ungu);} .co-orange{background:var(--orange);}
+.teacher-btn:hover{border-color:var(--cyan);box-shadow:0 0 14px rgba(76,201,240,0.25);}
 
-/* password modal */
-.pw-input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:15px;margin-top:10px;}
-.pw-error{color:var(--merah);font-size:13px;margin-top:8px;font-weight:700;display:none;}
+/* Layout */
+.wrap{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:22px;display:grid;grid-template-columns:1fr 340px;gap:22px;}
+@media (max-width:1020px){.wrap{grid-template-columns:1fr;}}
 
-/* Teacher panel */
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:10px;}
-.tab-btn{background:none;border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
-.tab-btn.active{color:#04101f;background:var(--ice2);border-color:var(--ice2);}
-.tab-pane{display:none;}
-.tab-pane.active{display:block;}
-.field-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
-.field{flex:1;min-width:180px;}
-.field label{display:block;font-size:11.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
-.field input,.field select{width:100%;padding:9px 11px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:13.5px;}
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px;}
-.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;}
-.stat-card .v{font-size:24px;font-weight:900;color:var(--ice2);}
-.stat-card .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+.panel{background:var(--bg-panel);border:1px solid var(--border);border-radius:18px;padding:20px;}
+.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
+.panel-head h2{font-family:var(--font-display);font-size:16px;margin:0;color:var(--text);}
+.tagline{font-family:var(--font-mono);font-size:11.5px;color:var(--cyan-dim);letter-spacing:1px;}
 
-.bank-search{margin-bottom:10px;}
-.bank-table-wrap{max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:12px;}
-table.bank{width:100%;border-collapse:collapse;font-size:12.5px;}
-table.bank th{position:sticky;top:0;background:var(--panel2);padding:8px 6px;text-align:left;color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line);}
-table.bank td{padding:6px;border-bottom:1px solid var(--line);vertical-align:middle;}
-table.bank input,table.bank select{width:100%;padding:5px 6px;border-radius:6px;border:1px solid var(--line);background:var(--bg2);color:var(--text);font-size:12px;}
-table.bank input[type=number]{width:64px;}
-.badge-active{color:var(--ok);font-weight:800;font-size:11px;}
-.badge-done{color:var(--merah);font-weight:800;font-size:11px;}
-.save-flash{color:var(--ok);font-size:11px;font-weight:800;margin-left:6px;opacity:0;transition:.3s;}
-.save-flash.show{opacity:1;}
+/* Grid of 100 */
+.grid100{
+  display:grid;grid-template-columns:repeat(10,1fr);gap:9px;
+}
+@media (max-width:760px){.grid100{grid-template-columns:repeat(5,1fr);}}
+.qbox{
+  aspect-ratio:1/1;border-radius:12px;
+  background:var(--lightblue-box);
+  color:#08243D;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:none;position:relative;
+  font-family:var(--font-display);
+  transition:transform .12s ease, box-shadow .12s ease;
+  overflow:hidden;
+}
+.qbox .num{font-size:15px;font-weight:800;line-height:1;}
+.qbox .pts{font-size:9.5px;font-weight:600;margin-top:3px;opacity:0.75;}
+.qbox:not(.locked):hover{transform:translateY(-3px) scale(1.045);box-shadow:0 8px 22px rgba(76,201,240,0.35);}
+.qbox:not(.locked){cursor:pointer;}
+.qbox.locked{cursor:default;color:#fff;}
+.qbox.locked .num{opacity:0.92;}
+.qbox.locked::after{content:'✓';position:absolute;top:4px;right:6px;font-size:11px;opacity:0.85;}
+.qbox.disabled{opacity:0.35;filter:grayscale(0.6);cursor:not-allowed;}
+.qbox.disabled:hover{transform:none;box-shadow:none;}
+.qbox.g-red{background:linear-gradient(155deg,#FF6B78,var(--red));}
+.qbox.g-yellow{background:linear-gradient(155deg,#FFDA75,var(--yellow));color:#3A2900;}
+.qbox.g-pink{background:linear-gradient(155deg,#FF97CC,var(--pink));}
+.qbox.g-green{background:linear-gradient(155deg,#63E39A,var(--green));}
+.qbox.g-purple{background:linear-gradient(155deg,#AC94FF,var(--purple));}
+.qbox.g-orange{background:linear-gradient(155deg,#FFC178,var(--orange));color:#3A2000;}
 
-.gc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px;}
+/* sidebar */
+.side-stack{display:flex;flex-direction:column;gap:18px;}
+.lb-row{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;
+  background:var(--bg-panel-2);border:1px solid var(--border);margin-bottom:8px;
+  transition:transform .35s ease;
+}
+.lb-rank{font-family:var(--font-display);font-weight:800;font-size:14px;width:26px;text-align:center;color:var(--text-dim);}
+.lb-swatch{width:12px;height:12px;border-radius:4px;flex-shrink:0;}
+.lb-name{flex:1;font-weight:700;font-size:13.5px;}
+.lb-score{font-family:var(--font-mono);font-weight:700;font-size:14px;color:var(--cyan);}
+.lb-row.rank-1{border-color:rgba(255,201,60,0.55);box-shadow:0 0 16px rgba(255,201,60,0.12);}
+
+.swatch-red{background:var(--red);} .swatch-yellow{background:var(--yellow);} .swatch-pink{background:var(--pink);}
+.swatch-green{background:var(--green);} .swatch-purple{background:var(--purple);} .swatch-orange{background:var(--orange);}
+
+.mini-btn{
+  background:var(--bg-panel-3);border:1px solid var(--border);color:var(--text);
+  border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:600;width:100%;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.mini-btn:hover{border-color:var(--cyan);}
+
+/* Modal base */
+.overlay{
+  position:fixed;inset:0;background:rgba(5,9,18,0.72);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;z-index:100;padding:16px;
+  opacity:0;pointer-events:none;transition:opacity .18s ease;
+}
+.overlay.show{opacity:1;pointer-events:auto;}
+.modal{
+  background:var(--bg-panel);border:1px solid var(--border);border-radius:20px;
+  max-width:560px;width:100%;padding:26px;position:relative;
+  transform:translateY(14px) scale(0.98);transition:transform .18s ease;
+  max-height:88vh;overflow-y:auto;
+}
+.overlay.show .modal{transform:translateY(0) scale(1);}
+.modal.wide{max-width:1080px;}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-dim);font-size:20px;}
+.modal-close:hover{color:var(--text);}
+
+/* teacher login */
+.login-badge{width:52px;height:52px;border-radius:14px;background:var(--bg-panel-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px;}
+.field label{display:block;font-size:12.5px;color:var(--text-dim);margin-bottom:6px;font-weight:600;}
+.field input,.field select{
+  width:100%;background:var(--bg-panel-2);border:1px solid var(--border);border-radius:10px;
+  padding:11px 13px;color:var(--text);font-size:14px;
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--cyan);}
+.field{margin-bottom:14px;}
+.btn{
+  border:none;border-radius:12px;padding:12px 18px;font-weight:700;font-size:14px;
+  background:linear-gradient(120deg,var(--cyan),#2E8FB0);color:#001a24;
+}
+.btn.secondary{background:var(--bg-panel-3);color:var(--text);border:1px solid var(--border);}
+.btn.danger{background:linear-gradient(120deg,#FF6B78,var(--red));color:#2a0000;}
+.btn.block{width:100%;}
+.msg-error{color:var(--bad);font-size:13px;margin-top:8px;display:none;}
+.msg-ok{color:var(--ok);font-size:13px;margin-top:8px;display:none;}
+
+/* question modal */
+.q-tag{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.q-tag .qno{font-family:var(--font-display);font-weight:800;font-size:22px;}
+.q-tag .qpts{background:var(--bg-panel-2);border:1px solid var(--border);padding:6px 14px;border-radius:999px;font-family:var(--font-mono);color:var(--cyan);font-size:13px;}
+.q-text{font-size:17px;line-height:1.55;margin-bottom:18px;font-weight:600;}
+.q-timer{font-family:var(--font-mono);font-size:13px;color:var(--yellow);margin-bottom:10px;display:none;}
+.opt-list{display:flex;flex-direction:column;gap:9px;}
+.opt-btn{
+  display:flex;align-items:center;gap:12px;text-align:left;
+  background:var(--bg-panel-2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;
+  color:var(--text);font-size:14.5px;transition:.12s;
+}
+.opt-btn:hover{border-color:var(--cyan);}
+.opt-btn.selected{border-color:var(--cyan);background:rgba(76,201,240,0.12);}
+.opt-letter{width:26px;height:26px;border-radius:8px;background:var(--bg-panel-3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12.5px;flex-shrink:0;}
+.q-submit{margin-top:18px;}
+
+.result-screen{text-align:center;padding:20px 6px;}
+.result-icon{font-size:64px;line-height:1;margin-bottom:10px;}
+.result-icon.ok{animation:pop .4s ease;}
+.result-icon.bad{animation:shake .4s ease;}
+@keyframes pop{0%{transform:scale(0.3);opacity:0;}60%{transform:scale(1.15);}100%{transform:scale(1);opacity:1;}}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-10px);}40%{transform:translateX(10px);}60%{transform:translateX(-6px);}80%{transform:translateX(6px);}}
+.result-title{font-family:var(--font-display);font-weight:800;font-size:22px;margin-bottom:6px;}
+.result-title.ok{color:var(--ok);}
+.result-title.bad{color:var(--bad);}
+.result-points{font-family:var(--font-mono);font-size:15px;color:var(--cyan);margin-bottom:16px;}
+
+.group-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px;}
+.grp-btn{
+  border:1px solid var(--border);border-radius:12px;padding:12px 8px;color:#fff;font-weight:700;font-size:13px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--bg-panel-2);
+}
+.grp-dot{width:22px;height:22px;border-radius:50%;}
+.grp-btn:hover{transform:translateY(-2px);}
+
+/* teacher panel */
+.tp-tabs{display:flex;gap:6px;border-bottom:1px solid var(--border);margin-bottom:18px;flex-wrap:wrap;}
+.tp-tab{background:none;border:none;color:var(--text-dim);padding:10px 14px;font-weight:700;font-size:13px;border-bottom:2px solid transparent;}
+.tp-tab.active{color:var(--cyan);border-color:var(--cyan);}
+.tp-pane{display:none;}
+.tp-pane.active{display:block;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px;}
+.stat-card{background:var(--bg-panel-2);border:1px solid var(--border);border-radius:14px;padding:14px;}
+.stat-card .n{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--cyan);}
+.stat-card .l{font-size:12px;color:var(--text-dim);margin-top:2px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+.grpname-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.grpname-row .dot{width:16px;height:16px;border-radius:5px;flex-shrink:0;}
+.grpname-row input{flex:1;}
+
+.bank-table-wrap{max-height:460px;overflow:auto;border:1px solid var(--border);border-radius:12px;}
+table.bank{border-collapse:collapse;width:100%;font-size:12.5px;}
+table.bank th{position:sticky;top:0;background:var(--bg-panel-3);padding:9px 7px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
+table.bank td{padding:6px 7px;border-bottom:1px solid var(--border);vertical-align:top;}
+table.bank input,table.bank select{width:100%;padding:5px 6px;font-size:12px;background:var(--bg-panel-2);border:1px solid var(--border);border-radius:6px;color:var(--text);}
+table.bank input.text-cell{min-width:150px;}
+table.bank input.opt-cell{min-width:80px;}
+.row-active{color:var(--ok);}
+.row-inactive{color:var(--text-dim);}
+.bank-toolbar{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
+.bank-toolbar input{max-width:220px;}
+
+.gc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;}
 @media(max-width:520px){.gc-grid{grid-template-columns:1fr;}}
-.gc-btn{padding:18px;border-radius:14px;font-size:14px;}
+.gc-btn{padding:20px 14px;border-radius:16px;border:1px solid var(--border);background:var(--bg-panel-2);font-weight:800;font-family:var(--font-display);font-size:14px;color:var(--text);display:flex;flex-direction:column;align-items:center;gap:8px;}
+.gc-btn .ic{font-size:26px;}
+.gc-btn.start:hover{border-color:var(--ok);box-shadow:0 0 16px rgba(46,213,115,0.25);}
+.gc-btn.pause:hover{border-color:var(--yellow);box-shadow:0 0 16px rgba(255,201,60,0.25);}
+.gc-btn.end:hover{border-color:var(--bad);box-shadow:0 0 16px rgba(255,71,87,0.25);}
+.gc-btn:disabled{opacity:0.35;cursor:not-allowed;}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg-panel-2);border:1px solid var(--border);padding:12px 14px;border-radius:12px;margin-bottom:10px;}
+.switch{position:relative;width:42px;height:24px;flex-shrink:0;}
+.switch input{opacity:0;width:0;height:0;}
+.slider{position:absolute;inset:0;background:var(--bg-panel-3);border-radius:999px;transition:.2s;}
+.slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;}
+input:checked + .slider{background:var(--cyan);}
+input:checked + .slider:before{transform:translateX(18px);}
 
-.confirm-box{text-align:center;}
-.confirm-actions{display:flex;gap:10px;justify-content:center;margin-top:18px;}
+.history-item{background:var(--bg-panel-2);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;}
+.history-item .d{font-size:12px;color:var(--text-dim);}
+.history-item .w{font-family:var(--font-display);font-weight:700;margin-top:4px;}
 
-/* Game over */
-.go-wrap{text-align:center;}
-.go-title{font-size:38px;font-weight:900;letter-spacing:.1em;background:linear-gradient(90deg,var(--gold),var(--ice2));-webkit-background-clip:text;background-clip:text;color:transparent;}
-.champ-card{margin:20px auto;padding:24px;border-radius:18px;max-width:340px;background:linear-gradient(160deg,var(--gold),#ffa53f);color:#1a1200;}
-.champ-card .cc-crown{font-size:36px;}
-.champ-card .cc-name{font-size:22px;font-weight:900;margin:6px 0;}
-.champ-card .cc-score{font-size:28px;font-weight:900;}
-.final-lb{text-align:left;max-width:420px;margin:0 auto;}
+/* confirm end modal */
+.confirm-actions{display:flex;gap:10px;margin-top:20px;}
+.confirm-actions .btn{flex:1;}
 
-.confetti{position:fixed;top:-20px;width:10px;height:16px;z-index:500;pointer-events:none;border-radius:2px;}
+/* game over overlay */
+#gameOverOverlay .modal{max-width:640px;text-align:center;}
+.go-title{font-family:var(--font-display);font-weight:800;font-size:30px;letter-spacing:1px;margin-bottom:4px;background:linear-gradient(90deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.champion-card{
+  margin:20px 0;padding:22px;border-radius:18px;
+  background:linear-gradient(160deg,rgba(255,201,60,0.14),rgba(255,201,60,0.03));
+  border:1px solid rgba(255,201,60,0.4);
+}
+.champion-card .trophy{font-size:46px;}
+.champion-card .cname{font-family:var(--font-display);font-weight:800;font-size:22px;margin-top:6px;}
+.champion-card .cpts{font-family:var(--font-mono);color:var(--yellow);font-size:16px;margin-top:4px;}
+.final-lb{text-align:left;margin-top:16px;}
+.confetti-piece{position:fixed;top:-20px;width:9px;height:14px;z-index:200;pointer-events:none;border-radius:2px;}
 
-.hidden{display:none !important;}
-::-webkit-scrollbar{width:8px;height:8px;}
-::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
+.toast{
+  position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--bg-panel-3);border:1px solid var(--border);border-radius:12px;padding:12px 18px;
+  font-size:13.5px;font-weight:600;z-index:300;opacity:0;transition:.25s;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.footer-note{max-width:1440px;margin:0 auto;padding:0 22px 30px;color:var(--text-dim);font-size:12px;line-height:1.6;position:relative;z-index:1;}
 </style>
 </head>
 <body>
 
+<div class="bg-symbols" id="bgSymbols"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">√x</div>
+    <div class="brand-text">
+      <h1 id="gameTitleDisplay">MATHEMATICS OF CHAMPION</h1>
+      <p>Champions, Are You Ready?!</p>
+    </div>
+  </div>
+  <div class="meta-pills">
+    <div class="pill"><span class="status-dot" id="statusDot"></span><b id="statusLabel">Belum Dimulai</b></div>
+    <div class="pill">🏫 <b id="classNameDisplay">Kelas</b></div>
+    <div class="pill">👤 <b id="teacherNameDisplay">Guru</b></div>
+    <button class="teacher-btn" id="teacherIconBtn">👨‍🏫 Guru</button>
+  </div>
+</header>
+
 <div class="wrap">
-
-  <header class="arena">
-    <div class="hbar">
-      <div class="htitle-block">
-        <div class="eyebrow">Think Fast &bull; Solve Smart &bull; Become The Champion</div>
-        <h1 class="title" id="gameNameDisplay">Mathematics of Champion</h1>
-        <div class="subtitle">Champions, Are You Ready?!</div>
-        <div class="meta-row">
-          <div class="meta-chip">Kelas: <b id="classNameDisplay">-</b></div>
-          <div class="meta-chip">Guru: <b id="teacherNameDisplay">-</b></div>
-          <div class="meta-chip" id="statusChip">Status: <b>Belum Dimulai</b></div>
-        </div>
-      </div>
-      <div class="hactions">
-        <span class="icon-btn" id="soundBtn" title="Suara">🔊</span>
-        <span class="icon-btn" id="teacherIconBtn" title="Guru">👨‍🏫</span>
-      </div>
+  <section class="panel">
+    <div class="panel-head">
+      <h2>ARENA SOAL — 100 KOTAK</h2>
+      <span class="tagline">THINK FAST • SOLVE SMART • BECOME THE CHAMPION</span>
     </div>
-  </header>
+    <div class="grid100" id="grid100"></div>
+  </section>
 
-  <div class="layout">
-    <div class="main-col">
-      <div class="teams-strip" id="teamsStrip"></div>
-
-      <div class="grid-title">
-        <h2>100 Kotak Soal</h2>
-        <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="small-note" id="progressText" style="margin-left:12px;">0 / 100</div>
-      </div>
-      <div class="board" id="board"></div>
+  <aside class="side-stack">
+    <div class="panel">
+      <div class="panel-head"><h2>🏆 LEADERBOARD</h2></div>
+      <div id="leaderboard"></div>
     </div>
-
-    <div class="side-col">
-      <div class="panel">
-        <h3>🏆 Leaderboard</h3>
-        <div id="leaderboard"></div>
+    <div class="panel">
+      <div class="panel-head"><h2>Ringkasan</h2></div>
+      <div class="stat-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="stat-card"><div class="n" id="sumAnswered">0/100</div><div class="l">Soal Terjawab</div></div>
+        <div class="stat-card"><div class="n" id="sumDuration">00:00</div><div class="l">Durasi</div></div>
       </div>
-      <div class="panel">
-        <h3>Info</h3>
-        <div class="small-note">Klik kotak bernomor untuk membuka soal. Setelah jawaban benar, pilih warna kelompok untuk mengunci soal tersebut. Satu soal hanya bisa dimenangkan satu kali.</div>
-      </div>
+      <button class="mini-btn" id="soundToggleBtn">🔊 Suara: Aktif</button>
     </div>
-  </div>
+  </aside>
 </div>
 
-<!-- ===== QUESTION MODAL ===== -->
-<div class="overlay" id="qOverlay">
-  <div class="modal" id="qModal" style="position:relative;">
-    <button class="modal-close" id="qCloseBtn">✕</button>
-    <div class="q-headline">
-      <div><span class="q-num" id="qNumLabel">SOAL #1</span></div>
-      <div style="display:flex;gap:10px;align-items:center;">
-        <span class="q-timer hidden" id="qTimer"></span>
-        <span class="q-pts" id="qPtsLabel">10 POIN</span>
-      </div>
-    </div>
-    <div class="q-text" id="qTextLabel">Soal</div>
-    <div class="opt-list" id="qOptList"></div>
-    <button class="btn btn-primary" id="qSubmitBtn" style="width:100%;">Submit Jawaban</button>
+<p class="footer-note">Mathematics of Champion · dibuat untuk kompetisi kelas · data disimpan otomatis di perangkat ini (localStorage), sehingga tetap tersimpan meski halaman dimuat ulang di browser &amp; perangkat yang sama.</p>
 
-    <div class="feedback-layer" id="feedbackLayer">
-      <div id="fbIcon" class="feedback-icon">❌</div>
-      <div id="fbText" class="feedback-text bad">JAWABAN SALAH!</div>
-      <div id="fbPts" class="feedback-pts hidden"></div>
-
-      <div id="colorPickWrap" class="hidden" style="margin-top:18px;width:100%;">
-        <div class="color-pick-title">Pilih Warna Kelompok</div>
-        <div class="color-grid">
-          <div class="color-opt co-merah" data-team="merah">🔴 MERAH</div>
-          <div class="color-opt co-kuning" data-team="kuning">🟡 KUNING</div>
-          <div class="color-opt co-pink" data-team="pink">🩷 PINK</div>
-          <div class="color-opt co-hijau" data-team="hijau">🟢 HIJAU</div>
-          <div class="color-opt co-ungu" data-team="ungu">🟣 UNGU</div>
-          <div class="color-opt co-orange" data-team="orange">🟠 ORANGE</div>
-        </div>
-      </div>
-      <button class="btn btn-ghost hidden" id="fbCloseBtn" style="margin-top:16px;">Tutup</button>
-    </div>
-  </div>
-</div>
-
-<!-- ===== PASSWORD MODAL ===== -->
-<div class="overlay" id="pwOverlay">
+<!-- Teacher Login Overlay -->
+<div class="overlay" id="loginOverlay">
   <div class="modal" style="max-width:380px;">
-    <button class="modal-close" id="pwCloseBtn">✕</button>
-    <h2>Teacher Access</h2>
-    <div class="modal-sub">Masukkan Password Guru</div>
-    <input type="password" class="pw-input" id="pwInput" placeholder="Password">
-    <div class="pw-error" id="pwError">✕ Password salah</div>
-    <button class="btn btn-primary" id="pwSubmitBtn" style="width:100%;margin-top:14px;">Masuk</button>
+    <button class="modal-close" data-close="loginOverlay">✕</button>
+    <div class="login-badge">🔐</div>
+    <h2 style="font-family:var(--font-display);margin:0 0 4px;">TEACHER ACCESS</h2>
+    <p style="color:var(--text-dim);font-size:13.5px;margin:0 0 18px;">Masukkan Password Guru</p>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="teacherPasswordInput" placeholder="••••••••">
+    </div>
+    <button class="btn block" id="teacherLoginSubmit">MASUK</button>
+    <p class="msg-error" id="loginError">✕ Password salah</p>
   </div>
 </div>
 
-<!-- ===== TEACHER PANEL ===== -->
-<div class="overlay" id="tpOverlay">
+<!-- Question Overlay -->
+<div class="overlay" id="questionOverlay">
+  <div class="modal">
+    <button class="modal-close" data-close="questionOverlay">✕</button>
+    <div id="questionBody"></div>
+  </div>
+</div>
+
+<!-- Teacher Panel Overlay -->
+<div class="overlay" id="teacherPanelOverlay">
   <div class="modal wide">
-    <button class="modal-close" id="tpCloseBtn">✕</button>
-    <h2>Teacher Control Panel</h2>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="dash">Dashboard</button>
-      <button class="tab-btn" data-tab="bank">Bank Soal</button>
-      <button class="tab-btn" data-tab="ctrl">Game Control</button>
-      <button class="tab-btn" data-tab="stat">Statistik</button>
-      <button class="tab-btn" data-tab="hist">Riwayat</button>
+    <button class="modal-close" data-close="teacherPanelOverlay">✕</button>
+    <h2 style="font-family:var(--font-display);margin:0 0 16px;">TEACHER CONTROL PANEL</h2>
+    <div class="tp-tabs">
+      <button class="tp-tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tp-tab" data-tab="bank">Bank Soal</button>
+      <button class="tp-tab" data-tab="control">Kontrol Game</button>
+      <button class="tp-tab" data-tab="stats">Statistik</button>
+      <button class="tp-tab" data-tab="history">Riwayat</button>
     </div>
 
-    <!-- Dashboard -->
-    <div class="tab-pane active" id="pane-dash">
+    <div class="tp-pane active" id="pane-dashboard">
       <div class="stat-grid">
-        <div class="stat-card"><div class="v" id="dashStatus">IDLE</div><div class="l">Game Status</div></div>
-        <div class="stat-card"><div class="v" id="dashSolved">0/100</div><div class="l">Soal Terjawab</div></div>
-        <div class="stat-card"><div class="v" id="dashDuration">00:00</div><div class="l">Durasi</div></div>
+        <div class="stat-card"><div class="n" id="dbStatus">RUNNING</div><div class="l">GAME STATUS</div></div>
+        <div class="stat-card"><div class="n" id="dbAnswered">0/100</div><div class="l">SOAL TERJAWAB</div></div>
+        <div class="stat-card"><div class="n" id="dbDuration">00:00</div><div class="l">DURASI</div></div>
       </div>
-      <h3 style="margin-top:6px;">Identitas Kelas</h3>
-      <div class="field-row">
-        <div class="field"><label>Nama Permainan</label><input id="cfgGameName"></div>
-        <div class="field"><label>Nama Kelas</label><input id="cfgClassName"></div>
-        <div class="field"><label>Nama Guru</label><input id="cfgTeacherName"></div>
-      </div>
-      <h3>Nama Kelompok</h3>
-      <div class="field-row" id="teamNameFields"></div>
-      <h3>Timer Soal (Opsional)</h3>
-      <div class="field-row">
-        <div class="field">
-          <label><input type="checkbox" id="cfgTimerEnabled" style="width:auto;margin-right:6px;">Aktifkan Timer</label>
+      <div class="two-col">
+        <div>
+          <h3 style="font-size:14px;">Identitas Kelas</h3>
+          <div class="field"><label>Nama Game</label><input id="cfgGameTitle" type="text"></div>
+          <div class="field"><label>Nama Kelas</label><input id="cfgClassName" type="text"></div>
+          <div class="field"><label>Nama Guru</label><input id="cfgTeacherName" type="text"></div>
+          <button class="btn" id="saveIdentityBtn">Simpan Identitas</button>
+          <p class="msg-ok" id="identitySaved">✓ Tersimpan</p>
         </div>
-        <div class="field"><label>Durasi (detik)</label><input type="number" id="cfgTimerSeconds" value="60"></div>
+        <div>
+          <h3 style="font-size:14px;">Nama Kelompok</h3>
+          <div id="groupNameFields"></div>
+          <button class="btn" id="saveGroupsBtn">Simpan Nama Kelompok</button>
+          <p class="msg-ok" id="groupsSaved">✓ Tersimpan</p>
+        </div>
       </div>
-      <button class="btn btn-primary" id="dashSaveBtn">Simpan Pengaturan</button>
-      <span class="save-flash" id="dashSaveFlash">✓ Tersimpan</span>
     </div>
 
-    <!-- Bank Soal -->
-    <div class="tab-pane" id="pane-bank">
-      <input class="pw-input bank-search" id="bankSearch" placeholder="Cari nomor soal...">
+    <div class="tp-pane" id="pane-bank">
+      <div class="bank-toolbar">
+        <input type="text" id="bankSearch" placeholder="Cari nomor soal...">
+        <span style="color:var(--text-dim);font-size:12.5px;">Kunci jawaban hanya terlihat di panel ini. Perubahan tersimpan otomatis saat kamu menekan Simpan pada baris terkait.</span>
+      </div>
       <div class="bank-table-wrap">
-        <table class="bank">
+        <table class="bank" id="bankTable">
           <thead><tr>
-            <th>No</th><th>Teks Soal</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Kunci</th><th>Poin</th><th>Status</th>
+            <th>No</th><th>Soal</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Kunci</th><th>Poin</th><th>Status</th><th></th>
           </tr></thead>
-          <tbody id="bankBody"></tbody>
+          <tbody id="bankTbody"></tbody>
         </table>
       </div>
-      <button class="btn btn-primary" id="bankSaveAllBtn" style="margin-top:12px;">Simpan Semua Perubahan</button>
-      <span class="save-flash" id="bankSaveFlash">✓ Tersimpan</span>
     </div>
 
-    <!-- Game Control -->
-    <div class="tab-pane" id="pane-ctrl">
+    <div class="tp-pane" id="pane-control">
       <div class="gc-grid">
-        <button class="btn btn-primary gc-btn" id="ctrlStart">▶ START GAME</button>
-        <button class="btn btn-gold gc-btn" id="ctrlPause">⏸ PAUSE GAME</button>
-        <button class="btn btn-ghost gc-btn" id="ctrlResume">▶ RESUME GAME</button>
-        <button class="btn btn-danger gc-btn" id="ctrlEnd">🛑 END GAME</button>
+        <button class="gc-btn start" id="btnStart"><span class="ic">▶</span>START GAME</button>
+        <button class="gc-btn pause" id="btnPause"><span class="ic">⏸</span>PAUSE GAME</button>
+        <button class="gc-btn pause" id="btnResume"><span class="ic">▶</span>RESUME GAME</button>
+        <button class="gc-btn end" id="btnEnd"><span class="ic">🛑</span>END GAME</button>
       </div>
-      <h3 style="margin-top:20px;">Export Hasil</h3>
-      <button class="btn btn-ghost" id="exportBtn">📊 Export Hasil (CSV)</button>
-      <div class="small-note" style="margin-top:8px;">Mengunduh file .csv berisi ringkasan skor kelompok dan detail histori jawaban. Bisa dibuka di Excel / Google Sheets.</div>
+      <div class="toggle-row">
+        <div><b>⏱ Timer Soal Opsional</b><div style="font-size:12px;color:var(--text-dim);">Batasi waktu menjawab tiap soal</div></div>
+        <label class="switch"><input type="checkbox" id="timerToggle"><span class="slider"></span></label>
+      </div>
+      <div class="field" style="max-width:200px;">
+        <label>Durasi Timer (detik)</label>
+        <input type="number" id="timerSeconds" value="60" min="10" max="600">
+      </div>
+      <div class="toggle-row">
+        <div><b>🔊 Efek Suara</b><div style="font-size:12px;color:var(--text-dim);">Bunyi saat klik, benar, salah, dsb.</div></div>
+        <label class="switch"><input type="checkbox" id="soundToggle" checked><span class="slider"></span></label>
+      </div>
+      <button class="btn secondary block" id="exportBtn" style="margin-top:14px;">📊 EXPORT HASIL (CSV)</button>
     </div>
 
-    <!-- Statistik -->
-    <div class="tab-pane" id="pane-stat">
-      <div class="stat-grid" id="statGrid"></div>
-      <div id="statLists"></div>
+    <div class="tp-pane" id="pane-stats">
+      <div class="stat-grid" id="statsGrid"></div>
+      <div id="statsExtra"></div>
     </div>
 
-    <!-- Riwayat -->
-    <div class="tab-pane" id="pane-hist">
-      <div id="historyList" class="small-note">Belum ada riwayat permainan.</div>
+    <div class="tp-pane" id="pane-history">
+      <div id="historyList"></div>
     </div>
   </div>
 </div>
 
-<!-- ===== END GAME CONFIRM ===== -->
+<!-- End confirm overlay -->
 <div class="overlay" id="endConfirmOverlay">
-  <div class="modal confirm-box" style="max-width:380px;">
-    <h2>Apakah Anda yakin ingin mengakhiri permainan?</h2>
+  <div class="modal" style="max-width:400px;text-align:center;">
+    <button class="modal-close" data-close="endConfirmOverlay">✕</button>
+    <div style="font-size:40px;">🛑</div>
+    <h3 style="font-family:var(--font-display);">Apakah Anda yakin ingin mengakhiri permainan?</h3>
     <div class="confirm-actions">
-      <button class="btn btn-ghost" id="endCancelBtn">BATAL</button>
-      <button class="btn btn-danger" id="endConfirmBtn">YA, GAME OVER</button>
+      <button class="btn secondary" data-close="endConfirmOverlay">BATAL</button>
+      <button class="btn danger" id="confirmEndBtn">YA, GAME OVER</button>
     </div>
   </div>
 </div>
 
-<!-- ===== GAME OVER ===== -->
-<div class="overlay" id="goOverlay">
-  <div class="modal go-wrap" style="max-width:460px;">
+<!-- Game Over overlay -->
+<div class="overlay" id="gameOverOverlay">
+  <div class="modal">
     <div class="go-title">GAME OVER</div>
-    <div id="champCardWrap"></div>
-    <h3 style="text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-size:12px;">🏆 Final Leaderboard</h3>
-    <div class="final-lb" id="finalLb"></div>
-    <button class="btn btn-ghost" id="goCloseBtn" style="margin-top:16px;">Tutup</button>
+    <p style="color:var(--text-dim);margin-top:0;">🏆 FINAL LEADERBOARD</p>
+    <div class="champion-card" id="championCard"></div>
+    <div class="final-lb" id="finalLbList"></div>
+    <div style="display:flex;gap:10px;margin-top:20px;">
+      <button class="btn secondary" style="flex:1;" id="closeGameOverBtn">Tutup</button>
+      <button class="btn" style="flex:1;" id="exportFromGameOver">📊 Export Hasil</button>
+    </div>
   </div>
 </div>
+
+<div class="toast" id="toast"></div>
 
 <script>
 (function(){
 "use strict";
 
-/* ---------------------------------------------------------------
-   CONSTANTS
---------------------------------------------------------------- */
-const TEACHER_PASSWORD = "btslngshotcortis";
-const TEAM_META = {
-  merah:{label:"MERAH", emoji:"🔴", color:"var(--merah)"},
-  kuning:{label:"KUNING", emoji:"🟡", color:"var(--kuning)"},
-  pink:{label:"PINK", emoji:"🩷", color:"var(--pink)"},
-  hijau:{label:"HIJAU", emoji:"🟢", color:"var(--hijau)"},
-  ungu:{label:"UNGU", emoji:"🟣", color:"var(--ungu)"},
-  orange:{label:"ORANGE", emoji:"🟠", color:"var(--orange)"}
+/* ============ CONSTANTS ============ */
+var GROUP_KEYS = ["red","yellow","pink","green","purple","orange"];
+var GROUP_META = {
+  red:{label:"MERAH",emoji:"🔴",color:"var(--red)",hex:"#FF4757"},
+  yellow:{label:"KUNING",emoji:"🟡",color:"var(--yellow)",hex:"#FFC93C"},
+  pink:{label:"PINK",emoji:"🩷",color:"var(--pink)",hex:"#FF6FB5"},
+  green:{label:"HIJAU",emoji:"🟢",color:"var(--green)",hex:"#2ED573"},
+  purple:{label:"UNGU",emoji:"🟣",color:"var(--purple)",hex:"#8B6BFF"},
+  orange:{label:"ORANGE",emoji:"🟠",color:"var(--orange)",hex:"#FF9F43"}
 };
-const TEAM_ORDER = ["merah","kuning","pink","hijau","ungu","orange"];
-const STATE_KEY = "mathchamp:state:v1";
-const HISTORY_KEY = "mathchamp:history-log:v1";
+var TEACHER_PASSWORD = "btslngshotcortis";
+var LS_CONFIG = "moc_config_v1";
+var LS_BANK = "moc_bank_v1";
+var LS_STATE = "moc_state_v1";
+var LS_HISTORY = "moc_history_v1";
 
-/* ---------------------------------------------------------------
-   DEFAULT QUESTION GENERATOR
---------------------------------------------------------------- */
-function rnd(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
-function shuffle(arr){
-  const a=arr.slice();
-  for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+/* ============ SEEDED RNG / HELPERS ============ */
+function seededRandom(seed){
+  var s = seed % 2147483647; if(s<=0) s += 2147483646;
+  return function(){ s = (s*16807) % 2147483647; return (s-1)/2147483646; };
+}
+function shuffleDet(arr, seed){
+  var rnd = seededRandom(seed); var a = arr.slice();
+  for(var i=a.length-1;i>0;i--){ var j = Math.floor(rnd()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
   return a;
 }
-function buildOptions(correct, distractorFn){
-  const set = new Set([correct]);
-  let guard=0;
-  while(set.size<5 && guard<50){ set.add(distractorFn()); guard++; }
-  const opts = shuffle(Array.from(set)).slice(0,5);
-  const letters=["A","B","C","D","E"];
-  const options={}; let key="A";
-  letters.forEach((L,i)=>{ options[L]= (opts[i]!==undefined? String(opts[i]) : String(correct+i+1)); if(options[L]===String(correct)) key=L; });
-  return {options,key};
+function dedupe(list){
+  for(var i=1;i<list.length;i++){
+    var tries=0;
+    while(list.indexOf(list[i]) !== i && tries<8){
+      list[i] = list[i] + "";
+      list[i] = list[i].replace(/(\d+)$/, function(m){ return (parseInt(m,10)+1+tries); });
+      tries++;
+    }
+  }
+  return list;
+}
+function pointsForNo(no){
+  var tiers = [[20,10,4],[40,25,5],[60,50,6],[80,75,7],[100,110,8]];
+  for(var i=0;i<tiers.length;i++){
+    if(no<=tiers[i][0]){
+      var base=tiers[i][1], variance=tiers[i][2];
+      return base + (((no*7)%(variance+1))*5);
+    }
+  }
+  return 150;
+}
+function fmtTime(sec){
+  sec = Math.max(0,Math.floor(sec));
+  var m = Math.floor(sec/60), s = sec%60;
+  return (m<10?"0"+m:""+m)+":"+(s<10?"0"+s:""+s);
+}
+function escCsv(v){
+  v = (v===undefined||v===null)?"":String(v);
+  if(/[",\n;]/.test(v)) return '"'+v.replace(/"/g,'""')+'"';
+  return v;
 }
 
-function genTier1(){ // addition/subtraction, points 10
-  const a=rnd(2,50), b=rnd(2,50);
-  const op = Math.random()<0.5?"+":"-";
-  const correct = op==="+" ? a+b : Math.max(a,b)-Math.min(a,b);
-  const text = op==="+" ? `Berapakah hasil dari ${a} + ${b} ?` : `Berapakah hasil dari ${Math.max(a,b)} - ${Math.min(a,b)} ?`;
-  const {options,key} = buildOptions(correct, ()=>correct+rnd(-10,10));
-  return {text, options, key, points:10};
-}
-function genTier2(){ // multiplication/division, points 20
-  const a=rnd(2,12), b=rnd(2,12);
-  const isMul = Math.random()<0.6;
-  if(isMul){
-    const correct=a*b;
-    const {options,key}=buildOptions(correct, ()=>correct+rnd(-12,12));
-    return {text:`Berapakah hasil dari ${a} × ${b} ?`, options, key, points:20};
-  } else {
-    const product=a*b;
-    const correct=a;
-    const {options,key}=buildOptions(correct, ()=>Math.max(1,correct+rnd(-4,4)));
-    return {text:`Berapakah hasil dari ${product} ÷ ${b} ?`, options, key, points:20};
-  }
-}
-function genTier3(){ // mixed / percentage / squares, points 35
-  const type = rnd(0,2);
-  if(type===0){
-    const a=rnd(3,15);
-    const correct=a*a;
-    const {options,key}=buildOptions(correct, ()=>correct+rnd(-15,15));
-    return {text:`Berapakah nilai dari ${a}² ?`, options, key, points:35};
-  } else if(type===1){
-    const base=rnd(20,200)* (rnd(1,4));
-    const pct=[10,20,25,50,75][rnd(0,4)];
-    const correct= base*pct/100;
-    const {options,key}=buildOptions(correct, ()=>correct+rnd(-10,10));
-    return {text:`Berapakah ${pct}% dari ${base} ?`, options, key, points:35};
-  } else {
-    const a=rnd(2,20), b=rnd(2,20), c=rnd(2,20);
-    const correct=a+b*c;
-    const {options,key}=buildOptions(correct, ()=>correct+rnd(-20,20));
-    return {text:`Berapakah hasil dari ${a} + ${b} × ${c} ?`, options, key, points:35};
-  }
-}
-function genTier4(){ // simple algebra, points 50
-  const x=rnd(2,25);
-  const a=rnd(2,9);
-  const b=rnd(1,40);
-  const result=a*x+b;
-  const correct=x;
-  const {options,key}=buildOptions(correct, ()=>Math.max(1,correct+rnd(-6,6)));
-  return {text:`Jika ${a}x + ${b} = ${result}, berapakah nilai x ?`, options, key, points:50};
-}
-function genTier5(){ // geometry / word problem, points 75
-  const type = rnd(0,1);
-  if(type===0){
-    const p=rnd(4,30), l=rnd(4,30);
-    const correct=p*l;
-    const {options,key}=buildOptions(correct, ()=>correct+rnd(-25,25));
-    return {text:`Sebuah persegi panjang memiliki panjang ${p} cm dan lebar ${l} cm. Berapakah luasnya (cm²) ?`, options, key, points:75};
-  } else {
-    const speed=rnd(20,90), time=rnd(2,6);
-    const correct=speed*time;
-    const {options,key}=buildOptions(correct, ()=>correct+rnd(-30,30));
-    return {text:`Sebuah mobil melaju dengan kecepatan ${speed} km/jam selama ${time} jam. Berapa jarak yang ditempuh (km) ?`, options, key, points:75};
-  }
-}
+/* ============ QUESTION BANK GENERATION ============ */
+function genQuestion(no){
+  var bases=[2,3,5,7,4,9,6,10,3,5];
+  var idx0 = no - 1;
+  var t = idx0 % 10;
+  var cyc = Math.floor(idx0 / 10); /* 0..9 — varies each repeat of the same template */
+  var base = bases[(cyc*3 + t) % bases.length];
+  var m = 1 + (cyc % 4);
+  var n = 1 + ((cyc + 2) % 5);
+  var text, correct, wrongs;
 
-function generateDefaultQuestions(){
-  const qs=[];
-  for(let i=1;i<=100;i++){
-    let gen;
-    if(i<=25) gen=genTier1();
-    else if(i<=50) gen=genTier2();
-    else if(i<=75) gen=genTier3();
-    else if(i<=90) gen=genTier4();
-    else gen=genTier5();
-    qs.push({
-      id:i,
-      text:gen.text,
-      options:gen.options,
-      key:gen.key,
-      points:gen.points,
-      status:"active", // active | done
-      wonBy:null // team key
-    });
+  if(t===0){
+    text = "Sederhanakan bentuk pangkat berikut: "+base+"^"+m+" × "+base+"^"+n+" = ...";
+    correct = base+"^"+(m+n);
+    wrongs = [base+"^"+(m*n), base+"^"+Math.abs(m-n), (base*2)+"^"+(m+n), base+"^"+(m+n+1)];
+  } else if(t===1){
+    var total = m+n;
+    text = "Sederhanakan bentuk pangkat berikut: "+base+"^"+total+" ÷ "+base+"^"+n+" = ...";
+    correct = base+"^"+m;
+    wrongs = [base+"^"+(total+n), base+"^"+Math.abs(n-m), base+"^"+total, "1"];
+  } else if(t===2){
+    text = "Sederhanakan bentuk pangkat berikut: ("+base+"^"+m+")^"+n+" = ...";
+    correct = base+"^"+(m*n);
+    wrongs = [base+"^"+(m+n), base+"^"+m, base+"^"+n, base+"^"+((m*n)+1)];
+  } else if(t===3){
+    var a = 2 + (cyc%4), b = 2 + ((cyc+1)%3), nn = 2;
+    var val = Math.pow(a*b, nn);
+    text = "Hitunglah nilai dari ("+a+" × "+b+")^"+nn+" = ...";
+    correct = String(val);
+    wrongs = [String(Math.pow(a,nn)*b), String(a*Math.pow(b,nn)), String(val + a), String(Math.pow(a*b,nn-1))];
+  } else if(t===4){
+    var b4 = [2,3,5,4,10][cyc%5]; var nExp = 1 + (cyc%3);
+    var denom = Math.pow(b4,nExp);
+    text = "Sederhanakan bentuk pangkat negatif berikut: "+b4+"^-"+nExp+" = ...";
+    correct = "1/"+denom;
+    wrongs = ["-"+denom, String(denom), "1/"+(b4*nExp), "-1/"+denom];
+  } else if(t===5){
+    var nRoot = [2,3][cyc%2]; var r = 2 + (cyc%5);
+    var num5 = Math.pow(r,nRoot);
+    text = "Tentukan hasil dari akar pangkat berikut: "+num5+"^(1/"+nRoot+") = ...";
+    correct = String(r);
+    wrongs = [String(r+1), String(r>1? r-1 : r+2), String(num5), String(r*nRoot)];
+  } else if(t===6){
+    var b6=[2,3,5,10][cyc%4]; var k6 = 1+(cyc%5);
+    var val6 = Math.pow(b6,k6);
+    text = "Tentukan nilai dari log basis "+b6+" dari "+val6+" (ditulis "+b6+"log "+val6+") = ...";
+    correct = String(k6);
+    wrongs = [String(k6+1), String(k6>0? k6-1 : k6+2), String(val6), String(b6)];
+  } else if(t===7){
+    var b7=[2,3,5,10][cyc%4]; var p7=1+(cyc%4), q7=1+((cyc+2)%4);
+    if(q7===p7) q7 = (p7%4)+1;
+    var vb=Math.pow(b7,p7), vc=Math.pow(b7,q7);
+    text = "Jika "+b7+"log "+vb+" = "+p7+" dan "+b7+"log "+vc+" = "+q7+", maka "+b7+"log ("+vb+" × "+vc+") = ...";
+    correct = String(p7+q7);
+    wrongs = [String(p7*q7), String(Math.abs(p7-q7)), String(p7+q7+1), String(vb*vc)];
+  } else if(t===8){
+    var b8=[2,3,5,10][cyc%4]; var p8=2+(cyc%4), q8=1+((cyc+1)%3);
+    if(q8>=p8) q8 = p8-1<1?1:p8-1;
+    var vb8=Math.pow(b8,p8), vc8=Math.pow(b8,q8);
+    text = "Jika "+b8+"log "+vb8+" = "+p8+" dan "+b8+"log "+vc8+" = "+q8+", maka "+b8+"log ("+vb8+" ÷ "+vc8+") = ...";
+    correct = String(p8-q8);
+    wrongs = [String(p8+q8), String(q8-p8), String(p8-q8+1), String(vb8-vc8)];
+  } else {
+    var b9=[2,3,5,7,4][cyc%5]; var k9=1+(cyc%5);
+    var v9 = Math.pow(b9,k9);
+    text = "Tentukan nilai x jika "+b9+"^x = "+v9;
+    correct = String(k9);
+    wrongs = [String(k9+1), String(k9>0? k9-1: k9+2), String(v9), String(b9)];
   }
-  return qs;
-}
 
-function defaultState(){
+  var merged = dedupe([correct].concat(wrongs));
+  var options = merged;
+  var shuffled = shuffleDet(options, no*97+13);
+  var letters = ["A","B","C","D","E"];
+  var optObj = {};
+  var correctLetter = "A";
+  for(var i=0;i<5;i++){
+    optObj[letters[i]] = shuffled[i];
+    if(shuffled[i]===correct) correctLetter = letters[i];
+  }
   return {
-    config:{
-      gameName:"Mathematics of Champion",
-      className:"Kelas Belum Diatur",
-      teacherName:"Guru Belum Diatur",
-      started:false,
-      paused:false,
-      ended:false,
-      timerEnabled:false,
-      timerSeconds:60,
-      startedAt:null,
-      endedAt:null
-    },
-    teams: TEAM_ORDER.map(k=>({key:k, name:"KELOMPOK "+TEAM_META[k].label, score:0, solved:0})),
-    questions: generateDefaultQuestions(),
-    history: [] // {time, no, kelompok, jawaban, hasil, poin}
+    no: no,
+    text: text,
+    options: optObj,
+    correct: correctLetter,
+    points: pointsForNo(no),
+    active: true
   };
 }
+function generateDefaultBank(){
+  var bank = [];
+  for(var no=1; no<=100; no++){ bank.push(genQuestion(no)); }
+  return bank;
+}
 
-/* ---------------------------------------------------------------
-   STATE / STORAGE
---------------------------------------------------------------- */
-let state = null;
-let historyLog = [];
-let soundOn = true;
-let currentQuestionId = null;
-let timerInterval = null;
-let durationInterval = null;
-let pendingCorrectQuestionId = null;
-
-async function storageGet(key){
+/* ============ STORAGE ============ */
+function loadJSON(key, fallback){
   try{
-    const r = await window.storage.get(key, true);
-    return r ? JSON.parse(r.value) : null;
-  }catch(e){ return null; }
+    var raw = localStorage.getItem(key);
+    if(!raw) return fallback;
+    return JSON.parse(raw);
+  }catch(e){ return fallback; }
 }
-async function storageSet(key, value){
-  try{
-    await window.storage.set(key, JSON.stringify(value), true);
-    return true;
-  }catch(e){ console.error("storage set failed", e); return false; }
+function saveJSON(key, val){
+  try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){ console.error("save failed", e); }
 }
 
-async function loadState(){
-  const loaded = await storageGet(STATE_KEY);
-  state = loaded || defaultState();
-  if(!loaded){ await storageSet(STATE_KEY, state); }
-  const hl = await storageGet(HISTORY_KEY);
-  historyLog = hl || [];
+function defaultConfig(){
+  return { gameTitle:"MATHEMATICS OF CHAMPION", className:"Kelas 10 IPA 1", teacherName:"Bu/Pak Guru",
+    groupNames:{red:"KELOMPOK MERAH",yellow:"KELOMPOK KUNING",pink:"KELOMPOK PINK",green:"KELOMPOK HIJAU",purple:"KELOMPOK UNGU",orange:"KELOMPOK ORANGE"},
+    timerEnabled:false, timerSeconds:60, soundEnabled:true };
 }
-async function saveState(){
-  await storageSet(STATE_KEY, state);
-}
-async function saveHistoryLog(){
-  await storageSet(HISTORY_KEY, historyLog);
+function defaultState(){
+  var groups = {};
+  GROUP_KEYS.forEach(function(g){ groups[g] = { score:0, solved:0 }; });
+  return { status:"idle", startTime:null, endTime:null, pausedAt:null, totalPaused:0,
+    completed:{}, groups:groups, attempts:{}, wrongAttempts:{}, log:[] };
 }
 
-/* ---------------------------------------------------------------
-   SOUND (simple WebAudio beeps)
---------------------------------------------------------------- */
-let actx=null;
-function beep(freq=440, dur=0.12, type="sine"){
-  if(!soundOn) return;
+var CFG = Object.assign(defaultConfig(), loadJSON(LS_CONFIG, {}));
+var BANK = loadJSON(LS_BANK, null);
+if(!BANK || !Array.isArray(BANK) || BANK.length!==100){ BANK = generateDefaultBank(); saveJSON(LS_BANK, BANK); }
+var STATE = Object.assign(defaultState(), loadJSON(LS_STATE, {}));
+// ensure group objects intact
+GROUP_KEYS.forEach(function(g){ if(!STATE.groups[g]) STATE.groups[g] = {score:0,solved:0}; });
+var HISTORY = loadJSON(LS_HISTORY, []);
+
+function persistConfig(){ saveJSON(LS_CONFIG, CFG); }
+function persistBank(){ saveJSON(LS_BANK, BANK); }
+function persistState(){ saveJSON(LS_STATE, STATE); }
+function persistHistory(){ saveJSON(LS_HISTORY, HISTORY); }
+
+/* ============ SOUND ============ */
+var audioCtx = null;
+function ensureAudio(){ if(!audioCtx){ try{ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return audioCtx; }
+function beep(freq, dur, type, vol){
+  if(!CFG.soundEnabled) return;
+  var ctx = ensureAudio(); if(!ctx) return;
   try{
-    if(!actx) actx = new (window.AudioContext||window.webkitAudioContext)();
-    const o=actx.createOscillator(), g=actx.createGain();
-    o.type=type; o.frequency.value=freq;
-    g.gain.setValueAtTime(0.15, actx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.001, actx.currentTime+dur);
-    o.connect(g); g.connect(actx.destination);
-    o.start(); o.stop(actx.currentTime+dur);
+    var o = ctx.createOscillator(); var g = ctx.createGain();
+    o.type = type||"sine"; o.frequency.value = freq;
+    g.gain.value = (vol||0.08);
+    o.connect(g); g.connect(ctx.destination);
+    o.start();
+    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + (dur||0.15));
+    o.stop(ctx.currentTime + (dur||0.15) + 0.02);
   }catch(e){}
 }
-const sfx = {
-  click:()=>beep(520,0.08,"square"),
-  wrong:()=>{beep(180,0.18,"sawtooth");},
-  correct:()=>{beep(660,0.12,"sine"); setTimeout(()=>beep(880,0.15,"sine"),120);},
-  points:()=>beep(990,0.1,"triangle"),
-  rankup:()=>{beep(700,0.08); setTimeout(()=>beep(1000,0.12),90);},
-  gameover:()=>{beep(300,0.3,"sawtooth");},
-  champion:()=>{[0,120,240,360].forEach((t,i)=>setTimeout(()=>beep(600+i*120,0.18,"sine"),t));}
-};
+function sfxClick(){ beep(520,0.08,"square",0.05); }
+function sfxWrong(){ beep(200,0.18,"sawtooth",0.07); setTimeout(function(){beep(140,0.22,"sawtooth",0.06);},120); }
+function sfxCorrect(){ beep(660,0.12,"sine",0.07); setTimeout(function(){beep(880,0.16,"sine",0.07);},110); setTimeout(function(){beep(1100,0.2,"sine",0.06);},220); }
+function sfxPoint(){ beep(990,0.1,"triangle",0.06); }
+function sfxRankUp(){ beep(760,0.1,"sine",0.05); setTimeout(function(){beep(1020,0.14,"sine",0.05);},90); }
+function sfxGameOver(){ beep(300,0.3,"sawtooth",0.06); setTimeout(function(){beep(220,0.4,"sawtooth",0.06);},260); }
+function sfxChampion(){ [660,880,1100,1320].forEach(function(f,i){ setTimeout(function(){beep(f,0.22,"sine",0.06);}, i*140); }); }
 
-/* ---------------------------------------------------------------
-   RENDER: HEADER / STATUS
---------------------------------------------------------------- */
-function fmtDuration(ms){
-  const s=Math.floor(ms/1000);
-  const m=String(Math.floor(s/60)).padStart(2,"0");
-  const ss=String(s%60).padStart(2,"0");
-  return `${m}:${ss}`;
+/* ============ DOM HELPERS ============ */
+function $(id){ return document.getElementById(id); }
+function openOverlay(id){ $(id).classList.add("show"); }
+function closeOverlay(id){ $(id).classList.remove("show"); }
+document.addEventListener("click", function(e){
+  var t = e.target;
+  if(t.dataset && t.dataset.close){ closeOverlay(t.dataset.close); }
+});
+document.querySelectorAll(".overlay").forEach(function(ov){
+  ov.addEventListener("click", function(e){ if(e.target===ov) closeOverlay(ov.id); });
+});
+function toast(msg){
+  var el = $("toast"); el.textContent = msg; el.classList.add("show");
+  clearTimeout(toast._t); toast._t = setTimeout(function(){ el.classList.remove("show"); }, 2400);
 }
+
+/* ============ BACKGROUND SYMBOLS ============ */
+(function(){
+  var syms = ["∑","π","√","∞","log","x²","∫","%"];
+  var host = $("bgSymbols"); var html="";
+  for(var i=0;i<14;i++){
+    var s = syms[i%syms.length];
+    var top = (i*37)%100, left=(i*53+7)%100;
+    html += '<span style="top:'+top+'%;left:'+left+'%;">'+s+'</span>';
+  }
+  host.innerHTML = html;
+})();
+
+/* ============ RENDER: HEADER ============ */
 function renderHeader(){
-  document.getElementById("gameNameDisplay").textContent = state.config.gameName;
-  document.getElementById("classNameDisplay").textContent = state.config.className;
-  document.getElementById("teacherNameDisplay").textContent = state.config.teacherName;
-  const chip = document.getElementById("statusChip");
-  let label="Belum Dimulai", cls="status-idle";
-  if(state.config.ended){ label="Selesai"; cls="status-ended"; }
-  else if(state.config.paused){ label="Dijeda"; cls="status-paused"; }
-  else if(state.config.started){ label="Berlangsung"; cls="status-running"; }
-  chip.innerHTML = `Status: <b>${label}</b>`;
-  chip.className = "meta-chip "+cls;
+  $("gameTitleDisplay").textContent = CFG.gameTitle;
+  $("classNameDisplay").textContent = CFG.className;
+  $("teacherNameDisplay").textContent = CFG.teacherName;
+  var dot = $("statusDot"); var label = $("statusLabel");
+  dot.className = "status-dot";
+  if(STATE.status==="running"){ dot.classList.add("running"); label.textContent="Berlangsung"; }
+  else if(STATE.status==="paused"){ dot.classList.add("paused"); label.textContent="Dijeda"; }
+  else if(STATE.status==="ended"){ dot.classList.add("ended"); label.textContent="Selesai"; }
+  else { label.textContent="Belum Dimulai"; }
+  $("soundToggleBtn").textContent = CFG.soundEnabled ? "🔊 Suara: Aktif" : "🔇 Suara: Nonaktif";
 }
 
-/* ---------------------------------------------------------------
-   RENDER: TEAM STRIP + LEADERBOARD
---------------------------------------------------------------- */
-let lastRankOrder = [];
-function renderTeams(){
-  const strip = document.getElementById("teamsStrip");
-  strip.innerHTML = "";
-  state.teams.forEach(t=>{
-    const meta = TEAM_META[t.key];
-    const div = document.createElement("div");
-    div.className = "team-chip";
-    div.innerHTML = `<div class="bar" style="background:${meta.color}"></div>
-      <div class="tname">${meta.emoji} ${t.name}</div>
-      <div class="tscore">${t.score}</div>`;
-    strip.appendChild(div);
+/* ============ RENDER: GRID ============ */
+function renderGrid(){
+  var host = $("grid100"); var html = "";
+  for(var no=1; no<=100; no++){
+    var q = BANK[no-1];
+    var done = STATE.completed[no];
+    var cls = "qbox";
+    if(done){ cls += " locked g-"+done.group; }
+    else if(STATE.status!=="running"){ cls += " disabled"; }
+    var numStr = no<10? "0"+no : ""+no;
+    html += '<button class="'+cls+'" data-no="'+no+'"><span class="num">'+numStr+'</span><span class="pts">'+q.points+' Poin</span></button>';
+  }
+  host.innerHTML = html;
+  host.querySelectorAll(".qbox:not(.disabled):not(.locked)").forEach(function(btn){
+    btn.addEventListener("click", function(){ openQuestion(parseInt(btn.dataset.no,10)); });
   });
 }
 
-function renderLeaderboard(){
-  const lb = document.getElementById("leaderboard");
-  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
-  const medals=["🥇","🥈","🥉"];
-  const newOrder = sorted.map(t=>t.key);
-  const changed = JSON.stringify(newOrder)!==JSON.stringify(lastRankOrder) && lastRankOrder.length>0;
-  lb.innerHTML = "";
-  sorted.forEach((t,i)=>{
-    const meta=TEAM_META[t.key];
-    const row=document.createElement("div");
-    row.className="lb-row"+(changed?" rank-up":"");
-    row.innerHTML = `<div class="lb-rank">${medals[i]||(i+1)}</div>
-      <div class="lb-dot" style="background:${meta.color}"></div>
-      <div class="lb-name">${t.name}</div>
-      <div class="lb-score">${t.score}</div>`;
-    lb.appendChild(row);
+/* ============ RENDER: LEADERBOARD ============ */
+var lastOrder = [];
+function computeRanking(){
+  return GROUP_KEYS.slice().sort(function(a,b){ return STATE.groups[b].score - STATE.groups[a].score; });
+}
+function renderLeaderboard(targetId, opts){
+  opts = opts||{};
+  var order = computeRanking();
+  var host = $(targetId);
+  var medals = ["🥇","🥈","🥉"];
+  var html = "";
+  order.forEach(function(g, idx){
+    var meta = GROUP_META[g];
+    var name = CFG.groupNames[g] || meta.label;
+    var rankChanged = !opts.silent && lastOrder.indexOf(g)!==-1 && lastOrder.indexOf(g) > idx && idx===0;
+    html += '<div class="lb-row '+(idx===0?"rank-1":"")+'">'+
+      '<div class="lb-rank">'+(medals[idx]||(idx+1))+'</div>'+
+      '<div class="lb-swatch swatch-'+g+'"></div>'+
+      '<div class="lb-name">'+meta.emoji+' '+name+'</div>'+
+      '<div class="lb-score">'+STATE.groups[g].score+'</div>'+
+    '</div>';
   });
-  if(changed) sfx.rankup();
-  lastRankOrder = newOrder;
+  host.innerHTML = html;
+  if(!opts.silent && lastOrder.length && order[0] !== lastOrder[0] && STATE.groups[order[0]].score>0){
+    sfxRankUp();
+    toast((GROUP_META[order[0]].emoji)+" "+(CFG.groupNames[order[0]]||GROUP_META[order[0]].label)+" NAIK KE PERINGKAT #1!");
+  }
+  lastOrder = order;
 }
 
-/* ---------------------------------------------------------------
-   RENDER: BOARD
---------------------------------------------------------------- */
-function renderBoard(){
-  const board = document.getElementById("board");
-  board.innerHTML = "";
-  state.questions.forEach(q=>{
-    const box = document.createElement("div");
-    const locked = !state.config.started || state.config.paused || state.config.ended;
-    box.className = "qbox"+(q.status==="done"?" done":"")+((locked && q.status!=="done")?" locked-game":"");
-    if(q.status==="done") box.dataset.team = q.wonBy;
-    box.innerHTML = `<div class="num">${String(q.id).padStart(2,"0")}</div>
-      <div class="pts">${q.points} Poin</div>
-      ${q.status==="done" ? `<div class="check">✓</div>` : ""}`;
-    if(q.status!=="done" && !locked){
-      box.addEventListener("click", ()=>openQuestion(q.id));
-    }
-    board.appendChild(box);
-  });
-  const done = state.questions.filter(q=>q.status==="done").length;
-  document.getElementById("progressFill").style.width = done+"%";
-  document.getElementById("progressText").textContent = `${done} / 100`;
+/* ============ SUMMARY / TIMER DISPLAY ============ */
+function answeredCount(){ return Object.keys(STATE.completed).length; }
+function elapsedSeconds(){
+  if(!STATE.startTime) return 0;
+  var end = STATE.status==="ended" && STATE.endTime ? STATE.endTime : Date.now();
+  var paused = STATE.totalPaused || 0;
+  if(STATE.status==="paused" && STATE.pausedAt){ paused += (Date.now()-STATE.pausedAt); }
+  return Math.floor((end - STATE.startTime - paused)/1000);
 }
-
-function renderAll(){
-  renderHeader();
-  renderTeams();
-  renderLeaderboard();
-  renderBoard();
+function renderSummary(){
+  var ac = answeredCount();
+  $("sumAnswered").textContent = ac+"/100";
+  $("sumDuration").textContent = fmtTime(elapsedSeconds());
+  $("dbAnswered") && ($("dbAnswered").textContent = ac+"/100");
+  $("dbDuration") && ($("dbDuration").textContent = fmtTime(elapsedSeconds()));
+  var stMap = {idle:"BELUM DIMULAI", running:"RUNNING", paused:"PAUSED", ended:"ENDED"};
+  $("dbStatus") && ($("dbStatus").textContent = stMap[STATE.status]||STATE.status.toUpperCase());
 }
+setInterval(function(){ renderSummary(); }, 1000);
 
-/* ---------------------------------------------------------------
-   QUESTION MODAL FLOW
---------------------------------------------------------------- */
-let selectedLetter = null;
-
-function openQuestion(id){
-  if(!state.config.started || state.config.paused || state.config.ended) return;
-  const q = state.questions.find(x=>x.id===id);
-  if(!q || q.status==="done") return;
-  currentQuestionId = id;
-  selectedLetter = null;
-  sfx.click();
-
-  document.getElementById("qNumLabel").textContent = "SOAL #"+q.id;
-  document.getElementById("qPtsLabel").textContent = q.points+" POIN";
-  document.getElementById("qTextLabel").textContent = q.text;
-  const optList = document.getElementById("qOptList");
-  optList.innerHTML = "";
-  ["A","B","C","D","E"].forEach(L=>{
-    const div=document.createElement("div");
-    div.className="opt";
-    div.dataset.letter=L;
-    div.innerHTML = `<span class="oletter">${L}</span><span>${q.options[L]}</span>`;
-    div.addEventListener("click", ()=>{
-      document.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
-      div.classList.add("selected");
-      selectedLetter = L;
+/* ============ QUESTION MODAL ============ */
+var currentQNo = null;
+var qTimerInterval = null;
+function openQuestion(no){
+  if(STATE.status!=="running") return;
+  if(STATE.completed[no]) return;
+  currentQNo = no;
+  sfxClick();
+  var q = BANK[no-1];
+  var letters = ["A","B","C","D","E"];
+  var optHtml = letters.map(function(L){
+    return '<button class="opt-btn" data-letter="'+L+'"><span class="opt-letter">'+L+'</span><span>'+q.options[L]+'</span></button>';
+  }).join("");
+  var numStr = no<10?"0"+no:""+no;
+  var timerHtml = "";
+  if(CFG.timerEnabled){ timerHtml = '<div class="q-timer" id="qTimerText" style="display:block;">⏱ Sisa waktu: '+CFG.timerSeconds+' detik</div>'; }
+  $("questionBody").innerHTML =
+    '<div class="q-tag"><div class="qno">SOAL #'+numStr+'</div><div class="qpts">'+q.points+' POIN</div></div>'+
+    timerHtml+
+    '<div class="q-text">'+q.text+'</div>'+
+    '<div class="opt-list" id="optList">'+optHtml+'</div>'+
+    '<button class="btn block q-submit" id="submitAnswerBtn" disabled>SUBMIT JAWABAN</button>';
+  var selected = null;
+  $("questionBody").querySelectorAll(".opt-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      $("questionBody").querySelectorAll(".opt-btn").forEach(function(b){ b.classList.remove("selected"); });
+      btn.classList.add("selected");
+      selected = btn.dataset.letter;
+      $("submitAnswerBtn").disabled = false;
+      sfxClick();
     });
-    optList.appendChild(div);
   });
+  $("submitAnswerBtn").addEventListener("click", function(){
+    if(!selected) return;
+    clearInterval(qTimerInterval);
+    submitAnswer(no, selected);
+  });
+  openOverlay("questionOverlay");
 
-  document.getElementById("feedbackLayer").classList.remove("show");
-  document.getElementById("fbPts").classList.add("hidden");
-  document.getElementById("colorPickWrap").classList.add("hidden");
-  document.getElementById("fbCloseBtn").classList.add("hidden");
-  document.getElementById("qSubmitBtn").disabled=false;
-
-  const timerLabel = document.getElementById("qTimer");
-  clearInterval(timerInterval);
-  if(state.config.timerEnabled){
-    let remaining = state.config.timerSeconds;
-    timerLabel.classList.remove("hidden");
-    timerLabel.textContent = "⏱ "+remaining+"s";
-    timerInterval = setInterval(()=>{
-      remaining--;
-      timerLabel.textContent = "⏱ "+remaining+"s";
-      if(remaining<=0){
-        clearInterval(timerInterval);
-        closeQuestionModal();
+  clearInterval(qTimerInterval);
+  if(CFG.timerEnabled){
+    var remain = CFG.timerSeconds;
+    qTimerInterval = setInterval(function(){
+      remain--;
+      var el = $("qTimerText");
+      if(el) el.textContent = "⏱ Sisa waktu: "+remain+" detik";
+      if(remain<=0){
+        clearInterval(qTimerInterval);
+        closeOverlay("questionOverlay");
+        toast("⏱ Waktu Habis! Soal #"+numStr+" belum terjawab, kelompok lain masih bisa mencoba.");
       }
-    },1000);
-  } else {
-    timerLabel.classList.add("hidden");
-  }
-
-  document.getElementById("qOverlay").classList.add("show");
-}
-
-function closeQuestionModal(){
-  clearInterval(timerInterval);
-  document.getElementById("qOverlay").classList.remove("show");
-  currentQuestionId = null;
-}
-
-async function submitAnswer(){
-  if(!selectedLetter || currentQuestionId===null) return;
-  const q = state.questions.find(x=>x.id===currentQuestionId);
-  if(!q || q.status==="done") return;
-  clearInterval(timerInterval);
-  const layer = document.getElementById("feedbackLayer");
-  const icon = document.getElementById("fbIcon");
-  const text = document.getElementById("fbText");
-  const ptsEl = document.getElementById("fbPts");
-  const colorWrap = document.getElementById("colorPickWrap");
-  const closeBtn = document.getElementById("fbCloseBtn");
-
-  const isCorrect = selectedLetter === q.key;
-  logAttempt(q, selectedLetter, isCorrect);
-
-  if(isCorrect){
-    icon.textContent="✅"; text.textContent="JAWABAN BENAR!"; text.className="feedback-text ok";
-    ptsEl.textContent = "+"+q.points+" POIN"; ptsEl.classList.remove("hidden");
-    colorWrap.classList.remove("hidden");
-    closeBtn.classList.add("hidden");
-    pendingCorrectQuestionId = q.id;
-    sfx.correct();
-  } else {
-    icon.textContent="❌"; text.textContent="JAWABAN SALAH!"; text.className="feedback-text bad";
-    ptsEl.classList.add("hidden");
-    colorWrap.classList.add("hidden");
-    closeBtn.classList.remove("hidden");
-    sfx.wrong();
-  }
-  layer.classList.add("show");
-  await saveState();
-}
-
-function logAttempt(q, letter, isCorrect){
-  const now = new Date();
-  const hh = String(now.getHours()).padStart(2,"0");
-  const mm = String(now.getMinutes()).padStart(2,"0");
-  state.history.push({
-    time: `${hh}:${mm}`,
-    no: q.id,
-    kelompok: "-", // filled in when correct + team chosen
-    jawaban: letter,
-    hasil: isCorrect ? "Benar" : "Salah",
-    poin: isCorrect ? q.points : 0
-  });
-}
-
-async function chooseTeamForCorrect(teamKey){
-  if(pendingCorrectQuestionId===null) return;
-  const q = state.questions.find(x=>x.id===pendingCorrectQuestionId);
-  if(!q || q.status==="done") return;
-  q.status="done";
-  q.wonBy=teamKey;
-  const team = state.teams.find(t=>t.key===teamKey);
-  team.score += q.points;
-  team.solved += 1;
-  // update most recent matching history row (last row for this question with kelompok '-')
-  for(let i=state.history.length-1;i>=0;i--){
-    if(state.history[i].no===q.id && state.history[i].kelompok==="-"){
-      state.history[i].kelompok = TEAM_META[teamKey].label;
-      break;
-    }
-  }
-  sfx.points();
-  await saveState();
-  renderAll();
-  pendingCorrectQuestionId = null;
-  closeQuestionModal();
-  checkAllSolved();
-}
-
-function checkAllSolved(){
-  const remaining = state.questions.filter(q=>q.status!=="done").length;
-  if(remaining===0 && state.config.started && !state.config.ended){
-    endGame();
+    }, 1000);
   }
 }
 
-/* ---------------------------------------------------------------
-   TEACHER PANEL
---------------------------------------------------------------- */
-function openPasswordModal(){
-  document.getElementById("pwInput").value="";
-  document.getElementById("pwError").style.display="none";
-  document.getElementById("pwOverlay").classList.add("show");
-  setTimeout(()=>document.getElementById("pwInput").focus(),100);
-}
-function checkPassword(){
-  const val = document.getElementById("pwInput").value;
-  if(val === TEACHER_PASSWORD){
-    document.getElementById("pwOverlay").classList.remove("show");
-    openTeacherPanel();
-  } else {
-    document.getElementById("pwError").style.display="block";
-  }
-}
-
-function openTeacherPanel(){
-  fillDashboardForm();
-  renderBankSoal();
-  renderStats();
-  renderHistoryLog();
-  updateGameControlButtons();
-  document.getElementById("tpOverlay").classList.add("show");
-}
-
-/* --- Dashboard tab --- */
-function fillDashboardForm(){
-  document.getElementById("cfgGameName").value = state.config.gameName;
-  document.getElementById("cfgClassName").value = state.config.className;
-  document.getElementById("cfgTeacherName").value = state.config.teacherName;
-  document.getElementById("cfgTimerEnabled").checked = state.config.timerEnabled;
-  document.getElementById("cfgTimerSeconds").value = state.config.timerSeconds;
-
-  const wrap = document.getElementById("teamNameFields");
-  wrap.innerHTML = "";
-  state.teams.forEach(t=>{
-    const meta = TEAM_META[t.key];
-    const f = document.createElement("div");
-    f.className="field";
-    f.innerHTML = `<label>${meta.emoji} ${meta.label}</label><input data-team="${t.key}" class="teamNameInput" value="${t.name}">`;
-    wrap.appendChild(f);
-  });
-
-  const done = state.questions.filter(q=>q.status==="done").length;
-  document.getElementById("dashSolved").textContent = `${done}/100`;
-  let statusLabel="IDLE";
-  if(state.config.ended) statusLabel="ENDED";
-  else if(state.config.paused) statusLabel="PAUSED";
-  else if(state.config.started) statusLabel="RUNNING";
-  document.getElementById("dashStatus").textContent = statusLabel;
-
-  updateDurationDisplay();
-}
-function updateDurationDisplay(){
-  const el = document.getElementById("dashDuration");
-  if(state.config.startedAt){
-    const end = state.config.endedAt || Date.now();
-    el.textContent = fmtDuration(end - state.config.startedAt);
-  } else {
-    el.textContent = "00:00";
-  }
-}
-
-async function saveDashboardSettings(){
-  state.config.gameName = document.getElementById("cfgGameName").value || "Mathematics of Champion";
-  state.config.className = document.getElementById("cfgClassName").value || "-";
-  state.config.teacherName = document.getElementById("cfgTeacherName").value || "-";
-  state.config.timerEnabled = document.getElementById("cfgTimerEnabled").checked;
-  state.config.timerSeconds = parseInt(document.getElementById("cfgTimerSeconds").value)||60;
-  document.querySelectorAll(".teamNameInput").forEach(inp=>{
-    const t = state.teams.find(x=>x.key===inp.dataset.team);
-    if(t) t.name = inp.value || t.name;
-  });
-  await saveState();
-  renderAll();
-  const flash = document.getElementById("dashSaveFlash");
-  flash.classList.add("show");
-  setTimeout(()=>flash.classList.remove("show"),1500);
-}
-
-/* --- Bank Soal tab --- */
-function renderBankSoal(filter){
-  const body = document.getElementById("bankBody");
-  body.innerHTML = "";
-  state.questions.forEach(q=>{
-    if(filter && !String(q.id).includes(filter)) return;
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${q.id}</td>
-      <td><input data-field="text" data-id="${q.id}" value="${escapeAttr(q.text)}" style="min-width:180px;"></td>
-      <td><input data-field="optA" data-id="${q.id}" value="${escapeAttr(q.options.A)}"></td>
-      <td><input data-field="optB" data-id="${q.id}" value="${escapeAttr(q.options.B)}"></td>
-      <td><input data-field="optC" data-id="${q.id}" value="${escapeAttr(q.options.C)}"></td>
-      <td><input data-field="optD" data-id="${q.id}" value="${escapeAttr(q.options.D)}"></td>
-      <td><input data-field="optE" data-id="${q.id}" value="${escapeAttr(q.options.E)}"></td>
-      <td>
-        <select data-field="key" data-id="${q.id}">
-          ${["A","B","C","D","E"].map(L=>`<option value="${L}" ${q.key===L?"selected":""}>${L}</option>`).join("")}
-        </select>
-      </td>
-      <td><input type="number" data-field="points" data-id="${q.id}" value="${q.points}"></td>
-      <td>${q.status==="done" ? '<span class="badge-done">Selesai</span>' : '<span class="badge-active">Aktif</span>'}</td>
-    `;
-    body.appendChild(tr);
-  });
-}
-function escapeAttr(s){
-  return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
-}
-
-async function saveBankSoal(){
-  const body = document.getElementById("bankBody");
-  body.querySelectorAll("tr").forEach(tr=>{
-    const inputs = tr.querySelectorAll("[data-id]");
-    if(inputs.length===0) return;
-    const id = parseInt(inputs[0].dataset.id);
-    const q = state.questions.find(x=>x.id===id);
-    if(!q) return;
-    inputs.forEach(inp=>{
-      const field = inp.dataset.field;
-      const val = inp.value;
-      if(field==="text") q.text = val;
-      else if(field==="optA") q.options.A = val;
-      else if(field==="optB") q.options.B = val;
-      else if(field==="optC") q.options.C = val;
-      else if(field==="optD") q.options.D = val;
-      else if(field==="optE") q.options.E = val;
-      else if(field==="key") q.key = val;
-      else if(field==="points") q.points = parseInt(val)||0;
-    });
-  });
-  await saveState();
-  renderAll();
-  const flash = document.getElementById("bankSaveFlash");
-  flash.classList.add("show");
-  setTimeout(()=>flash.classList.remove("show"),1500);
-}
-
-/* --- Game Control tab --- */
-function updateGameControlButtons(){
-  document.getElementById("ctrlStart").disabled = state.config.started;
-  document.getElementById("ctrlPause").disabled = !state.config.started || state.config.paused || state.config.ended;
-  document.getElementById("ctrlResume").disabled = !state.config.paused || state.config.ended;
-  document.getElementById("ctrlEnd").disabled = state.config.ended || !state.config.started;
-}
-
-async function startGame(){
-  state.config.started = true;
-  state.config.paused = false;
-  state.config.ended = false;
-  state.config.startedAt = Date.now();
-  state.config.endedAt = null;
-  await saveState();
-  renderAll();
-  updateGameControlButtons();
-  fillDashboardForm();
-  startDurationTicker();
-}
-async function pauseGame(){
-  state.config.paused = true;
-  await saveState();
-  renderAll();
-  updateGameControlButtons();
-  fillDashboardForm();
-}
-async function resumeGame(){
-  state.config.paused = false;
-  await saveState();
-  renderAll();
-  updateGameControlButtons();
-  fillDashboardForm();
-}
-async function endGame(){
-  state.config.ended = true;
-  state.config.started = false;
-  state.config.paused = false;
-  state.config.endedAt = Date.now();
-  await saveState();
-
-  // Append to history log
-  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
-  historyLog.push({
-    date: new Date().toISOString(),
-    dateLabel: new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}),
-    winner: sorted[0] ? sorted[0].name : "-",
-    totalQuestions: 100,
-    solved: state.questions.filter(q=>q.status==="done").length,
-    finalScores: sorted.map(t=>({name:t.name,score:t.score,color:t.key}))
-  });
-  await saveHistoryLog();
-
-  clearInterval(durationInterval);
-  renderAll();
-  updateGameControlButtons();
-  fillDashboardForm();
-  showGameOver();
-  sfx.gameover();
-}
-
-function startDurationTicker(){
-  clearInterval(durationInterval);
-  durationInterval = setInterval(()=>{
-    if(document.getElementById("tpOverlay").classList.contains("show")){
-      updateDurationDisplay();
-    }
-  },1000);
-}
-
-/* --- Statistik tab --- */
-function renderStats(){
-  const totalAttempts = state.history.length;
-  const correctAttempts = state.history.filter(h=>h.hasil==="Benar").length;
-  const successRate = totalAttempts? Math.round((correctAttempts/totalAttempts)*100) : 0;
-
-  const attemptsByQ = {};
-  state.history.forEach(h=>{ attemptsByQ[h.no] = (attemptsByQ[h.no]||0)+1; });
-  const mostAttempted = Object.entries(attemptsByQ).sort((a,b)=>b[1]-a[1])[0];
-
-  const correctByQ = {}, totalByQ = {};
-  state.history.forEach(h=>{
-    totalByQ[h.no] = (totalByQ[h.no]||0)+1;
-    if(h.hasil==="Benar") correctByQ[h.no] = (correctByQ[h.no]||0)+1;
-  });
-  let hardest=null, hardestRate=2;
-  Object.keys(totalByQ).forEach(no=>{
-    const rate = (correctByQ[no]||0)/totalByQ[no];
-    if(totalByQ[no]>=1 && rate<hardestRate){ hardestRate=rate; hardest=no; }
-  });
-
-  const teamCorrect = {};
-  state.teams.forEach(t=>teamCorrect[t.key]=0);
-  state.questions.forEach(q=>{ if(q.status==="done") teamCorrect[q.wonBy] = (teamCorrect[q.wonBy]||0)+1; });
-  const bestTeamKey = Object.entries(teamCorrect).sort((a,b)=>b[1]-a[1])[0];
-  const bestTeam = bestTeamKey ? state.teams.find(t=>t.key===bestTeamKey[0]) : null;
-
-  const grid = document.getElementById("statGrid");
-  grid.innerHTML = `
-    <div class="stat-card"><div class="v">${totalAttempts}</div><div class="l">Total Percobaan</div></div>
-    <div class="stat-card"><div class="v">${successRate}%</div><div class="l">Persentase Keberhasilan</div></div>
-    <div class="stat-card"><div class="v">${mostAttempted? "#"+mostAttempted[0] : "-"}</div><div class="l">Soal Paling Banyak Dicoba</div></div>
-    <div class="stat-card"><div class="v">${hardest? "#"+hardest : "-"}</div><div class="l">Soal Paling Sulit</div></div>
-    <div class="stat-card"><div class="v">${bestTeam? bestTeam.name : "-"}</div><div class="l">Jawaban Benar Terbanyak</div></div>
-  `;
-}
-
-/* --- Riwayat tab --- */
-function renderHistoryLog(){
-  const el = document.getElementById("historyList");
-  if(historyLog.length===0){
-    el.innerHTML = "Belum ada riwayat permainan.";
+function submitAnswer(no, letter){
+  var q = BANK[no-1];
+  var isCorrect = (letter === q.correct);
+  STATE.attempts[no] = (STATE.attempts[no]||0) + 1;
+  if(!isCorrect){
+    STATE.wrongAttempts[no] = (STATE.wrongAttempts[no]||0) + 1;
+    persistState();
+    sfxWrong();
+    $("questionBody").innerHTML =
+      '<div class="result-screen">'+
+        '<div class="result-icon bad">❌</div>'+
+        '<div class="result-title bad">JAWABAN SALAH!</div>'+
+        '<p style="color:var(--text-dim);">Soal belum terkunci — silakan coba lagi.</p>'+
+        '<button class="btn secondary block" id="retryBtn">COBA LAGI</button>'+
+      '</div>';
+    $("retryBtn").addEventListener("click", function(){ openQuestion(no); });
     return;
   }
-  el.innerHTML = historyLog.slice().reverse().map(h=>`
-    <div class="panel" style="margin-bottom:10px;">
-      <div><b>Tanggal:</b> ${h.dateLabel}</div>
-      <div><b>Pemenang:</b> ${h.winner}</div>
-      <div><b>Total Soal:</b> ${h.totalQuestions} &nbsp; <b>Soal Terjawab:</b> ${h.solved}</div>
-    </div>
-  `).join("");
-}
-
-/* ---------------------------------------------------------------
-   EXPORT CSV  (fixed: proper Blob + BOM + anchor download)
---------------------------------------------------------------- */
-function csvEscape(val){
-  const s = String(val===undefined||val===null ? "" : val);
-  if(/[",\n;]/.test(s)){
-    return '"' + s.replace(/"/g,'""') + '"';
-  }
-  return s;
-}
-function toCsvRow(arr){
-  return arr.map(csvEscape).join(",");
-}
-
-function exportResultsCsv(){
-  const rows = [];
-  rows.push(["MATHEMATICS OF CHAMPION - HASIL PERMAINAN"]);
-  rows.push(["Kelas", state.config.className]);
-  rows.push(["Guru", state.config.teacherName]);
-  rows.push(["Tanggal", new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"})]);
-  rows.push([]);
-
-  // Summary table
-  rows.push(["RINGKASAN SKOR KELOMPOK"]);
-  rows.push(["Ranking","Kelompok","Warna","Total Poin","Soal Terjawab"]);
-  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
-  sorted.forEach((t,i)=>{
-    rows.push([i+1, t.name, TEAM_META[t.key].label, t.score, t.solved]);
-  });
-  rows.push([]);
-
-  // Detail table
-  rows.push(["DETAIL HISTORI JAWABAN"]);
-  rows.push(["Waktu","No Soal","Kelompok","Jawaban","Hasil","Poin"]);
-  state.history.forEach(h=>{
-    rows.push([h.time, h.no, h.kelompok, h.jawaban, h.hasil, h.poin]);
-  });
-
-  const csvContent = rows.map(toCsvRow).join("\r\n");
-  // BOM so Excel opens UTF-8 (special chars, emoji-free labels) correctly
-  const blob = new Blob(["\uFEFF" + csvContent], {type:"text/csv;charset=utf-8;"});
-  const url = URL.createObjectURL(blob);
-
-  const dateStamp = new Date().toISOString().slice(0,10);
-  const safeClassName = (state.config.className||"kelas").replace(/[^a-z0-9]+/gi,"_");
-  const filename = `hasil-mathematics-of-champion-${safeClassName}-${dateStamp}.csv`;
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.style.display = "none";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(()=>URL.revokeObjectURL(url), 2000);
-}
-
-/* ---------------------------------------------------------------
-   GAME OVER SCREEN
---------------------------------------------------------------- */
-function showGameOver(){
-  const sorted = state.teams.slice().sort((a,b)=>b.score-a.score);
-  const champ = sorted[0];
-  const champMeta = champ ? TEAM_META[champ.key] : null;
-
-  document.getElementById("champCardWrap").innerHTML = champ ? `
-    <div class="champ-card">
-      <div class="cc-crown">🏆</div>
-      <div style="font-size:12px;font-weight:800;letter-spacing:.1em;">CONGRATULATIONS!</div>
-      <div class="cc-name">${champMeta.emoji} ${champ.name}</div>
-      <div style="font-size:11px;font-weight:800;letter-spacing:.15em;">MATHEMATICS CHAMPION</div>
-      <div class="cc-score">${champ.score} POINTS</div>
-    </div>
-  ` : "";
-
-  const medals=["🥇 CHAMPION","🥈 RUNNER UP","🥉"];
-  document.getElementById("finalLb").innerHTML = sorted.map((t,i)=>{
-    const meta = TEAM_META[t.key];
-    return `<div class="lb-row">
-      <div class="lb-rank">${medals[i] ? medals[i].split(" ")[0] : (i+1)}</div>
-      <div class="lb-dot" style="background:${meta.color}"></div>
-      <div class="lb-name">${t.name}</div>
-      <div class="lb-score">${t.score}</div>
-    </div>`;
+  sfxCorrect();
+  var pickHtml = GROUP_KEYS.map(function(g){
+    var meta = GROUP_META[g];
+    return '<button class="grp-btn" data-g="'+g+'" style="background:'+meta.hex+'22;border-color:'+meta.hex+'66;">'+
+      '<span class="grp-dot" style="background:'+meta.hex+';"></span>'+(CFG.groupNames[g]||meta.label)+
+    '</button>';
   }).join("");
-
-  document.getElementById("goOverlay").classList.add("show");
-  fireConfetti();
-  sfx.champion();
+  $("questionBody").innerHTML =
+    '<div class="result-screen">'+
+      '<div class="result-icon ok">✅</div>'+
+      '<div class="result-title ok">JAWABAN BENAR!</div>'+
+      '<div class="result-points">+'+q.points+' POIN</div>'+
+      '<p style="color:var(--text-dim);margin-bottom:4px;">Pilih kelompok pemenang soal ini:</p>'+
+      '<div class="group-pick">'+pickHtml+'</div>'+
+    '</div>';
+  $("questionBody").querySelectorAll(".grp-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){ assignGroup(no, btn.dataset.g); });
+  });
 }
 
-function fireConfetti(){
-  const colors = ["#ff4d5e","#ffd23f","#ff5da2","#33d17a","#9b5de5","#ff8c32","#38bdf8"];
-  for(let i=0;i<60;i++){
-    setTimeout(()=>{
-      const el = document.createElement("div");
-      el.className="confetti";
-      el.style.left = Math.random()*100+"vw";
-      el.style.background = colors[rnd(0,colors.length-1)];
-      el.style.transform = `rotate(${rnd(0,360)}deg)`;
-      document.body.appendChild(el);
-      const duration = 2200+Math.random()*1500;
-      el.animate([
-        {transform:`translateY(0) rotate(0deg)`, opacity:1},
-        {transform:`translateY(100vh) rotate(${rnd(200,600)}deg)`, opacity:0.9}
-      ],{duration, easing:"cubic-bezier(.2,.6,.4,1)"});
-      setTimeout(()=>el.remove(), duration+100);
-    }, i*25);
+function assignGroup(no, group){
+  var q = BANK[no-1];
+  STATE.completed[no] = { group: group, time: Date.now() };
+  STATE.groups[group].score += q.points;
+  STATE.groups[group].solved += 1;
+  STATE.log.push({
+    time: new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),
+    no: no, group: CFG.groupNames[group]||GROUP_META[group].label, answer: q.options[q.correct],
+    result: "Benar", points: q.points
+  });
+  persistState();
+  sfxPoint();
+  closeOverlay("questionOverlay");
+  renderGrid();
+  renderLeaderboard("leaderboard");
+  renderSummary();
+  if(answeredCount() >= 100 && STATE.status==="running"){
+    setTimeout(function(){ endGame(); }, 400);
   }
 }
 
-/* ---------------------------------------------------------------
-   EVENT WIRING
---------------------------------------------------------------- */
-document.getElementById("teacherIconBtn").addEventListener("click", openPasswordModal);
-document.getElementById("pwCloseBtn").addEventListener("click", ()=>document.getElementById("pwOverlay").classList.remove("show"));
-document.getElementById("pwSubmitBtn").addEventListener("click", checkPassword);
-document.getElementById("pwInput").addEventListener("keydown", e=>{ if(e.key==="Enter") checkPassword(); });
-
-document.getElementById("tpCloseBtn").addEventListener("click", ()=>{
-  document.getElementById("tpOverlay").classList.remove("show");
+/* ============ TEACHER LOGIN ============ */
+$("teacherIconBtn").addEventListener("click", function(){
+  $("teacherPasswordInput").value = "";
+  $("loginError").style.display = "none";
+  openOverlay("loginOverlay");
+  setTimeout(function(){ $("teacherPasswordInput").focus(); }, 80);
 });
+function tryTeacherLogin(){
+  var val = $("teacherPasswordInput").value;
+  if(val === TEACHER_PASSWORD){
+    closeOverlay("loginOverlay");
+    openTeacherPanel();
+  } else {
+    $("loginError").style.display = "block";
+  }
+}
+$("teacherLoginSubmit").addEventListener("click", tryTeacherLogin);
+$("teacherPasswordInput").addEventListener("keydown", function(e){ if(e.key==="Enter") tryTeacherLogin(); });
 
-document.getElementById("soundBtn").addEventListener("click", function(){
-  soundOn = !soundOn;
-  this.textContent = soundOn ? "🔊" : "🔇";
-});
-
-document.getElementById("qCloseBtn").addEventListener("click", closeQuestionModal);
-document.getElementById("qSubmitBtn").addEventListener("click", submitAnswer);
-document.getElementById("fbCloseBtn").addEventListener("click", closeQuestionModal);
-document.querySelectorAll(".color-opt").forEach(el=>{
-  el.addEventListener("click", ()=>chooseTeamForCorrect(el.dataset.team));
-});
-
-document.querySelectorAll(".tab-btn").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".tab-pane").forEach(p=>p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("pane-"+btn.dataset.tab).classList.add("active");
+/* ============ TEACHER PANEL ============ */
+function openTeacherPanel(){
+  $("cfgGameTitle").value = CFG.gameTitle;
+  $("cfgClassName").value = CFG.className;
+  $("cfgTeacherName").value = CFG.teacherName;
+  renderGroupNameFields();
+  renderBankTable();
+  renderControlTab();
+  renderStatsTab();
+  renderHistoryTab();
+  openOverlay("teacherPanelOverlay");
+}
+document.querySelectorAll(".tp-tab").forEach(function(tab){
+  tab.addEventListener("click", function(){
+    document.querySelectorAll(".tp-tab").forEach(function(t){ t.classList.remove("active"); });
+    document.querySelectorAll(".tp-pane").forEach(function(p){ p.classList.remove("active"); });
+    tab.classList.add("active");
+    $("pane-"+tab.dataset.tab).classList.add("active");
+    if(tab.dataset.tab==="stats") renderStatsTab();
+    if(tab.dataset.tab==="history") renderHistoryTab();
   });
 });
 
-document.getElementById("dashSaveBtn").addEventListener("click", saveDashboardSettings);
-document.getElementById("bankSaveAllBtn").addEventListener("click", saveBankSoal);
-document.getElementById("bankSearch").addEventListener("input", function(){
-  renderBankSoal(this.value.trim());
-});
-
-document.getElementById("ctrlStart").addEventListener("click", startGame);
-document.getElementById("ctrlPause").addEventListener("click", pauseGame);
-document.getElementById("ctrlResume").addEventListener("click", resumeGame);
-document.getElementById("ctrlEnd").addEventListener("click", ()=>{
-  document.getElementById("endConfirmOverlay").classList.add("show");
-});
-document.getElementById("endCancelBtn").addEventListener("click", ()=>{
-  document.getElementById("endConfirmOverlay").classList.remove("show");
-});
-document.getElementById("endConfirmBtn").addEventListener("click", async ()=>{
-  document.getElementById("endConfirmOverlay").classList.remove("show");
-  document.getElementById("tpOverlay").classList.remove("show");
-  await endGame();
-});
-document.getElementById("exportBtn").addEventListener("click", exportResultsCsv);
-document.getElementById("goCloseBtn").addEventListener("click", ()=>{
-  document.getElementById("goOverlay").classList.remove("show");
-});
-
-/* ---------------------------------------------------------------
-   INIT
---------------------------------------------------------------- */
-async function init(){
-  await loadState();
-  renderAll();
-
-  // light polling so multiple devices/tabs stay roughly in sync
-  setInterval(async ()=>{
-    if(document.getElementById("qOverlay").classList.contains("show")) return; // don't yank state mid-answer
-    const fresh = await storageGet(STATE_KEY);
-    if(fresh){
-      state = fresh;
-      renderAll();
-    }
-  }, 4000);
+function renderGroupNameFields(){
+  var html = "";
+  GROUP_KEYS.forEach(function(g){
+    var meta = GROUP_META[g];
+    html += '<div class="grpname-row"><span class="dot" style="background:'+meta.hex+';"></span>'+
+      '<input type="text" data-g="'+g+'" value="'+(CFG.groupNames[g]||meta.label)+'"></div>';
+  });
+  $("groupNameFields").innerHTML = html;
 }
-init();
+$("saveIdentityBtn").addEventListener("click", function(){
+  CFG.gameTitle = $("cfgGameTitle").value || CFG.gameTitle;
+  CFG.className = $("cfgClassName").value || CFG.className;
+  CFG.teacherName = $("cfgTeacherName").value || CFG.teacherName;
+  persistConfig();
+  renderHeader();
+  $("identitySaved").style.display = "block";
+  setTimeout(function(){ $("identitySaved").style.display="none"; }, 1800);
+});
+$("saveGroupsBtn").addEventListener("click", function(){
+  document.querySelectorAll("#groupNameFields input").forEach(function(inp){
+    CFG.groupNames[inp.dataset.g] = inp.value || CFG.groupNames[inp.dataset.g];
+  });
+  persistConfig();
+  renderLeaderboard("leaderboard");
+  $("groupsSaved").style.display = "block";
+  setTimeout(function(){ $("groupsSaved").style.display="none"; }, 1800);
+});
+
+/* Bank Soal tab */
+function renderBankTable(filter){
+  var tbody = $("bankTbody"); var html = "";
+  BANK.forEach(function(q){
+    if(filter && String(q.no).indexOf(filter)===-1) return;
+    var letters=["A","B","C","D","E"];
+    var optCells = letters.map(function(L){
+      return '<td><input class="opt-cell" data-field="opt'+L+'" data-no="'+q.no+'" value="'+(q.options[L]||"").replace(/"/g,'&quot;')+'"></td>';
+    }).join("");
+    var keySelect = '<select data-field="correct" data-no="'+q.no+'">' + letters.map(function(L){
+      return '<option value="'+L+'" '+(q.correct===L?"selected":"")+'>'+L+'</option>';
+    }).join("") + '</select>';
+    var statusCls = q.active ? "row-active":"row-inactive";
+    var locked = !!STATE.completed[q.no];
+    html += '<tr>'+
+      '<td><b>'+q.no+'</b></td>'+
+      '<td><input class="text-cell" data-field="text" data-no="'+q.no+'" value="'+q.text.replace(/"/g,'&quot;')+'"></td>'+
+      optCells+
+      '<td>'+keySelect+'</td>'+
+      '<td><input type="number" style="width:70px;" data-field="points" data-no="'+q.no+'" value="'+q.points+'"></td>'+
+      '<td class="'+statusCls+'">'+(locked?"Selesai":(q.active?"Aktif":"Nonaktif"))+'</td>'+
+      '<td><button class="mini-btn" data-save="'+q.no+'" style="width:auto;padding:6px 10px;">Simpan</button></td>'+
+    '</tr>';
+  });
+  tbody.innerHTML = html;
+  tbody.querySelectorAll("[data-save]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var no = parseInt(btn.dataset.save,10);
+      var row = btn.closest("tr");
+      var q = BANK[no-1];
+      row.querySelectorAll("[data-field]").forEach(function(f){
+        var field = f.dataset.field;
+        if(field==="text") q.text = f.value;
+        else if(field==="correct") q.correct = f.value;
+        else if(field==="points") q.points = parseInt(f.value,10)||q.points;
+        else if(field.indexOf("opt")===0){ q.options[field.replace("opt","")] = f.value; }
+      });
+      persistBank();
+      renderGrid();
+      toast("Soal #"+no+" tersimpan");
+    });
+  });
+}
+$("bankSearch").addEventListener("input", function(){ renderBankTable(this.value.trim()); });
+
+/* Control tab */
+function renderControlTab(){
+  $("timerToggle").checked = !!CFG.timerEnabled;
+  $("timerSeconds").value = CFG.timerSeconds;
+  $("soundToggle").checked = !!CFG.soundEnabled;
+  var s = STATE.status;
+  $("btnStart").disabled = (s==="running"||s==="paused"||s==="ended");
+  $("btnPause").disabled = (s!=="running");
+  $("btnResume").disabled = (s!=="paused");
+  $("btnEnd").disabled = (s==="idle"||s==="ended");
+}
+$("timerToggle").addEventListener("change", function(){ CFG.timerEnabled = this.checked; persistConfig(); });
+$("timerSeconds").addEventListener("change", function(){ CFG.timerSeconds = parseInt(this.value,10)||60; persistConfig(); });
+$("soundToggle").addEventListener("change", function(){ CFG.soundEnabled = this.checked; persistConfig(); renderHeader(); });
+$("soundToggleBtn").addEventListener("click", function(){ CFG.soundEnabled = !CFG.soundEnabled; persistConfig(); renderHeader(); });
+
+$("btnStart").addEventListener("click", function(){
+  STATE.status = "running"; STATE.startTime = Date.now(); STATE.totalPaused = 0;
+  persistState(); renderAll(); renderControlTab();
+  toast("▶ Game dimulai!");
+});
+$("btnPause").addEventListener("click", function(){
+  STATE.status = "paused"; STATE.pausedAt = Date.now();
+  persistState(); renderAll(); renderControlTab();
+  toast("⏸ Game dijeda");
+});
+$("btnResume").addEventListener("click", function(){
+  if(STATE.pausedAt){ STATE.totalPaused += (Date.now()-STATE.pausedAt); STATE.pausedAt = null; }
+  STATE.status = "running";
+  persistState(); renderAll(); renderControlTab();
+  toast("▶ Game dilanjutkan");
+});
+$("btnEnd").addEventListener("click", function(){ openOverlay("endConfirmOverlay"); });
+$("confirmEndBtn").addEventListener("click", function(){
+  closeOverlay("endConfirmOverlay");
+  endGame();
+});
+
+function endGame(){
+  STATE.status = "ended"; STATE.endTime = Date.now();
+  persistState();
+  var order = computeRanking();
+  var winnerKey = order[0];
+  HISTORY.unshift({
+    date: new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'}),
+    winner: CFG.groupNames[winnerKey]||GROUP_META[winnerKey].label,
+    total: 100,
+    answered: answeredCount()
+  });
+  persistHistory();
+  renderAll();
+  renderControlTab();
+  sfxGameOver();
+  showGameOver();
+}
+function showGameOver(){
+  var order = computeRanking();
+  var winnerKey = order[0];
+  var meta = GROUP_META[winnerKey];
+  $("championCard").innerHTML =
+    '<div class="trophy">🏆</div>'+
+    '<div style="font-size:13px;color:var(--text-dim);">CONGRATULATIONS!</div>'+
+    '<div class="cname">'+meta.emoji+' '+(CFG.groupNames[winnerKey]||meta.label)+'</div>'+
+    '<div style="font-size:12px;letter-spacing:1px;color:var(--text-dim);margin-top:6px;">MATHEMATICS CHAMPION</div>'+
+    '<div class="cpts">'+STATE.groups[winnerKey].score+' POINTS</div>';
+  var medals=["🥇 CHAMPION","🥈 RUNNER UP","🥉"];
+  var html = "";
+  order.forEach(function(g,idx){
+    var m = GROUP_META[g];
+    html += '<div class="lb-row"><div class="lb-rank">'+(medals[idx]||(idx+1))+'</div>'+
+      '<div class="lb-swatch swatch-'+g+'"></div>'+
+      '<div class="lb-name">'+m.emoji+' '+(CFG.groupNames[g]||m.label)+'</div>'+
+      '<div class="lb-score">'+STATE.groups[g].score+' poin</div></div>';
+  });
+  $("finalLbList").innerHTML = html;
+  closeOverlay("teacherPanelOverlay");
+  openOverlay("gameOverOverlay");
+  launchConfetti(meta.hex);
+  setTimeout(sfxChampion, 300);
+}
+$("closeGameOverBtn").addEventListener("click", function(){ closeOverlay("gameOverOverlay"); });
+
+function launchConfetti(mainHex){
+  var colors = [mainHex,"#4CC9F0","#FFC93C","#F72585","#2ED573"];
+  for(var i=0;i<60;i++){
+    (function(i){
+      setTimeout(function(){
+        var el = document.createElement("div");
+        el.className = "confetti-piece";
+        el.style.left = (Math.random()*100)+"vw";
+        el.style.background = colors[i%colors.length];
+        el.style.transform = "rotate("+(Math.random()*360)+"deg)";
+        document.body.appendChild(el);
+        var duration = 2200 + Math.random()*1400;
+        var drift = (Math.random()*160-80);
+        el.animate([
+          {transform:"translate(0,0) rotate(0deg)", opacity:1},
+          {transform:"translate("+drift+"px, 100vh) rotate("+(Math.random()*720-360)+"deg)", opacity:0.9}
+        ], {duration:duration, easing:"cubic-bezier(.25,.46,.45,.94)"});
+        setTimeout(function(){ el.remove(); }, duration+50);
+      }, i*24);
+    })(i);
+  }
+}
+
+/* Stats tab */
+function renderStatsTab(){
+  var totalAttempts = 0, correctTotal = 0;
+  var mostTried = null, mostTriedCount = -1;
+  var hardest = null, hardestRate = 2;
+  for(var no=1; no<=100; no++){
+    var att = STATE.attempts[no]||0;
+    totalAttempts += att;
+    if(STATE.completed[no]) correctTotal++;
+    if(att > mostTriedCount){ mostTriedCount = att; mostTried = no; }
+    if(att>0){
+      var wrong = STATE.wrongAttempts[no]||0;
+      var successRate = STATE.completed[no] ? 1/att : 0;
+      if(successRate < hardestRate){ hardestRate = successRate; hardest = no; }
+    }
+  }
+  var bestGroup = GROUP_KEYS.slice().sort(function(a,b){ return STATE.groups[b].solved - STATE.groups[a].solved; })[0];
+  var successPct = totalAttempts>0 ? Math.round((correctTotal/totalAttempts)*100) : 0;
+  $("statsGrid").innerHTML =
+    '<div class="stat-card"><div class="n">'+(mostTried?("#"+mostTried):"-")+'</div><div class="l">Soal Paling Banyak Dicoba ('+(mostTriedCount<0?0:mostTriedCount)+'x)</div></div>'+
+    '<div class="stat-card"><div class="n">'+(hardest?("#"+hardest):"-")+'</div><div class="l">Soal Paling Sulit</div></div>'+
+    '<div class="stat-card"><div class="n">'+(GROUP_META[bestGroup].emoji)+' '+(CFG.groupNames[bestGroup]||GROUP_META[bestGroup].label)+'</div><div class="l">Jawaban Benar Terbanyak ('+STATE.groups[bestGroup].solved+')</div></div>'+
+    '<div class="stat-card"><div class="n">'+totalAttempts+'</div><div class="l">Total Percobaan</div></div>'+
+    '<div class="stat-card"><div class="n">'+successPct+'%</div><div class="l">Persentase Keberhasilan</div></div>';
+}
+
+/* History tab */
+function renderHistoryTab(){
+  if(!HISTORY.length){ $("historyList").innerHTML = '<p style="color:var(--text-dim);">Belum ada riwayat permainan.</p>'; return; }
+  $("historyList").innerHTML = HISTORY.map(function(h){
+    return '<div class="history-item"><div class="d">'+h.date+'</div>'+
+      '<div class="w">🏆 Pemenang: '+h.winner+'</div>'+
+      '<div style="font-size:12.5px;color:var(--text-dim);margin-top:4px;">Soal Terjawab: '+h.answered+' / '+h.total+'</div></div>';
+  }).join("");
+}
+
+/* ============ EXPORT CSV ============ */
+function exportCsv(){
+  var order = computeRanking();
+  var lines = [];
+  lines.push("RINGKASAN HASIL — "+CFG.gameTitle);
+  lines.push("Kelas;Guru;Tanggal");
+  lines.push([CFG.className, CFG.teacherName, new Date().toLocaleDateString('id-ID')].map(escCsv).join(";"));
+  lines.push("");
+  lines.push(["Ranking","Kelompok","Warna","Total Poin","Soal Terjawab"].map(escCsv).join(";"));
+  order.forEach(function(g,idx){
+    var meta = GROUP_META[g];
+    lines.push([idx+1, CFG.groupNames[g]||meta.label, meta.label, STATE.groups[g].score, STATE.groups[g].solved].map(escCsv).join(";"));
+  });
+  lines.push("");
+  lines.push(["Waktu","No Soal","Kelompok","Jawaban","Hasil","Poin"].map(escCsv).join(";"));
+  STATE.log.forEach(function(row){
+    lines.push([row.time, row.no, row.group, row.answer, row.result, row.points].map(escCsv).join(";"));
+  });
+  var csv = "\uFEFF" + lines.join("\r\n");
+  var blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  var fname = "MathematicsOfChampion_"+(CFG.className||"kelas").replace(/[^a-z0-9]+/gi,"_")+"_"+new Date().toISOString().slice(0,10)+".csv";
+  a.href = url; a.download = fname;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 400);
+  toast("📊 File CSV sedang diunduh...");
+}
+$("exportBtn").addEventListener("click", exportCsv);
+$("exportFromGameOver").addEventListener("click", exportCsv);
+
+/* ============ MAIN RENDER LOOP ============ */
+function renderAll(){
+  renderHeader();
+  renderGrid();
+  renderLeaderboard("leaderboard", {silent:true});
+  renderSummary();
+}
+lastOrder = computeRanking();
+renderAll();
+
+/* keep bank table / control tab synced if panel open across ticks not required */
+window.addEventListener("beforeunload", function(){ persistState(); persistConfig(); persistBank(); persistHistory(); });
 
 })();
 </script>
